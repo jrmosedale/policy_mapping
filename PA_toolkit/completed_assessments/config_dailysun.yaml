@@ -1,0 +1,204 @@
+# =============================================================================
+# GAP / PROSPECTIVE MODE — "if the Met Office built an operational DAILY gridded
+# sunshine-duration product, what could UK climate-nature policy do with it?"
+# Field: Daily sunshine duration (UK). Second axis = Maturity.
+# Evidence base = external reading list (Daily_sunshine_duration_biblio.docx).
+# Governance refs: uk_climate_nature_governance.xlsx (Policies & Activities) [canonical].
+# Indicators: indicators_climate_nature.xlsx [canonical].
+# =============================================================================
+
+meta:
+  title: "Mapping the UK Climate & Nature Policy Landscape for a new UK daily sunshine-duration product"
+  subtitle: "Gap assessment"
+  prepared: "Prepared July 2026"
+  footer: "Prospective product \u00b7 evidence base external \u00b7 governance refs uk_climate_nature_governance (canonical)"
+  output_basename: "dailysun_policy_relevance"
+
+theme:
+  teal: "0B5563"
+  teal_dk: "08414C"
+  ink: "1F2A33"
+  muted: "5A6B73"
+  rule: "C5D0D4"
+  high_bg: "CDE9D2"
+  high_chip: "2E7D43"
+  med_bg: "FBE3B8"
+  med_chip: "C9871B"
+  low_bg: "DCE4E9"
+  low_chip: "5A6B73"
+  status_current: "0B5563"
+  status_opportunity: "B07012"
+  link: "10497A"
+  kp_fill: "EAF2F3"
+  alt_tint: "F2F6F7"
+  font: "Arial"
+
+section_order:
+  - key_points
+  - summary
+  - policy_table
+  - indicators
+  - methods
+  - references
+
+labels:
+  key_points: "Key points"
+  summary: "The evidence base for a prospective UK daily sunshine-duration product"
+  policy_table: "Policy applications, relevance and maturity"
+  why_column: "What a daily sunshine-duration product could enable for this policy"
+  indicators: "Policy indicators"
+  indicator_app_column: "Current policy application(s)"
+  methods: "Methods"
+  references: "References"
+  references_primary: "Evidence base (external literature)"
+  references_other: "Met Office capability and other sources"
+  gaps: "Main gaps and caveats"
+
+status_axis:
+  label: "Maturity"
+  values:
+    Demonstrated: "0B5563"
+    Emerging: "C9871B"
+    Conceptual: "5A6B73"
+
+scoring:
+  relevance: {3: "High", 2: "Medium", 1: "Low"}
+  status_values: ["Demonstrated", "Emerging", "Conceptual"]
+  legend: >-
+    Two independent axes. **Relevance** (materiality of a daily sunshine-duration product to the policy):
+    **3 High** = would be a direct, central input; **2 Medium** = a useful supporting evidence layer;
+    **1 Low** = marginal or indirect. **Maturity** (how proven the application is): Demonstrated =
+    proven in operational or industry use and transferable; Emerging = partial evidence, needs
+    development/validation for this use; Conceptual = plausible but unproven. Items marked † are
+    activities not held in the governance workbook. Policy names link to the source page.
+
+key_points:
+  - "**This is a gap assessment of a *daily* product, not of sunshine data in general.** The Met Office already produces gridded UK sunshine at 1 km, but only at *monthly* and coarser resolution in HadUK-Grid (sunshine series from 1910); of the HadUK-Grid variables, only rainfall and max/min air temperature are gridded *daily*. A near-real-time, spatially complete **daily** sunshine-duration product does not yet exist as an operational, policy-facing dataset. That is the gap."
+  - "**The method already exists in-house, and a peer service already ships the product.** Good (2010) demonstrated Met Office derivation of gridded *daily* sunshine over the UK from Meteosat/SEVIRI cloud retrievals; Germany's DWD already operationalises blended station\u2013satellite gridded solar-radiation products, including a real-time one (Pfeifroth et al. 2026). A prospective UK product would operationalise the Good method \u2014 satellite-blended, daily, ~1 km, national, near-real-time \u2014 plus derived surface-solar-resource layers."
+  - "**Highest-value applications are in energy.** Solar output is directly and mechanistically driven by sunshine/irradiance (Harrison 2023). A daily product would support Clean Power 2030 solar delivery (45\u201347 GW by 2030), the Solar Roadmap, generation forecasting and system balancing \u2014 a channel already live through the **Met Office\u2013NESO** collaboration."
+  - "**Most mature** applications are solar delivery and system integration (Demonstrated \u2014 sunshine/irradiance resource data is already used operationally in the energy sector, and shipped as a product by DWD); **least mature** are the biodiversity links (phenology, pollinators), which are Conceptual for direct policy use."
+  - "**Caveat:** the supplied bibliography is an external sunshine reading list, so Met Office capability was scoped from Met Office / CEDA sources. Where a policy link is inferred rather than documented it is marked the lower maturity value (Conceptual) and flagged."
+
+summary:
+  intro: "A prospective product would deliver **daily** satellite-blended sunshine-duration fields for the UK at ~1 km, near-real-time, with derived surface-solar-resource layers \u2014 closing the gap between the existing HadUK-Grid *monthly* sunshine grids and the *daily* cadence that energy, agriculture and biodiversity applications need. The Met Office already holds every component: the HadUK-Grid gridding pipeline (National Climate Information Centre), the Good (2010) satellite-derived *daily* sunshine method, State-of-the-UK-Climate monitoring, and an operational energy-services channel (Met Office\u2013NESO). The external evidence base below shows the policy-relevant applications are established science."
+  bullets:
+    - "**Solar energy conversion** \u2014 daily sunshine duration (bright hours) converts directly to daily solar power output, structured by weather type (Harrison 2023, 1908\u20132021 records)."
+    - "**National met-service precedent** \u2014 Germany's DWD already operationalises gridded surface-solar-radiation products blending station and satellite data, both climate-focused (EUMETSAT CM SAF) and real-time (\u2018DUETT\u2019), all publicly available (Pfeifroth et al. 2026) \u2014 a direct precedent for the prospective UK product."
+    - "**Societal value** \u2014 increased UK sunshine is linked to solar generation capacity, tourism and human well-being (Spellman 2024)."
+    - "**Temperature coupling** \u2014 daily sunshine duration is strongly and significantly correlated with daily maximum temperature across European/UK stations (van den Besselaar et al. 2015), relevant to heat, growing-season and agri-productivity signals."
+    - "**Record continuity** \u2014 homogenisation between Campbell\u2013Stokes and automated Kipp & Zonen sensors (Legg 2014; Kerr & Tabony 2004) is the data-quality basis any operational daily product must carry through."
+  closing: "A daily product would translate these demonstrated relationships into a national, policy-ready evidence layer for solar delivery, climate-risk monitoring and \u2014 more tentatively \u2014 agri-environment and biodiversity attribution; the table maps where that would matter and how proven each use is."
+
+policy_rows:
+  - ref: "POL-005"
+    name: "Clean Power 2030 Action Plan"
+    url: "https://www.gov.uk/government/publications/clean-power-2030-action-plan"
+    relevance: 3
+    status: "Demonstrated"
+    why: "Central to the plan is 45\u201347 GW of solar by 2030. Solar generation is directly weather-dependent (solar irradiance sets output). A daily, spatially complete sunshine-duration product would sharpen resource assessment, capacity-factor assumptions, generation forecasting and system integration \u2014 a use already demonstrated operationally through the Met Office\u2013NESO energy-services collaboration."
+  - ref: "\u2020"
+    name: "Solar Roadmap 2025 (DESNZ / Solar Taskforce / Solar Council)"
+    url: "https://www.gov.uk/government/publications/solar-roadmap"
+    relevance: 3
+    status: "Demonstrated"
+    why: "Published 30 June 2025; 72 actions to reach 45\u201347 GW, including siting, rooftop and ground-mount deployment, and agrivoltaics. Solar-resource information underpins yield estimation and well-sited deployment; industry already uses irradiance/sunshine climatologies for this, so an authoritative national daily product is a Demonstrated, transferable input. Not held as a workbook record."
+  - ref: "POL-004"
+    name: "UK Net Zero Strategy / Carbon Budget Delivery Plan (CBDP) 2023"
+    url: "https://www.gov.uk/government/publications/net-zero-strategy"
+    relevance: 2
+    status: "Emerging"
+    why: "Electricity-sector decarbonisation pathways rest on solar-generation projections that embed resource assumptions. A consistent daily sunshine record would improve those assumptions and the monitoring of realised solar output against the pathway \u2014 evidenced in principle, not yet an explicit CBDP input."
+  - ref: "POL-016"
+    name: "Contracts for Difference (CfD) scheme"
+    url: "https://www.gov.uk/guidance/contracts-for-difference"
+    relevance: 2
+    status: "Emerging"
+    why: "Over 7 GW of solar has been contracted through CfD. Strike-price setting and generation/revenue modelling for solar depend on the underlying resource; a national daily sunshine climatology would provide a consistent, official basis for yield assumptions. Currently supplied by commercial resource data rather than an MO product."
+  - ref: "POL-050"
+    name: "National Planning Policy Framework (NPPF) \u2014 solar-farm siting"
+    url: "https://www.gov.uk/government/publications/national-planning-policy-framework--2"
+    relevance: 2
+    status: "Emerging"
+    why: "Ground-mount solar potential is markedly higher in southern England; planning for solar farms (and the raised NSIP threshold) weighs resource against agricultural-land and landscape impacts. A national daily/aggregated sunshine-resource layer would give plan-makers a consistent siting evidence base \u2014 used informally today, not codified."
+  - ref: "\u2020"
+    name: "Future Homes Standard (rooftop solar on new homes, from 2027)"
+    url: "https://www.gov.uk/government/consultations/the-future-homes-and-buildings-standards-2023-consultation"
+    relevance: 2
+    status: "Emerging"
+    why: "From 2027 most new homes in England must include rooftop solar. Location-specific sunshine climatology informs realistic yield and bill-saving estimates that underpin the standard's impact assessment and household guidance. Evidenced in principle; not currently an MO product feeding the standard. Not held as a workbook record."
+  - ref: "POL-017"
+    name: "Climate Change Risk Assessment (CCRA3 2022; CCRA4 from 2026\u201327)"
+    url: "https://www.gov.uk/government/publications/climate-change-risk-assessment-2022"
+    relevance: 2
+    status: "Emerging"
+    why: "Solar-resource variability (energy-system risk), growing-season and agri-productivity signals, and well-being/heat all bear on CCRA risks and opportunities. Sunshine is a monitored State-of-Climate variable but not yet a discrete CCRA evidence layer; a daily product is a credible CCRA4 input."
+  - ref: "POL-002"
+    name: "National Adaptation Programme (NAP3) 2023\u20132028"
+    url: "https://www.gov.uk/government/publications/third-national-adaptation-programme-nap3"
+    relevance: 2
+    status: "Emerging"
+    why: "NAP delivers CCRA risks, including agriculture and energy-system resilience. Spatially explicit daily sunshine would support solar-resilience and crop-productivity actions. The link is inferred from NAP themes rather than documented, so scored the lower maturity value."
+  - ref: "POL-013"
+    name: "Environmental Land Management (ELM) Schemes"
+    url: "https://www.gov.uk/government/publications/environmental-land-management-schemes-overview"
+    relevance: 1
+    status: "Conceptual"
+    why: "Solar radiation / sunshine drives crop and grassland growth and is relevant to agrivoltaics (dual land use flagged in the Solar Roadmap). A daily product could inform scheme targeting and dual-use siting, but this is an inferred, not-yet-articulated pathway."
+  - ref: "POL-003"
+    name: "UK National Biodiversity Strategy and Action Plan (NBSAP) 2025"
+    url: "https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan"
+    relevance: 1
+    status: "Conceptual"
+    why: "Sunshine drives phenology and the flight activity of pollinators and butterflies that underpin several biodiversity indicators. A daily sunshine product could improve attribution of biodiversity change to climate and correct survey-condition effects \u2014 credible but unproven for direct NBSAP use; inferred link."
+
+indicators_intro: "A scan of *indicators_climate_nature.xlsx* for indicators whose measured quantity a daily sunshine-duration product could directly inform \u2014 solar-driven generation, solar-radiation-driven crop yield, and sunshine-dependent phenology and insect flight activity. Deployment counts whose measured quantity takes no climate input (e.g. installed solar PV capacity in GW) were excluded on the same basis as GIS-area indicators. Framework and application columns link to the specific report / indicator page where each is defined or used (drawn from the workbook's Source_URL column where present). Maturity for the biodiversity indicators is Conceptual for direct policy use; the energy and agriculture indicators are the more proven links."
+
+indicator_rows:
+  - ref: "IND-C-056"
+    name: "Energy from offshore wind and solar as % of electricity mix (GB)"
+    framework: "[[CCC Mitigation Monitoring Framework|https://www.theccc.org.uk/publication/progress-in-reducing-emissions-2025-report-to-parliament/]] (electricity-supply key indicators)"
+    application: "[[Clean Power 2030 Action Plan|https://www.gov.uk/government/publications/clean-power-2030-action-plan]] (45\u201347 GW solar by 2030) / CBDP \u2014 Climate Change Act 2008 carbon budgets"
+  - ref: "IND-C-110"
+    name: "Agricultural crop yield variability (wheat, oilseed rape) (UK) \u2014 sunshine informs the solar-radiation term, not the whole outcome"
+    framework: "[[CCC Adaptation Monitoring Framework 2023\u201325|https://www.theccc.org.uk/publication/progress-in-adapting-to-climate-change-2025/]]"
+    application: "[[NAP3|https://www.gov.uk/government/publications/third-national-adaptation-programme-nap3]] (food-security & agriculture resilience) / CCRA \u2014 Climate Change Act 2008, s.58"
+  - ref: "IND-J-063"
+    name: "Spring Index (phenology) (UK)"
+    framework: "[[JNCC UKBI 2025 \u2014 Spring Index|https://jncc.gov.uk/our-work/ukbi-spring-index/]]"
+    application: "[[NBSAP 2025|https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan]] (Environment Act 2021 targets); reported via the [[Environmental Indicator Framework|https://www.gov.uk/government/collections/environmental-indicator-framework]] (EIP progress report) and UK CBD/GBF reporting"
+  - ref: "IND-J-014"
+    name: "Insects of the wider countryside \u2013 all butterflies (UK) \u2014 sunshine drives the transect flight-activity term"
+    framework: "[[JNCC UKBI 2025 \u2014 Insects of the wider countryside (butterflies)|https://jncc.gov.uk/our-work/ukbi-insects-of-the-wider-countryside-butterflies/]]"
+    application: "[[NBSAP 2025|https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan]] (Environment Act 2021 species targets); reported via the [[Environmental Indicator Framework|https://www.gov.uk/government/collections/environmental-indicator-framework]] (EIP progress report) and UK CBD/GBF reporting"
+  - ref: "IND-J-045"
+    name: "Pollinating insects (UK) \u2014 weather-dependent survey counts"
+    framework: "[[JNCC UKBI 2025 \u2014 Pollinating insects|https://jncc.gov.uk/our-work/ukbi-pollinating-insects/]]"
+    application: "[[NBSAP 2025|https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan]] (Environment Act 2021 species targets); reported via the [[Environmental Indicator Framework|https://www.gov.uk/government/collections/environmental-indicator-framework]] (EIP progress report) and UK CBD/GBF reporting"
+
+methods:
+  - "**Capability scoped from external evidence and Met Office sources**, not from an MO output list: the supplied bibliography is an external UK sunshine reading list, used to establish which sunshine\u2013policy relationships are demonstrated (solar conversion, temperature coupling, societal value) and how mature each is \u2014 including a peer national-met-service precedent (DWD gridded solar-radiation products, Pfeifroth et al. 2026)."
+  - "**Met Office capability characterised** by inspecting Met Office and CEDA pages (accessed July 2026): HadUK-Grid (1 km gridded sunshine, *monthly* only \u2014 daily grids exist for rainfall and temperature but not sunshine); the Good (2010) satellite-derived *daily* sunshine method; State of the UK Climate monitoring (National Climate Information Centre); and the operational Met Office\u2013NESO energy-services channel."
+  - "**Policy candidates** drawn from the governance workbook's Policies & Activities sheet (uk_climate_nature_governance.xlsx, canonical; POL IDs stable across versions), filtered on Climate, Energy, Land Use & Agriculture and Nature sectors, then screened for a plausible dependency on daily sunshine / surface-solar resource; supplemented with solar activities absent from the workbook (Solar Roadmap 2025, Future Homes Standard), marked \u2020."
+  - "**Scoring** used two independent axes. *Relevance* (materiality of a daily sunshine product): central input = 3; supporting evidence layer = 2; marginal/indirect = 1. *Maturity*: Demonstrated where the application is already used operationally or in industry and transferable; Emerging where partial evidence needs development for the specific policy use; Conceptual where the use is plausible but unproven. Kept separate so a high-value-but-immature application is not mistaken for a low-relevance one."
+  - "**Indicator scan** of indicators_climate_nature.xlsx across its framework sheets, keyword-filtered for sunshine, solar, radiation, phenology, growing season and crop yield, then narrowed to indicators whose measured quantity a daily sunshine product could directly inform (solar generation share, crop-yield variability, phenology and insect flight activity); installed-capacity (GW) indicators were excluded because their measured quantity takes no climate input. Framework/application links use the workbook's Source_URL column where present. Sunshine duration was treated as distinct from, though correlated with, surface solar irradiance and air temperature."
+
+gaps: "Two framing caveats. First, this assesses a prospective *daily* product: the Met Office already supplies gridded *monthly* sunshine (HadUK-Grid) and the satellite *daily* method exists (Good 2010), and a peer service (DWD) already ships an operational blended product \u2014 so the gap is operationalisation and cadence, not first-principles capability; several energy links are therefore Demonstrated rather than Conceptual. Second, sunshine duration, surface solar irradiance and air temperature are related but distinct; a policy-ready product would need to state which quantity it delivers (bright-sunshine hours vs. irradiance) because energy applications ultimately want irradiance/PV yield, for which sunshine duration is a strong but not exact proxy \u2014 the DWD experience of moving from sunshine duration to solar-radiation products is instructive here. The governance workbook holds no records for the Solar Roadmap 2025 or the Future Homes Standard \u2014 the two highest-relevance solar activities \u2014 arguably worth adding. The ELM and NBSAP links are inferred (Conceptual): sunshine matters mechanistically but is not named in current scheme or strategy text. The Future Homes Standard URL points to the consultation page; the final standard's publication URL should be substituted once confirmed."
+
+references_primary:
+  - "Spellman, G. (2024) Sunnier climes in the UK. *Weather* 79(1): 27\u201331."
+  - "Good, E.J. (2010) Estimating daily sunshine duration over the UK from geostationary satellite data. *Weather* 65(12): 324\u2013328. (Met Office \u2014 satellite-derived daily sunshine method.)"
+  - "Harrison, R.G. (2023) Sunshine and solar power in the UK. *Theoretical and Applied Climatology* 155: 1163\u20131174."
+  - "van den Besselaar, E.J.M. et al. (2015) Relationship between sunshine duration and temperature trends across Europe. *Journal of Geophysical Research: Atmospheres* 120(20): 10,730\u201310,739."
+  - "Legg, T.P. (2014) A review of progress in establishing a consistent UK sunshine series. *Met Office Hadley Centre Climate Memorandum.*"
+  - "Kerr, A. & Tabony, R.C. (2004) Comparison of sunshine recorded by Campbell\u2013Stokes and automatic sensors. *Weather* (Royal Meteorological Society)."
+  - "Pfeifroth, U., Trentmann, J., Brinckmann, S. & Hollmann, R. (2026) An overview of surface solar radiation data products at the German meteorological service (DWD). *Journal of the European Meteorological Society* (Elsevier) \u2014 EUMETSAT CM SAF climate records and the real-time station\u2013satellite \u2018DUETT\u2019 product; direct precedent for an operational blended UK product."
+
+references_other:
+  - "Met Office / CEDA, HadUK-Grid gridded climate observations (v1.3.2.ceda, June 2026; sunshine gridded monthly from 1910, at 1 km). [[metoffice.gov.uk/hadobs/hadukgrid|https://www.metoffice.gov.uk/hadobs/hadukgrid/]]"
+  - "Met Office, HadUK-Grid FAQ \u2014 sunshine recorder types (Campbell\u2013Stokes vs Kipp & Zonen) and grid variables (accessed July 2026)."
+  - "Kendon, M. et al. (2025) State of the UK Climate in 2024. *International Journal of Climatology* 45(S1): e70010 \u2014 UK sunshine 2015\u20132024 3% above 1991\u20132020, 8% above 1961\u20131990; winter/spring driven."
+  - "Met Office (Jan 2026) 2025 confirmed as the UK's sunniest year on record (1648.5 hours); notes the National Energy System Operator (NESO)\u2013Met Office collaboration and solar's growing share of GB supply."
+  - "DESNZ (30 June 2025) Solar Roadmap: United Kingdom powered by solar. [[gov.uk/government/publications/solar-roadmap|https://www.gov.uk/government/publications/solar-roadmap]]"
+  - "JNCC / Defra (2 Dec 2025) UK Biodiversity Indicators 2025 \u2014 Spring Index, butterflies and pollinating-insects indicator pages; domestic use via the Environmental Indicator Framework and UK CBD/GBF reporting. [[jncc.gov.uk/our-work/uk-biodiversity-indicators|https://jncc.gov.uk/our-work/uk-biodiversity-indicators/]]"
+  - "Climate Change Committee (2025) Progress in reducing emissions and Progress in adapting to climate change \u2014 2025 reports to Parliament (mitigation and adaptation monitoring frameworks)."
+  - "uk_climate_nature_governance.xlsx (Policies & Activities) and indicators_climate_nature.xlsx (framework sheets) \u2014 canonical workbooks."

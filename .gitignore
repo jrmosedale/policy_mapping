@@ -1,0 +1,23 @@
+# --- OS / Office junk ---
+.DS_Store
+._*
+~$*
+Thumbs.db
+
+# --- Files awaiting manual deletion ---
+_to_delete/
+
+# --- Excluded by choice (2026-09-11) ---
+# Draft slide decks and MO template: working drafts, not project data or code
+presentations/
+# Superseded workbook versions: history is now held by git
+Data/outdated_files/
+# Third-party / personal bibliographies: assessment inputs, kept out for copyright and privacy
+PA_toolkit/bibliographies/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/

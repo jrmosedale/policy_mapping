@@ -1,0 +1,238 @@
+# =============================================================================
+# GAP / PROSPECTIVE MODE — "if the Met Office built X, what could UK policy do with it?"
+# Case: a prospective UK Marine Heatwave (ocean-heat) monitoring & forecasting product.
+#
+# Full sweep of uk_climate_nature_governance.xlsx (v18) Policies & Activities (64 records)
+# for sea-surface / ocean-temperature dependency, plus operational marine activities absent
+# from the workbook (marked †). Policy URLs taken from the workbook Link column and verified
+# against source (July 2026). Second axis = MATURITY (Demonstrated / Emerging / Conceptual)
+# because the product is prospective and nothing is yet "Current".
+# =============================================================================
+
+meta:
+  title: "A prospective Met Office UK marine heatwave product"
+  subtitle: "Potential UK climate – nature policy applications  ·  Gap assessment"
+  prepared: "Prepared July 2026"
+  footer: "Prospective product · evidence base external · governance refs uk_climate_nature_governance v18"
+  output_basename: "ocean_heatwaves"
+
+theme:
+  teal: "0B5563"
+  teal_dk: "08414C"
+  ink: "1F2A33"
+  muted: "5A6B73"
+  rule: "C5D0D4"
+  high_bg: "CDE9D2"
+  high_chip: "2E7D43"
+  med_bg: "FBE3B8"
+  med_chip: "C9871B"
+  low_bg: "DCE4E9"
+  low_chip: "5A6B73"
+  status_current: "0B5563"
+  status_opportunity: "B07012"
+  link: "10497A"
+  kp_fill: "EAF2F3"
+  alt_tint: "F2F6F7"
+  font: "Arial"
+
+section_order:
+  - key_points
+  - summary
+  - policy_table
+  - indicators
+  - methods
+  - references
+
+labels:
+  key_points: "Key points"
+  summary: "The evidence base for a prospective UK marine heatwave product"
+  policy_table: "Policy applications, relevance and maturity"
+  why_column: "What a UK marine heatwave product could enable for this policy"
+  indicators: "Policy indicators"
+  indicator_app_column: "Current policy application(s)"
+  methods: "Methods"
+  references: "References"
+  references_primary: "Evidence base (external literature)"
+  references_other: "Met Office / partner capability and other sources"
+  gaps: "Main gaps and caveats"
+
+# GAP MODE: second axis = Maturity (how proven the application is), not realisation.
+status_axis:
+  label: "Maturity"
+  values:
+    Demonstrated: "0B5563"   # proven elsewhere/already used, transferable to a UK product now
+    Emerging: "C9871B"       # partial evidence; needs development/validation for UK policy use
+    Conceptual: "5A6B73"     # plausible but unproven for this use
+
+scoring:
+  relevance: {3: "High", 2: "Medium", 1: "Low"}
+  status_values: ["Demonstrated", "Emerging", "Conceptual"]
+  legend: >-
+    Two independent axes. **Relevance** (materiality of a UK marine heatwave product to the policy):
+    **3 High** = would be a direct, central input; **2 Medium** = a useful supporting evidence layer;
+    **1 Low** = marginal or indirect. **Maturity** (how proven the application is): Demonstrated =
+    proven elsewhere or already used and transferable; Emerging = partial evidence, needs UK
+    development/validation; Conceptual = plausible but unproven for this use. Items marked † are
+    activities not held in the governance workbook. Policy names link to the source page.
+
+key_points:
+  - "**This product does not yet exist as an operational Met Office service.** This is a gap assessment: the external literature (Holbrook 2019; Oliver 2018; Cornes/MCCIP 2025) shows marine heatwaves (MHWs) are now well characterised and their ecological and fisheries impacts are established, and this asks what UK policy could do with a national, policy-facing MO MHW product."
+  - "**The building blocks already exist at the Met Office.** OSTIA (daily satellite+in-situ sea surface temperature), the FOAM / Copernicus Marine North-West Shelf system (3D temperature, incl. sub-surface and seafloor) and the ESA SST_cci record are all MO-run. The gap is not raw data but an **operational, categorised, forecast MHW product** (event onset, duration, category I–IV, sector impact layers) — none exists for UK policy today."
+  - "**Highest-value prospective applications (Relevance 3):** the Marine Climate Change Impacts Partnership (MCCIP) sea-temperature evidence stream, the UK Marine Strategy 2025 Programme of Measures (Good Environmental Status), the Fisheries Act 2020 climate-change objective / Fisheries Management Plans (†), and CCRA4 (Met Office-led Technical Report, mid-2026; CCRA4 laid Jan 2027)."
+  - "**Timely:** Cefas and the Met Office are already building UK MHW-prediction capability — the *40 priority questions* horizon-scan (Pinnegar, Rowland et al., npj Ocean Sustainability 2025) and the Defra Marine Science programme (Sep 2024) — the natural home for an operational product."
+  - "**Maturity varies:** MHW monitoring itself is **Demonstrated** (EEA/Copernicus/MCCIP already publish UK & European SST and MHW indices); operational forecasting into fisheries, aquaculture and adaptation processes is **Emerging**; marine-planning, protected-area and blue-carbon uses are **Conceptual**."
+  - "**Caveats:** the bibliography is an external MHW reading list, not an MO publication list, so MO capability was scoped from MO/Cefas/Copernicus sources; and three of the highest-value marine activities — the Fisheries Act/JFS/FMPs, aquaculture food-safety (HAB/*Vibrio*) monitoring, and the UK Blue Carbon Evidence Partnership — are operational processes not held in the governance workbook (marked †)."
+
+summary:
+  intro: "A UK marine heatwave product would deliver operational, categorised ocean-heat information — daily sea surface temperature (SST) anomalies and MHW category (Hobday I–IV: moderate to extreme), sub-surface and seafloor temperature / ocean heat content, and short-range to seasonal forecasts of MHW onset, duration and decline — across the UK Exclusive Economic Zone and North-West European shelf at a few-kilometre resolution, on a 1982-to-present satellite baseline. The Met Office already runs the underpinning systems (OSTIA SST; the FOAM / Copernicus Marine North-West Shelf model; the ESA SST_cci climate record) and co-leads UK MHW science with Cefas. The external evidence base below shows the policy-relevant applications are established science elsewhere."
+  bullets:
+    - "**Intensifying UK MHWs** — around UK and Irish seas MHWs have grown in frequency, duration and magnitude; projections indicate coastal regions could be in MHW conditions for more than half the year by 2100 under high emissions (Cornes et al. / MCCIP 2025)."
+    - "**Fisheries and distribution shifts** — MHWs drive shifts in the distribution and productivity of commercially important fish and shellfish, directly relevant to stock assessment and fisheries management (Holbrook et al. 2019; Plecha et al. 2021)."
+    - "**Habitat damage** — MHWs cause measurable stress and mortality in seagrass, kelp and other temperature-sensitive habitats, with knock-on effects on blue-carbon storage (Jung et al. 2023; Ford et al. 2025)."
+    - "**Compound and sub-surface events** — coastal MHWs can be generated or amplified by atmospheric heat and stratification, and seafloor/sub-surface heatwaves with non-summer impacts are poorly captured by SST-only monitoring (Dzwonkowski et al. 2020; European Commission 2026)."
+  closing: "A prospective MO UK marine heatwave product would translate these demonstrated capabilities into a national, policy-ready evidence and early-warning layer; the table maps where that would matter and how proven each use is."
+
+policy_rows:
+  - ref: "POL-049"
+    name: "Marine Climate Change Impacts Partnership (MCCIP)"
+    url: "https://www.mccip.org.uk/"
+    relevance: 3
+    status: "Demonstrated"
+    why: "The established research→policy channel for UK marine climate evidence. MCCIP already publishes a **Sea Temperature** evidence stream (rolling updates; Annual Summary 2025) that MO ocean data feed, and which underpins Defra/agency and UK Marine Strategy assessments. A dedicated MHW product would slot directly into this route — the clearest and most proven application."
+  - ref: "POL-028"
+    name: "UK Marine Strategy 2025 — Programme of Measures"
+    url: "https://www.gov.uk/government/publications/marine-strategy-part-three-2025-uk-programme-of-measures"
+    relevance: 3
+    status: "Emerging"
+    why: "The Part One 2025 assessment explicitly flags ocean warming and marine heatwaves as risks to achieving Good Environmental Status. An MHW product would provide the temperature/ocean-heat evidence layer for the pelagic-habitat, food-web and fish-stock GES descriptors — evidenced in the strategy text but not yet a formal operational input."
+  - ref: "†"
+    name: "Fisheries Act 2020 climate-change objective / Joint Fisheries Statement & Fisheries Management Plans"
+    url: "https://www.legislation.gov.uk/ukpga/2020/22/contents"
+    relevance: 3
+    status: "Emerging"
+    why: "The Act's climate-change objective and the FMPs must account for climate-driven shifts in stock distribution and productivity. MHW monitoring and forecasts could inform stock advice, seasonal management and the ecosystem-based approach set out in the 2022 Joint Fisheries Statement. Not held as a workbook record (†); MCCIP already issues fish/fisheries/aquaculture policy briefs on this."
+  - ref: "POL-017"
+    name: "Climate Change Risk Assessment (CCRA3 2022; CCRA4-IA 2026, CCRA4 laid Jan 2027)"
+    url: "https://www.gov.uk/government/publications/climate-change-risk-assessment-2022"
+    relevance: 3
+    status: "Emerging"
+    why: "Marine and fisheries climate risks are central CCRA risks and the Met Office leads the CCRA4-IA Technical Report (publishing mid-2026). An operational MHW product is a high-value, near-term input to quantify ocean-heat exposure for CCRA4 and the subsequent NAP — though present assessments rely on SST trends and projections rather than a categorised MHW product."
+  - ref: "POL-002"
+    name: "National Adaptation Programme (NAP3) 2023–2028"
+    url: "https://www.gov.uk/government/publications/third-national-adaptation-programme-nap3"
+    relevance: 2
+    status: "Emerging"
+    why: "Translating CCRA marine risks into action would benefit from spatially explicit ocean-heat and MHW information to prioritise fisheries, aquaculture and habitat-resilience measures; the evidence exists but is not yet a defined NAP input."
+  - ref: "POL-001"
+    name: "Environmental Improvement Plan 2025 (marine environment goals)"
+    url: "https://www.gov.uk/government/publications/environmental-improvement-plan"
+    relevance: 2
+    status: "Emerging"
+    why: "The EIP's clean-and-healthy-seas and marine-protected-site goals, and the associated EIF marine-condition indicators, are sensitive to ocean warming and MHWs. An MHW product could attribute temperature-driven condition change in the pelagic-habitat and fish/shellfish indicators; not yet an input."
+  - ref: "POL-003"
+    name: "UK National Biodiversity Strategy and Action Plan 2025"
+    url: "https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan"
+    relevance: 2
+    status: "Emerging"
+    why: "Delivers GBF targets on climate-change pressure (Target 8) and invasive non-native species (Target 6). MHW and ocean-heat information could help anticipate thermally driven range shifts and which marine INNS become establishment-capable under UK warming."
+  - ref: "†"
+    name: "Aquaculture & shellfish food-safety monitoring (Cefas – FSA / Food Standards Scotland; HABs and Vibrio)"
+    url: "https://www.cefas.co.uk/"
+    relevance: 2
+    status: "Emerging"
+    why: "MHWs are linked to harmful algal blooms and elevated pathogenic *Vibrio* in UK shellfish waters (Cefas, 2018 event). MHW forecasts could pre-warn biotoxin and *Vibrio* risk for the biotoxin-monitoring and classification programmes protecting shellfisheries and public health. Operational process not held in the workbook (†)."
+  - ref: "POL-025"
+    name: "UK National Climate Science Partnership (UKNCSP)"
+    url: "https://ukncsp.org"
+    relevance: 2
+    status: "Conceptual"
+    why: "Met Office-led coordinating mechanism for translating climate science into CCRA/NAP and policy. It is a natural, but as yet latent, route to channel operational ocean-heat/MHW outputs into marine policy — an enabler rather than a defined application."
+  - ref: "POL-026"
+    name: "Natural Capital & Ecosystem Assessment (NCEA) Programme"
+    url: "https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-ncea-programme/natural-capital-and-ecosystem-assessment-ncea-programme"
+    relevance: 2
+    status: "Conceptual"
+    why: "NCEA builds national marine and coastal natural-capital baselines of extent and condition. Ocean-heat and MHW exposure could feed a thermal-stress condition layer for marine habitats, but its use in condition accounts is not yet defined."
+  - ref: "POL-059"
+    name: "UK Marine Policy Statement and Marine Plans"
+    url: "https://www.gov.uk/government/publications/uk-marine-policy-statement"
+    relevance: 2
+    status: "Conceptual"
+    why: "Marine spatial planning decisions (aquaculture siting, MPA management, developments) could screen thermal exposure and MHW risk; plausible but not an articulated function of the plans."
+  - ref: "POL-060"
+    name: "Highly Protected Marine Areas (HPMAs)"
+    url: "https://jncc.gov.uk/our-work/english-highly-protected-marine-areas/"
+    relevance: 2
+    status: "Conceptual"
+    why: "The three designated HPMAs (2023) and future sites aim to build ecosystem resilience, partly to climate change. MHW/thermal-exposure surfaces could inform siting and resilience monitoring of the network, but this is an inferred, not-yet-established use."
+  - ref: "POL-022"
+    name: "30×30 Technical Working Group (marine)"
+    url: "https://www.gov.uk/government/publications/30by30-on-land-in-england"
+    relevance: 1
+    status: "Conceptual"
+    why: "Marine protected-area network design toward 30×30 could account for warming and MHW exposure to improve network resilience; a marginal, unproven use at present."
+  - ref: "†"
+    name: "UK Blue Carbon Evidence Partnership (UKBCEP)"
+    url: "https://uk-bcep.org/"
+    relevance: 1
+    status: "Conceptual"
+    why: "MHWs damage seagrass and saltmarsh and can alter coastal-carbon fluxes. Ocean-heat information could contextualise blue-carbon condition and permanence risk, but the link to the partnership's evidence work is speculative. Operational activity not held in the workbook (†)."
+
+indicators_intro: "A scan of *indicators_climate_nature.xlsx* across its framework sheets for indicators whose measured quantity a UK marine heatwave product could directly inform — ocean heat / marine-heatwave intensity, and temperature-driven marine habitat, plankton and fish-stock condition — complemented by a focused web scan for authoritative indicators absent from the workbook. Pure GIS-area or fishing-pressure indicators (e.g. protected-area extent at sea, proportion of stocks harvested sustainably) were excluded because their measured quantity takes no ocean-temperature input. Items marked † are not held in the indicators workbook."
+
+indicator_rows:
+  - ref: "IND-B-162"
+    name: "Ocean heat content and marine heatwaves in European seas"
+    framework: "[[EEA Biodiversity / climate indicators|https://www.eea.europa.eu/en/analysis/indicators/european-sea-surface-temperature]]"
+    application: "EU Climate Adaptation Strategy / EEA state-of-environment reporting; UK analogue via MCCIP. *The product's measured quantity is this indicator.*"
+  - ref: "IND-C-103"
+    name: "Marine and coastal habitat extent and condition (UK)"
+    framework: "[[CCC Adaptation Monitoring Framework 2023–25|https://www.theccc.org.uk/publication/progress-in-adapting-to-climate-change-2025/]]"
+    application: "[[NAP3|https://www.gov.uk/government/publications/third-national-adaptation-programme-nap3]] / CCRA (Climate Change Act 2008, s.58)"
+  - ref: "IND-C-115"
+    name: "Fish stock status and catches in UK waters"
+    framework: "[[CCC Adaptation Monitoring Framework 2023–25|https://www.theccc.org.uk/publication/progress-in-adapting-to-climate-change-2025/]]"
+    application: "[[NAP3|https://www.gov.uk/government/publications/third-national-adaptation-programme-nap3]] / CCRA; Fisheries Act 2020"
+  - ref: "IND-E-019"
+    name: "Diverse seas: condition of pelagic habitats (plankton community state)"
+    framework: "[[Environmental Indicator Framework (EIF)|https://www.gov.uk/government/collections/environmental-indicator-framework]]"
+    application: "[[EIP 2025|https://www.gov.uk/government/publications/environmental-improvement-plan]] (Environment Act 2021); UK Marine Strategy GES"
+  - ref: "IND-J-035"
+    name: "Pressure from climate change on biodiversity (species range exposure)"
+    framework: "[[JNCC UK Biodiversity Indicators 2025|https://jncc.gov.uk/our-work/uk-biodiversity-indicators/]]"
+    application: "[[NBSAP 2025|https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan]]; Environment Act 2021 targets"
+  - ref: "†"
+    name: "[[MCCIP sea-temperature evidence update|https://www.mccip.org.uk/recent-updates]] — UK & Ireland sea temperature (rolling evidence update; Annual Summary 2025). Met Office-supplied; overlaps EEA IND-B-162."
+    framework: "MCCIP rolling evidence updates (web scan; not in workbook)"
+    application: "[[UK Marine Strategy Part One 2025|https://www.gov.uk/government/consultations/uk-marine-strategy-part-one-update-2025]] GES assessment; MCCIP report cards"
+
+methods:
+  - "**Capability scoped from external evidence**, not from MO outputs: the supplied bibliography is a marine-heatwave topic reading list, used to establish which MHW applications are demonstrated elsewhere (fisheries distribution, habitat/seagrass damage, blue-carbon and compound/sub-surface events) and how mature each is for UK policy use."
+  - "**MO/partner capability characterised** by inspecting MO, Cefas, Copernicus and EEA pages (accessed July 2026): OSTIA SST analysis, the FOAM / Copernicus Marine North-West Shelf system (3D temperature), the ESA SST_cci record, MO regional coupled prediction of MHW impacts on UK weather (2024), and the Cefas–MO *40 priority questions* MHW horizon-scan (npj Ocean Sustainability 2025)."
+  - "**Policy candidates** drawn from a full sweep of the governance workbook's Policies & Activities sheet (uk_climate_nature_governance v18, 64 records; POL IDs stable across versions): screened across the Marine & Fisheries, Nature, Climate, Water and Land sectors for a plausible ocean-temperature dependency. Supplemented with operational marine activities absent from the workbook — the Fisheries Act 2020 climate objective / Joint Fisheries Statement & FMPs, aquaculture food-safety (HAB/*Vibrio*) monitoring, and the UK Blue Carbon Evidence Partnership — marked †. Purely terrestrial and non-marine records were excluded as out of scope."
+  - "**Scoring** used two independent axes. *Relevance* (materiality of a UK MHW product to the policy): central input = 3; supporting evidence layer = 2; marginal/indirect = 1. *Maturity*: Demonstrated where the application is proven elsewhere or already used and transferable; Emerging where partial evidence needs UK development; Conceptual where the use is plausible but unproven. Kept separate so a high-value-but-immature application (e.g. Fisheries Act/FMPs) is not mistaken for a low-relevance one."
+  - "**Indicator scan** of indicators_climate_nature.xlsx across its framework sheets, keyword-filtered for marine, sea-surface/ocean temperature, heatwave and fish/plankton, then narrowed to indicators whose measured quantity an MHW product could directly inform (ocean heat/MHW intensity, temperature-driven habitat/plankton/fish-stock condition); protected-area-extent and fishing-pressure indicators were excluded because their measured quantity takes no ocean-temperature input. A focused web scan for authoritative indicators absent from the workbook found the MCCIP UK & Ireland sea-temperature evidence update (overlaps EEA IND-B-162), marked †."
+
+gaps: "Three structural caveats. First, the bibliography is an external MHW reading list, not an MO publication list, so MO capability was scoped from MO/Cefas/Copernicus/EEA sources rather than the file. Second, the underpinning data (OSTIA, FOAM/CMEMS North-West Shelf, ESA SST_cci) already exist and MHW *monitoring* is Demonstrated; what is prospective is an **operational, categorised, forecast, policy-facing MHW product**, so most policy links here are Emerging or Conceptual rather than Current. Third, three of the highest-value marine activities are operational processes not held in the governance workbook — the Fisheries Act 2020 climate objective / Joint Fisheries Statement & FMPs, aquaculture food-safety (HAB/*Vibrio*) monitoring, and the UK Blue Carbon Evidence Partnership (marked †) — and are arguably worth adding as records. The HPMA, Marine Policy Statement/Plans, NCEA and blue-carbon links are credible but inferred, not yet evidenced in current policy text (Conceptual, lower confidence). Sub-surface and seafloor MHWs are a known monitoring gap even for the demonstrated uses."
+
+references_primary:
+  - "Holbrook, N.J., et al. (2019) A global assessment of marine heatwaves and their drivers. *Nature Communications* 10, 2624."
+  - "Oliver, E.C.J., et al. (2018) Longer and more frequent marine heatwaves over the past century. *Nature Communications* 9, 1324."
+  - "Cornes, R.C., et al. (2025) Climate change impacts on temperature around the UK and Ireland. *MCCIP Science Review* (rolling evidence update)."
+  - "Plecha, S.M., Soares, P.M.M., Silva-Fernandes, S.M., et al. (2021) On the uncertainty of future projections of marine heatwave events in the North Atlantic Ocean. *Climate Dynamics* 56, 2027–2056."
+  - "Dzwonkowski, B., Coogan, J., Fournier, S., et al. (2020) Compounding impact of severe weather events fuels marine heatwave in the coastal ocean. *Nature Communications* 11, 4623."
+  - "Jung, E.M.U., Abdul Majeed, N.A.B., Booth, M.W., et al. (2023) Marine heatwave and reduced light scenarios cause species-specific metabolomic changes in seagrasses under ocean warming. *New Phytologist* 237, 1836–1851."
+  - "Ford, D.J., Nair, S.P., Oglethorpe, K., et al. (2025) Regionally different marine heatwave ocean carbon sink responses are consistent with carbonate understanding. *Environmental Research Communications*."
+
+references_other:
+  - "Met Office, Operational Sea Surface Temperature and Ice Analysis (OSTIA) and FOAM / Copernicus Marine North-West Shelf ocean forecasting. [[metoffice.gov.uk/research/weather/ocean-forecasting|https://www.metoffice.gov.uk/research/weather/ocean-forecasting]]"
+  - "ESA Climate Change Initiative — Sea Surface Temperature (SST_cci); Met Office science lead. [[climate.esa.int/.../sea-surface-temperature|https://climate.esa.int/en/projects/sea-surface-temperature/]]"
+  - "Pinnegar, J.K., Rowland, C., et al. (2025) 40 priority questions to advance understanding of the risks and opportunities of UK marine heatwaves. *npj Ocean Sustainability* 4, 20. [[nature.com/articles/s44183-025-00171-0|https://www.nature.com/articles/s44183-025-00171-0]]"
+  - "Defra Marine Science blog (26 Sep 2024) Turning up the heat: advancing UK science to better predict and respond to marine heatwaves (Cefas / Met Office)."
+  - "Met Office (2025/2026) Waters surrounding UK gripped by prolonged marine heatwave; Long-lasting UK marine heatwave likely to reach extreme levels (media centre); National Oceanography Centre rolling updates."
+  - "MCCIP (2025) Annual Summary 2025 and Sea Temperature rolling evidence update (Oct 2025). [[mccip.org.uk/recent-updates|https://www.mccip.org.uk/recent-updates]]"
+  - "Defra (2025) Marine strategy part three: 2025 UK programme of measures; UK Marine Strategy Part One Update 2025 consultation (GOV.UK)."
+  - "Fisheries Act 2020 (c.22) and Joint Fisheries Statement 2022 (legislation.gov.uk / GOV.UK)."
+  - "EEA, European sea surface temperature and open-ocean marine-heatwave indicators; Copernicus C3S European State of the Climate 2024 — European Ocean."
+  - "uk_climate_nature_governance.xlsx (v18), Policies & Activities sheet (links from the Link column)."
+  - "indicators_climate_nature.xlsx, framework indicator sheets (EIF, CCC, JNCC, EEA)."

@@ -1,0 +1,5 @@
+# Assessment renderer (render.py) — this is all the toolkit needs.
+# The toolkit is self-contained: these three packages, Python 3, no internet.
+reportlab>=4.0
+python-docx>=1.1
+PyYAML>=6.0

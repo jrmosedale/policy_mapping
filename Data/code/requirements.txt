@@ -1,0 +1,3 @@
+# Workbook integrity tools (check_links.py, orphan_codes.py).
+# Same single dependency as the dashboard builders.
+openpyxl>=3.1

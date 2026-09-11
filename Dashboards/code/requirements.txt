@@ -1,0 +1,3 @@
+# Dashboard builders (build_all.py, build_governance_diagram.py,
+# build_indicator_finder.py). The Data/code integrity tools need the same package.
+openpyxl>=3.1
