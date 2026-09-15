@@ -1,0 +1,264 @@
+# =============================================================================
+# Assessment config — Met Office research -> UK policy relevance
+# Worked example: Plant Pest, Pathogen & Biosecurity. Copy this file and edit
+# for a new research field. Render with:  python render.py THIS_FILE.yaml --format both
+#
+# Authoring markup usable in ANY text value below:
+#   **bold**        *italic*        [[label|https://url]]
+# Keep British English. Leave a field empty/absent to omit it.
+# =============================================================================
+
+meta:
+  title: "Met Office plant pest, pathogen & biosecurity research"
+  subtitle: "Relevance to UK climate \u2013 nature policy activities  \u00b7  Assessment"
+  prepared: "Prepared June 2026"
+  footer: "Source workbook: uk_climate_nature_governance_v15 \u00b7 Policies & Activities \u00b7 policy links live"
+  output_basename: "MO_biosecurity_policy_relevance"
+
+# Colours (6-digit hex, no #) and Word font. Edit to restyle both outputs.
+theme:
+  teal: "0B5563"
+  teal_dk: "08414C"
+  ink: "1F2A33"
+  muted: "5A6B73"
+  rule: "C5D0D4"
+  high_bg: "CDE9D2"
+  high_chip: "2E7D43"
+  med_bg: "FBE3B8"
+  med_chip: "C9871B"
+  low_bg: "DCE4E9"
+  low_chip: "5A6B73"
+  status_current: "0B5563"
+  status_opportunity: "B07012"
+  link: "10497A"
+  kp_fill: "EAF2F3"
+  alt_tint: "F2F6F7"
+  font: "Arial"
+
+# Order and presence of sections. Remove a line to drop a section; reorder to taste.
+section_order:
+  - key_points
+  - summary
+  - policy_table
+  - indicators
+  - methods
+  - references
+
+# Section headings and a few column labels. Edit freely.
+labels:
+  key_points: "Key points"
+  summary: "Summary of relevant Met Office research"
+  policy_table: "Policy activities, relevance scores and rationale"
+  why_column: "Why / how it is (or could be) informed by MO research"
+  indicators: "Policy indicators"
+  indicator_app_column: "Current policy application(s)"
+  methods: "Methods"
+  references: "Additional references used"
+  references_primary: "Met Office research (from bibliography)"
+  references_other: "Other sources"
+  gaps: "Main gaps and caveats"
+
+# Scoring rubric. Keep the two-axis design constant across fields for comparability.
+scoring:
+  relevance: {3: "High", 2: "Medium", 1: "Low"}
+  status_values: ["Current", "Opportunity"]
+  legend: >-
+    Two independent axes. **Relevance** (materiality of MO science to the policy): **3 High** = a direct,
+    often named evidence input; **2 Medium** = informs a defined risk or evidence component; **1 Low** =
+    indirect dependency — shown by row colour. **Status**: Current = MO science already informs the
+    activity (documented); Opportunity = a credible but not-yet-realised use. Items marked † are
+    activities not yet held as records in the workbook. Policy names are clickable links to the source page.
+
+# Second scoring axis. Applied mode (this file) uses realisation: Current vs Opportunity.
+# To switch to gap/prospective mode, change label + values here (see assessment_config_GAP_example.yaml).
+status_axis:
+  label: "Status"
+  values:
+    Current: "0B5563"      # MO science already informs the activity (documented)
+    Opportunity: "B07012"  # credible but not-yet-realised use
+
+key_points:
+  - "The Met Office runs the Defra-funded **Climate and Plant Biosecurity Climate Service**. Its degree-day **Climate-Pest Risk web tool** and forest-microclimate work feed Defra / APHA surveillance, contingency planning and the GB Plant Health Risk Register \u2014 the clearest, documented research-to-policy route."
+  - "**Currently informed:** Plant Biosecurity Strategy for GB 2023\u201328, the GB Plant Health Risk Register and contingency / outbreak response, the Tree Health Resilience Strategy, the tree-health component of the England Trees Action Plan, and CCRA3 \u2014 all already draw on MO climate-pest outputs."
+  - "**Opportunities to inform (not yet realised):** CCRA4 / NAP4 (2026\u201327, the highest-value entry point); EIP 2025 and NBSAP 2025 invasive-species commitments; NCEA woodland-condition attribution; ELM, Woodland Carbon Code permanence and Land Use Framework siting; routing pest science through UKNCSP / the NAP Biodiversity & Ecosystems Working Group; and targeting Observatree surveillance with MO climate-suitability maps."
+  - "**Six policy indicators** are clearly informed (or informable) by MO work \u2014 invasive non-native species distribution and establishment (EIF, CCC, JNCC), crop / livestock pest and disease incidence (CCC), and the Spring Index phenology indicator (JNCC). See table before Methods."
+  - "**Caveats:** the governance workbook holds no records for the risk register, contingency plans or Observatree; the carbon / biomass / land-use links are credible but not yet documented."
+
+summary:
+  intro: "The relevant Met Office (MO) work clusters around the **Vegetation\u2013Climate Interactions team** and the Defra-funded **Climate and Plant Biosecurity Climate Service** (MO Hadley Centre with Defra\u2019s Plant Health Risk and Horizon Scanning team, University of Exeter, Fera Science, University of Warwick, Forest Research and Kew). Its core outputs are summarised below."
+  bullets:
+    - "**[[UK Climate-Pest Risk web tool|https://www.metoffice.gov.uk/hadobs/biosecurity_uk_hist/]]** \u2014 maps accumulated day-degrees above a base temperature (default 10\u00b0C) to indicate where and when climate is suitable for pest development and emergence across the UK, for predefined quarantine pests (Oak Processionary Moth, Asian longhorn beetle, *Popillia japonica*, Colorado potato beetle, brown marmorated stink bug) plus user-defined thresholds."
+    - "**Microclimate model development and validation** \u2014 a February 2024 campaign (MO, Exeter, Forest Research, Kew) installed sensors monitoring temperature within woodlands and inside tree trunks at five southern-England sites to improve modelling of pest/pathogen microclimates and biosecurity risk estimates."
+    - "**Pest phenology and establishment modelling** \u2014 peach-potato aphid early-flight risk (Hemming et al. 2022), *Bemisia tabaci* UK-establishment limits under climate change (Bradshaw et al. 2019), wheat stem-rust transmission pathways (Bradshaw et al. 2024), Fall Armyworm climate suitability (Urhausen et al. 2024)."
+    - "**Foundational review** \u2014 Hemming & Macneill (2020), *Use of meteorological data in biosecurity*, sets out how met and climate data feed pest risk, surveillance and response."
+  closing: "Defra partners with the Met Office to provide predicted pest emergence dates to aid outbreak responses \u2014 the clearest research-to-policy channel."
+
+# Each policy row: ref, name, url (or parts for two-policy rows), relevance 1-3, status, why.
+policy_rows:
+  - ref: "POL-034"
+    name: "Plant Biosecurity Strategy for Great Britain 2023\u201328"
+    url: "https://www.gov.uk/government/publications/plant-biosecurity-strategy-for-great-britain-2023-to-2028/plant-biosecurity-strategy-for-great-britain-2023-to-2028"
+    relevance: 3
+    status: "Current"
+    why: "The strategy\u2019s prevention, preparedness, response and surveillance outcomes are the direct user of the climate-pest tool and Climate Service. MO emergence-date forecasts and climate-suitability maps already feed contingency planning and surveillance targeting under this strategy (documented partnership)."
+  - ref: "POL-033"
+    name: "Tree Health Resilience Strategy 2018"
+    url: "https://www.gov.uk/government/publications/tree-health-resilience-strategy-2018"
+    relevance: 3
+    status: "Current"
+    why: "Aimed squarely at tree pest/disease threats (OPM, *Xylella*, ash dieback); the forest microclimate monitoring campaign and tree-trunk thermal modelling were designed around exactly these risks. MO outputs inform risk-based surveillance and the resilience goals (condition, diversity)."
+  - ref: "POL-011"
+    name: "England Trees Action Plan 2021\u201324 (Tree Health Policy component)"
+    url: "https://www.gov.uk/government/publications/england-trees-action-plan-2021-to-2024"
+    relevance: 3
+    status: "Current"
+    why: "Woodland-creation targets depend on establishing pest- and disease-resilient stock; the embedded Tree Health Policy and Observatree surveillance draw on MO climate-pest risk mapping for trees. Establishment failure from pests directly threatens the 7,000 ha/year target."
+  - ref: "\u2020"
+    name: "GB Plant Health Risk Register / Defra Plant Health Risk & Horizon Scanning"
+    url: "https://planthealthportal.defra.gov.uk/pests-and-diseases/uk-plant-health-risk-register/"
+    relevance: 3
+    status: "Current"
+    why: "The operational register rating pest likelihood and impact; climate-suitability and degree-day outputs feed the likelihood/establishment components for temperature-limited pests. This is the day-to-day decision tool the MO service was built to support."
+  - ref: "\u2020"
+    name: "Defra generic & pest-specific contingency plans / GB Plant Health Service outbreak response"
+    url: "https://planthealthportal.defra.gov.uk/pests-and-diseases/contingency-planning/"
+    relevance: 3
+    status: "Current"
+    why: "Defra partners with the Met Office to provide predicted pest emergence dates to aid outbreak responses. Emergence timing drives inspection scheduling and treatment windows during eradication."
+  - ref: "POL-017"
+    name: "Climate Change Risk Assessment (CCRA3 2022)"
+    url: "https://www.gov.uk/government/publications/climate-change-risk-assessment-2022"
+    relevance: 3
+    status: "Current"
+    why: "Pests, pathogens and INNS are explicit UK climate risks and CCRA3 already drew on MO climate evidence. **Opportunity:** CCRA4 (2026\u201327) is a near-term, high-value insertion point to expand the climate-pest projections feeding the next assessment and NAP4."
+  - ref: "POL-002"
+    name: "National Adaptation Programme (NAP3) 2023\u201328"
+    url: "https://www.gov.uk/government/publications/third-national-adaptation-programme-nap3"
+    relevance: 2
+    status: "Opportunity"
+    why: "Shifting pest/pathogen ranges are a land-and-nature adaptation risk; MO climate-suitability modelling could inform how surveillance and tree-health measures adapt, linking CCRA evidence to deliverable actions. Not yet a defined input."
+  - ref: "POL-001"
+    name: "Environmental Improvement Plan 2025"
+    url: "https://www.gov.uk/government/publications/environmental-improvement-plan"
+    relevance: 2
+    status: "Opportunity"
+    why: "Woodland and habitat **condition** targets and INNS commitments under the Environment Act 2021 are sensitive to pest/pathogen pressure; MO research could inform the biosecurity-relevant elements and the relevant EIF condition indicators."
+  - ref: "POL-003"
+    name: "UK National Biodiversity Strategy and Action Plan 2025"
+    url: "https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan"
+    relevance: 2
+    status: "Opportunity"
+    why: "Delivers GBF Target 6 (invasive non-native species); MO climate-suitability tools could help anticipate which INNS become establishment-capable under UK warming."
+  - ref: "POL-036"
+    name: "NAP Biodiversity & Ecosystems Working Group"
+    url: "https://www.gov.uk/government/publications/third-national-adaptation-programme-nap3"
+    relevance: 2
+    status: "Opportunity"
+    why: "Advises on biodiversity/ecosystem adaptation, where pest-driven habitat condition change is a climate\u2013nature interaction MO research quantifies. A natural, not-yet-used translation route for the science into NAP reporting."
+  - ref: "POL-025"
+    name: "UK National Climate Science Partnership"
+    url: "https://ukncsp.org"
+    relevance: 2
+    status: "Opportunity"
+    why: "Met Office-led; the coordinating mechanism for translating climate data into CCRA/NAP and policy. The pest-science-specific channel is latent rather than active \u2014 an enabler to route climate-pest outputs into policy."
+  - ref: "POL-026"
+    name: "Natural Capital & Ecosystem Assessment Programme"
+    url: "https://www.gov.uk/government/publications/natural-capital-and-ecosystem-assessment-ncea-programme/natural-capital-and-ecosystem-assessment-ncea-programme"
+    relevance: 2
+    status: "Opportunity"
+    why: "Its ecosystem-condition baselines intersect with tree-health/pest impacts on woodland condition; interoperable MO and NCEA data could jointly attribute condition change."
+  - ref: "POL-009"
+    name: "Land Use Framework 2025"
+    url: "https://www.gov.uk/government/consultations/land-use-in-england-a-framework-for-the-future"
+    relevance: 1
+    status: "Opportunity"
+    why: "Spatial woodland-expansion decisions could screen for climate-pest risk, but this is not yet an articulated function."
+  - ref: "POL-013"
+    name: "Environmental Land Management schemes"
+    url: "https://www.gov.uk/government/publications/environmental-land-management-schemes-overview"
+    relevance: 1
+    status: "Opportunity"
+    why: "SFI / Countryside Stewardship tree-health and biosecurity actions could draw on MO risk mapping for pest-resilient establishment; linkage currently indirect."
+  - ref: "POL-040 / POL-030"
+    parts:
+      - {label: "Nature for Climate Fund", url: "https://www.gov.uk/government/publications/nature-for-climate-fund"}
+      - {label: "Woodland Carbon Code", url: "https://www.woodlandcarboncode.org.uk/"}
+    relevance: 1
+    status: "Opportunity"
+    why: "Carbon **permanence** (100-year) is threatened by pest/pathogen loss; MO tree-health risk evidence is relevant to additionality/permanence risk but not yet integrated."
+  - ref: "POL-018 / POL-048"
+    parts:
+      - {label: "Seventh Carbon Budget", url: "https://www.theccc.org.uk/publication/the-seventh-carbon-budget/"}
+      - {label: "Biomass Strategy", url: "https://www.gov.uk/government/publications/biomass-strategy"}
+    relevance: 1
+    status: "Opportunity"
+    why: "Forestry sink and biomass-feedstock assumptions implicitly depend on tree health under climate change; relevance is real but distal."
+  - ref: "POL-027"
+    name: "UK Environmental Observation Framework"
+    url: "https://ukeof.org.uk/"
+    relevance: 1
+    status: "Opportunity"
+    why: "Coordinates monitoring; could reduce duplication between MO / Forest Research surveillance and other observation networks."
+  - ref: "\u2020"
+    name: "Observatree (citizen-science tree-health surveillance)"
+    url: "https://www.observatree.org.uk/"
+    relevance: 2
+    status: "Opportunity"
+    why: "Survey effort could be targeted using MO climate-suitability maps to focus volunteers where establishment risk is rising."
+
+indicators_intro: "A scan of *indicators_climate_nature.xlsx* across its framework sheets for invasive-species, plant-pest/pathogen, tree-health and phenology indicators. Six map clearly onto MO outputs \u2014 the climate-pest distribution/establishment modelling, crop-pest phenology, and the Spring Index (which MO produces via the *State of the UK Climate* phenology supplement). Framework and application columns link to the specific report / indicator page where each is defined or used (from the workbook Source_URL column where present)."
+
+# Targeted links: framework -> the page/report where the indicator is defined/listed;
+# application -> where the indicator use is documented. Prefer the indicators workbook Source_URL
+# column; leave plain text if no deep link can be verified.
+indicator_rows:
+  - ref: "IND-E-053"
+    name: "Distribution of invasive non-native species and plant pests and diseases"
+    framework: "[[Environmental Indicator Framework (EIF)|https://www.gov.uk/government/collections/environmental-indicator-framework]]"
+    application: "[[EIP 2025|https://www.gov.uk/government/publications/environmental-improvement-plan]] (Environment Act 2021); GBF Target 6"
+  - ref: "IND-E-052"
+    name: "Abatement of the number of invasive non-native species entering and establishing"
+    framework: "[[Environmental Indicator Framework (EIF)|https://www.gov.uk/government/collections/environmental-indicator-framework]]"
+    application: "[[EIP 2025|https://www.gov.uk/government/publications/environmental-improvement-plan]] (Environment Act 2021); GBF Target 6"
+  - ref: "IND-C-107"
+    name: "Invasive non-native species \u2013 number of new establishments (UK)"
+    framework: "[[CCC Adaptation Monitoring Framework 2023\u201325|https://www.theccc.org.uk/publication/progress-in-adapting-to-climate-change-2025/]]"
+    application: "[[NAP3|https://www.gov.uk/government/publications/third-national-adaptation-programme-nap3]] / CCRA (Climate Change Act 2008, s.58)"
+  - ref: "IND-C-113"
+    name: "Incidence of crop and livestock pests and diseases (UK)"
+    framework: "[[CCC Adaptation Monitoring Framework 2023\u201325|https://www.theccc.org.uk/publication/progress-in-adapting-to-climate-change-2025/]]"
+    application: "[[NAP3|https://www.gov.uk/government/publications/third-national-adaptation-programme-nap3]] / CCRA (Climate Change Act 2008, s.58)"
+  - ref: "IND-J-042"
+    name: "Pressure from invasive non-native species \u2013 establishment rate"
+    framework: "[[JNCC UKBI 2025 \u2014 Pressure from invasive species|https://jncc.gov.uk/our-work/ukbi-invasive-species/]]"
+    application: "[[NBSAP 2025|https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan]]; Environment Act 2021 species targets"
+  - ref: "IND-J-063"
+    name: "Spring Index (phenology)"
+    framework: "[[JNCC UKBI 2025 \u2014 Spring Index|https://jncc.gov.uk/our-work/ukbi-spring-index/]]"
+    application: "[[NBSAP 2025|https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan]]; Environment Act 2021 species targets"
+
+methods:
+  - "**MO research scoped** from the supplied bibliography (Hemming ResearchGate profile, 127 publications), filtering to plant pest/pathogen/biosecurity and adjacent vector work; the tool was characterised by inspecting the web app and its specific-pests reference list (PDF), confirming it as a degree-day thermal-accumulation model."
+  - "**Partnership and research-to-policy channels** confirmed via the Met Office blog (21 Mar 2024) and Defra\u2019s UK Plant Health Information Portal (contingency-planning and strategy pages, accessed June 2026), plus GOV.UK APHA surveillance guidance."
+  - "**Policy candidates** drawn from the governance workbook\u2019s Policies & Activities sheet (uk_climate_nature_governance; the POL records scored are stable across v8\u2013v15), filtered first on the Biosecurity / Nature / Land sector tags, then all records screened for a plausible pest/pathogen/tree-health dependency; supplemented with operational activities (risk register, contingency plans, Observatree) absent from the workbook."
+  - "**Scoring** used two independent axes. *Relevance* (materiality of MO pest science to the policy): direct/named input = 3; defined risk-or-adaptation evidence role = 2; implicit dependency = 1. *Status*: Current where MO science already informs the activity (documented), Opportunity where the use is credible but not yet realised. Kept separate so a high-materiality policy not yet using the science (e.g. CCRA4, EIP 2025) is not mistaken for a low-relevance one."
+  - "**Indicator scan** of biodiversity_indicators_manual_v6 across its framework sheets, keyword-filtered for invasive/non-native species, plant pests and pathogens, tree health and phenology, then narrowed to indicators whose measured quantity MO outputs could directly inform (distribution/establishment modelling, crop-pest phenology, the temperature-driven Spring Index)."
+
+gaps: "The workbook holds no records for the GB Plant Health Risk Register, contingency plans or Observatree \u2014 these are the highest-relevance operational activities and are arguably worth adding as POL records. Relevance for the carbon / biomass / land-use policies is inference, not evidenced in current policy text. The tool covers a small predefined pest set; pathogen (versus insect) coverage is thinner, so pathogen-heavy policies (e.g. *Phytophthora*, *Xylella*) are served more by the microclimate work than by the public tool."
+
+references_primary:
+  - "Hemming, D.L. & Macneill, K. (2020) Use of meteorological data in biosecurity. *Emerging Topics in Life Sciences* 4(5)."
+  - "Mosedale, J., Eyre, D., Korycinska, A., Maclean, I.M.D. et al. (2024) Mechanistic microclimate models and plant pest risk modelling. *Journal of Pest Science*."
+  - "Bradshaw, C., Hemming, D.L., Baker, R., Korycinska, A. et al. (2019) A novel approach for exploring climatic factors limiting current pest distributions: *Bemisia tabaci* in north-west Europe and potential future UK establishment under climate change. *PLOS ONE*."
+  - "Hemming, D.L., Bell, J., Collier, R., Scaife, A.A. et al. (2022) Likelihood of extreme early flight of *Myzus persicae* across the UK. *Journal of Economic Entomology*."
+  - "Bradshaw, C., Hemming, D.L., Mona, T., Gilligan, C.A. et al. (2024) Transmission pathways for the stem rust pathogen into Central and East Asia and the role of the alternate host, barberry. *Environmental Research Letters*."
+  - "Urhausen, S., Bradshaw, C., Davie, J., Zhang, F. et al. (2024) Climate-related risk to maize crops in China from Fall Armyworm, *Spodoptera frugiperda*. *Journal of Pest Science*."
+  - "Crowhurst, R. & Hemming, D.L. (2022) Forecasting is not just for the weather (peach-potato aphid risk). *The Vegetable Farmer*, April 2022."
+
+references_other:
+  - "Met Office UK Climate-Pest Risk web tool and specific-pests reference list. [[metoffice.gov.uk/hadobs/biosecurity_uk_hist|https://www.metoffice.gov.uk/hadobs/biosecurity_uk_hist/]]"
+  - "Met Office (21 Mar 2024) Met Office scientists protecting our forests from pests and pathogens (blog)."
+  - "Defra, UK Plant Health Information Portal \u2014 Contingency planning; Plant Biosecurity Strategy pages (accessed June 2026)."
+  - "GOV.UK, APHA plant health surveillance programme."
+  - "uk_climate_nature_governance_v15.xlsx, Policies & Activities sheet (links taken from the Link column)."
+  - "biodiversity_indicators_manual_v6.xlsx, framework indicator sheets (EIF, CCC, JNCC)."

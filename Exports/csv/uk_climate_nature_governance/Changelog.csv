@@ -1,0 +1,13 @@
+Workbook,uk_climate_nature_governance.xlsx,,
+Version,21,,
+Last updated,2026-07-06,,
+,,,
+"Changelog authoritative from v16 (2026-07-06). Earlier per-version detail was not reconstructed; see archived version-suffixed files (…_vN_superseded_YYYY-MM-DD.xlsx) and Data Dictionary marker rows. On each future write: bump Version, append one row below, then archive the prior canonical file as uk_climate_nature_governance_v<Version>.xlsx with _superseded_<date>.",,,
+,,,
+Version,Date,Summary,Author
+v16,2026-07-06,"Reciprocal Intl_Links column added to Public Bodies, Legislation and Policies & Activities; populated by inverting international UK_Links (59 UK records back-linked). UK<->international linkage now bidirectional.",
+v17,2026-07-06,IFW references bracketed in Indicator_Frameworks columns; Statutory_Role Data Dictionary entry corrected to [LEG-NNN]; cross-reference convention note added to Data Dictionary.,
+v18,2026-07-06,Adopted canonical filename convention (version integer removed from filename); Changelog sheet and Version cell added. Prior file archived as uk_climate_nature_governance_v17_superseded_2026-07-06.xlsx.,
+v19,2026-07-13,Added three Marine & Fisheries policy/activity records absent from the workbook: POL-067 Fisheries Act 2020 climate change objective / Joint Fisheries Statement & Fisheries Management Plans; POL-068 shellfish official-control & HAB/biotoxin monitoring (Cefas for FSA/FSS); POL-069 UK Blue Carbon Evidence Partnership. Cross-Reference Index rows added. Arose from the prospective marine-heatwave policy-relevance assessment.,
+v20,2026-07-13,Added ORG-043 Food Standards Agency and ORG-044 Food Standards Scotland (Non-Ministerial Departments) to Public Bodies + Cross-Reference Index; POL-068 Lead_Organisation updated to reference [ORG-043] and [ORG-044] (caveat removed).,
+v21,2026-07-15,"Promoted curated cross-refs from narrative prose into typed link columns for the governance diagram (see ORPHAN_CODES_promotion_analysis). NEW Public Bodies columns: Related_Bodies (ORG national analogues: ORG-009-ORG-028, ORG-027-ORG-029, ORG-025-ORG-024) and Affecting_Policies (ORG-006/011/022 -> POL-039). Parent_Programme POL-015 -> [POL-047]. Related_Policy_Links additions on POL-028/037/040/041/043/044/045/046/050/053/055/056/057/058/059/060/061/066. POL-028 Intl_Links -> [INT-P-032] (reciprocal in international v14). 'Within scope' ORG->POL mentions (e.g. ORG-005->POL-039) and DfT->POL-004 kept as prose only.",Cowork (Claude)

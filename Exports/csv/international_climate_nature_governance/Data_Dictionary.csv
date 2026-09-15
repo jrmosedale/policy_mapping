@@ -1,0 +1,42 @@
+Sheet,Column_Name,Data_Type,Description,Controlled_Vocabulary,Links_To
+All sheets,Record_ID,Text (key),Unique primary key for each record,INT-L-NNN (Conventions) | INT-O-NNN (Bodies) | INT-P-NNN (Policies),Primary key; joins across sheets
+All sheets,Name,Text,"Official name of the convention, body or policy",Free text — authoritative name,
+All sheets,Record_Type,Controlled,Top-level classification,International Convention | International Body | International Policy,
+All sheets,General_Type,Controlled,Detailed classification within Record_Type,Convention / Treaty | Protocol / Agreement | Framework / Decision | Charter / Declaration | UN Intergovernmental Body | Treaty Body / COP | Intergovernmental Platform | Regional Body | International Organisation | NGO / Campaign | Finance / Business Body | Science / Research Body | Strategy / Framework | Assessment / Report | Working Group / Forum | Pledge / Declaration | Campaign / NGO Initiative | Standard / Certification | Finance Initiative,
+All sheets,Policy_Sector,Controlled,Policy domain(s) — pipe-separated if multiple,Climate | Nature / Biodiversity | Marine | Land / Agriculture / Planning | Water | Biosecurity | Finance / Governance / Data | Cross-cutting | Air Quality | International,Same controlled vocab as UK governance workbook
+All sheets,UK_Links,Text (ref),UK records only. Bracketed [ORG/LEG/POL-NNN] + name. Non-UK links moved to Intl_Links.,[ORG-NNN]/[LEG-NNN]/[POL-NNN] Name,UK governance workbook Record_IDs
+All sheets,Official_Link,URL,Official website or treaty text URL,https://...,
+All sheets,Date_Last_Updated,Text,Month/year entry was last verified,Month YYYY,
+Conventions & Treaties,Year_Adopted,Text,Year convention/treaty was adopted or opened for signature,YYYY,
+Conventions & Treaties,Year_In_Force,Text,Year convention/treaty entered into force,YYYY or 'Pending',
+Conventions & Treaties,Number_Of_Parties,Text,Number of current state parties or signatories,NNN Parties or 'NNN+ ratifications needed',
+Conventions & Treaties,Secretariat_Location,Text,Location of the treaty secretariat,"City, Country",
+Conventions & Treaties,Key_Provisions,Text,Summary of key climate/nature provisions,Free text,
+Conventions & Treaties,Parent_Convention,Text (ref),"Hard link. Resolvable parent record(s) only, bracketed [code] + name; prose removed. — if primary.",Match to Name in Conventions & Treaties sheet | — (if primary),Self-referential join
+Conventions & Treaties,Geographic_Extent,Text,Geographic coverage,"Global | Regional name (e.g., North-East Atlantic) | Pan-European",
+Conventions & Treaties,Status,Text,Current status of the convention,In force | In force (amended) | Not yet in force | Pending,
+Conventions & Treaties,UK_Ratification,Text,UK ratification status and date,Ratified YYYY | Not a party | Continues as independent party post-Brexit,
+Associated Bodies,Statutory_Basis,Text,Legal instrument(s) establishing this body,Free text — cites parent treaty/convention,Links to Conventions & Treaties Name
+Associated Bodies,Parent_Convention,Text (ref),Convention or treaty this body serves,Match to Name in Conventions & Treaties sheet,Self-referential join
+Associated Bodies,Remit_And_Powers,Text,Detailed description of remit and powers,Free text,
+Associated Bodies,Regulatory_Powers_Keywords,Text,Dot-separated keyword expressions,Advisory only | Decision-maker | Standard-setter | Regulator | Financer | Data provider | Science synthesiser | Campaigner | MPA designator | No enforcement powers etc.,
+Associated Bodies,Secretariat_Location,Text,Location of body secretariat,"City, Country",
+Associated Bodies,UK_Representation,Text,How UK engages with / contributes to this body,Free text — names UK institutions and roles,Names should match Statutory Bodies in UK governance workbook
+Intl Policies & Activities,Year_Status,Text,Year published and current status,YYYY – YYYY or YYYY (status note),
+Intl Policies & Activities,Parent_Convention,Text (ref),Convention or treaty underpinning this policy,Match to Name in Conventions & Treaties | — if independent,
+Intl Policies & Activities,Lead_Body,Text (ref),Bracketed [INT-O-NNN] + name where catalogued; otherwise descriptive (body not catalogued).,Match to Name in Associated Bodies sheet,
+Intl Policies & Activities,Key_Commitments,Text,"Summary of key commitments, targets and activities",Free text,
+Intl Policies & Activities,UK_Engagement,Text,How UK engages with this policy,Free text,
+EU Legislation,Record_ID,Text (key),Unique primary key for each EU legislative instrument,EU-L-NNN (EU Legislation); designed for future merge with INT-L-NNN,Primary key
+EU Legislation,Year_Adopted,Text,Year directive/regulation was adopted or entered into force,YYYY,
+EU Legislation,Year_In_Force,Text,Year the instrument entered into force or was implemented,YYYY or Pending,
+EU Legislation,Number_Of_Parties,Text,Number of EU Member States bound; UK status noted separately,"""27 EU Member States"" | ""27 EU Member States; UK retained domestically"" | ""27 EU Member States; UK not applicable post-Brexit""",
+EU Legislation,Secretariat_Location,Text,Lead EU institution responsible for the instrument and its location,"DG name (European Commission) | City, Country",
+EU Legislation,Key_Provisions,Text,"Summary of key provisions, targets and obligations",Free text,
+EU Legislation,Parent_Convention,Text (ref),"Parent EU instrument (e.g. parent Directive or enabling Regulation); or ""—"" if primary",Match to Name in EU Legislation sheet or Conventions & Treaties sheet | — (if primary),Self-referential join; also links to Conventions & Treaties
+EU Legislation,Geographic_Extent,Text,Geographic coverage noting UK status explicitly,EU (27 member states); UK note,
+EU Legislation,Status,Text,Current status of the instrument,In force | In force (as amended) | In force (retained in UK) | In force (Phase N: YYYY–YYYY) | Pending,
+EU Legislation,UK_Ratification,Text,"UK status: whether retained as domestic law, implemented equivalent, or not applicable post-Brexit; with LEG-ID where available","""Retained as [LEG-ID]"" | ""Retained domestically via [instrument]"" | ""UK implemented equivalent: [instrument]"" | ""UK not bound post-Brexit"" | ""Not applicable — UK left EU""",Links to UK Legislation sheet LEG-IDs
+All sheets,Intl_Links,Cross-reference,"Non-UK record cross-references (conventions, bodies, intl policies, EU legislation). Bracketed codes.",[INT-L/INT-O/INT-P/EU-L-NNN] Name,International workbook Record_IDs
+Conventions & Treaties; Associated Bodies,Acronym,Text,"Short form / acronym, split out from Name (Name now holds full title only).",,
+All sheets,Cross-reference convention,Convention,"All cross-reference codes must be wrapped in square brackets — [LEG-NNN], [ORG-NNN], [POL-NNN], [INT-L/INT-O/INT-P-NNN], [EU-L-NNN] and [IFW-NN] — wherever they appear in a cell, regardless of any surrounding text. Codes are the join keys used by check_links.py; unbracketed codes are invisible to integrity checking.","Square brackets mandatory. Sole exception: the Record_ID / Framework_ID primary-key columns, which are never bracketed.",

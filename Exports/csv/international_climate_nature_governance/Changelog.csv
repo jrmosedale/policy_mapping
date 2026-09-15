@@ -1,0 +1,11 @@
+Workbook,international_climate_nature_governance.xlsx,,
+Version,14,,
+Last updated,2026-07-06,,
+,,,
+"Changelog authoritative from v16 (2026-07-06). Earlier per-version detail was not reconstructed; see archived version-suffixed files (…_vN_superseded_YYYY-MM-DD.xlsx) and Data Dictionary marker rows. On each future write: bump Version, append one row below, then archive the prior canonical file as international_climate_nature_governance_v<Version>.xlsx with _superseded_<date>.",,,
+,,,
+Version,Date,Summary,Author
+v11,2026-07-06,"Seven misplaced international codes moved from UK_Links to Intl_Links and normalised to [CODE] Name (records INT-L-024, EU-L-004, EU-L-013, EU-L-018, EU-L-021, INT-P-029, INT-P-031).",
+v12,2026-07-06,IFW references bracketed in Indicator_Frameworks columns; cross-reference convention note added to Data Dictionary.,
+v13,2026-07-06,Adopted canonical filename convention; Changelog sheet and Version cell added. Prior file archived as international_climate_nature_governance_v12_superseded_2026-07-06.xlsx.,
+v14,2026-07-15,Added Intl_Links related cross-refs (INT-O-015->INT-O-025 GCOS/GOOS; INT-O-024->INT-O-025 IOC/GOOS; INT-P-002->INT-P-032 AR6/SROCC; INT-P-011->INT-P-033 UN Decades) and reciprocal UK_Links INT-P-032 -> [POL-028] for the UKMS/SROCC bridge. Supports governance diagram rebuild.,Cowork (Claude)

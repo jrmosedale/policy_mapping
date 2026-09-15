@@ -1,0 +1,13 @@
+Indicator Type,Description
+Species,"Metrics tracking populations, abundance, diversity, or extinction risk of species"
+Habitat / Land,"Metrics on extent, condition, or change in ecosystems and land cover"
+Ecosystem Services,"Benefits provided by nature — provisioning, regulating, cultural"
+Pressures / Threats,"Drivers of biodiversity loss (pollution, land change, climate, overuse)"
+Valuation,Monetary or quantified economic value of natural capital and services
+Policy / Response,"Measures tracking governance, protected areas, restoration actions"
+,
+Climate / Weather Dependency Scale,
+0 – None,"No relevance to climate or weather. The calculation is based entirely on administrative records, GIS area measurements, or financial data. Examples: protected area extent, certification area, expenditure data."
+1 – Low,"Theoretically affected by climate as a background driver, but climate/weather data are not used in the calculation. Examples: habitat condition from field surveys, conservation status assessments, cumulative INNS counts."
+2 – Medium,"Climate or weather data are used indirectly within underlying models, or inter-annual weather variability is a known and significant confounder of the indicator value. Examples: bird population indices (BBS counts affected by spring weather), fish stock assessments (SST in productivity models), pollinator occupancy models."
+3 – High,"Weather or climate data are a direct, explicit input to the calculation methodology, or the indicator is specifically designed to measure a climate-related biological response. Examples: butterfly abundance indices (weather-corrected flight activity), wintering waterbird counts (cold-weather movements), Spring Index (explicitly regressed on temperature), bat activity counts (temperature thresholds), climate vulnerability index (uses climate projections as primary input)."

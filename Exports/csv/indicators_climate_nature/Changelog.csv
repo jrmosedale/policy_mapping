@@ -1,0 +1,13 @@
+Workbook,indicators_climate_nature.xlsx,,
+Version,10,,
+Last updated,2026-07-07,,
+,,,
+"Changelog authoritative from v16 (2026-07-06). Earlier per-version detail was not reconstructed; see archived version-suffixed files (…_vN_superseded_YYYY-MM-DD.xlsx) and Data Dictionary marker rows. On each future write: bump Version, append one row below, then archive the prior canonical file as indicators_climate_nature_v<Version>_superseded_<YYYY-MM-DD>.xlsx (per WORKBOOK_WRITE_PROTOCOL.md §5).",,,
+,,,
+Version,Date,Summary,Author
+v1,,Initial framework build; new columns and data-gaps audit (date not recorded; see Data Dictionary marker rows).,
+v5,,Additions / changes per v5 (date not recorded; see Data Dictionary marker rows).,
+v7,2026-07-06,Cross-reference convention note added to Data Dictionary.,
+v8,2026-07-06,Adopted canonical filename convention; renamed from biodiversity_indicators_manual.xlsx to indicators_climate_nature.xlsx; Changelog sheet and Version cell added. Prior file archived as biodiversity_indicators_manual_v7_superseded_2026-07-06.xlsx.,
+v9,2026-07-07,v9: added Source_URL column to CCC Indicators sheet; populated targeted CCC-report deep links for IND-C-056 (Progress in reducing emissions 2025) and IND-C-110 (Progress in adapting to climate change 2025). Data Dictionary updated. Prior file archived as indicators_climate_nature_v8_superseded_2026-07-07.xlsx.,
+v10,2026-07-07,v10: rolled Source_URL across all CCC Indicators (report-level deep links: Mitigation rows -> CCC Progress in reducing emissions 2025; Adaptation rows -> CCC Progress in adapting to climate change 2025); added Source_URL column to JNCC sheet with verified per-indicator pages for IND-J-014/045/063; Data Dictionary updated; corrected archive-naming note to canonical form. Prior file archived as indicators_climate_nature_v9_superseded_2026-07-07.xlsx.,

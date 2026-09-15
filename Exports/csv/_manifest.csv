@@ -1,0 +1,32 @@
+workbook,workbook_version,sheet,csv_file,columns,data_rows,records,notes
+uk_climate_nature_governance.xlsx,21,Public Bodies,csv/uk_climate_nature_governance/Public_Bodies.csv,18,44,44,
+uk_climate_nature_governance.xlsx,21,Legislation,csv/uk_climate_nature_governance/Legislation.csv,16,67,67,
+uk_climate_nature_governance.xlsx,21,Policies & Activities,csv/uk_climate_nature_governance/Policies_and_Activities.csv,19,67,67,
+uk_climate_nature_governance.xlsx,21,Data Dictionary,csv/uk_climate_nature_governance/Data_Dictionary.csv,6,33,,
+uk_climate_nature_governance.xlsx,21,Cross-Reference Index,csv/uk_climate_nature_governance/Cross_Reference_Index.csv,8,177,177,
+uk_climate_nature_governance.xlsx,21,Changelog,csv/uk_climate_nature_governance/Changelog.csv,4,10,,"key/value block (Workbook, Version, Last updated), then a Version|Date|Summary|Author table; row 1 is not a header; 1 merged range(s): the text sits in the first cell of each merged range; the other cells are empty"
+international_climate_nature_governance.xlsx,14,Conventions & Treaties,csv/international_climate_nature_governance/Conventions_and_Treaties.csv,20,24,24,
+international_climate_nature_governance.xlsx,14,EU Legislation,csv/international_climate_nature_governance/EU_Legislation.csv,19,22,22,
+international_climate_nature_governance.xlsx,14,Associated Bodies,csv/international_climate_nature_governance/Associated_Bodies.csv,18,35,35,
+international_climate_nature_governance.xlsx,14,Intl Policies & Activities,csv/international_climate_nature_governance/Intl_Policies_and_Activities.csv,16,25,25,
+international_climate_nature_governance.xlsx,14,Data Dictionary,csv/international_climate_nature_governance/Data_Dictionary.csv,6,41,,
+international_climate_nature_governance.xlsx,14,Cross-Reference Index,csv/international_climate_nature_governance/Cross_Reference_Index.csv,6,103,103,
+international_climate_nature_governance.xlsx,14,Changelog,csv/international_climate_nature_governance/Changelog.csv,4,8,,"key/value block (Workbook, Version, Last updated), then a Version|Date|Summary|Author table; row 1 is not a header; 1 merged range(s): the text sits in the first cell of each merged range; the other cells are empty"
+indicators_climate_nature.xlsx,10,Indicator Framework,csv/indicators_climate_nature/Indicator_Framework.csv,12,10,,3 merged range(s): the text sits in the first cell of each merged range; the other cells are empty
+indicators_climate_nature.xlsx,10,EIF Indicators,csv/indicators_climate_nature/EIF_Indicators.csv,18,66,66,
+indicators_climate_nature.xlsx,10,CCC Indicators,csv/indicators_climate_nature/CCC_Indicators.csv,19,111,111,
+indicators_climate_nature.xlsx,10,JNCC UK Biodiversity Indicators,csv/indicators_climate_nature/JNCC_UK_Biodiversity_Indicators.csv,19,77,77,
+indicators_climate_nature.xlsx,10,SoN 2023 Indicators,csv/indicators_climate_nature/SoN_2023_Indicators.csv,17,32,32,
+indicators_climate_nature.xlsx,10,EEA Biodiversity Indicators,csv/indicators_climate_nature/EEA_Biodiversity_Indicators.csv,17,62,62,
+indicators_climate_nature.xlsx,10,BIP Indicators,csv/indicators_climate_nature/BIP_Indicators.csv,18,81,81,
+indicators_climate_nature.xlsx,10,IPBES Indicators,csv/indicators_climate_nature/IPBES_Indicators.csv,17,143,143,
+indicators_climate_nature.xlsx,10,CBD GBF Indicators,csv/indicators_climate_nature/CBD_GBF_Indicators.csv,17,206,202,4 section-banner row(s) have Record_ID but no Indicator_Name; not indicator records
+indicators_climate_nature.xlsx,10,SDG Indicators,csv/indicators_climate_nature/SDG_Indicators.csv,18,173,173,
+indicators_climate_nature.xlsx,10,SDG Goal Lookup,csv/indicators_climate_nature/SDG_Goal_Lookup.csv,6,48,,
+indicators_climate_nature.xlsx,10,GBF Target Lookup,csv/indicators_climate_nature/GBF_Target_Lookup.csv,6,29,,
+indicators_climate_nature.xlsx,10,SDG Target Lookup,csv/indicators_climate_nature/SDG_Target_Lookup.csv,5,127,,
+indicators_climate_nature.xlsx,10,References,csv/indicators_climate_nature/References.csv,5,24,,
+indicators_climate_nature.xlsx,10,Data Dictionary,csv/indicators_climate_nature/Data_Dictionary.csv,6,78,,2 merged range(s): the text sits in the first cell of each merged range; the other cells are empty
+indicators_climate_nature.xlsx,10,Legend,csv/indicators_climate_nature/Legend.csv,2,11,,
+indicators_climate_nature.xlsx,10,NCF Legend,csv/indicators_climate_nature/NCF_Legend.csv,5,5,,
+indicators_climate_nature.xlsx,10,Changelog,csv/indicators_climate_nature/Changelog.csv,4,10,,"key/value block (Workbook, Version, Last updated), then a Version|Date|Summary|Author table; row 1 is not a header; 1 merged range(s): the text sits in the first cell of each merged range; the other cells are empty"

@@ -143,10 +143,15 @@ next scan (`Management/protocols/POLICY_SCAN_PROTOCOL.md` §5) before any record
 field better than the assistant does. If something is plainly wrong, say so, and it can be marked
 `rejected` in the queue with a reason rather than silently dropped.
 
-**If you are working from a ported copy of `PA_toolkit/` alone**, the queue file will not be
-reachable. The run must then hand you a copy-paste block instead. Paste it into
-`Data/pending_additions.md` when you are next at the full project — it takes seconds, and it is the
-only step in this workflow that depends on you remembering.
+**If the assistant cannot safely edit the queue** — the Copilot Studio agent writes to SharePoint
+through a connector that replaces whole files — it writes one file per run to `Data/pending_inbox/`
+instead, and a maintainer merges that folder into the queue at the next triage. Nothing is lost, and
+no run can overwrite another's rows.
+
+**If you are working from a ported copy of `PA_toolkit/` alone**, neither file will be reachable.
+The run must then hand you a copy-paste block instead. Paste it into `Data/pending_additions.md`
+when you are next at the full project — it takes seconds, and it is the only step in this workflow
+that depends on you remembering.
 
 Anything eventually written to a workbook goes through
 `Management/protocols/WORKBOOK_WRITE_PROTOCOL.md`: the target schema, its controlled vocabulary, its

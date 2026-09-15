@@ -1,0 +1,5 @@
+Name (30 characters maximum in Agent Builder):
+Climate-Nature Policy Helper
+
+Description (1,000 characters maximum):
+Answers questions about UK and international climate–nature governance (legislation, public bodies, policies, international conventions) and nature and climate indicators, from the Met Office Nature Climate Indicators knowledge base. Traces governance chains, finds indicators that take a climate input, checks whether a record is already held, and helps Met Office scientists prepare research → UK policy relevance assessments using the project's fixed method and two-axis scoring, producing a YAML config ready to render. Read-only: it proposes changes but never edits the workbooks.

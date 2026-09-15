@@ -1,0 +1,50 @@
+Code,Short_Title,Full_Text_Official,Policy_Sector,Used_In_Workbook,Official_Link
+SDG GOALS,,,,,
+SDG-1,No Poverty,End poverty in all its forms everywhere.,Social / Economic,No,https://sdgs.un.org/goals/goal1
+SDG-2,Zero Hunger,"End hunger, achieve food security and improved nutrition and promote sustainable agriculture.",Food / Agriculture,Yes,https://sdgs.un.org/goals/goal2
+SDG-3,Good Health and Well-Being,Ensure healthy lives and promote well-being for all at all ages.,Health,No,https://sdgs.un.org/goals/goal3
+SDG-4,Quality Education,Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all.,Education,Yes,https://sdgs.un.org/goals/goal4
+SDG-5,Gender Equality,Achieve gender equality and empower all women and girls.,Governance / Social,No,https://sdgs.un.org/goals/goal5
+SDG-6,Clean Water and Sanitation,Ensure availability and sustainable management of water and sanitation for all.,Water / Biodiversity,Yes,https://sdgs.un.org/goals/goal6
+SDG-7,Affordable and Clean Energy,"Ensure access to affordable, reliable, sustainable and modern energy for all.",Energy / Climate,No,https://sdgs.un.org/goals/goal7
+SDG-8,Decent Work and Economic Growth,"Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all.",Economic,No,https://sdgs.un.org/goals/goal8
+SDG-9,"Industry, Innovation and Infrastructure","Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation.",Economic / Infrastructure,No,https://sdgs.un.org/goals/goal9
+SDG-10,Reduced Inequalities,Reduce inequality within and among countries.,Social / Economic,No,https://sdgs.un.org/goals/goal10
+SDG-11,Sustainable Cities and Communities,"Make cities and human settlements inclusive, safe, resilient and sustainable.",Urban / Land,Yes,https://sdgs.un.org/goals/goal11
+SDG-12,Responsible Consumption and Production,Ensure sustainable consumption and production patterns.,Consumption / Environment,Yes,https://sdgs.un.org/goals/goal12
+SDG-13,Climate Action,Take urgent action to combat climate change and its impacts.,Climate / Biodiversity,Yes,https://sdgs.un.org/goals/goal13
+SDG-14,Life Below Water,"Conserve and sustainably use the oceans, seas and marine resources for sustainable development.",Marine / Biodiversity,Yes,https://sdgs.un.org/goals/goal14
+SDG-15,Life on Land,"Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss.",Terrestrial / Biodiversity,Yes,https://sdgs.un.org/goals/goal15
+SDG-16,"Peace, Justice and Strong Institutions","Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels.",Governance,Yes,https://sdgs.un.org/goals/goal16
+SDG-17,Partnerships for the Goals,Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development.,Finance / Governance,Yes,https://sdgs.un.org/goals/goal17
+KEY SDG BIODIVERSITY TARGETS (selected),,,,,
+SDG-2.4,SDG-2.4,Target 2.4 – sustainable food production systems and resilient agricultural practices,,Yes,
+SDG-2.5,SDG-2.5,"Target 2.5 – maintain genetic diversity of seeds, cultivated plants and farmed/domesticated animals",,Yes,
+SDG-4.7,SDG-4.7,Target 4.7 – education for sustainable development and global citizenship,,Yes,
+SDG-6.3,SDG-6.3,"Target 6.3 – improve water quality and reduce pollution, wastewater and use of hazardous chemicals",,Yes,
+SDG-6.6,SDG-6.6,"Target 6.6 – protect and restore water-related ecosystems including wetlands, rivers and lakes",,Yes,
+SDG-11.4,SDG-11.4,Target 11.4 – strengthen protection of cultural and natural heritage,,Yes,
+SDG-12.2,SDG-12.2,Target 12.2 – sustainable management and efficient use of natural resources,,Yes,
+SDG-12.4,SDG-12.4,Target 12.4 – environmentally sound management of chemicals and waste throughout life cycle,,Yes,
+SDG-12.8,SDG-12.8,Target 12.8 – universal access to information for sustainable development and lifestyles in harmony with nature,,Yes,
+SDG-13.1,SDG-13.1,Target 13.1 – strengthen resilience and adaptive capacity to climate-related hazards and natural disasters,,Yes,
+SDG-14.1,SDG-14.1,Target 14.1 – prevent and significantly reduce marine pollution of all kinds,,Yes,
+SDG-14.2,SDG-14.2,Target 14.2 – sustainably manage and protect marine and coastal ecosystems,,Yes,
+SDG-14.3,SDG-14.3,Target 14.3 – minimize and address impacts of ocean acidification,,Yes,
+SDG-14.4,SDG-14.4,Target 14.4 – effectively regulate harvesting and end overfishing (SDG 14.4.1 official indicator),,Yes,
+SDG-14.5,SDG-14.5,Target 14.5 – conserve at least 10% of coastal and marine areas (SDG 14.5.1 official indicator),,Yes,
+SDG-15.1,SDG-15.1,"Target 15.1 – conservation, restoration and sustainable use of terrestrial and inland freshwater ecosystems (SDG 15.1.2 official indicator)",,Yes,
+SDG-15.2,SDG-15.2,"Target 15.2 – promote sustainable management of all forest types, halt deforestation",,Yes,
+SDG-15.3,SDG-15.3,Target 15.3 – combat desertification and restore degraded land and soil (SDG 15.3.1 official indicator),,Yes,
+SDG-15.4,SDG-15.4,Target 15.4 – ensure conservation of mountain ecosystems (SDG 15.4.1 official indicator),,Yes,
+SDG-15.5,SDG-15.5,Target 15.5 – take urgent action to reduce degradation of natural habitats and halt loss of biodiversity (SDG 15.5.1 official indicator: Red List Index),,Yes,
+SDG-15.6,SDG-15.6,Target 15.6 – fair and equitable sharing of benefits arising from utilisation of genetic resources,,Yes,
+SDG-15.7,SDG-15.7,Target 15.7 – take urgent action to end poaching and trafficking of protected species,,Yes,
+SDG-15.8,SDG-15.8,Target 15.8 – introduce measures to prevent introduction and reduce impacts of invasive alien species,,Yes,
+SDG-15.9,SDG-15.9,Target 15.9 – integrate ecosystem and biodiversity values into national and local planning and accounts,,Yes,
+SDG-15.a,SDG-15.a,Target 15.a – mobilize financial resources from all sources to conserve and sustainably use biodiversity,,Yes,
+SDG-16.4,SDG-16.4,"Target 16.4 – combat organised crime, including trafficking of protected wildlife",,Yes,
+SDG-17.14,SDG-17.14,Target 17.14 – enhance policy coherence for sustainable development,,Yes,
+SDG-17.18,SDG-17.18,"Target 17.18 – enhance capacity-building support for data, monitoring and accountability",,Yes,
+,,,,,
+Note: 'Yes' in Used_In_Workbook indicates the SDG goal appears in the SDG_Goals_Clean column. Source: UN 2030 Agenda for Sustainable Development (A/RES/70/1). Official SDG indicator list: https://unstats.un.org/sdgs/indicators/indicators-list/ BIP SDG linkages verified from bipindicators.net HTML pages (downloaded May 2026).,,,,,

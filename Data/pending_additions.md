@@ -13,8 +13,13 @@ approval; the queue is a candidate list, and every row still passes the screen a
 before anything is written. If you cannot reach this file, emit the rows as a copy-paste block
 labelled for pasting here. Losing them is not an option.
 
-**If you are running a policy scan:** work the `pending` rows first — they are already researched
-and generally outrank anything the watchlist turns up. Then resolve each one.
+**If you are running a policy scan:** merge `Data/pending_inbox/` into the Queue table below first
+(see the README in that folder), then work the `pending` rows — they are already researched and
+generally outrank anything the watchlist turns up. Then resolve each one.
+
+**If you cannot safely edit this file** — an assistant writing through a connector that replaces
+whole files — write your rows to `Data/pending_inbox/` instead, one file per run. Concurrent
+appends here would lose rows.
 
 **Rows are never deleted.** Resolve by changing `Status`:
 

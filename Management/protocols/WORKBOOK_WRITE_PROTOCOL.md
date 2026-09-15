@@ -87,10 +87,10 @@ A single record rarely lives in one cell. Before writing, enumerate every recipr
 
 ## 6. Verify after writing — mandatory gate
 
-**Run `finalise.py`. It is the gate and the rebuild in one command, and it will not rebuild anything from workbooks that fail the check.**
+**Run `finalise.py`. It is the gate, the rebuild and the export in one command, and it will not rebuild or export anything from workbooks that fail the check.**
 
 ```bash
-python3 Management/finalise.py               # check_links.py, then (only if clean) build_all.py
+python3 Management/finalise.py               # check_links.py, then (only if clean) build_all.py, then export_release.py
 python3 Management/finalise.py --check       # the check alone, e.g. before you start writing
 ```
 
@@ -140,6 +140,9 @@ Narrative columns are surfaced verbatim in the detail panel (so editing them upd
 Reads the canonical indicators workbook by header name. Its only hardcoded governance is `FRAMEWORK_CTX` (one governance chain per framework) — **update it by hand** when a framework's enabling legislation or lead policy changes. It also re-points its "⬡ diagram" deep-links at the newest `governance_diagram_v*.html`, so build the diagram first (which `build_all.py` does).
 
 **Parsers:** every cross-reference is bracketed (`[IFW-NN]`, `[LEG-NNN]`, …); strip brackets when parsing, e.g. `re.findall(r'\[(IFW-\d+)\]', cell)`, and always exclude the `Record_ID` / `Framework_ID` key columns.
+
+**Exports — `Management/export_release.py` → `Exports/`.**
+`finalise.py` runs this last. It writes one CSV per sheet of each canonical workbook (`Exports/csv/<workbook>/<Sheet_Name>.csv`, plus `_manifest.csv` with versions, row and record counts), converts the protocols, `METHOD_AND_SCORING.md`, the assessment user guide, the handover and `Data/pending_additions.md` to `.docx` (`Exports/docx/`), copies the two YAML templates as `.txt` (`Exports/txt/`), and writes `Exports/README.txt`. These are for tools that cannot read the workbooks or Markdown directly — a Microsoft 365 Copilot agent over SharePoint, a code interpreter, a git diff. **Never edit an export**: it changes nothing upstream and is overwritten at the next release. Files are rewritten only when their content changes, and exports whose source sheet or document has gone are removed. After editing only a protocol, `python3 Management/export_release.py` refreshes the DOCX without a full release.
 
 
 ---

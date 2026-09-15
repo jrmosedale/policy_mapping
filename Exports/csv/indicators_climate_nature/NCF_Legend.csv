@@ -1,0 +1,6 @@
+NCF_Category,NCF_Group,Description,Fill_Colour_Hex,Text_Colour_Hex
+State – Species,State,"Metrics tracking populations, abundance, distribution or extinction risk of species and genetic diversity",D6EAF8,0C3B6E
+State – Habitats,State,"Metrics on extent, condition, connectivity or change in ecosystems, habitats and land/seabed cover",D5F5E3,0B3D1E
+Pressure,Pressure,"Drivers of biodiversity and ecosystem change — pollution, land use, climate change, overexploitation, invasive species",FADBD8,6E1208
+Benefit,Benefit,"Benefits provided by nature to people — provisioning, regulating, cultural services; monetary and physical values",FDEBD0,6E3A0A
+Enabling,Enabling,"Policy responses, governance metrics, funding, data, public engagement and other enabling conditions for nature recovery",EAECEE,2C3E50

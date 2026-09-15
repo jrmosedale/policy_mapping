@@ -1,0 +1,4 @@
+# Release tooling (finalise.py runs the scripts below; export_release.py imports these).
+# finalise.py itself needs nothing beyond Python 3; check_links.py and build_all.py need openpyxl.
+openpyxl>=3.1
+python-docx>=1.1
