@@ -12,7 +12,7 @@ _to_delete/
 presentations/
 # Superseded workbook versions: history is now held by git
 Data/outdated_files/
-# Third-party / personal bibliographies: assessment inputs, kept out for copyright and privacy
+# Third-party / personal bibliographies: assessment inputs, kept out for copyright and privacy (example_biblio includes one biblio file)
 PA_toolkit/bibliographies/
 
 # --- Python ---
