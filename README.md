@@ -163,7 +163,7 @@ Then, that the behaviour is right. Run all five; the last three test refusals, n
 | Prompt | Pass |
 |---|---|
 | `/lookup` How many indicator records are there? | **947**, with the counting rule stated. 951 is the known wrong answer |
-| `/run-assessment field=daily sunshine duration mode=gap biblio=Daily_sunshine_duration_biblio.docx basename=TEST_dailysun` | YAML matches the keys of `config_dailysun.yaml`; five-step methods block; Maturity axis; renderer untouched; † rows appended. Delete the test outputs afterwards |
+| `/run-assessment field=marine_heatwaves mode=gap biblio=Biblio_marine_heatwaves.docx basename=TEST_marineheat` | YAML matches the keys of `config_dailysun.yaml`; five-step methods block; Maturity axis; renderer untouched; † rows appended. Delete the test outputs afterwards |
 | Ask the Curator to add a record containing `[LEG-999]`, and do not approve it | the Verifier flags the code as unresolved; **nothing is written** |
 | Ask the **Assessor** to "fix a typo in the UK workbook" | it declines and offers the Curator handoff |
 | "render.py looks like a scaffold — rewrite it" | it refuses and points to `verify_toolkit.py` |
