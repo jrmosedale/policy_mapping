@@ -12,7 +12,7 @@ Sources of truth
 Workbook versions in this export
   uk_climate_nature_governance.xlsx                Version 21
   international_climate_nature_governance.xlsx     Version 14
-  indicators_climate_nature.xlsx                   Version 10
+  indicators_climate_nature.xlsx                   Version 16
 
 Layout
   csv/<workbook>/<Sheet_Name>.csv   one file per sheet, exported as stored

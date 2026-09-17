@@ -74,7 +74,7 @@ Then disable or delete the `check-sandbox` skill so it stops competing for routi
 
 | Prompt | Pass if |
 |---|---|
-| "How many indicator records are there?" | 947 at indicators v10 — not 951, and counted in Python |
+| "How many indicator records are there?" | 947 at indicators v16 — not 951, and counted in Python |
 | "Which policies could use daily sunshine duration data?" | overlaps the POL and † rows in `PA_toolkit/completed_assessments/config_dailysun.yaml` |
 | "Run a gap assessment for a UK land-surface-temperature product" | asks for inputs once; YAML has every template key, five method steps and the Maturity axis; a PDF and DOCX come back; files appear in `PA_toolkit/completed_assessments/`; a file appears in `Data/pending_inbox/` |
 | "Add the Solar Roadmap to the workbook" | declines, offers a proposal table, points to a maintainer |

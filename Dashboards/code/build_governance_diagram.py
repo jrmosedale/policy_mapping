@@ -308,13 +308,32 @@ def build():
         i = r.get("Framework_ID")
         if not i or not str(i).startswith("IFW"):
             continue
+        # The detail panel's main narrative for a framework is its Policy_Purpose
+        # (workbook v15). Record count and scope move to a secondary section.
         add_node(i, r.get("Source_Framework"), "Indicator framework",
                  ["Governance, Society & Data"], "", r.get("Official_Link"),
-                 f"{r.get('Record_Count','?')} indicators. {r.get('Scope','') or ''}")
+                 r.get("Policy_Purpose"),
+                 extra=[("Coverage",
+                         f"{r.get('Record_Count','?')} indicators. {r.get('Scope','') or ''}".strip())])
+
+        lead_codes = set(codes(r.get("Lead_Organisation")))
+        key_codes = set(codes(r.get("Key_Instruments")))
+
+        # Lead organisation keeps its own hard (solid) edge: ORG -> IFW.
+        for c in lead_codes:
+            add_edge(c, i, "lead", directed=True)
+
+        # Key_Instruments — the instruments named in Policy_Purpose — are drawn
+        # SOLID. A code already carrying a lead edge is skipped so the pair is not
+        # drawn twice; the rest take precedence over the dotted indicator edge below.
+        for c in key_codes - lead_codes:
+            add_edge(i, c, "key_inst", directed=True)
+
+        # Remaining soft cross-references stay dotted.
         for c in codes(r.get("Indirect_Policy_Links")):
+            if c in key_codes or c in lead_codes:
+                continue
             add_edge(i, c, "indicator", directed=True)
-        for c in codes(r.get("Lead_Organisation")):
-            add_edge(c, i, "lead", directed=True)                # body owns/produces framework: ORG -> IFW (hard)
 
     # ---------- prune edges whose endpoints are unknown (defensive) ----------
     edges = [e for e in edges if e["a"] in nodes and e["b"] in nodes]
@@ -344,7 +363,7 @@ def build():
             "nodes": len(nodes), "edges": len(edges),
             "by_fam": {p: sum(1 for x in nodes.values() if x["fam"] == p) for p in FAMILY},
             "by_type": {t: sum(1 for e in edges if e["type"] == t)
-                        for t in ["enabling", "lead", "parent", "funding", "related", "intl_hard", "intl_soft", "indicator"]},
+                        for t in ["enabling", "lead", "parent", "funding", "related", "intl_hard", "intl_soft", "key_inst", "indicator"]},
         },
     }
 
@@ -541,7 +560,8 @@ footer{padding:5px 16px;font-size:9px;color:var(--tx3);border-top:1px solid var(
       <li><b>Solid</b> = hard links (enabling legislation, lead org/dept, parent/child).</li>
       <li><b>Dashed</b> = soft links (related / cross-reference, funded-by).</li>
       <li><b>Double line</b> = UK↔international bridge (solid = ratified/retained; dotted = thematic).</li>
-      <li><b>Dotted</b> = indicator / monitoring.</li>
+      <li><b>Solid pink</b> = key instrument &mdash; the legislation, bodies and policies named in an indicator framework&rsquo;s policy purpose.</li>
+      <li><b>Dotted</b> = indicator / monitoring (softer cross-references).</li>
     </ul>
     <p>Click any link type in the top legend to show/hide it.</p>
     <h3>How to use it</h3>
@@ -568,9 +588,10 @@ const LT={
   funding:  {label:"Funded by",                       group:"Soft",       col:"#B85C00", w:1.9, dash:"2 3", arrow:true},
   intl_hard:{label:"Int'l \u2014 hard (ratified/retained)",group:"Bridge", col:"#0E7C86", w:2.2, dash:"",  arrow:false, dbl:true},
   intl_soft:{label:"Int'l \u2014 soft (thematic)",    group:"Bridge",     col:"#0D9AA8", w:1.8, dash:"2 3", arrow:false, dbl:true},
+  key_inst: {label:"Key instrument (framework)",      group:"Monitoring", col:"#A61E4D", w:2.4, dash:"",    arrow:true},
   indicator:{label:"Indicator / monitoring",          group:"Monitoring", col:"#D6336C", w:1.9, dash:"1 4", arrow:true},
 };
-const LT_ORDER=["enabling","lead","parent","related","funding","intl_hard","intl_soft","indicator"];
+const LT_ORDER=["enabling","lead","parent","related","funding","intl_hard","intl_soft","key_inst","indicator"];
 let ltOn={}; LT_ORDER.forEach(t=>ltOn[t]=true);
 
 const BANDS=[
@@ -880,7 +901,7 @@ function exportImg(kind){
 function dl(blob,name){const u=URL.createObjectURL(blob);const a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1000);}
 
 // Narrative-column label per family (what the blurb actually is)
-const BLURB_LBL={LEG:"Key provisions","EU-L":"Key provisions",ORG:"Remit & powers","INT-O":"Remit & powers",POL:"Scope & commitments","INT-L":"Key provisions","INT-P":"Key commitments",IFW:"Scope"};
+const BLURB_LBL={LEG:"Key provisions","EU-L":"Key provisions",ORG:"Remit & powers","INT-O":"Remit & powers",POL:"Scope & commitments","INT-L":"Key provisions","INT-P":"Key commitments",IFW:"Policy purpose"};
 const CREF_RE=/\[((?:LEG|ORG|POL|IFW|INT-L|INT-O|INT-P|EU-L)-\d+)\]/g;
 // Render narrative with [CODE] tokens as hover-tooltip chips (full record name on hover).
 function codeHtml(text){return esc(text).replace(CREF_RE,(m,c)=>{const t=N[c];return t?`<span class="cref" title="${esc(t.label)}${t.acr?' ('+esc(t.acr)+')':''}">[${c}]</span>`:m;});}

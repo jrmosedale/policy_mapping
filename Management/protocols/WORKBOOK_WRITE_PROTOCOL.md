@@ -39,6 +39,7 @@ Do not proceed to write on an unreviewed proposal. Higher-risk operations (struc
 - **Sources**: confirm against primary/official sources (gov.uk, legislation.gov.uk, CBD, nature.scot, official treaty texts). State a confidence level per record; flag anything unverified rather than writing an assumed value.
 - **ID allocation**: next free integer in the family. **Never reuse a retired ID** — `POL-023` and `POL-024` are permanently retired.
 - **Controlled vocabulary**: any new `General_Type`, `Policy_Sector` token, etc. must be flagged for approval, never silently coined. Max 3 `Policy_Sector` codes per indicator; governance records uncapped.
+  `Policy_Sector` is **one vocabulary of 14 classes shared by all three workbooks** — indicators and governance alike. Do not fork it per workbook: the indicator finder and the governance diagram both filter on it, and `Health` / `Trade & Industry` are indicator-only in *use*, not indicator-only in *scope*. The authoritative list is handover §5.
 
 ## 3. Link map — what a change touches
 
@@ -132,7 +133,13 @@ Which columns become which typed edge (arrow points **from the governing entity 
 | `Funded_By` | funding | dashed (soft) · funder → funded |
 | `Related_Legislation`, `Related_Policy_Links`, `Related_Bodies`, `Affecting_Policies` | related | dashed (soft) · undirected |
 | `Intl_Links` / `UK_Links` / `UK_Ratification` | intl bridge | double line · hard if UK-ratified/retained, else soft |
+| `Key_Instruments` (Indicator Framework sheet) | key instrument | **solid** · IFW → instrument |
 | `Indicator_Frameworks`, `Indirect_Policy_Links` | indicator | dotted |
+
+**Precedence on an `IFW` row.** A code carrying a `lead` edge keeps it (already solid). Remaining
+`Key_Instruments` codes take precedence over the dotted `indicator` edge. Anything left in
+`Indirect_Policy_Links` stays dotted. `Key_Instruments` holds bracketed codes ONLY — no names —
+for the instruments named in that framework’s `Policy_Purpose`.
 
 Narrative columns are surfaced verbatim in the detail panel (so editing them updates the panel with no code change): `Remit_And_Powers`, `Scope_And_Commitments`, `Key_Provisions` / `Key_Commitments`, `Statutory_Duties`, `Regulatory_Powers_Keywords`, `Statutory_Enabling_Basis`, `UK_Ratification`, `UK_Representation`, `UK_Engagement`, plus `General_Type` / `Year` / `Status`. `[CODE]` tokens in any of them render with the full name on hover. To add a **new** narrative column to the panel, add it to `add_node(..., extra=[...])` at the relevant sheet loop.
 

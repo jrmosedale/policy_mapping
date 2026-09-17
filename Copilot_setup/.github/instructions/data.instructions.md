@@ -21,6 +21,13 @@ applyTo: "Data/**"
   - never `insert_rows` on a striped sheet; for structural change rewrite the region and re-stripe
     by final row index (even `FFFDFEFE`, odd `FFF4F6F7`);
   - append trailing rows or columns only, copying font, fill, border, alignment and number format
+  - **`insert_cols` / `insert_rows` do not move hyperlinks** — the link stays anchored to the old
+    coordinate and reappears in the new column. Append unless the sheet is known hyperlink-free.
+    In the indicators workbook the only hyperlinks are `CCC Indicators` and `JNCC UK Biodiversity
+    Indicators` cells `S15`, `S46`, `S64`.
+  - **writes to a merged cell are discarded on save** — unmerge before rewriting a sheet
+  - both of the above fail **silently**: the file saves without error. Always verify the result
+    against the live headers after any structural edit.
     from a same-parity row or the sibling cell;
   - exclude `Record_ID` / `Framework_ID` from any bracketing or regex pass;
   - never write a formula.

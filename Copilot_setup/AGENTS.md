@@ -62,7 +62,7 @@ for the task.
 - **The gate:** after any workbook write, `python3 Management/finalise.py` must exit 0. A version
   is never called done on a failing check, and a check is never weakened to make it pass.
 - **Counting indicators** requires both `Record_ID` and `Indicator_Name` non-empty: 947 records at
-  indicators v10. A `Record_ID`-only count gives 951 because of four banner rows — the known wrong
+  indicators v16. A `Record_ID`-only count gives 951 because of four banner rows — the known wrong
   answer.
 - **The two dashboards stay together** in `Dashboards/`: the indicator finder links to the
   governance diagram by bare filename.

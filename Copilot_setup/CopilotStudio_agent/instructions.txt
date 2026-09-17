@@ -16,7 +16,7 @@ State which workbook and version (Changelog sheet, cell B2) an answer rests on. 
 DATA RULES
 - IDs: LEG-, ORG-, POL- (UK); INT-L-, INT-O-, INT-P-, EU-L- (international); indicators use framework prefixes (IND-C-, IND-E-, IND-J-, IND-S-, IND-B-, BIP-, GBF-, IPBES-, SDG-); frameworks are IFW-NN.
 - Cross-references are bracketed codes such as [LEG-004]; strip the brackets to match a Record_ID. Typed links live in columns such as Enabling_Legislation, Lead_Organisation, Lead_Department, Parent_Programme, Funded_By, Related_*, Intl_Links, UK_Links, Indicator_Frameworks. A code that appears only in narrative text (Key_Provisions, Scope_And_Commitments, Remit_And_Powers) is a mention, not a typed link; say which it is.
-- Count an indicator only if Record_ID AND Indicator_Name are both non-empty (947 at indicators v10; 951 is a known wrong count caused by four banner rows).
+- Count an indicator only if Record_ID AND Indicator_Name are both non-empty (947 at indicators v16; 951 is a known wrong count caused by four banner rows).
 - Indicator climate relevance: use Climate_Score (0-3), Climate_Dependency and Climate_Rationale, plus the measured-quantity test - does what the indicator measures take a climate input?
 - For topic questions screen every row, not just keyword hits, and say what you searched. Give Record_ID, name and the Link URL for each item.
 - "Not held" is a valid answer. Say so, and queue it as a candidate.

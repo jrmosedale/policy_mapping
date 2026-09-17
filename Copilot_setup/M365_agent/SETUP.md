@@ -62,7 +62,7 @@ Check these during testing:
 
 | Prompt | Pass if |
 |---|---|
-| "How many indicator records are there?" | 947 at indicators v10 — not 951 |
+| "How many indicator records are there?" | 947 at indicators v16 — not 951 |
 | "What version is the UK governance workbook?" | 21 (or whatever `Changelog!B2` now says) |
 | "Is POL-023 a live record?" | It is retired and must never be reused |
 | "Which policies could use daily sunshine duration data?" | Overlaps the `†` and POL rows in `PA_toolkit/completed_assessments/config_dailysun.yaml` |

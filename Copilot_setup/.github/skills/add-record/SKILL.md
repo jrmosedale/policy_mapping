@@ -63,3 +63,7 @@ Report:
 - the version bump and archive filename;
 - the gate result;
 - anything left blank or flagged for a decision.
+
+> **The `Data Dictionary` sheet documents the CURRENT schema only.** It carries no history.
+> If a change adds, renames, re-scopes or removes a column, edit or delete that row in place —
+> never append a row recording the change. Version history belongs in `Changelog`.

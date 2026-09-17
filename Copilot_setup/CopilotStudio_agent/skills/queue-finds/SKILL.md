@@ -28,3 +28,7 @@ description: Records policies, activities, bodies or indicators that a run found
    `Data/pending_additions.md` at the next triage.
 6. If the write fails, put the table in your reply as a copy-paste block labelled for
    `Data/pending_additions.md`, and say the write failed. Losing the finds is not an option.
+
+> **The `Data Dictionary` sheet documents the CURRENT schema only.** It carries no history.
+> If a change adds, renames, re-scopes or removes a column, edit or delete that row in place —
+> never append a row recording the change. Version history belongs in `Changelog`.

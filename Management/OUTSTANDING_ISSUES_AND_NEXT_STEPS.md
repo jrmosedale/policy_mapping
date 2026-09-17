@@ -116,7 +116,7 @@ Carried forward from the handover's open threads:
 
 1. **MCCIP indicator scaffold** — decision pending on whether to build the topic-level 26-row scaffold (`outputs_other/MCCIP_indicators_proposed.xlsx` is the current draft). Recommended two-stage build (topic scaffold, then priority indicator-level detail).
 2. **Five blank Acronym fields** in international conventions: INT-L-011 CMS, INT-L-013 OSPAR, INT-L-015 BBNJ, INT-L-017 HELCOM, INT-L-020 LDN.
-3. **Five open schema decisions:** new General_Type "Operational service / System"; "Health" as a Policy_Sector token; a UKHSA ORG record; handling a UKHSA heat-mortality statistic; the Building Act enabling-legislation LEG ID for Part O.
+3. **Five open schema decisions:** new General_Type "Operational service / System"; ~~"Health" as a Policy_Sector token~~ (settled v11, 2026-09-16 — in the vocabulary, 38 indicator records); a UKHSA ORG record; handling a UKHSA heat-mortality statistic; the Building Act enabling-legislation LEG ID for Part O.
 4. **Scale the MO research→policy relevance rubric** (piloted on 5 entries) to the remaining ~41 policy records — pending three design questions: scope of `Cur_MO`; whether Supplier entries share the main matrix or a separate tab; the confidence floor for a reportable score.
 5. **70 orphan `[CODE]` mentions across 42 records** (catalogued in `outputs_other/orphan_narrative_codes.md`) — review and promote genuine relationships into curated link columns, leave incidental mentions as prose.
 6. **Ocean-heatwaves follow-up:** v20 added ORG-043/044 and updated POL-068; confirm nothing further outstanding from that assessment.

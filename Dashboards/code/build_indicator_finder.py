@@ -13,9 +13,11 @@ with obsolete sheet names, hard-wired absolute paths to another machine, and inj
 
   * reads the canonical `indicators_climate_nature.xlsx` (v10: 9 framework sheets, 947 rows),
     mapping columns by HEADER NAME (not position) so it is robust to schema drift;
-  * emits the 16-field record shape the live v3 dashboard expects
+  * emits the 18-field record shape the dashboard expects
     (id, name, fw, fw_full, ncf, scope, cs, goal, units, datasrc, code, rat, gbf,
-     sectors, itype, ctx);
+     sdgg, sdgt, sectors, itype, ctx);
+  * injects EXPORT_LOOKUPS — the GBF/SDG/framework/climate-score tables the
+    client-side export resolves codes against;
   * attaches each framework's governance chain via the hardcoded FRAMEWORK_CTX table
     below (this replaces GOV_CHAINS — one chain per framework, shared by its indicators);
   * uses paths relative to the repo, with CLI overrides;
@@ -116,31 +118,28 @@ FRAMEWORK_CTX = json.loads(r'''
 }
 ''')
 
-# ── Sector classification (keyword-based; matches the live dashboard's `sectors`) ──
-SECTOR_KEYWORDS = {
-    "Climate":               ["climate", "carbon", "ghg", "net zero", "emission", "temperature",
-                              "flood", "drought", "sea level", "wildfire", "ocean heat", "renewable",
-                              "energy", "fuel", "heating", "warming"],
-    "Nature / Biodiversity": ["biodiversity", "species", "habitat", "wildlife", "ecosystem", "nature",
-                              "conservation", "protected area", "natura", "sssi", "invasive",
-                              "pollinator", "bird", "butterfly", "mammal", "amphibian", "fish",
-                              "plant", "fungi", "genetic", "red list"],
-    "Marine":                ["marine", "sea", "ocean", "coastal", "fisheries", "fish stock",
-                              "seabed", "plankton", "cetacean", "mpa", "maritime", "offshore"],
-    "Water":                 ["water", "freshwater", "river", "lake", "groundwater", "wetland",
-                              "bathing", "abstraction", "wfd", "catchment"],
-    "Land / Agriculture":    ["land", "agriculture", "farming", "farm", "soil", "peat", "woodland",
-                              "forest", "tree", "hedgerow", "organic farming", "pesticide",
-                              "fertiliser", "nutrient", "crop", "livestock", "manure"],
-    "Air / Pollution":       ["air", "ammonia", "nitrogen deposition", "ozone", "pm2", "pm10",
-                              "pollution", "noise", "chemical", "contaminant", "waste"],
-}
+# ── Policy sector (read from the workbook; 14-class controlled vocabulary) ─────
+# Replaced the former keyword-based `classify_sectors()` on 2026-09-16. That function
+# matched bare substrings with no word boundaries, so "mpa" matched "impacts" (180
+# records) and "river" matched "drivers" (67), tagging 170 non-marine indicators as
+# Marine. The workbook's curated `Policy_Sector` column is now the single source, and
+# it shares its vocabulary with the governance workbooks — so the indicator finder and
+# the governance diagram filter on the same 14 classes.
+# Order controls the order of the sector tiles in the dashboard sidebar.
+POLICY_SECTORS = [
+    "Nature & Biodiversity", "Climate", "Land Use & Agriculture", "Marine & Fisheries",
+    "Water", "Pollution & Waste", "Energy", "Transport", "Urban & Buildings",
+    "Biosecurity", "Health", "Finance", "Trade & Industry", "Governance, Society & Data",
+]
 
 
-def classify_sectors(text: str):
-    t = text.lower()
-    matched = [s for s, kws in SECTOR_KEYWORDS.items() if any(k in t for k in kws)]
-    return matched or ["Cross-cutting"]
+def parse_sectors(value: str):
+    """Split a pipe-separated Policy_Sector cell into a list, warning on unknown terms."""
+    terms = [t.strip() for t in (value or "").split("|") if t.strip()]
+    for t in terms:
+        if t not in POLICY_SECTORS:
+            print(f"  WARNING: Policy_Sector value not in the controlled vocabulary: {t!r}")
+    return terms
 
 
 def cell_int(v):
@@ -189,10 +188,11 @@ def load_indicators(xlsx_path: Path):
                 "code":     g(row, "Indicator_Code"),          # blank where the sheet has none
                 "rat":      g(row, "Climate_Rationale"),
                 "gbf":      g(row, "GBF_Targets_Clean"),
+                "sdgg":     g(row, "SDG_Goals_Clean"),          # blank where the sheet has none
+                "sdgt":     g(row, "SDG_Target_Code"),          # blank where the sheet has none
                 "itype":    g(row, "Indicator_Type"),
             }
-            rec["sectors"] = classify_sectors(" ".join([rec["name"], rec["goal"],
-                                                         rec["fw_full"], rec["itype"]]))
+            rec["sectors"] = parse_sectors(g(row, "Policy_Sector"))
             rec["ctx"] = FRAMEWORK_CTX.get(fw_short, [])
             records.append(rec)
             n_sheet += 1
@@ -200,6 +200,69 @@ def load_indicators(xlsx_path: Path):
     wb.close()
     print(f"  TOTAL {len(records)} indicators across {len(FRAMEWORKS)} frameworks")
     return records
+
+
+def load_export_lookups(xlsx_path: Path, records):
+    """Build the EXPORT_LOOKUPS payload the client-side export needs.
+
+    Shape: {gbf|sdgGoal|sdgTgt: {code: [short] or [short, full]}, fw: {...}, cs: {...}}
+    The full text is carried only where it differs from the short title; the export
+    uses `short` for display and `full` to decide whether a Policy_Goal already
+    glosses the code.
+    """
+    wb = load_workbook(xlsx_path, data_only=True, read_only=True)
+
+    def pairs(sheet, short_col, full_col, goals_only=False):
+        ws = wb[sheet]
+        rows = ws.iter_rows(values_only=True)
+        hdr = [str(c).strip() if c is not None else "" for c in next(rows)]
+        ci = hdr.index("Code")
+        si, fi = hdr.index(short_col), hdr.index(full_col)
+        out = {}
+        for r in rows:
+            if len(r) <= max(ci, si, fi) or not r[ci]:
+                continue
+            code = str(r[ci]).strip()
+            if not code.startswith(("GBF-", "SDG-")):
+                continue
+            if goals_only and "." in code:
+                continue
+            short = str(r[si]).strip() if r[si] else ""
+            full = str(r[fi]).strip() if r[fi] else ""
+            if not short:
+                continue
+            out[code] = [short] if (not full or full == short) else [short, full]
+        return out
+
+    lk = {
+        "gbf":     pairs("GBF Target Lookup", "Short_Title", "Full_Text_Official"),
+        "sdgGoal": pairs("SDG Goal Lookup", "Short_Title", "Full_Text_Official", goals_only=True),
+        "sdgTgt":  pairs("SDG Target Lookup", "Short_Title", "Target_Text_Official"),
+    }
+    # framework code -> full name, in canonical order
+    lk["fw"] = {short: full for _, short, full in FRAMEWORKS}
+    # climate score scale, lifted from the Legend sheet
+    leg = list(wb["Legend"].iter_rows(values_only=True))
+    scale = {}
+    for r in leg:
+        if not r or not r[0]:
+            continue
+        m = re.match(r"^([0-3])\s*[\u2013-]\s*(\w+)", str(r[0]).strip())
+        if m:
+            scale[m.group(1)] = {"label": m.group(2),
+                                 "desc": str(r[1]).strip() if len(r) > 1 and r[1] else ""}
+    lk["cs"] = scale
+    wb.close()
+    print(f"  Lookups: GBF {len(lk['gbf'])}, SDG goals {len(lk['sdgGoal'])}, "
+          f"SDG targets {len(lk['sdgTgt'])}, frameworks {len(lk['fw'])}, "
+          f"climate-score levels {len(lk['cs'])}")
+    missing = [c for r in records for c in
+               [t.strip() for t in (r.get("gbf") or "").split(";") if t.strip()]
+               if c not in lk["gbf"]]
+    if missing:
+        print(f"  WARNING: {len(set(missing))} GBF code(s) used by records but absent "
+              f"from the lookup: {sorted(set(missing))[:6]}")
+    return lk
 
 
 def inject_js_var(html: str, var_name: str, value_json: str) -> str:
@@ -251,6 +314,10 @@ def build(xlsx=CANON, template=TEMPLATE, out=OUT):
     html = template.read_text(encoding="utf-8")
     data_json = json.dumps(indicators, ensure_ascii=False, separators=(",", ":"))
     html = inject_js_var(html, "INDICATORS", data_json)
+
+    lookups = load_export_lookups(xlsx, indicators)
+    html = inject_js_var(html, "EXPORT_LOOKUPS",
+                         json.dumps(lookups, ensure_ascii=False, separators=(",", ":")))
 
     # Point the "⬡ diagram" deep-links at the newest governance diagram in the folder.
     def _ver(p):

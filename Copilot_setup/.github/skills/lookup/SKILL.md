@@ -18,7 +18,7 @@ Read-only. Never edit a workbook to answer a question.
 
 ## Rules
 
-- **Indicator records** need both `Record_ID` and `Indicator_Name`: 947 at v10.
+- **Indicator records** need both `Record_ID` and `Indicator_Name`: 947 at v16.
 - **Cross-references** are bracketed codes. Strip the brackets to join on `Record_ID` /
   `Framework_ID`. Typed link columns:
 

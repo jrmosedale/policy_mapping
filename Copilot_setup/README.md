@@ -114,7 +114,7 @@ check:
 **Checked against the project files on 11 September 2026:**
 - paths, script names and command-line options (`render.py`, `finalise.py`, `export_release.py`,
   `build_all.py`, `orphan_codes.py`);
-- workbook versions (21 / 14 / 10), the 947 count, and the indicator ID prefixes;
+- workbook versions (21 / 14 / 16), the 947 count, and the indicator ID prefixes;
 - YAML template keys, and the `pending_additions.md` columns.
 
 **Taken from current VS Code documentation, not tested in your VS Code:**

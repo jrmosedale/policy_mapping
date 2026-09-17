@@ -1,79 +1,88 @@
 Sheet,Column_Name,Data_Type,Description,Controlled_Vocabulary,Links_To
-All sheets,Record_ID,Text (key),Unique identifier for each indicator record,IND-B-NNN (Biodiversity) | IND-E-NNN (EIF) | IND-C-NNN (Climate) | IND-J-NNN (JNCC) | IND-S-NNN (State of Nature),Primary key; joins to governance workbook IND references
-All sheets,Indicator_Name,Text,Full official name of the indicator or metric,Free text — authoritative name,
-All sheets,Source_Framework,Controlled,Short name of the reporting framework or publication source,ONS Natural Capital Accounts | JNCC UK Biodiversity Indicators | EIF | CCC Mitigation Monitoring Framework | IPBES Global Assessment | CBD GBF | SEEA EA | ENCORE/TNFD | EEA Biodiversity Strategy | IPCC AR6 | State of Nature 2023,Joins to References sheet Source/Title
-All sheets,NCF_Category,Controlled,Natural Capital Framework category — consistent across all sheets,State – Species | State – Habitats | Pressure | Benefit | Enabling,Consistent vocabulary; joins across sheets
-All sheets,Indicator_Type,Controlled,Type of measurement approach,Abundance index | Distribution / occupancy index | Extinction risk index | Habitat extent | Habitat condition | Ecosystem service flow | Pressure / threat index | Monetary / economic value | Policy / governance metric | Emissions / deployment metric | Human wellbeing / engagement,
-All sheets,Units_Measure,Text,Unit(s) in which the indicator is measured,"Free text (e.g., Index (1970=100), MtCO₂e/year, ha, %, tonnes)",
-All sheets,Scope,Controlled,Geographic coverage — pipe-separated if multiple,UK | GB | England | Wales | Scotland | Northern Ireland | International | EU,Standardised; joins to governance workbook Extent
-All sheets,GBF_Targets_Clean,Text,Pipe-separated list of normalised GBF goal/target codes relevant to this indicator (e.g. GBF-T3 | GBF-T8). Populated for all sheets except SoN 2023 (0/32) and SDG Indicators (column absent).,"GBF Goal A–D; GBF Target 1–23 (e.g., GBF Target 3 – 30×30)",Links to CBD GBF entries in governance Policies & Activities
-All sheets,Policy_Goal,Text,Domestic or international policy goal this indicator serves,"Free text citing policy name and goal (e.g., EIP Goal: Thriving plants and wildlife; CCA 2008 carbon budgets)",Links to governance Policies & Activities Name
-All sheets,Source_Reference,Text,"Chapter, section or indicator code in the source document","Free text (e.g., Chapter 4 – Provisioning; UKBI 2025 – Indicator C5b)",
-All sheets,Data_Source,Text,Primary monitoring scheme(s) or dataset(s) that generate the indicator,"Free text (e.g., BTO/RSPB Breeding Bird Survey; NAEI; ICES stock assessments)",Joins to governance Statutory Bodies Name where possible
-All sheets,Climate_Score,Integer (0–3),Numeric climate/weather dependency score,0 = None | 1 = Low | 2 = Medium | 3 = High,Joins to Legend sheet for definitions
-All sheets,Climate_Dependency,Controlled,Labelled climate/weather dependency score,0 – None | 1 – Low | 2 – Medium | 3 – High,
-All sheets,Climate_Rationale,Text,Explanation of the climate/weather dependency score,Free text,
-Biodiversity Indicators,Source_Organisation,Text,Organisation responsible for the source framework,Free text — standardised organisation name,Joins to governance Statutory Bodies Name
-EIF Indicators,Indicator_Code,Text,EIF alphanumeric indicator code,A1–K4 (Theme letter A–K + number),
-EIF Indicators,Reporting_Status,Controlled,EIF publication status of this indicator,Final | Interim | In development,
-CCC Indicators / Climate Act & Net Zero,Sector,Controlled,Economic sector covered by the indicator,Electricity Supply | Surface Transport | Buildings | Industry | Agriculture & Land Use | Aviation | Shipping | Waste & F-gases | Fuel Supply / Hydrogen | Engineered Removals | Cross-Economy / Overarching | Enabling / Finance,
-CCC Indicators / Climate Act & Net Zero,Indicator_Role,Controlled,Role of the indicator in the monitoring framework,Overarching target | Emissions target | Deployment / uptake | Demand / activity | Energy efficiency | Carbon removal | Enabling / enabler,
-CCC Indicators / Climate Act & Net Zero,Target_Benchmark,Text,Quantitative target or benchmark for this indicator,"Free text (e.g., 50 GW offshore wind by 2030; ≤1,950 MtCO₂e CB4)",
-CCC Indicators / Climate Act & Net Zero,CCC_Key_Indicator,Controlled,Whether the CCC designates this as a key indicator in 2024/25 reports,Yes | No,
-JNCC UK Biodiversity Indic,Indicator_Code,Text,JNCC UKBI alphanumeric indicator code,"A1–E2 (e.g., C5b, B6a)",
-JNCC UK Biodiversity Indic,Measure_Component,Text,Specific measure or sub-component within the parent indicator,Free text,
-JNCC UK Biodiversity Indic,Assessment_Year,Integer,Year of the JNCC trend assessment,2025,
-State of Nature 2023,Cross_Sheet_Note,Text,Note on whether and how this indicator relates to other sheets in the workbook,Free text — includes overlap/distinction notes from SoN 2023 analysis,
-GBF Target Lookup,Code,Text (key),Normalised code used in GBF_Targets_Clean column across all indicator sheets,GBF-GoalA | GBF-GoalB | GBF-GoalC | GBF-GoalD | GBF-T1 through GBF-T23,Primary key; joins to GBF_Targets_Clean in all indicator sheets and Cross-Reference Index
-GBF Target Lookup,Short_Title,Text,Concise descriptive title for the goal or target (not official text),Free text,
-GBF Target Lookup,Full_Text_Official,Text,Condensed official text from CBD COP15 Decision 15/4 (December 2022),Free text -- official CBD language,Source: https://www.cbd.int/gbf/
-GBF Target Lookup,Policy_Sector,Controlled,Policy domain(s) this target addresses -- pipe-separated if multiple,Same controlled vocabulary as governance workbooks,
-GBF Target Lookup,Used_In_Workbook,Controlled,Whether this code appears in GBF_Targets_Clean in any indicator sheet,Yes | No,Cross-check against Cross-Reference Index GBF_Targets_Clean column
-GBF Target Lookup,Official_Link,URL,CBD official page for this goal or target,https://www.cbd.int/gbf/,
-Indicator Framework,Source_Framework,Text (key),Full name of the indicator framework or report,One row per framework; primary key for this sheet,Joins to Source_Framework in all indicator sheets
-Indicator Framework,Sheet_Name,Text,Name of the corresponding worksheet in this workbook,Exact sheet name,Navigation reference
-Indicator Framework,Record_Count,Integer,Total number of indicator records in the sheet,Count of IND-* rows,Joins to Cross-Reference Index
-Indicator Framework,Scope,Controlled,Geographic coverage of indicators in this framework,UK | England | GB | International | EU | Europe,Same vocabulary as Scope column in indicator sheets
-Indicator Framework,Lead_Organisation,Text,Organisation responsible for producing and maintaining the framework,Free text,Joins to governance workbook Statutory Bodies
-Indicator Framework,Indicator_Types_Summary,Text,Top indicator measurement types with counts,Type (count); Type (count); ...,
-Indicator Framework,NCF_Categories,Text,Natural Capital Framework category breakdown with counts,Category (count); ...,See NCF Legend sheet for definitions
-Indicator Framework,GBF_Coverage,Text,Number of indicators with GBF_Targets_Clean populated,N/total,Cross-check against GBF_Targets_Clean in indicator sheets
-Indicator Framework,Policy_Goal_Summary,Text,Summary of Policy_Goal values; varies by indicator if multiple exist,Free text summary,Joins to Policy_Links via governance workbooks
-Indicator Framework,Official_Link,URL,Official URL for the framework or its indicator set,https://...,
-── NEW COLUMNS (biodiversity_indicators_manual_v1) ──,,,,,
-BIP Indicators,BIP_Theme,Controlled,Thematic cluster used by the Biodiversity Indicators Partnership to organise indicators,Species | Habitats and ecosystems | Ecosystem services | Governance | Sustainable use | Genetic diversity,
-BIP Indicators,BIP_Status,Controlled,Current operational status of the BIP indicator in terms of data availability and reporting,Operational | Partially operational | In development | Archived,
-BIP Indicators,SDG_Goals_Clean,Text,Pipe-separated list of SDG Goal codes relevant to this indicator (e.g. SDG-15 | SDG-14),SDG-1 through SDG-17 (pipe-separated),Joins to SDG Goal Lookup sheet and SDG_Goals_Clean in SDG Indicators sheet
-SDG Indicators,SDG_Theme,Text,REMOVED in v5 — duplicated SDG Goal Lookup Short_Title,Free text — SDG goal number and short title,
-SDG Indicators,SDG_Target,Text,"Official SDG target text or code (e.g. 15.1, 15.2) under which the indicator sits",Free text — SDG target code and official text,
-SDG Indicators,SDG_Goals_Clean,Text,Normalised SDG goal code(s) for cross-referencing — pipe-separated if multiple,SDG-1 through SDG-17 (pipe-separated),Joins to SDG Goal Lookup sheet
-SDG Indicators,SDG_Indicator_Code,Text,"Official IAEG-SDGs indicator code (e.g. 15.1.1, 15.5.1) from A/RES/71/313",Free text — format: [Goal].[Target].[Indicator] (e.g. 15.1.1),
-SDG Goal Lookup,SDG_Goal_Code,Text (key),Normalised SDG goal code used in SDG_Goals_Clean column across indicator sheets,SDG-1 through SDG-17,Primary key; joins to SDG_Goals_Clean in SDG Indicators and BIP Indicators sheets
-SDG Goal Lookup,SDG_Goal_Title,Text,Official short title of the SDG goal (e.g. Life on Land),Free text — official UN language,Source: https://unstats.un.org/sdgs/
-SDG Goal Lookup,SDG_Goal_Description,Text,Brief descriptive summary of the SDG goal's scope and ambition,Free text,
-SDG Goal Lookup,Nature_Relevant,Controlled,Whether the SDG goal is directly relevant to biodiversity and ecosystem monitoring,Yes | Partial | No,
-SDG Goal Lookup,Official_Link,URL,Official UN SDG page for this goal,https://sdgs.un.org/goals/goal[N],
-Indicator Framework,Data_Gaps_Notes,Text,Summary of missing or unpopulated columns for this framework sheet — drawn from Data Dictionary audit,"Free text — flags empty columns (NCF_Category, Indicator_Type, Climate_Score etc.) and missing columns (GBF_Targets_Clean)",
-── DATA GAPS AUDIT (biodiversity_indicators_manual_v1) ──,,,,,
-SDG Indicators,NCF_Category,⚠ EMPTY (0/173),"Column present but entirely unpopulated. Requires manual classification of all 173 indicators against NCF vocabulary (State–Species, State–Habitats, Pressure, Benefit, Enabling).",,
-SDG Indicators,Indicator_Type,⚠ EMPTY (0/173),Column present but entirely unpopulated. Requires manual assignment of indicator type for all 173 SDG indicators.,,
-SDG Indicators,Units_Measure,⚠ EMPTY (0/173),Column present but entirely unpopulated. Units vary widely across SDG indicators — requires manual completion from IAEG-SDGs metadata.,,
-SDG Indicators,Climate_Score,⚠ EMPTY (0/173),Column present but entirely unpopulated. Climate dependency scoring (0–3) required for all 173 rows.,,
-SDG Indicators,Climate_Dependency,⚠ EMPTY (0/173),Column present but entirely unpopulated. Labelled dependency required alongside Climate_Score.,,
-SDG Indicators,Climate_Rationale,⚠ EMPTY (0/173),Column present but entirely unpopulated. Rationale text required for all rows where Climate_Score > 0.,,
-SDG Indicators,GBF_Targets_Clean,⚠ MISSING COLUMN,Column absent from SDG Indicators sheet. Nature-relevant SDG indicators should be cross-referenced against GBF targets — column needs adding.,,
-SoN 2023 Indicators,GBF_Targets_Clean,⚠ EMPTY (0/32),Column present but entirely unpopulated. GBF alignment for State of Nature indicators requires manual coding.,,
-CBD GBF Indicators,Multiple cols,⚠ 4 rows sparse (98%),"4 rows appear to be section header rows rather than indicator rows, accounting for ~2% empty data across most columns. These are structural rows, not data gaps.",,
-EEA Biodiversity Indicators,GBF_Targets_Clean,PARTIAL (47/62),15 indicators (24%) lack GBF target cross-references. Review against CBD Monitoring Framework to complete.,,
-Indicator Framework,Data_Gaps_Notes,⚠ COLUMN NOT YET IN SHEET,Recommend adding Data_Gaps_Notes column to Indicator Framework sheet to surface the audit findings above alongside each framework summary row.,,
-── v5 ADDITIONS / CHANGES (biodiversity_indicators_manual_v5) ──,,,,,
-Indicator Framework,Framework_ID,Text (key),Framework identifier IFW-01…IFW-09,IFW-NN,Reciprocates to Indicator_Frameworks column in governance workbooks
-All framework sheets,Policy_Sector,Controlled (provisional),Policy sector(s) — same vocabulary as governance Policy_Sector; pipe-separated,Nature / Biodiversity | Climate | Land / Agriculture / Planning | Marine | Water | Energy | Finance / Governance / Data | Air Quality | Biosecurity | Waste / Resources | Cross-cutting,Joins to governance Policy_Sector
-All framework sheets,Indirect_Policy_Links,Text,Soft links — governance codes the indicator could inform but is not explicitly designed to monitor (column added; population pending targeted pass),[ORG-NNN] | [POL-NNN] | [LEG-NNN] | [INT-…],Reciprocal soft links to governance records
-EIF / CCC / JNCC / SoN / BIP,Framework_Classification,Text,Combined framework-specific classification (merges previous per-framework classifier columns),Free text (Label: value; …),
-SDG Indicators,SDG_Target_Code,Text (key),SDG target code (replaces SDG_Target free text),SDG-N.N,Joins to SDG Target Lookup
-GBF Target Lookup,Code,Text (key),GBF goal/target code,GBF-GoalA…D | GBF-T1…T23,Joins to GBF_Targets_Clean in all indicator sheets
-SDG Target Lookup,Code,Text (key),SDG target code,SDG-N.N,Joins to SDG_Target_Code in SDG Indicators
-All sheets,Cross-reference convention,Convention,"All cross-reference codes must be wrapped in square brackets — [LEG-NNN], [ORG-NNN], [POL-NNN], [INT-L/INT-O/INT-P-NNN], [EU-L-NNN] and [IFW-NN] — wherever they appear in a cell, regardless of any surrounding text. Codes are the join keys used by check_links.py; unbracketed codes are invisible to integrity checking.","Square brackets mandatory. Sole exception: the Record_ID / Framework_ID primary-key columns, which are never bracketed.",
-CCC Indicators,Source_URL,Text (URL),Targeted deep link to the framework page/report where the indicator is defined or listed (not a homepage). Complements Source_Framework/Source_Reference. Populated progressively; blank where not yet verified.,"Free text — verified official URL (theccc.org.uk, jncc.gov.uk, gov.uk)",Complements Source_Framework / Source_Reference
-JNCC UK Biodiversity Indicators,Source_URL,Text (URL),Targeted deep link to the JNCC UKBI page where the indicator is defined (per-indicator our-work page). Populated progressively; blank where not yet verified.,Free text — verified official URL (jncc.gov.uk),Complements Source_Framework / Source_Reference
+— HOW TO MAINTAIN THIS SHEET —,,,"This dictionary documents the CURRENT version of the workbook only. It carries no history: when a column is added, renamed, re-scoped or removed, EDIT OR DELETE THE ROW IN PLACE — do not append a new row recording the change, and do not leave a row describing a column that no longer exists. Version history belongs in the Changelog sheet. Rebuilt from the live schema in v14 (2026-09-17); every row below corresponds to a column that exists today.",,
+,,,,,
+ALL NINE FRAMEWORK SHEETS,,,"Columns present on EIF, CCC, JNCC, SoN, EEA, BIP, IPBES, CBD GBF and SDG Indicators.",,
+All framework sheets,Record_ID,Text (key),Unique identifier for each indicator record,IND-B-NNN (EEA) | IND-C-NNN (CCC) | IND-E-NNN (EIF) | IND-J-NNN (JNCC) | IND-S-NNN (SoN) | BIP-NNN | IPBES-x-NNN | GBF-NNN | SDG-NNN,Primary key; referenced by the governance workbooks
+All framework sheets,Indicator_Name,Text,Name of the indicator as published by its source framework,Free text,
+All framework sheets,Source_Framework,Text,Full name of the framework the indicator belongs to,Free text,Joins to Indicator Framework.Source_Framework
+All framework sheets,NCF_Category,Controlled,Natural Capital Framework category,State – Species | State – Habitats | Pressure | Benefit | Enabling,Defined on the NCF Legend sheet
+All framework sheets,Policy_Sector,Controlled,"Policy sector(s) — the same 14-class controlled vocabulary used by Policy_Sector in both governance workbooks. Pipe-separated, maximum 3 per indicator.","Nature & Biodiversity | Marine & Fisheries | Water | Land Use & Agriculture | Urban & Buildings | Trade & Industry | Finance | Health | Climate | Energy | Transport | Biosecurity | Governance, Society & Data | Pollution & Waste",Shared vocabulary with the governance workbooks
+All framework sheets,Indicator_Type,Text,Type or measurement form of the indicator,Free text,Groupings on the Legend sheet
+All framework sheets,Units_Measure,Text,Units and measurement basis,Free text,
+All framework sheets,Scope,Text,Geographic coverage,UK | England | GB | EU | Europe | Global | combinations,
+All framework sheets,Policy_Goal,Text,"Policy goal(s), commitment(s) or framework target(s) the indicator informs",Free text,
+All framework sheets,Source_Reference,Text,Citation or locator for the indicator within its source publication,Free text,Bibliography on the References sheet
+All framework sheets,Data_Source,Text,Dataset(s) and custodian(s) the indicator is computed from,Free text,
+All framework sheets,Climate_Score,Controlled,Numeric climate/weather dependency score,0 | 1 | 2 | 3,Scale defined on the Legend sheet
+All framework sheets,Climate_Dependency,Controlled,Labelled form of Climate_Score,0 – None | 1 – Low | 2 – Medium | 3 – High,Scale defined on the Legend sheet
+All framework sheets,Climate_Rationale,Text,Justification for the climate/weather dependency score,Free text,
+All framework sheets,Policy_Links,Text,Bracketed governance codes the indicator informs,[LEG-NNN] | [ORG-NNN] | [POL-NNN] | [INT-L-NNN] | [INT-O-NNN] | [INT-P-NNN] | [EU-L-NNN],Reciprocal links to the governance workbooks
+,,,,,
+FRAMEWORK-SPECIFIC COLUMNS,,,Columns present on some framework sheets only. The sheet list in column A is exhaustive.,,
+EIF / JNCC,Indicator_Code,Text,The framework's own alphanumeric indicator code,"Free text (e.g. A1, C6a)",
+EIF / CCC / JNCC / SoN / BIP,Framework_Classification,Text,Combined framework-specific classification (merges the former per-framework classifier columns),Free text (Label: value; …),
+EIF / CCC / JNCC / SoN / EEA / BIP / IPBES / CBD GBF,GBF_Targets_Clean,Controlled,Normalised Kunming-Montreal GBF goal/target code(s) the indicator relates to. GBF codes ONLY — SDG codes belong in SDG_Goals_Clean / SDG_Target_Code.,GBF-GoalA…GoalD | GBF-T1…T23 (semicolon-separated),Joins to GBF Target Lookup.Code
+EIF / JNCC / EEA / BIP / SDG,SDG_Goals_Clean,Controlled,Normalised SDG goal code(s) the indicator relates to,SDG-1 through SDG-17 (semicolon-separated),Joins to SDG Goal Lookup.Code
+EIF / JNCC / EEA / SDG,SDG_Target_Code,Controlled,SDG target code(s) the indicator relates to,SDG-N.N,Joins to SDG Target Lookup.Code
+CCC,Sector,Controlled,"Economic sector covered by the indicator, as classified by the CCC monitoring framework. Distinct from Policy_Sector.","Free text (17 CCC sectors, e.g. Electricity Supply, Buildings, Aviation)",
+CCC / JNCC,Source_URL,Text (URL),Targeted deep link to the framework page or report where the indicator is defined (not a homepage),Verified official URL,Complements Source_Framework / Source_Reference
+IPBES / CBD GBF,Source_Organisation,Text,"Per-record custodian organisation. Retained only where it varies by record — IPBES has 30 distinct custodians, CBD GBF has 3. Where a sheet’s value is constant it is recorded once on Indicator Framework.Lead_Organisation instead.",Free text,
+SDG,SDG_Indicator_Code,Text,Official IAEG-SDGs indicator code from A/RES/71/313,"Format [Goal].[Target].[Indicator], e.g. 15.5.1",
+,,,,,
+INDICATOR FRAMEWORK SHEET,,,One row per indicator framework.,,
+Indicator Framework,Framework_ID,Text (key),Framework identifier,IFW-01…IFW-09,Reciprocates to Indicator_Frameworks in the governance workbooks
+Indicator Framework,Source_Framework,Text,Full name of the framework,Free text,Joins to Source_Framework on the framework sheets
+Indicator Framework,Sheet_Name,Text,Name of the sheet holding this framework's indicators,Free text,
+Indicator Framework,Record_Count,Integer,Number of indicator records on that sheet,,
+Indicator Framework,Scope,Text,Geographic coverage of the framework,,
+Indicator Framework,Lead_Organisation,Text,"Organisation(s) responsible for the framework, with bracketed governance codes",[ORG-NNN] | [INT-O-NNN],Joins to the governance workbooks
+Indicator Framework,Indicator_Types_Summary,Text,Distribution of Indicator_Type values on that sheet,,
+Indicator Framework,NCF_Categories,Text,Distribution of NCF_Category values on that sheet,,
+Indicator Framework,GBF_Coverage,Text,How many records carry a GBF target cross-reference,n/total,
+Indicator Framework,Policy_Purpose,Text,"What the framework is for and how wide its policy range is, in prose, written from the framework’s own primary documentation. Renamed from Policy_Goal_Summary in v15; it is not an aggregation of the Policy_Goal field on individual indicator records.",Free text,
+Indicator Framework,Key_Instruments,Text,"Bracketed governance codes for the instruments and organisations named in Policy_Purpose — normally the body that creates, hosts or uses the framework, its statutory basis where it has one, and the key policies or international instruments it informs. Codes only, no names. Added v15.",[LEG-NNN] | [ORG-NNN] | [POL-NNN] | [INT-L-NNN] | [INT-O-NNN] | [INT-P-NNN] | [EU-L-NNN] | [IFW-NN],Joins to the governance workbooks and to Framework_ID
+Indicator Framework,Official_Link,URL,Official home page for the framework,,
+Indicator Framework,Indirect_Policy_Links,Text,Soft governance links — codes the framework relates to without formally reporting against,[ORG-NNN] | [POL-NNN] | [LEG-NNN],Reciprocal soft links to the governance workbooks
+,,,,,
+GBF TARGET LOOKUP,,,"Kunming-Montreal GBF goals and targets — 4 goals and 23 targets, complete.",,
+GBF Target Lookup,Code,Text (key),Normalised code,GBF-GoalA…GoalD | GBF-T1…T23,Joins to GBF_Targets_Clean
+GBF Target Lookup,Short_Title,Text,Concise descriptive title (not official wording),Free text,
+GBF Target Lookup,Full_Text_Official,Text,Official wording,Free text — official CBD language,
+GBF Target Lookup,Used_In_Workbook,Controlled,Whether the code is used by at least one indicator record; recomputed from actual use,Yes | No,
+GBF Target Lookup,Official_Link,URL,Official page for this code,,
+,,,,,
+SDG GOAL LOOKUP,,,The 17 UN Sustainable Development Goals. GOALS ONLY — targets live on SDG Target Lookup.,,
+SDG Goal Lookup,Code,Text (key),Normalised code,SDG-1 through SDG-17,Joins to SDG_Goals_Clean
+SDG Goal Lookup,Short_Title,Text,Concise descriptive title (not official wording),Free text,
+SDG Goal Lookup,Full_Text_Official,Text,Official wording,Free text — official UN language,
+SDG Goal Lookup,Used_In_Workbook,Controlled,Whether the code is used by at least one indicator record; recomputed from actual use,Yes | No,
+SDG Goal Lookup,Official_Link,URL,Official page for this code,,
+,,,,,
+SDG TARGET LOOKUP,,,"129 of the 169 official SDG targets — the environment-relevant subset. SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6 are out of scope.",,
+SDG Target Lookup,Code,Text (key),SDG target code,SDG-N.N,Joins to SDG_Target_Code
+SDG Target Lookup,Short_Title,Text,"Curated concise title for the target, in the same style as the GBF Target Lookup Short_Title. Added v16 so the indicator export can name a target without quoting the full official wording; Target_Text_Official remains authoritative.",Free text,
+SDG Target Lookup,Target_Text_Official,Text,Official UN wording of the target,Free text — official UN language,
+SDG Target Lookup,Parent_Goal,Text,SDG goal the target sits under,SDG-1 through SDG-17,Joins to SDG Goal Lookup.Code
+SDG Target Lookup,Used_In_Workbook,Controlled,Whether the code is used by at least one indicator record; recomputed from actual use,Yes | No,
+SDG Target Lookup,Official_Link,URL,Official UN page for the parent goal,,
+,,,,,
+REFERENCES,,,Bibliography for the Source_Reference column on the framework sheets.,,
+References,Source / Title,Text,Title of the source publication,,
+References,Author / Organisation,Text,Author or publishing organisation,,
+References,Year,Integer,Publication year,,
+References,Access / URL,URL,Link to the source,,
+References,Citation (Harvard style),Text,Full formatted citation,,
+,,,,,
+LEGEND,,,Defines Indicator_Type groupings and the 0–3 climate/weather dependency scale.,,
+Legend,Indicator Type,Text,"Indicator type, or the label of a climate/weather dependency level",,
+Legend,Description,Text,Definition of the type or dependency level,,
+,,,,,
+NCF LEGEND,,,Defines the NCF categories used across the framework sheets.,,
+NCF Legend,NCF_Category,Controlled,Natural Capital Framework category,State – Species | State – Habitats | Pressure | Benefit | Enabling,Defines NCF_Category on the framework sheets
+NCF Legend,NCF_Group,Controlled,Parent grouping,State | Pressure | Benefit | Enabling,
+NCF Legend,Description,Text,Definition of the category,,
+NCF Legend,Fill_Colour_Hex,Text,Background colour used for this category in the dashboards,6-digit hex,
+NCF Legend,Text_Colour_Hex,Text,Text colour used for this category in the dashboards,6-digit hex,
+,,,,,
+CHANGELOG,(whole sheet),Metadata,"Workbook name, current version integer (cell B2), last-updated date (B3), and one row per version with date, summary and author. The version integer lives here and nowhere else — never in the filename.",,
+DATA DICTIONARY,(whole sheet),Metadata,"This sheet. One row per column that exists in the current version, grouped by sheet. Maintained in place — see the note at the top.",,

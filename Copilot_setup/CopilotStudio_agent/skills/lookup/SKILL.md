@@ -12,7 +12,7 @@ description: Answers questions about what the knowledge base holds — which UK 
    does.
 3. **Count in Python, never by eye, and never estimate.**
    - A row is an indicator only if `Record_ID` and `Indicator_Name` are both non-empty: 947 at
-     indicators v10.
+     indicators v16.
    - Say which workbook and version the answer came from.
 4. For a topic question, screen every row rather than keyword hits alone, and say what you searched
    and how many rows matched.
