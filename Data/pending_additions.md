@@ -60,7 +60,7 @@ must be a primary source. `Confidence` records what is unverified, not how stron
 | 2026-09-02 | plant pest, pathogen & biosecurity | POL | Defra generic and pest-specific contingency plans / GB Plant Health Service outbreak response | https://planthealthportal.defra.gov.uk/pests-and-diseases/contingency-planning/ | Yes — Defra partners with the Met Office for predicted pest emergence dates | None; related to [POL-034] Plant Biosecurity Strategy | High — documented MO-Defra operational channel | add | **Decided 2026-09-11 — add.** |
 | 2026-09-02 | plant pest, pathogen & biosecurity | POL | Observatree (citizen-science tree-health surveillance) | https://www.observatree.org.uk/ | Possible — survey effort could be targeted using climate-suitability maps | **Mentioned within [POL-033] and [POL-034] but holds no record of its own** | Medium — decide whether a partnership programme warrants its own POL or stays a prose mention | defer | **Decided 2026-09-11 — defer.** Jonathan 2026-09-11: keep as mention for timebeing |
 | 2026-09-02 | scan 2026-09-02 (corrected) | POL | 30by30 on land in England — commitment, criteria and delivery plan | https://www.gov.uk/government/publications/30by30-on-land-in-england-delivery-plan | Yes — the Management criterion requires monitoring of condition and trends of important habitats and species, and SSSIs count only if in favourable or recovering condition; habitat condition is climate-sensitive | **Not covered.** [POL-022] is the 30×30 Technical Working Group — a coordination body, not the policy, though its Link field points at the 30by30 page. Delivers GBF Target 3, measured by [GBF-013] 3.1 Coverage of protected areas and OECMs | High — primary source. Delivery plan and the assessment guidance both published 13 Jul 2026; criteria published 29 Oct 2024 at COP16, superseding the withdrawn Dec 2023 paper | add | **Jonathan 2026-09-10 — D6 30by30 recorded per nation.** Also chase Wales and NI 30by30 commitments - neither yet scanned |
-| 2026-09-02 | scan 2026-09-02 (corrected) | IFW | 30by30 assessment framework — tiered criteria (Purpose / Protection / Management), Gold and Silver tiers, baseline ~7% of England meeting criteria | https://www.gov.uk/government/publications/30by30-on-land-assessing-whether-land-can-contribute | Yes | Would be the monitoring instrument for the POL row above; relates to SSSI condition monitoring already reflected in the workbook | Medium — decide whether a criteria-and-assurance framework of this kind warrants an IFW record or belongs as fields on the POL | add | **Decided 2026-09-11 — add.** Jonathan 2026-09-11: IS this a new set of indicators? |
+| 2026-09-02 | scan 2026-09-02 (corrected) | POL | 30by30 assessment standard for England — three criteria (Purpose / Protection / Management), Bronze / Silver / Gold tiers, central and partner assessment routes | https://www.gov.uk/government/publications/30by30-on-land-assessing-whether-land-can-contribute | Indirect — the criteria require monitoring of habitat and species condition, but the standard itself measures eligibility, not climate | **Corrected 2026-09-17 after checking the source: this is NOT a new indicator set.** It is an eligibility and assurance standard. It creates no new monitoring — central assessment runs on the existing SSSI Protected Sites regime, NNR records and Landscape Recovery scheme data. It produces one headline measure (share of England in Gold tier), already reported internationally through [GBF-013] 3.1 Coverage of protected areas and OECMs | High — read in full at source | add | **Decided 2026-09-11 — add.** Record type corrected 2026-09-17 from IFW to **POL**, `General_Type` **Guidance / Methodology** (or Standard / Code — Jonathan's call). Attach to the England 30by30 commitment record. If the *measure* is wanted, add ONE IND (% of England meeting the criteria), not a framework. **New scope item:** the guidance states separate approaches exist for Northern Ireland, Scotland, Wales **and at sea** — 30by30 marine has not been scanned at all. |
 | 2026-09-02 | scan 2026-09-02 (pass 2) | POL | Nature security assessment on global biodiversity loss, ecosystem collapse and national security (Defra) | https://hansard.parliament.uk/commons/2026-06-04/debates/CC1A879B-3B94-4B08-9B66-60AB047E06BC/GlobalBiodiversityLossAndEcosystemCollapseNationalSecurityAssessment | Yes — frames ecosystem collapse pathways, climate-driven | None | Medium — published Jan 2026; find the gov.uk landing page for the primary link before writing | add | **Decided 2026-09-11 — add.** |
 | 2026-09-02 | scan 2026-09-02 (pass 2) | POL | Farming Roadmap 2050: Growing England's Future (CP 1611, Defra) | https://www.gov.uk/government/publications/farming-roadmap-2050 | Yes — agricultural land use and transition are climate-sensitive | None; relates to [POL-013] ELM, [POL-054] SFI, [POL-061] CSHT | High — June 2026, Command Paper | add | **Decided 2026-09-11 — add.** |
 | 2026-09-02 | scan 2026-09-02 (pass 2) | POL | Water White Paper 2026 (Defra) | https://www.gov.uk/government/publications/ | Yes — water resource and drought policy | None; regulators [ORG-006], [ORG-011], [ORG-022] present but the White Paper is not | Medium — published 2026 with a correction slip; confirm the gov.uk landing page and exact date | add | **Decided 2026-09-11 — add.** Jonathan 2026-09-11: Borderline to scope but major LEG so add |
@@ -80,7 +80,7 @@ must be a primary source. `Confidence` records what is unverified, not how stron
 | 2026-09-02 | scan 2026-09-02 (Defra enum) | POL | Future of Rural England Report | https://www.gov.uk/government/publications/future-of-rural-england-report | Indirect — rural land use | None | Low — 16 Jul 2026; assess whether it introduces commitments or is analysis only | rejected | **Decided 2026-09-11 — rejected.** |
 | 2026-09-02 | scan 2026-09-02 (Defra enum) | LEG | **CHECK** — Fisheries Act 2020: Post-Legislative assessment (29 Jul 2026) and Fisheries management plans: policy information (30 Jul 2026) | https://www.gov.uk/government/publications/fisheries-act-2020-post-legislative-assessment | n/a | [LEG-052] Fisheries Act 2020, [POL-067] Fisheries Act climate change objective | Medium — may update the status or content of both records rather than adding one | investigate | **Decided 2026-09-11 — investigate.** |
 | 2026-09-02 | scan 2026-09-02 (Defra enum) | POL | **CARRY FORWARD — open consultations, §3 excludes until concluded**: Biodiversity net gain brownfield exemption (2 Sep 2026); four proposed Fisheries Management Plans — Celtic Sea and Western Channel demersal, Celtic Sea and Western Channel pelagic, Seabream, Wrasses complex (28 Jul 2026) | https://www.gov.uk/government/consultations/biodiversity-net-gain-considering-a-targeted-exemption-for-brownfield-residential-development | Yes for the FMPs | FMPs relate to [POL-067] | High that they are open; revisit next scan | defer | **Decided 2026-09-11 — defer.** |
-| 2026-09-02 | scan 2026-09-02 (stats sweep) | IND | Provisional Cormorant population indices for England 2026 | https://www.gov.uk/government/statistics/provisional-cormorant-population-indices-for-england-2026 | Yes — population index, climate-sensitive | **No match in any framework sheet** — an agency monitoring statistic outside every catalogued framework | High | defer | **Decided 2026-09-11 — defer.** Jonathan 2026-09-11: is it being used to monitor policy targets etc? |
+| 2026-09-02 | scan 2026-09-02 (stats sweep) | IND | Provisional Cormorant population indices for England 2026 | https://www.gov.uk/government/statistics/provisional-cormorant-population-indices-for-england-2026 | Yes — population index, climate-sensitive | **Answered 2026-09-17.** Not policy-target monitoring. The publication states the indices are released early as provisional "to enable their use for **operational purposes**" — i.e. Natural England licensing of fish-eating bird control to protect fisheries (licences A06/A07). It is an operational licensing input, not a biodiversity target measure | High — stated on the publication page | rejected | **Decided 2026-09-11 — rejected, confirmed 2026-09-17.** The underlying data are the BTO/RSPB/JNCC Wetland Bird Survey, which is already represented at the right level of generality by [IND-J-010] wetland birds and [IND-J-013] wintering waterbirds in the JNCC UKBI sheet — and wintering waterbird distribution is the established climate signal. Same reasoning as the Tyne/Tees/Wear fish counts: species- or site-specific operational cuts of a survey already held. |
 | 2026-09-02 | scan 2026-09-02 (stats sweep) | IND | Flood and Coastal Erosion Risk Management in England: central government funding and performance | https://www.gov.uk/government/statistics/flood-and-coastal-erosion-risk-management-in-england-central-government-funding-and-performance | Yes — flood risk is a climate impact | [POL-045] holds the FCERM strategy but no indicator record exists for the statistic | High | add | **Decided 2026-09-11 — add.** |
 | 2026-09-02 | scan 2026-09-02 (stats sweep) | IND | UK farm animal genetic resources (FAnGR): breed inventory results | https://www.gov.uk/government/statistics/uk-farm-animal-genetic-resources-fangr-breed-inventory-results | Indirect | Genetic-diversity indicators exist in the CBD GBF sheet; check overlap before proposing | Medium | rejected | **Decided 2026-09-11 — rejected.** |
 | 2026-09-02 | scan 2026-09-02 (stats sweep) | IND | **CHECK — likely already held**: Butterfly populations UK/England (overlaps [IND-E-029], [IND-J-014]); UK and England's carbon footprint (overlaps [IND-E-057]); British survey of fertiliser practice (relates to [IND-E-035], [IND-C-038]) | https://www.gov.uk/government/statistics/butterflies-in-the-wider-countryside-uk | Yes | Held under framework indicator names rather than the statistic's own title | High — verify the workbook's data vintage matches these releases rather than adding duplicates | investigate | **Decided 2026-09-11 — investigate.** |
@@ -154,6 +154,392 @@ Conditions and questions attached to decisions, which must be honoured when writ
 - **EIF and CCC framework rows** — "update existing record, and ensure framework indicators up to date": these are the two framework-currency questions, and the indicator rows are the work, not the framework record.
 - **TE2100** — added deliberately as an example despite being generally out of scope; note that reasoning on the record so it is not later removed as inconsistent.
 
+## Two queries answered at source (17 September 2026)
+
+**"Is the 30by30 assessment framework a new set of indicators?"** — **No.** It is an eligibility and assurance *standard*: three criteria, three tiers, two assessment routes. It creates no new monitoring, running instead on the existing SSSI Protected Sites regime, NNR records and Landscape Recovery scheme data. It yields one headline measure — the share of England in Gold tier — already reported internationally via [GBF-013]. **The queue row's record type has been corrected from `IFW` to `POL` / Guidance / Methodology.** My original classification was wrong.
+
+**"Is the Cormorant index used to monitor policy targets?"** — **No.** The publication states the indices are released early as provisional *"to enable their use for operational purposes"*: Natural England licensing of fish-eating bird control to protect fisheries (A06/A07). The parent BTO/RSPB/JNCC Wetland Bird Survey is already held at the right level of generality as [IND-J-010] and [IND-J-013], and wintering waterbird distribution is the established climate signal. Rejection confirmed, on the same reasoning as the river fish counts.
+
+**New scope item arising:** the 30by30 guidance states that separate approaches exist for Northern Ireland, Scotland, Wales **and at sea**. 30by30 marine has not been scanned at all, and is not in the queue.
+
+## Framework currency check — EIF and CCC (17 September 2026)
+
+Commissioned by the round-2 triage condition *"update existing record, and ensure framework indicators up to date"*. Sources read directly: the ten EIF theme pages on gov.uk, the EIF collection and Recent updates pages, and the CCC's Mitigation and Adaptation Monitoring Framework pages. Confidence **high** for EIF, **high** for the CCC adaptation finding, **medium** for the CCC mitigation finding (the CCC publishes no fixed enumerated mitigation indicator list to diff against).
+
+### IFW-01 Environmental Indicator Framework — current. No indicator changes.
+
+The published EIF is **66 indicators across themes A–K** (there is no theme I). All 66 held codes and names match the published set one for one: no additions, no retirements, no renumbering. The six 2026 updates (13 Feb, 17 Mar, 15 Apr, 13 May, 3 Jul, 19 Aug) were **data refreshes**, not structural changes — Defra moved the EIF off an annual cycle to rolling updates as data arrive, so "updated" on a theme page means new figures, not new indicators.
+
+Three amendments to [IFW-01], all minor:
+
+1. `Official_Link` is `https://oifdata.defra.gov.uk/`, which now redirects to the gov.uk collection page. Repoint to the collection: `https://www.gov.uk/government/collections/environmental-indicator-framework`.
+2. **E5** published name is "Percentage of **the** annual growth of trees in English woodlands that is harvested"; [IND-E-037] omits "the".
+3. **H1** published name is "Abatement of the number of invasive non-native species entering and establishing **against a baseline**"; [IND-E-052] omits the final three words.
+
+**Implication for the scan protocol:** the EIF no longer has an annual refresh to watch for. The ad-hoc trigger "a new EIF indicator release" in `POLICY_SCAN_PROTOCOL.md` §1 should become a check of the *Recent updates* page, which is the only place a structural change would surface.
+
+### IFW-02 CCC — materially out of date, and the record conflates two frameworks
+
+The CCC now publishes these as **two separate monitoring frameworks**, on different cycles:
+
+- **CCC Mitigation Monitoring Framework** — published 20 June 2025, updated June 2026.
+- **CCC Adaptation Monitoring Framework** — published **20 May 2026**, replacing the Adaptation Monitoring Framework 2023–2025.
+
+[IFW-02] covers both under one Framework_ID ("CCC Mitigation & Adaptation Monitoring Framework / UK Net Zero Strategy", 111 rows). **Recommend splitting into [IFW-02] mitigation and a new [IFW-10] adaptation**, since they now have separate sources, separate structures and separate update cycles, and a single Record_Count hides that one half is current and the other is not.
+
+**Adaptation — 32 rows, superseded, and structurally incomplete.** All 32 adaptation rows cite *CCC Progress in Adapting to Climate Change 2023 Report to Parliament*. The May 2026 refresh is not an update but a rebuild: it is anchored on **CCRA4-IA** rather than CCRA3, it takes its ambition from the **21 national adaptation objectives** in *A Well-Adapted UK* (2026), and it restructures monitoring around **14 systems** — Health; Built environment and communities; Public services; Cultural heritage; Water and wastewater; Energy; Transport; Waste; Digital and telecoms; Land; Sea; Food security; Economy and finance; National security and international engagement — each with a published monitoring map of objective, targets, actions, enablers and policies.
+
+Mapping the held sector labels onto those systems:
+
+| Held sector | Rows | Current system | Status |
+|---|---|---|---|
+| Nature (Adaptation) | 8 | Land / Sea | Split across two systems |
+| Working Lands & Seas (Adaptation) | 7 | Land / Sea | Split across two systems |
+| Water Supply (Adaptation) | 7 | Water and wastewater | Narrower than the system (no wastewater) |
+| Food Security (Adaptation) | 5 | Food security | Retained |
+| Health (Adaptation) | 5 | Health | Retained |
+
+Nine of the fourteen systems have **no held rows at all**: Built environment and communities, Public services, Cultural heritage, Energy, Transport, Waste, Digital and telecoms, Economy and finance, National security and international engagement. Several are out of this project's climate–nature scope and should stay that way, but Built environment, Energy, Transport and Economy and finance are not obviously so.
+
+So the adaptation half is not stale, it is **structurally incomplete against the current framework**, and patching row by row will not fix it. The work is a re-extraction from the 14 system monitoring maps, with an explicit scope decision on which systems the project catalogues. That is a larger job than a triage row and should be queued as its own task.
+
+**Mitigation — 79 rows, defensible but benchmarked on a superseded plan.** The mitigation framework publishes a *method*, not a fixed indicator list: indicators are selected per progress report. So the held rows are a synthesis rather than a transcription, and cannot be diffed. What has moved is the benchmark. The CCC now measures against the Government's **Carbon Budget and Growth Delivery Plan (CBGDP, October 2025)**, which replaced the Carbon Budget Delivery Plan 2023. **24 of the 111 rows** name the CBDP in `Source_Reference` or `Framework_Classification` and need their benchmark checked against the CBGDP; 47 cite "CCC Monitoring Framework 2025 – <sector>", which remains a valid citation given the June 2026 update, but the version should be stated.
+
+Two vocabulary mismatches with the CCC's own sector definitions: held **"Waste & F-gases"** combines two sectors the CCC keeps separate, and held **"Fuel Supply / Hydrogen"** is the CCC's "Fuel supply". Both are the Government's groupings, not the CCC's.
+
+### Knock-on to the governance workbook — found by this check, not previously queued
+
+| Record | Held as | Position at 17 Sep 2026 | Action |
+|---|---|---|---|
+| [POL-017] | Climate Change Risk Assessment (CCRA3) 2022 | CCRA4-IA published 20 May 2026 as *A Well-Adapted UK*; the statutory CCRA4 follows | Add a CCRA4-IA record; mark [POL-017] superseded, do not delete |
+| [POL-004] | UK Net Zero Strategy / Carbon Budget Delivery Plan (CBDP) 2023 | Superseded by the CBGDP, October 2025 | Add a CBGDP record; mark [POL-004] superseded |
+| [POL-002] | National Adaptation Programme (NAP3) 2023–2028 | Still current; NAP4 due 2028 | No action |
+
+New candidates arising, all confirmed at source:
+
+| Added | Found by | Family | Proposed name | Source | Climate input | Overlap | Confidence | Status | Resolution |
+|---|---|---|---|---|---|---|---|---|---|
+| 2026-09-17 | framework currency check | POL | A Well-Adapted UK — Fourth Independent Assessment of UK Climate Risk (CCRA4-IA), CCC, 20 May 2026. **Technical Report led by the Met Office (Prof Jason Lowe)** — a direct Met Office → policy channel | https://www.theccc.org.uk/publication/a-well-adapted-uk/ | Yes | Supersedes [POL-017] CCRA3 in part | High | pending | |
+| 2026-09-17 | framework currency check | POL | Carbon Budget and Growth Delivery Plan (CBGDP), October 2025 | https://www.theccc.org.uk/publication/ccc-monitoring-framework/ (CCC's citation; locate the primary DESNZ page before writing) | Yes | Supersedes [POL-004] CBDP 2023 | High | pending | |
+| 2026-09-17 | framework currency check | IFW | CCC Adaptation Monitoring Framework 2026 — split out of [IFW-02] | https://www.theccc.org.uk/publication/ccc-adaptation-monitoring-framework/ | Yes | [IFW-02] | High | **done** | **Completed indicators v17 (split) and v23 (re-extraction).** [IFW-10] holds the 38 proposed targets of the 2026 framework; [IFW-11] holds the superseded 2023–2025 set. |
+| 2026-09-17 | framework currency check | POL | Progress in reducing emissions: 2026 report to Parliament, CCC, 24 June 2026 | https://www.theccc.org.uk/publication/progress-in-reducing-emissions-2026-report-to-parliament/ | Yes | Annual series — decide once whether the project holds the series or each edition | Medium | pending | |
+| 2026-09-17 | framework currency check | POL | Third Climate Change Adaptation Programme for Northern Ireland (NICCAP3), 2026 | https://www.theccc.org.uk/publication/ccc-adaptation-monitoring-framework/ (verify at DAERA before writing) | Yes | Devolved backlog (D8) | Medium | pending | |
+| 2026-09-17 | framework currency check | POL | Scotland's Climate Change Plan 2026–2040, March 2026 | https://www.theccc.org.uk/publication/ccc-monitoring-framework/ (verify at gov.scot before writing) | Yes | Devolved backlog (D8) | Medium | pending | |
+
+**Method note.** Both the NICCAP3 and Scotland Climate Change Plan rows were found in the CCC's own framework pages, not in a devolved-administration scan — which is the outstanding gap in the current scan. A secondary source naming a primary document is a legitimate *pointer*, but the record must be written from the primary. Do not write these two until gov.scot and DAERA have been read directly.
+
+## Controlled vocabulary decision — General_Type (17 September 2026)
+
+**Status: DECIDED by Jonathan, 17 September 2026. Ready to execute as a single edit.** This was the blocker on writing the 42 approved records.
+
+### The finding that reframes it
+
+The Data Dictionary cell for `General_Type` reads, literally:
+
+> `Public Bodies: ... Devolved Administration | Devolved Public Body | Local Government (collective) | Government Unit / Authority | Executive Agency | Ministerial Department; Legislation: ...`
+
+The leading `...` is **in the cell**. The six-term list was never a deliberate closed vocabulary — it is an elided one. So the 21 records on undeclared terms are not drift by the records; the dictionary lost terms. This is a dictionary repair, and the terms in use are, with two exceptions, the standard UK public-body taxonomy.
+
+Corroborating this: `check_links.py` **does not validate `General_Type` against the Data Dictionary at all** — there is no reference to the column in the file. That is why 21 non-conforming records sat behind a passing release gate for however long. See the follow-on action below.
+
+### Public Bodies — final vocabulary (closed, 12 terms, 44 records)
+
+| Term | Records | Change |
+|---|---|---|
+| Ministerial Department | 7 | — |
+| Non-Ministerial Department | 3 | **Declare** (was in use, undeclared) |
+| Executive Agency | 6 | **Declare unchanged**; gains [ORG-017] Met Office |
+| Executive NDPB | 7 | **Declare**; gains [ORG-007] OEP |
+| Advisory NDPB | 3 | **Declare** |
+| Independent Regulator | 4 | **Declare**; gains [ORG-040] FCA |
+| Statutory corporation | 2 | **NEW TERM** |
+| Devolved Administration | 3 | — |
+| Devolved Public Body | 6 | — |
+| Government Unit / Authority | 1 | — |
+| Local Government (collective) | 1 | — |
+| Non-governmental body / Partnership | 1 | **NEW TERM**, replacing "NGO Partnership / Coalition" |
+
+**Retired terms:** `Independent Statutory Body` (4 records redistributed, term deleted), `Executive Agency / Trading Fund` (1 record moved, term deleted), `NGO Partnership / Coalition` (renamed).
+
+**Definition to add for the new term:**
+
+> **Statutory corporation** — a body corporate or corporation sole established by or under statute, which is not a department, executive agency or NDPB, and is not a servant or agent of the Crown.
+
+### Record-level changes (6 records)
+
+| Record | From | To | Basis |
+|---|---|---|---|
+| [ORG-007] Office for Environmental Protection | Independent Statutory Body | **Executive NDPB** | Jonathan's call |
+| [ORG-040] Financial Conduct Authority | Independent Statutory Body | **Independent Regulator** | Jonathan's call. Note: technically a company limited by guarantee, not a statutory corporation — which is why a functional label fits it better than a constitutional one |
+| [ORG-031] NI Climate Commissioner | Independent Statutory Body | **Statutory corporation** | SR 2025 No. 78 reg. 5: *"The person for the time being holding the office of the Commissioner is by that name a corporation sole… not to be regarded as the servant or agent of the Crown"* |
+| [ORG-024] The Crown Estate | Independent Statutory Body | **Statutory corporation** | Body corporate under the Crown Estate Act 1961 as amended 2025 |
+| [ORG-017] Met Office | Executive Agency / Trading Fund | **Executive Agency** | Compound token retired. Move the trading-fund status to `Remit_And_Powers` — it is a fact about the body, not a type of body, and a vocabulary that admits compounds will grow them |
+| [ORG-042] State of Nature Partnership | NGO Partnership / Coalition | **Non-governmental body / Partnership** | Generalised so the term is not single-purpose |
+
+### Legislation — one addition
+
+`Retained EU Law` is in use on [LEG-047] Water Framework Directive (retained UK law) and is undeclared. **Declare it.** Legislation then reads: Primary Legislation (50) | Secondary Legislation (15) | Bill (pre-legislative) (1) | Retained EU Law (1).
+
+**Policies & Activities needs no change** — nine terms declared, nine in use, no drift.
+
+### Data Dictionary — exact replacement
+
+Row `All sheets` / `General_Type`, column `Controlled_Vocabulary`, replace the whole cell with:
+
+> `Public Bodies: Ministerial Department | Non-Ministerial Department | Executive Agency | Executive NDPB | Advisory NDPB | Independent Regulator | Statutory corporation | Devolved Administration | Devolved Public Body | Government Unit / Authority | Local Government (collective) | Non-governmental body / Partnership; Legislation: Primary Legislation | Secondary Legislation | Bill (pre-legislative) | Retained EU Law`
+
+Replace the `Description` cell, which currently explains only one term, with:
+
+> `Detailed classification within Record_Type. Public Bodies terms follow the standard UK public-body taxonomy, with three project-specific additions: "Independent Regulator" for economic and sectoral regulators; "Statutory corporation" for bodies corporate and corporations sole that are not departments, agencies or NDPBs and are not servants or agents of the Crown; and "Non-governmental body / Partnership" for non-public organisations held on this sheet. "Government Unit / Authority" covers joint cross-government units (e.g. NISTA, [ORG-023]). Note that the Public Bodies sheet holds a small number of non-public organisations; the sheet name understates its scope and is retained because the dashboard build scripts key on it.`
+
+### Corrections to [ORG-031] found while verifying
+
+The office was established by **The Northern Ireland Climate Commissioner Regulations (Northern Ireland) 2025, SR 2025 No. 78**, made by The Executive Office on 8 April 2025, in operation 9 April 2025, under s.50 of the Climate Change Act (Northern Ireland) 2022.
+
+1. `Lead_Department` reads `[ORG-036] DAERA`. **Wrong** — the s.50 duty and the regulations both sit with **The Executive Office**. The Executive Office has no ORG record, so this is a missing record, not just a wrong value (queued below).
+2. `Link` points at the 2022 Act. Repoint to the regulations.
+3. `Statutory_Duties` reads as though the office existed from 2022. Note that establishment was April 2025.
+
+### New records arising
+
+| Added | Found by | Family | Proposed name | Source | Climate input | Overlap | Confidence | Status | Resolution |
+|---|---|---|---|---|---|---|---|---|---|
+| 2026-09-17 | vocabulary reconciliation | LEG | The Northern Ireland Climate Commissioner Regulations (Northern Ireland) 2025, SR 2025 No. 78 — Secondary Legislation | https://www.legislation.gov.uk/nisr/2025/78/contents/made | Indirect — establishes the NI climate oversight office | Authority for [ORG-031]; child of [LEG-059] | High | add | Write alongside the [ORG-031] correction, not as a separate batch — it is the authority for the classification |
+| 2026-09-17 | vocabulary reconciliation | ORG | The Executive Office (TEO), Northern Ireland | https://www.executiveoffice-ni.gov.uk/ | Indirect | Sponsor of [ORG-031]; a department of [ORG-036] | High | **rejected** | **Jonathan 2026-09-18 — no devolved departments.** Northern Ireland is held at administration level only. [ORG-036] was repurposed from DAERA to the **Northern Ireland Executive** (v23), so [ORG-031] Lead_Department now reads `[ORG-036] Northern Ireland Executive (The Executive Office)` and is correct without a TEO record. |
+
+### Follow-on actions
+
+1. **Add a controlled-vocabulary invariant to `check_links.py`** — a sixth check validating every `General_Type`, and any other `Data_Type: Controlled` column, against the Data Dictionary. Without it this class of drift stays invisible to the release gate, and the gate is the only thing standing between a proposed row and the workbooks. This is the single highest-value change arising from the whole exercise.
+2. **UKHSA is unblocked.** It is an executive agency of DHSC and `Executive Agency` is already declared. The blocker was the untidiness of the vocabulary, not anything UKHSA-specific.
+
+### Devolved tier — DECIDED 18 September 2026
+
+The question raised above — [ORG-036] DAERA sitting in `Devolved Administration` alongside the Scottish and Welsh Governments, when it is a department rather than a government — is settled.
+
+**Rule: the four UK administrations are held at administration level, and no devolved department is held as a record.** [ORG-034] Scottish Government, [ORG-035] Welsh Government and now [ORG-036] **Northern Ireland Executive**. Departments are named in prose, in brackets after the administration — `[ORG-036] Northern Ireland Executive (DAERA)`, `[ORG-036] Northern Ireland Executive (The Executive Office)` — so the department is still visible without becoming a node.
+
+Implemented in UK governance **v23**. ORG-036 was repurposed rather than retired, because its fourteen inbound references had always meant "the Northern Ireland administration"; only its name sat at the wrong tier. Updated: ORG-004, ORG-016 (link and prose), ORG-031, LEG-038, LEG-039, LEG-040, LEG-059, POL-028, POL-052, POL-067, POL-069, Cross-Reference Index.
+
+The rule is recorded in the ORG-036 `Remit_And_Powers` text so that a later scan finds it on the record rather than re-raising it. **A future candidate that is a devolved department is rejected on this rule**, and its substance folded into the administration record or into the prose of whatever it sponsors.
+
+Two consequences worth noting:
+
+- Defra sits in this company as England's lead department, which is an asymmetry — there is no "UK Government" or "England" administration record. It has not caused a problem, but it is the mirror image of the question just settled.
+- [ORG-014] is still named "Scottish Natural Heritage". It was renamed **NatureScot** in 2020, and other records already refer to it by the new name. Not touched here; flagged as a one-cell correction for the next write.
+
+## RESOLVED — Policy_Sector (18 September 2026)
+
+Found by the new controlled-vocabulary invariant on its first run, and **closed the next day — with a different diagnosis from the one recorded below.**
+
+**The vocabulary was never forked.** A record-sheet re-check found **zero** non-canonical tokens in any of the three workbooks: the 14-class migration made in indicators workbook v11 (`outputs_other/EXPORT_SCOPING_NOTE.md` §2.4) had been applied everywhere it mattered. What had not been updated was the **Cross-Reference Index** in each governance workbook — a derived sheet, read by nothing, never regenerated after the migration. It held 141 of 177 stale `Policy_Sector` values in the UK workbook and 87 of 103 in the international one, plus five superseded `General_Type` values and four records missing outright (ORG-042, INT-O-033, INT-O-034, INT-O-035).
+
+So the three terms called homeless below — `Air Quality`, `International`, `Cross-cutting` — were **artefacts of a stale copy, not live classes**, and none of the three decisions listed at the end of this section needed making. The original diagnosis was wrong, and is kept here rather than deleted because the reasoning is what sent the fix in the wrong direction for a day.
+
+**Fixed in UK governance v25 / international v16:** both indexes regenerated from source by the new `Data/code/rebuild_xref.py`, which `finalise.py` now runs as step 1 of 4; both Data Dictionaries now declare the 14 classes and document the index as derived; `VOCAB_WARN_ONLY` in `check_links.py` is empty, so `Policy_Sector` is a hard gate condition. The index can no longer drift, because it is rebuilt rather than maintained.
+
+---
+
+*Original entry, 17 September 2026 — superseded by the above.*
+
+`WORKBOOK_WRITE_PROTOCOL.md` §2 states that `Policy_Sector` is one vocabulary of fourteen classes shared by all three workbooks and must not be forked per workbook. It has been forked, in both the dictionaries and the data.
+
+- The **indicators** workbook declares the current fourteen classes and its records conform.
+- The **UK governance** workbook declares twelve older slash-style terms; the **international** workbook declares ten.
+- The **records** in both governance workbooks use a mixture of the two generations. `Nature & Biodiversity` (655 uses) sits alongside `Nature / Biodiversity` (171); `Land Use & Agriculture` (286) alongside `Land / Agriculture / Planning` (87); `Marine & Fisheries` (165) alongside `Marine` (47); `Governance, Society & Data` (249) alongside `Finance / Governance / Data` (24).
+
+**25 distinct tokens are in use where the protocol specifies 14.** 390 cell values do not match their workbook's declaration.
+
+This is not cosmetic: the governance diagram and the indicator finder both filter on `Policy_Sector`, so `Nature / Biodiversity` and `Nature & Biodiversity` are two separate filter entries today, and a user filtering on one silently misses the records tagged with the other.
+
+**Why it was not fixed in this pass.** Most of the mapping is mechanical, but three terms in use have no home in the fourteen — `Air Quality` (5 uses), `International` (8) and `Cross-cutting` (24) — and two are compounds that would have to be split rather than renamed (`Finance / Governance / Data`, `Agriculture / Biosecurity`). Those are scope decisions, and migrating roughly 900 tokens on a guess would be worse than leaving the fork visible. The invariant therefore reports `Policy_Sector` as a **warning** rather than a gate failure, with the reason stated in `VOCAB_WARN_ONLY` in `check_links.py`.
+
+**Decisions needed before this can be cleared:**
+
+1. Do `Air Quality`, `International` and `Cross-cutting` become additional classes (making it 17), or fold into existing ones?
+2. Does `Finance / Governance / Data` split into `Finance` + `Governance, Society & Data` on every record that carries it?
+3. Is the three-per-record cap that applies to indicators also to apply to governance records after the split, or do governance records stay uncapped as they are now?
+
+Once settled, the migration is a single scripted pass over two workbooks plus both dictionaries, followed by a dashboard rebuild, and `VOCAB_WARN_ONLY` is emptied.
+
+## CCC benchmark re-derivation — buildings and surface transport done (18 September 2026)
+
+Nine of the 24 CBDP-benchmarked rows on the `CCC Indicators` sheet have been re-derived against the **Carbon Budget and Growth Delivery Plan (October 2025)** and the **CCC Progress in reducing emissions 2026 report (24 June 2026)**. Indicators workbook **v18**.
+
+Buildings and surface transport were taken first because the CCC states the CBGDP reduces emissions more slowly than the CBDP 2023 *in exactly these two sectors* — so this is where a stale benchmark was most likely to be wrong rather than merely out of date. Four of the nine turned out to be substantively wrong, not just stale:
+
+| Record | Was | Now |
+|---|---|---|
+| IND-C-021 heat pumps | 600,000/year by 2028 (Heat & Buildings Strategy) | Warm Homes Plan: 450,000/year UK-wide by 2030, ~250,000 retrofit — which the CCC says is itself insufficient for the CBGDP. Balanced Pathway ~1.4m retrofit/year by 2035 |
+| IND-C-022 EPC C | All homes EPC C by 2035 | No longer government policy. Planned MEES: private rented to EPC C on two metrics by 2030 (~1.8m homes); social rented one metric by 2030, two by 2039 (~1.1m / ~2.9m) |
+| IND-C-023 insulation | "CBDP: significant scale-up required"; ECO4 scheme targets | No quantified government target. ECO closed with no replacement, having delivered ~a third of the retrofit market. CCC tracks cavity wall insulation coverage, on track |
+| IND-C-027 non-residential | CBDP pathway | CBGDP buildings pathway; Public Sector Decarbonisation Scheme closed, non-residential MEES (EPC B by 2030) still unconfirmed since the 2019 consultation |
+
+Three were pathway repoints only (IND-C-003, IND-C-019, IND-C-025: CBDP → CBGDP sectoral pathway). One was **confirmed unchanged** — IND-C-018, the 300,000 public charge points by 2030 target, which the CCC assesses as on track; the 2025 figure (88,000 devices) was added. IND-C-016 electric vans was rebenchmarked on CBGDP uptake assumptions with the 2025 actual (9.5% of new van sales, behind the CBGDP).
+
+**UPDATE, same day — the remaining fifteen are done (indicators v19). The marker is cleared from all 24.**
+
+Eleven are fully re-derived. Four of those were wrong rather than stale: IND-C-006 offshore wind (Clean Power 2030 is **43–50 GW by 2030**, not "50 GW including 5 GW floating"); IND-C-008 solar (**45–47 GW by 2030 is a government ambition**, which this row had mislabelled as a CCC pathway figure, and the 70 GW by 2035 Net Zero Strategy number is not the current benchmark); IND-C-035 peatland and IND-C-036 tree planting, both of which now benchmark against the **combined ambition of the four administrations** rather than the England-only figures previously held. IND-C-012 replaced an AR4 reference with AR7's record 8.2 GW. IND-C-028 was recast: the CBGDP sets no industrial energy-intensity target and makes electrification the primary route, so the benchmark is now the Balanced Pathway's 36% electric share of industrial energy demand by 2030 against 27% in 2024.
+
+**Four were marked PARTIAL — and are now resolved (v20) by reading the CBGDP itself,** the Section 14 Report and its technical annex, rather than the CCC's commentary on it.
+
+**The main finding is negative, and it matters more than the numbers.** For three of the four, *the CBGDP sets no target at all* — so the figures those rows carried were not out of date, they had no current government referent:
+
+- **IND-C-031 hydrogen** — no capacity target. Production capacity is **derived from modelled demand**, assuming supply always equals demand, with CCUS-enabled plants at a 90% load factor and electrolytic at 60%. Delivery runs through allocation rounds (HAR1 11 projects funded, HAR2 27 shortlisted, HAR3 by 2026, HAR4 from 2028), and a new Hydrogen Strategy is in preparation to set out the scale government envisages. The 10 GW by 2030 came from the 2021 Hydrogen Strategy and is not restated.
+- **IND-C-038 fertiliser** — no quantified target. Agricultural nitrous oxide is addressed through named advice-and-guidance policies with market-led uptake: agronomist-led nutrient management plans, precision farming with variable-rate nitrogen technology, grass and herbal leys, clover at 20%+ of mixed grassland, slurry nitrogen analysis.
+- **IND-C-055 energy productivity** — the 15% final-energy-demand reduction target appears in **neither** the Section 14 Report **nor** the technical annex. The CBGDP works through sectoral policy lines (industrial energy efficiency, domestic energy efficiency) instead of an economy-wide demand target.
+
+**IND-C-030 CCS** is the one row with a real number, and it is an order of magnitude below what the row carried. The Track-1 clusters enable up to **4 MtCO₂/year (East Coast) and 4.5 MtCO₂/year (HyNet) at full utilisation — about 8.5 MtCO₂/year combined** — against £9.4 billion allocated at Spending Review 2025, with Track-2 (Acorn, Viking) FID due later this Parliament and gas-terminal CCUS savings from 2034. The previous benchmark was 20–30 MtCO₂/year by 2030, from the Net Zero Strategy 2021.
+
+**No row on the CCC Indicators sheet now carries a superseded or unverified benchmark.**
+
+A method point worth keeping: three of these four could only be settled by reading the plan itself. The CCC's report says what the CBGDP does *differently*, not what it omits, so a benchmark with no successor looks identical to one the commentary simply did not mention. Where a row's benchmark cannot be found in the source plan, "no current target" is a finding to record, not a gap to leave blank.
+
+**Also corrected, outside the original scope:** IND-C-014 read "ban on new petrol/diesel cars by 2035". The phase-out of new petrol and diesel **cars is 2030**; 2035 applies to vans. My earlier note in this file attributed that error to IND-C-015, which was wrong — IND-C-015 is cumulative electric car stock and is fine.
+
+*(The note that previously stood here misidentified the row as IND-C-015; it was IND-C-014, and it has now been corrected in v19 — see the update above.)*
+
+## SDG sheet climate-scored, and the dashboard's blank-vs-zero bug fixed (18 September 2026)
+
+Indicators **v21**. All 173 SDG Indicators rows now carry `Climate_Score`, `Climate_Dependency` and `Climate_Rationale`. Distribution: **113 score 0, 36 score 1, 20 score 2, 4 score 3** — which is the shape the SDG framework should have, most of it being social, economic and statistical rather than environmental. The four 3s are 6.4.2 water stress, 6.6.1 water-related ecosystem extent, 11.6.2 PM2.5/PM10 and 14.3.1 marine acidity.
+
+**The bug this closes.** `build_indicator_finder.py` read the score through `cell_int()`, which returns 0 for a blank cell. The 173 unassessed SDG records therefore rendered as climate score 0, indistinguishable from the 283 records that were assessed and genuinely scored zero. Anyone filtering the finder for climate relevance was silently excluding a sixth of the catalogue that nobody had ever looked at — and the catalogue gave no sign of it. A new `cell_score()` returns `None` for a blank, the page renders it as a hatched "not assessed" badge distinct from the cs-0 badge, an unassessed record never satisfies a "climate score ≥ N" filter, and the builder prints a warning naming any record that arrives unscored. The guard stays useful even now that nothing is blank, because it makes the next unscored import visible at build time instead of invisible for months.
+
+**Method.** The Legend scale was applied as a **measured-quantity test** — does climate or weather data enter the calculation, or does inter-annual weather move the value — not as a topical-relevance test. So 14.5.1 marine protected area coverage scores 0 (a GIS area) while 6.4.2 water stress scores 3 (the denominator is computed from precipitation and runoff). **29 of the 173 are the same indicator as a record already scored elsewhere in this workbook**, because the GBF monitoring framework reuses SDG indicators; those were anchored on the existing score rather than rescored, marked `A:` and citing the sibling record.
+
+### Two cross-sheet inconsistencies found — logged, not resolved
+
+Anchoring exposed that the workbook already scores the same measured quantity differently on different sheets:
+
+| Indicator | Scores held |
+|---|---|
+| Total GHG emissions | **1** on CCC [IND-C-001], JNCC [IND-J-034] and EEA [IND-B-165]; **3** at [GBF-184] (CO₂ per unit value added) and on the IPBES sheet |
+| Annual mean PM2.5 / PM10 | **3** at [IND-E-003]; **2** at [GBF-074]; **1** on the IPBES sheet |
+| Protected area coverage | **0** on EIF, CBD GBF, BIP and IPBES; **3** on the CCC sheet |
+
+I chose within-sheet coherence over importing the divergence: the SDG emissions rows follow the 1, and PM2.5 follows the 3. But three scores for one measured quantity means the climate-score filter is not comparing like with like across frameworks, which is the filter the whole indicator finder is built around.
+
+**A harmonisation pass across all nine sheets is the right fix**, and it is a bigger job than it looks: 947 records, and the disagreements are about how the scale is read, not about the facts. Worth doing before the climate score is used for anything consequential.
+
+**Done — indicators v27 (28 September 2026).** All 985 records reviewed; 162 changed (145 down, 16 up), with Climate_Dependency and Climate_Rationale rewritten on each. The Legend as written (a data-dependency test) is the adopted reading; topical climate relevance is carried by `Policy_Sector = Climate`. A Core principle and Rules A–H now sit on the Legend sheet below the 0–3 scale. The three inconsistencies above resolve to: GHG emission inventories 1 (temperature-adjusted series 3), air-pollutant concentrations 2, protected-area coverage 0. Distribution 0/1/2/3 moved from 396/233/228/128 to 435/269/201/80. Full review record, including ten borderline records deliberately left unchanged: `outputs_other/climate_score_harmonisation/climate_score_harmonisation_proposal.xlsx`.
+
+### NCF_Category and Indicator_Type now populated too (v22)
+
+Both columns are filled on all 173 rows. **`NCF_Category` is a controlled five-term vocabulary**, so these rows are now validated by the check_links controlled-vocabulary invariant for the first time. Distribution: Enabling 128, Benefit 18, Pressure 18, State – Habitats 6, State – Species 3.
+
+The weighting to **Enabling** is correct rather than lazy. The NCF Legend defines it as "policy responses, governance metrics, funding, data, public engagement and other enabling conditions", and most of the SDG framework is social, economic, financial or statistical. It matches how the workbook already treats its siblings — CBD GBF is 102 of 202 Enabling, BIP 34 of 81. For the 29 rows duplicating a GBF or BIP record, NCF was **anchored on the sibling**, and every anchor agreed with the value I had derived independently, which is a useful check on the derivation.
+
+**`Indicator_Type` was deliberately not anchored.** The CBD GBF sheet stores the GBF monitoring-framework *tier* in that column — Headline / Component / Complementary / Binary — which is a framework tier, not a type. Carrying those onto SDG rows would have been meaningless. The cross-sheet generic typology was used instead.
+
+### Two new Indicator_Type terms — please confirm
+
+`Indicator_Type` is declared **free text** in the Data Dictionary, so neither coinage required vocabulary approval. But coining terms across 57 records is the kind of thing that should be visible rather than absorbed, so both are flagged here:
+
+| New term | Rows | Why nothing existing fitted |
+|---|---|---|
+| **Socio-economic statistic** | 52 | Poverty, employment, income, trade, macroeconomic and statistical measures. These are not policy or governance metrics — an unemployment rate is not a policy response — and they are not natural-capital measures either. Every existing term in the workbook is one or the other. |
+| **Hazard impact** | 5 | The Sendai disaster mortality and economic-loss indicators, which appear three times each across goals 1, 11 and 13. The nearest existing terms are EEA's "Hazard frequency" (frequency, not impact) and "Impact index" (a composite index, which these are not). |
+
+If you would rather fold either into an existing term, it is a one-line change across the affected rows.
+
+### Still open on this sheet
+
+`GBF_Targets_Clean` is absent from the sheet entirely. That is a column addition plus a mapping exercise rather than a fill, and it is the same job as the IFW-04 State of Nature gap (32 rows) — worth doing as one piece of work across both sheets.
+
+## IFW-10 re-extracted; ID-gap audit closed (18 September 2026)
+
+Indicators **v23**.
+
+### The ID-gap audit — closed as intentional
+
+Jonathan, 18 September: no record of when or why the `IND-B` and `IND-C` numbers were removed, but the gaps predate July, so **treat them as intentional removal or reorganisation unless contrary evidence appears**. 35 unused numbers in `IND-C` (below 147) and 141 in `IND-B` are therefore accepted, not investigated. New `IND-C` records continue from the maximum, not from the gaps — the never-reuse-a-retired-ID rule applies to them by default.
+
+### IFW-10 — the finding is structural, not a data refresh
+
+**The current CCC adaptation framework publishes no indicator list.** Its fourteen system monitoring maps publish an objective, proposed targets, actions, enablers and policies; the CCC then selects indicators against those targets separately in each adaptation progress report. So the 32 held rows could not be refreshed indicator-for-indicator — there is nothing to refresh them against.
+
+What the framework does publish, and what is now held, are the **proposed targets**: measurable, time-bound, and the closest analogue to the target rows already on the CCC sheet. **38 new records, IND-C-147 to IND-C-184**, one per target:
+
+| System | Targets | | System | Targets |
+|---|---:|---|---|---:|
+| Economy & finance | 7 | | Waste | 2 |
+| Land | 4 | | Sea | 2 |
+| Health | 3 | | Food security | 2 |
+| Public services | 3 | | Cultural heritage | 2 |
+| Water & wastewater | 3 | | Energy | 2 |
+| Transport | 3 | | Built environment & communities | 2 |
+| National security & international | 2 | | Digital & telecoms | 1 |
+
+**Scope decision, taken rather than re-asked:** all fourteen systems, not a climate–nature subset, applying the tiered triage rule already settled for the policy scan — catalogue broadly, score climate relevance at entry, let the dashboards filter. Nine of the fourteen had no representation at all before this.
+
+Climate scores are high, as they should be: **24 at 3, 10 at 2, 4 at 1**. Most adaptation targets are defined in directly climatic terms — excess heat-related mortality, resilience to a 1 in 500-year drought, flood probability thresholds, fish stocks sustainable under 2°C of warming. The four 1s are the governance and finance targets (business access to information, company adaptation plans, international climate finance).
+
+**`Data_Source` reads "to be confirmed" on all 38, deliberately.** The framework names no data series for these targets. Inventing one would be a guess, and the blank-over-guess rule applies.
+
+### The 32 legacy rows kept, with their own register record
+
+They are now **[IFW-11] "CCC Adaptation Monitoring Framework 2023–2025 (superseded)"**, so the register shows both vintages honestly rather than one record spanning two frameworks. They remain the basis on which the CCC assessed adaptation progress in 2023 and 2025, and the project marks supersession rather than deleting. Sheet total rises 947 → 985; the register reads 11 frameworks across 9 sheets.
+
+### Two things to watch
+
+- **20 objectives were captured across the fourteen systems; the CCC states 21** in A Well-Adapted UK. The published system pages do not separately distinguish the twenty-first. Worth one check against the report PDF before anyone cites the objective count.
+- **When the next CCC adaptation progress report lands**, it will carry the indicator set selected against these targets. That is the point at which IFW-10 can hold indicators rather than targets, and it should trigger a re-visit. Added to the scan protocol's ad-hoc triggers is the sensible home for this.
+
+## Decisions of 18 September 2026, and the MCCIP proposal
+
+### Settled
+
+| Item | Decision |
+|---|---|
+| **Agency monitoring statistics** (EA drought, water situation, rainfall and river flow) | **Out of scope.** Written into the handover §8 as a standing scope rule, with the accepted cost stated: drought and water availability remains the catalogue's largest thematic gap. The earlier note that these would "eventually" get an indicators worksheet is superseded. |
+| **Level of generality** | **Rule written down**, in handover §8 and cross-referenced from the scan protocol §3, so the Cormorant indices, river fish counts, bluefin fishery and marine event reporting are not re-raised. |
+| **NaFRA2** | **Added as [POL-070]**, UK governance v26, with a reciprocal link on [POL-045] and on [IND-E-042], which already named NaFRA as a data source. |
+| **Monitoring the condition of the natural environment** | **Added as [POL-071]**, the Environment Act 2021 s.16 statutory statement. Date corrected: first published 23 May 2022, last updated 16 July 2026 — the queue had recorded the update date as the publication date. |
+| **FCERM funding and performance statistic** | **No action.** |
+
+### Verifications — all three "investigate" rows close with no addition
+
+- **Butterflies** — held seven times over on the JNCC sheet under UKBI 2025 indicator names ([IND-J-014] to [IND-J-018], plus [IND-J-033] and [IND-J-074] for connectivity), sourced to the UK Butterfly Monitoring Scheme. Nothing to add.
+- **UK carbon footprint** — held as [IND-E-057], sourced to Defra/ONS consumption-based emissions statistics. Nothing to add.
+- **British Survey of Fertiliser Practice** — it is a *data source*, not a missing indicator: it is named on [IND-C-038], and [IND-C-083] and [IND-C-087] carry the related fertiliser and nutrient-management measures. Nothing to add.
+- **Children's People and Nature Survey** — [IND-E-051] already names the People and Nature Survey as a data source, alongside MENE. The *children's* variant is not separately named. One-cell improvement if wanted, not a record.
+
+---
+
+## PROPOSAL FOR JUDGEMENT — an MCCIP indicator block
+
+**Not written. This is the proposal you asked for.**
+
+### What MCCIP actually publishes
+
+MCCIP is held as [POL-049] with no indicator rows. Its UK evidence hub publishes **22 topics** in three groups, each topic a standing evidence review rather than a data series:
+
+| Group | Topics |
+|---|---|
+| **Physical environment** (10) | Temperature · Dissolved oxygen · Stratification · Salinity · Sea level · Storms and waves · Coastal geomorphology · Ocean acidification · Ocean circulation · Arctic sea ice |
+| **Ecosystem change** (6) | Coastal and intertidal habitats · Shallow subtidal, shelf and deep-sea habitats · Plankton · Fish · Seabirds and waterbirds · Marine mammals |
+| **Societal impact** (6) | Fisheries · Aquaculture · Harmful species · Coastal flooding · Transport and infrastructure · Cultural heritage |
+
+Each topic carries a dated full review paper, a **"What is already happening?"** statement with quantified observed trends, a **confidence level for the observed evidence**, a **"What could happen in the future?"** statement with quantified projections, and a **separate confidence level for the projections**. The sea temperature topic, for example, gives 0.3 °C per decade over 40 years at HIGH confidence (high evidence, high consensus) for observed, and up to 3.11 ± 0.98 °C by 2079–98 under RCP8.5 at MEDIUM confidence for projected.
+
+### The precedent this follows
+
+**[IFW-07] IPBES Global Assessment** — 143 rows drawn from an assessment rather than a monitoring framework, whose Policy_Purpose already says its "role is to inform policy, not to set or track targets". MCCIP is the same shape, for UK marine. It is *not* like [IFW-01] EIF or [IFW-02] CCC, which track targets.
+
+### Proposed shape
+
+- **New framework record [IFW-12]**, "MCCIP UK Marine Climate Change Impacts Evidence Hub", `Sheet_Name` **MCCIP Indicators** (a new sheet), Record_Count 22, Scope UK, Lead_Organisation [POL-049] MCCIP partnership.
+- **22 records, IND-M-001 to IND-M-022.** New `IND-M` family — the first new indicator family since the workbook was built, and the decision that most deserves a second opinion.
+- Column mapping: `Indicator_Name` = topic; `Units_Measure` = the observed quantity where the review gives one; `Climate_Rationale` = the observed-trend statement; `Source_Reference` = the dated review paper; `Source_URL` = the topic page; `Framework_Classification` = `Role: Evidence review; Observed confidence: <level>; Projection confidence: <level>`, which preserves MCCIP's dual confidence rating, the thing that makes it distinctive.
+- Climate scores would run high — most physical-environment topics are climate variables outright, so 3.
+
+### Why it is worth doing, and the case against
+
+**For.** MCCIP is a UK marine climate evidence partnership co-led by Cefas with heavy Met Office involvement; sea temperature, marine heatwaves and sea-level projections are squarely the Met Office → policy channel this project exists to map. The catalogue currently has no UK marine *climate* evidence block at all — [IFW-01] Theme C covers marine state, not climate drivers. Two of the four completed assessments (ocean heatwaves, land surface temperature) would have drawn on it directly.
+
+**Against.** Only about half the 22 topics are measured quantities; the societal-impact six are qualitative impact reviews with no series behind them. A new sheet and a new ID family is real structural change for 22 rows. And the confidence ratings do not map onto `Climate_Score`, so the sheet would carry a grading scheme nothing else uses.
+
+**My recommendation: do it, but only the 16 physical-environment and ecosystem-change topics**, leaving the societal-impact six out under the level-of-generality rule just adopted — they are impact narratives, not measures. That gives a 16-row block of genuine marine climate evidence without importing a qualitative tail.
+
 ## Resolved — historical record
 
 Rows move here once resolved, keeping the same columns. Nothing is ever removed from the file.
@@ -161,5 +547,5 @@ Rows move here once resolved, keeping the same columns. Nothing is ever removed 
 | Added | Found by | Family | Proposed name | Source | Climate input | Overlap | Confidence | Status | Resolution |
 |---|---|---|---|---|---|---|---|---|---|
 | 2026-07 (pre-queue) | ocean heatwaves | POL | Fisheries Act 2020 climate change objective - JFS and FMPs | https://www.legislation.gov.uk/ukpga/2020/22/contents | Yes | — | High | added | [POL-067] |
-| 2026-07 (pre-queue) | ocean heatwaves | POL | Shellfish official-control and HAB / biotoxin monitoring (Cefas for FSA / FSS) | https://www.cefas.co.uk/ | Yes | — | High | added | [POL-068]; also added [ORG-043] FSA and [ORG-044] FSS. **FLAG 2026-09-11 — RETIREMENT QUESTION, not a triage decision.** This row appeared in the round-2 sheet in error (it was already actioned) and Jonathan marked it *rejected* on the grounds that pollution monitoring is generally out of scope. [POL-068] is already IN the workbook. Do not act on the rejection as written: decide explicitly whether to retire POL-068 (and whether [ORG-043]/[ORG-044], added for it, still earn their place). Retirement is marked, never deleted, and the ID is never reused. |
+| 2026-07 (pre-queue) | ocean heatwaves | POL | Shellfish official-control and HAB / biotoxin monitoring (Cefas for FSA / FSS) | https://www.cefas.co.uk/ | Yes | — | High | added | [POL-068]; also added [ORG-043] FSA and [ORG-044] FSS. **RESOLVED 2026-09-17 — RETAIN.** Jonathan: keep POL-068, ORG-043 and ORG-044 in. Harmful algal blooms are strongly driven by sea surface temperature and climate, so this is a climate-sensitive monitoring regime, not general pollution monitoring. The earlier 'rejected' mark arose from this already-actioned row appearing in the round-2 triage sheet in error. **Precedent: 'pollution monitoring out of scope' does not extend to monitoring whose trigger is climatic.** |
 | 2026-07 (pre-queue) | ocean heatwaves | POL | UK Blue Carbon Evidence Partnership (UKBCEP) | https://uk-bcep.org/ | Indirect | — | High | added | [POL-069] |

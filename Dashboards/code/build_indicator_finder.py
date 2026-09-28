@@ -29,9 +29,10 @@ live v3 file are not in the workbook and are intentionally dropped (per decision
 
 Maintenance
 -----------
-FRAMEWORK_CTX is the only hardcoded governance knowledge. Update it when the governance
-workbook changes a framework's enabling legislation / lead policy (see
-WORKBOOK_WRITE_PROTOCOL.md §7). Everything else derives from the workbook.
+There is NO hardcoded governance in this builder. The policy-context chains are read from the
+indicators workbook's `Indicator Framework` sheet — `Key_Instruments` for designated-monitoring
+links and `Indirect_Policy_Links` for policy-relevant ones — and resolved against both governance
+workbooks. To change what a framework's chain shows, edit the register row, not this file.
 
 Usage
 -----
@@ -53,6 +54,8 @@ HERE      = Path(__file__).resolve().parent            # .../Dashboards/code
 DASH_DIR  = HERE.parent                                 # .../Dashboards
 ROOT      = DASH_DIR.parent                             # .../MetOffice_cowork_indicators
 CANON     = ROOT / "Data" / "canonical_files" / "indicators_climate_nature.xlsx"
+CANON_UK  = ROOT / "Data" / "canonical_files" / "uk_climate_nature_governance.xlsx"
+CANON_INT = ROOT / "Data" / "canonical_files" / "international_climate_nature_governance.xlsx"
 # v4 is the current design (top nav removed, sidebar climate-score palette matched to the
 # centre badges, columns rebalanced). The builder reads it as the template AND refreshes it
 # in place, so re-running only swaps the INDICATORS data and preserves all design edits.
@@ -64,7 +67,7 @@ OUT       = DASH_DIR / "indicator_finder_v4.html"
 # Order controls display order. fw_full matches the live dashboard's labels.
 FRAMEWORKS = [
     ("EIF Indicators",                  "EIF",   "Environmental Indicator Framework (EIF)"),
-    ("CCC Indicators",                  "CCC",   "CCC Mitigation & Adaptation Monitoring Framework"),
+    ("CCC Indicators",                  "CCC",   "CCC Monitoring Frameworks"),  # three frameworks share this sheet: IFW-02, IFW-10, IFW-11
     ("JNCC UK Biodiversity Indicators", "JNCC",  "JNCC UK Biodiversity Indicators 2025"),
     ("SoN 2023 Indicators",             "SoN",   "State of Nature 2023"),
     ("EEA Biodiversity Indicators",     "EEA",   "EEA Biodiversity Indicators"),
@@ -74,49 +77,112 @@ FRAMEWORKS = [
     ("SDG Indicators",                  "SDG",   "UN Sustainable Development Goals"),
 ]
 
-# ── Governance chains, one per framework (replaces GOV_CHAINS) ──────────────────
-# Each entry: {id, name, tier, url, mon, note}. `mon` = this framework is a designated
-# monitoring indicator for that instrument. Update on governance-workbook changes.
-# IDs validated against uk_climate_nature_governance.xlsx v20 / international v13.
-FRAMEWORK_CTX = json.loads(r'''
-{
- "EIF": [
-  {"id":"POL-001","name":"Environmental Improvement Plan (EIP) 2025","tier":"Policy activity","url":"https://www.gov.uk/government/publications/environmental-improvement-plan","mon":true,"note":"Designated indicator for EIP 2025 / OEP monitoring"},
-  {"id":"INT-L-007","name":"Kunming-Montreal Global Biodiversity Framework (GBF)","tier":"International","url":"https://www.cbd.int/gbf/","mon":true,"note":"Designated indicator for EIP 2025 / OEP monitoring"}
- ],
- "CCC": [
-  {"id":"LEG-001","name":"Climate Change Act 2008","tier":"UK Legislation","url":"https://www.legislation.gov.uk/ukpga/2008/27/contents","mon":true,"note":"CB4 ≤1,950 MtCO₂e (2023–27); CB5 ≤1,725 (2028–32); CB6 ≤965 (2033–37)"},
-  {"id":"LEG-003","name":"Carbon Budget Orders (1st–7th)","tier":"UK Legislation","url":"https://www.legislation.gov.uk/uksi/2021/1059/contents","mon":true,"note":"Each Order sets the 5-year cap tracked by the CCC framework"},
-  {"id":"POL-004","name":"UK Net Zero Strategy / Carbon Budget Delivery Plan (CBDP) 2023","tier":"Policy activity","url":"https://www.gov.uk/government/publications/net-zero-strategy","mon":true,"note":"Government delivery response tracked by the CCC framework"},
-  {"id":"INT-L-007","name":"Kunming-Montreal Global Biodiversity Framework (GBF)","tier":"International","url":"https://www.cbd.int/gbf/","mon":true,"note":""}
- ],
- "JNCC": [
-  {"id":"LEG-004","name":"Environment Act 2021","tier":"UK Legislation","url":"https://www.legislation.gov.uk/ukpga/2021/30/contents","mon":true,"note":"Official JNCC UK Biodiversity Indicator (UKBI 2025)"},
-  {"id":"POL-003","name":"UK National Biodiversity Strategy and Action Plan (NBSAP) 2025","tier":"Policy activity","url":"https://www.gov.uk/government/publications/uk-national-biodiversity-strategy-and-action-plan","mon":true,"note":"Official JNCC UK Biodiversity Indicator (UKBI 2025)"},
-  {"id":"INT-L-007","name":"Kunming-Montreal Global Biodiversity Framework (GBF)","tier":"International","url":"https://www.cbd.int/gbf/","mon":true,"note":"Official JNCC UK Biodiversity Indicator (UKBI 2025)"}
- ],
- "SoN": [
-  {"id":"INT-L-007","name":"Kunming-Montreal Global Biodiversity Framework (GBF)","tier":"International","url":"https://www.cbd.int/gbf/","mon":false,"note":""}
- ],
- "EEA": [
-  {"id":"INT-P-015","name":"European Green Deal — Biodiversity Strategy 2030 and Farm to Fork Strategy","tier":"International policy","url":"https://ec.europa.eu/info/strategy/priorities-2019-2024/european-green-deal/actions-being-taken-eu/eu-biodiversity-strategy-2030_en","mon":false,"note":""},
-  {"id":"EU-L-006","name":"EU Nature Restoration Law (Regulation EU 2024/1991)","tier":"EU Legislation","url":"https://eur-lex.europa.eu/eli/reg/2024/1991/oj/eng","mon":false,"note":""}
- ],
- "BIP": [
-  {"id":"INT-L-004","name":"UN Convention on Biological Diversity (CBD)","tier":"International","url":"https://www.cbd.int/","mon":false,"note":""},
-  {"id":"INT-L-007","name":"Kunming-Montreal Global Biodiversity Framework (GBF)","tier":"International","url":"https://www.cbd.int/gbf/","mon":false,"note":""}
- ],
- "IPBES": [
-  {"id":"INT-L-004","name":"UN Convention on Biological Diversity (CBD)","tier":"International","url":"https://www.cbd.int/","mon":false,"note":""},
-  {"id":"INT-L-007","name":"Kunming-Montreal Global Biodiversity Framework (GBF)","tier":"International","url":"https://www.cbd.int/gbf/","mon":false,"note":""}
- ],
- "GBF": [
-  {"id":"INT-L-004","name":"UN Convention on Biological Diversity (CBD)","tier":"International","url":"https://www.cbd.int/","mon":true,"note":"GBF official monitoring indicator (CBD/COP16 approved)"},
-  {"id":"INT-P-006","name":"GBF Monitoring Framework and Indicator Framework","tier":"International policy","url":"https://www.gbf-indicators.org/","mon":true,"note":"GBF official monitoring indicator (CBD/COP16 approved)"}
- ],
- "SDG": []
+# ── Governance chains, DERIVED from the register ──────────────────────────────
+# Until September 2026 this was FRAMEWORK_CTX: a hardcoded table, one chain per framework,
+# keyed on the short framework code. Three things were wrong with that.
+#   1. The key was effectively the SHEET, so every framework sharing a sheet shared a chain.
+#      All 149 CCC rows got the mitigation chain, including the 38 adaptation targets, which
+#      were shown as governed by the Carbon Budget Orders rather than by CCA 2008 s.58 and NAP3.
+#   2. It went stale invisibly. It still cited POL-004 (CBDP 2023) after that was marked
+#      superseded, and its own comment claimed validation against UK workbook v20 when the
+#      workbook had reached v26.
+#   3. check_links.py could not see it, because it was Python source rather than workbook data.
+#      The gate passed while the content rotted — the same failure as the Cross-Reference Index.
+# The register already holds this per framework: Key_Instruments is the designated-monitoring
+# relationship, Indirect_Policy_Links the policy-relevant one. So the chains are read from there
+# and resolved against the governance workbooks. There is now NO hardcoded governance in this
+# builder, which brings it into line with build_governance_diagram.py.
+
+TIER_BY_FAMILY = {
+    "LEG":   "UK Legislation",
+    "ORG":   "Statutory body",
+    "POL":   "Policy activity",
+    "INT-L": "International",
+    "INT-O": "International body",
+    "INT-P": "International policy",
+    "EU-L":  "EU Legislation",
+    "IFW":   "Indicator framework",
 }
-''')
+CODE_RE = re.compile(r"\[([A-Z]{2,4}-[A-Z]?-?\d{1,3})\]")
+
+
+def _family(code):
+    return code.rsplit("-", 1)[0]
+
+
+def load_governance_records(*paths):
+    """{record_id: (name, link)} across the governance workbooks."""
+    out = {}
+    for path in paths:
+        if not path.exists():
+            print(f"  WARNING: governance workbook not found, chains will be incomplete: {path}")
+            continue
+        wb = load_workbook(path, data_only=True, read_only=True)
+        for sn in wb.sheetnames:
+            ws = wb[sn]
+            first = next(ws.iter_rows(min_row=1, max_row=1), None)
+            if not first:
+                continue
+            hdr = [c.value for c in first]
+            if "Record_ID" not in hdr or "Name" not in hdr:
+                continue
+            i_id, i_nm = hdr.index("Record_ID"), hdr.index("Name")
+            i_lk = hdr.index("Link") if "Link" in hdr else None
+            for row in ws.iter_rows(min_row=2, values_only=True):
+                rid = row[i_id]
+                if not rid or rid in out:
+                    continue
+                link = row[i_lk] if i_lk is not None and i_lk < len(row) else None
+                out[str(rid).strip()] = (row[i_nm], link)
+        wb.close()
+    return out
+
+
+def load_framework_ctx(canon_path, gov):
+    """{Source_Framework: [ctx item]} from the register's Key_Instruments / Indirect_Policy_Links."""
+    wb = load_workbook(canon_path, data_only=True, read_only=True)
+    if "Indicator Framework" not in wb.sheetnames:
+        wb.close()
+        return {}
+    ws = wb["Indicator Framework"]
+    rows = list(ws.iter_rows(min_row=2, values_only=True))
+    hdr = [c.value for c in next(ws.iter_rows(min_row=1, max_row=1))]
+    idx = {h: i for i, h in enumerate(hdr) if h}
+    # a framework may cite another framework (JNCC's England suite feeds the EIF), so IFW codes
+    # resolve against this same sheet rather than the governance workbooks
+    gov = dict(gov)
+    for r in rows:
+        fid = r[idx["Framework_ID"]] if "Framework_ID" in idx else None
+        nm = r[idx["Source_Framework"]] if "Source_Framework" in idx else None
+        if fid and nm:
+            gov[str(fid).strip()] = (nm, r[idx["Official_Link"]] if "Official_Link" in idx else None)
+    ctx, unresolved = {}, set()
+    for row in rows:
+        fid = row[idx["Framework_ID"]] if "Framework_ID" in idx else None
+        name = row[idx["Source_Framework"]] if "Source_Framework" in idx else None
+        if not fid or not name:
+            continue                                   # banner and TOTAL rows
+        items, seen = [], set()
+        for col, mon in (("Key_Instruments", True), ("Indirect_Policy_Links", False)):
+            if col not in idx:
+                continue
+            for code in CODE_RE.findall(str(row[idx[col]] or "")):
+                if code in seen:
+                    continue                           # Key_Instruments wins on a duplicate
+                seen.add(code)
+                rec = gov.get(code)
+                if not rec:
+                    unresolved.add(f"{fid}:{code}")
+                    continue
+                items.append({"id": code, "name": rec[0],
+                              "tier": TIER_BY_FAMILY.get(_family(code), "Policy activity"),
+                              "url": rec[1] or "", "mon": mon})
+        ctx[str(name).strip()] = items
+    wb.close()
+    if unresolved:
+        print(f"  WARNING: {len(unresolved)} register code(s) did not resolve to a governance "
+              f"record and were dropped from the chains: {', '.join(sorted(unresolved))}")
+    return ctx
 
 # ── Policy sector (read from the workbook; 14-class controlled vocabulary) ─────
 # Replaced the former keyword-based `classify_sectors()` on 2026-09-16. That function
@@ -149,10 +215,28 @@ def cell_int(v):
         return 0
 
 
-def load_indicators(xlsx_path: Path):
+def cell_score(v):
+    """Climate_Score as an int, or None when the cell is blank.
+
+    NOT cell_int(). Until September 2026 the climate score was read with cell_int(), which
+    returns 0 for a blank cell, so the 173 SDG records that had never been assessed rendered
+    as score 0 — indistinguishable from the 283 records assessed and genuinely scored zero.
+    An unassessed record must stay visibly unassessed: blank maps to None, the page renders it
+    as 'not assessed', and it never satisfies a 'climate score >= N' filter."""
+    if v is None or (isinstance(v, str) and not v.strip()):
+        return None
+    try:
+        return max(0, min(3, int(v)))
+    except (TypeError, ValueError):
+        return None
+
+
+def load_indicators(xlsx_path: Path, framework_ctx: dict):
     """Read all framework sheets, mapping columns by header name. Returns list of dicts."""
     wb = load_workbook(xlsx_path, data_only=True, read_only=True)
     records = []
+    unscored = []
+    no_chain = set()
     for sheet, fw_short, fw_full in FRAMEWORKS:
         if sheet not in wb.sheetnames:
             print(f"  WARNING: sheet '{sheet}' not in workbook — skipped")
@@ -181,7 +265,7 @@ def load_indicators(xlsx_path: Path):
                 "fw_full":  fw_full,
                 "ncf":      g(row, "NCF_Category"),
                 "scope":    g(row, "Scope"),
-                "cs":       cell_int(row[idx["Climate_Score"]]) if "Climate_Score" in idx else 0,
+                "cs":       cell_score(row[idx["Climate_Score"]]) if "Climate_Score" in idx else None,
                 "goal":     g(row, "Policy_Goal"),
                 "units":    g(row, "Units_Measure"),
                 "datasrc":  g(row, "Data_Source"),
@@ -192,12 +276,27 @@ def load_indicators(xlsx_path: Path):
                 "sdgt":     g(row, "SDG_Target_Code"),          # blank where the sheet has none
                 "itype":    g(row, "Indicator_Type"),
             }
+            if rec["cs"] is None:
+                unscored.append(rec["id"])
             rec["sectors"] = parse_sectors(g(row, "Policy_Sector"))
-            rec["ctx"] = FRAMEWORK_CTX.get(fw_short, [])
+            # keyed on the row's own Source_Framework, so frameworks sharing a sheet
+            # (IFW-02 / IFW-10 / IFW-11 all live on "CCC Indicators") get their own chains
+            rec["fw_set"] = str(g(row, "Source_Framework")).strip()
+            # The chain belongs to the FRAMEWORK, not to the indicator, so it is injected once
+            # as CTX_BY_SET and looked up by fw_set. Copying it onto all 985 records added about
+            # 900 KB to the page for no information.
+            if not framework_ctx.get(rec["fw_set"]):
+                no_chain.add(rec["fw_set"])
             records.append(rec)
             n_sheet += 1
         print(f"  {sheet:<34} {fw_short:<6} {n_sheet:>4} indicators")
     wb.close()
+    if no_chain:
+        print(f"  WARNING: {len(no_chain)} Source_Framework value(s) have no matching register row, "
+              f"so those rows render with an EMPTY policy context: {', '.join(sorted(no_chain))}")
+    if unscored:
+        print(f"  WARNING: {len(unscored)} record(s) have no Climate_Score and will render as "
+              f"'not assessed': {', '.join(unscored[:12])}{' …' if len(unscored) > 12 else ''}")
     print(f"  TOTAL {len(records)} indicators across {len(FRAMEWORKS)} frameworks")
     return records
 
@@ -310,12 +409,23 @@ def build(xlsx=CANON, template=TEMPLATE, out=OUT):
             print(f"FATAL: not found — {p}")
             sys.exit(2)
 
-    indicators = load_indicators(xlsx)
+    gov = load_governance_records(CANON_UK, CANON_INT)
+    framework_ctx = load_framework_ctx(xlsx, gov)
+    print(f"  governance records read: {len(gov)}")
+    for fw, items in framework_ctx.items():
+        mon = sum(1 for x in items if x["mon"])
+        flag = "  <-- NO CHAIN" if not items else ""
+        print(f"  chain  {fw[:46]:<48} {len(items):>2} link(s) ({mon} designated){flag}")
+
+    indicators = load_indicators(xlsx, framework_ctx)
     html = template.read_text(encoding="utf-8")
     data_json = json.dumps(indicators, ensure_ascii=False, separators=(",", ":"))
     html = inject_js_var(html, "INDICATORS", data_json)
 
     lookups = load_export_lookups(xlsx, indicators)
+    html = inject_js_var(html, "CTX_BY_SET",
+                         json.dumps(framework_ctx, ensure_ascii=False, separators=(",", ":")))
+
     html = inject_js_var(html, "EXPORT_LOOKUPS",
                          json.dumps(lookups, ensure_ascii=False, separators=(",", ":")))
 
@@ -328,6 +438,39 @@ def build(xlsx=CANON, template=TEMPLATE, out=OUT):
         gd = govs[-1].name
         html = re.sub(r'const GOV_DIAGRAM\s*=\s*"[^"]*";', f'const GOV_DIAGRAM = "{gd}";', html)
         print(f"  Linked GOV_DIAGRAM -> {gd}")
+
+    # Counts shown as static text (Help panel, footer, header tag) — filled from the data at each
+    # build (added 2026-09-28). They were typed into the template and still read 947 after v23
+    # took the catalogue to 985; nothing flagged it because no step compared them to the data.
+    n_ind = len(indicators)
+    n_fw = len({r["fw"] for r in indicators if r.get("fw")})
+    words = "zero one two three four five six seven eight nine ten eleven twelve".split()
+    fw_word = words[n_fw] if n_fw < len(words) else str(n_fw)
+    for pat, rep in [
+        (r'(<span id="help-count">)[^<]*(</span>)', rf"\g<1>{n_ind}\g<2>"),
+        (r'(<span id="help-fw-count">)[^<]*(</span>)', rf"\g<1>{fw_word}\g<2>"),
+        (r'(<span id="footer-count">)[^<]*(</span>)', rf"\g<1>{n_ind} indicators · {n_fw} frameworks\g<2>"),
+        (r'(<span class="hd-tag" id="total-tag">)[^<]*(</span>)', rf"\g<1>{n_ind} indicators\g<2>"),
+        (r'(id="res-count"><b>)[^<]*(</b>)', rf"\g<1>{n_ind}\g<2>"),
+    ]:
+        html, k = re.subn(pat, rep, html)
+        if k != 1:
+            print(f"FATAL: count placeholder not found exactly once: {pat}")
+            sys.exit(3)
+    print(f"  Static counts set: {n_ind} indicators, {n_fw} frameworks")
+
+    # Startup-order guard (added 2026-09-28). The dashboard script declares INDICATORS, CTX_BY_SET,
+    # and EXPORT_LOOKUPS as top-level consts. If the startup `render();` call sits above any of
+    # them, the browser throws a temporal-dead-zone ReferenceError on load and the rest of the script
+    # never runs: empty indicator list, no framework hover titles, broken export. The build was
+    # previously "clean" while shipping exactly that, so refuse to write such a file.
+    _start = html.rfind("\nrender();")
+    _late = [v for v in ("INDICATORS", "CTX_BY_SET", "EXPORT_LOOKUPS")
+             if html.find(f"const {v} ") > _start]
+    if _start < 0 or _late:
+        print(f"FATAL: startup render() precedes const declaration(s) {_late or '(render() call not found)'} "
+              "— move the Startup block to the end of the <script>.")
+        sys.exit(3)
 
     out.write_text(html, encoding="utf-8")
     print(f"\nWritten: {out} ({out.stat().st_size // 1024} KB, {len(indicators)} indicators)")

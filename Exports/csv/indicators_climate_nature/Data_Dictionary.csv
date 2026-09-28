@@ -13,7 +13,7 @@ All framework sheets,Scope,Text,Geographic coverage,UK | England | GB | EU | Eur
 All framework sheets,Policy_Goal,Text,"Policy goal(s), commitment(s) or framework target(s) the indicator informs",Free text,
 All framework sheets,Source_Reference,Text,Citation or locator for the indicator within its source publication,Free text,Bibliography on the References sheet
 All framework sheets,Data_Source,Text,Dataset(s) and custodian(s) the indicator is computed from,Free text,
-All framework sheets,Climate_Score,Controlled,Numeric climate/weather dependency score,0 | 1 | 2 | 3,Scale defined on the Legend sheet
+All framework sheets,Climate_Score,Controlled,Numeric climate/weather dependency score,0 | 1 | 2 | 3,"Scale and scoring rules (Core principle, Rules A–H) defined on the Legend sheet"
 All framework sheets,Climate_Dependency,Controlled,Labelled form of Climate_Score,0 – None | 1 – Low | 2 – Medium | 3 – High,Scale defined on the Legend sheet
 All framework sheets,Climate_Rationale,Text,Justification for the climate/weather dependency score,Free text,
 All framework sheets,Policy_Links,Text,Bracketed governance codes the indicator informs,[LEG-NNN] | [ORG-NNN] | [POL-NNN] | [INT-L-NNN] | [INT-O-NNN] | [INT-P-NNN] | [EU-L-NNN],Reciprocal links to the governance workbooks

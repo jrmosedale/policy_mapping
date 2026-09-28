@@ -2,103 +2,106 @@ Record_ID,Name,Record_Type,General_Type,Policy_Sector,Sheet
 INT-L-001,UN Framework Convention on Climate Change,International Convention,Convention / Treaty,Climate,Conventions & Treaties
 INT-L-002,Kyoto Protocol to the UNFCCC,International Convention,Protocol / Agreement,Climate,Conventions & Treaties
 INT-L-003,Paris Agreement,International Convention,Protocol / Agreement,Climate,Conventions & Treaties
-INT-L-004,UN Convention on Biological Diversity,International Convention,Convention / Treaty,Nature / Biodiversity,Conventions & Treaties
-INT-L-005,Cartagena Protocol on Biosafety,International Convention,Protocol / Agreement,Nature / Biodiversity | Biosecurity,Conventions & Treaties
-INT-L-006,Nagoya Protocol on Access and Benefit-Sharing,International Convention,Protocol / Agreement,Nature / Biodiversity,Conventions & Treaties
-INT-L-007,Kunming-Montreal Global Biodiversity Framework,International Convention,Framework / Decision,Nature / Biodiversity,Conventions & Treaties
-INT-L-008,UN Convention to Combat Desertification,International Convention,Convention / Treaty,Land / Agriculture / Planning | Climate,Conventions & Treaties
-INT-L-009,Ramsar Convention on Wetlands,International Convention,Convention / Treaty,Nature / Biodiversity | Water,Conventions & Treaties
-INT-L-010,Convention on International Trade in Endangered Species,International Convention,Convention / Treaty,Nature / Biodiversity | Biosecurity,Conventions & Treaties
-INT-L-011,Convention on Migratory Species (CMS / Bonn Convention),International Convention,Convention / Treaty,Nature / Biodiversity,Conventions & Treaties
-INT-L-012,Bern Convention on European Wildlife and Natural Habitats,International Convention,Convention / Treaty,Nature / Biodiversity,Conventions & Treaties
-INT-L-013,OSPAR Convention for the Protection of the Marine Environment of the North-East Atlantic,International Convention,Convention / Treaty,Marine | Nature / Biodiversity,Conventions & Treaties
-INT-L-014,UN Convention on the Law of the Sea,International Convention,Convention / Treaty,Marine,Conventions & Treaties
-INT-L-015,Agreement on Biodiversity Beyond National Jurisdiction (BBNJ — 'High Seas Treaty'),International Convention,Protocol / Agreement,Marine | Nature / Biodiversity,Conventions & Treaties
-INT-L-016,International Convention for the Prevention of Pollution from Ships,International Convention,Convention / Treaty,Marine | Climate,Conventions & Treaties
-INT-L-017,Helsinki Convention (HELCOM) — Baltic Marine Environment Protection Convention,International Convention,Convention / Treaty,Marine,Conventions & Treaties
-INT-L-018,London Protocol (Protocol to the Convention on the Prevention of Marine Pollution by Dumping of Wastes),International Convention,Protocol / Agreement,Marine | Climate,Conventions & Treaties
+INT-L-004,UN Convention on Biological Diversity,International Convention,Convention / Treaty,Nature & Biodiversity,Conventions & Treaties
+INT-L-005,Cartagena Protocol on Biosafety,International Convention,Protocol / Agreement,Nature & Biodiversity | Biosecurity,Conventions & Treaties
+INT-L-006,Nagoya Protocol on Access and Benefit-Sharing,International Convention,Protocol / Agreement,Nature & Biodiversity,Conventions & Treaties
+INT-L-007,Kunming-Montreal Global Biodiversity Framework,International Convention,Framework / Decision,Nature & Biodiversity,Conventions & Treaties
+INT-L-008,UN Convention to Combat Desertification,International Convention,Convention / Treaty,Land Use & Agriculture | Climate,Conventions & Treaties
+INT-L-009,Ramsar Convention on Wetlands,International Convention,Convention / Treaty,Nature & Biodiversity | Water,Conventions & Treaties
+INT-L-010,Convention on International Trade in Endangered Species,International Convention,Convention / Treaty,Nature & Biodiversity | Biosecurity,Conventions & Treaties
+INT-L-011,Convention on Migratory Species (CMS / Bonn Convention),International Convention,Convention / Treaty,Nature & Biodiversity,Conventions & Treaties
+INT-L-012,Bern Convention on European Wildlife and Natural Habitats,International Convention,Convention / Treaty,Nature & Biodiversity,Conventions & Treaties
+INT-L-013,OSPAR Convention for the Protection of the Marine Environment of the North-East Atlantic,International Convention,Convention / Treaty,Marine & Fisheries | Nature & Biodiversity,Conventions & Treaties
+INT-L-014,UN Convention on the Law of the Sea,International Convention,Convention / Treaty,Marine & Fisheries,Conventions & Treaties
+INT-L-015,Agreement on Biodiversity Beyond National Jurisdiction (BBNJ — 'High Seas Treaty'),International Convention,Protocol / Agreement,Marine & Fisheries | Nature & Biodiversity,Conventions & Treaties
+INT-L-016,International Convention for the Prevention of Pollution from Ships,International Convention,Convention / Treaty,Marine & Fisheries | Climate,Conventions & Treaties
+INT-L-017,Helsinki Convention (HELCOM) — Baltic Marine Environment Protection Convention,International Convention,Convention / Treaty,Marine & Fisheries,Conventions & Treaties
+INT-L-018,London Protocol (Protocol to the Convention on the Prevention of Marine Pollution by Dumping of Wastes),International Convention,Protocol / Agreement,Marine & Fisheries | Climate,Conventions & Treaties
 INT-L-019,Montreal Protocol on Substances that Deplete the Ozone Layer,International Convention,Protocol / Agreement,Climate,Conventions & Treaties
-INT-L-020,UNCCD Land Degradation Neutrality (LDN) Framework and Voluntary Targets,International Convention,Framework / Decision,Land / Agriculture / Planning,Conventions & Treaties
-INT-L-021,UNESCO Convention Concerning the Protection of the World Cultural and Natural Heritage,International Convention,Convention / Treaty,Nature / Biodiversity,Conventions & Treaties
-INT-L-022,"Aarhus Convention — UN/ECE Convention on Access to Information, Public Participation and Access to Justice in Environmental Matters",International Convention,Convention / Treaty,Nature / Biodiversity | Climate,Conventions & Treaties
-INT-L-023,International Plant Protection Convention,International Convention,Convention / Treaty,Biosecurity | Nature / Biodiversity | Land / Agriculture / Planning,Conventions & Treaties
-INT-L-024,International Treaty on Plant Genetic Resources for Food and Agriculture,International Convention,Convention / Treaty,Nature / Biodiversity | Land / Agriculture / Planning,Conventions & Treaties
+INT-L-020,UNCCD Land Degradation Neutrality (LDN) Framework and Voluntary Targets,International Convention,Framework / Decision,Land Use & Agriculture,Conventions & Treaties
+INT-L-021,UNESCO Convention Concerning the Protection of the World Cultural and Natural Heritage,International Convention,Convention / Treaty,Nature & Biodiversity,Conventions & Treaties
+INT-L-022,"Aarhus Convention — UN/ECE Convention on Access to Information, Public Participation and Access to Justice in Environmental Matters",International Convention,Convention / Treaty,Nature & Biodiversity | Climate,Conventions & Treaties
+INT-L-023,International Plant Protection Convention,International Convention,Convention / Treaty,Biosecurity | Nature & Biodiversity | Land Use & Agriculture,Conventions & Treaties
+INT-L-024,International Treaty on Plant Genetic Resources for Food and Agriculture,International Convention,Convention / Treaty,Nature & Biodiversity | Land Use & Agriculture,Conventions & Treaties
+EU-L-001,EU Habitats Directive (Council Directive 92/43/EEC),EU Legislation,Directive,Nature & Biodiversity,EU Legislation
+EU-L-002,EU Birds Directive (Directive 2009/147/EC — codification of 79/409/EEC),EU Legislation,Directive,Nature & Biodiversity,EU Legislation
+EU-L-003,EU Water Framework Directive (Directive 2000/60/EC),EU Legislation,Directive,Water | Nature & Biodiversity,EU Legislation
+EU-L-004,EU Marine Strategy Framework Directive (Directive 2008/56/EC — MSFD),EU Legislation,Directive,Marine & Fisheries | Nature & Biodiversity | Water,EU Legislation
+EU-L-005,"EU Climate Law (Regulation EU 2021/1119, amended by Regulation EU 2026/667)",EU Legislation,Regulation,Climate,EU Legislation
+EU-L-006,EU Nature Restoration Law (Regulation EU 2024/1991),EU Legislation,Regulation,Nature & Biodiversity | Land Use & Agriculture | Marine & Fisheries,EU Legislation
+EU-L-007,"EU LULUCF Regulation (Regulation EU 2018/841, amended by Regulation EU 2023/839)",EU Legislation,Regulation,Climate | Land Use & Agriculture | Nature & Biodiversity,EU Legislation
+EU-L-008,EU Regulation on Invasive Alien Species (Regulation EU 1143/2014),EU Legislation,Regulation,Nature & Biodiversity | Biosecurity,EU Legislation
+EU-L-009,EU 8th Environment Action Programme (Decision EU 2022/591),EU Legislation,Decision,"Climate | Nature & Biodiversity | Governance, Society & Data",EU Legislation
+EU-L-010,EU National Emission Ceilings Directive (Directive EU 2016/2284 — NEC Directive),EU Legislation,Directive,Pollution & Waste | Nature & Biodiversity | Climate,EU Legislation
+EU-L-011,EU Nitrates Directive (Council Directive 91/676/EEC),EU Legislation,Directive,Water | Land Use & Agriculture | Nature & Biodiversity,EU Legislation
+EU-L-012,EU Floods Directive (Directive 2007/60/EC),EU Legislation,Directive,Water | Climate | Nature & Biodiversity,EU Legislation
+EU-L-013,EU Maritime Spatial Planning Directive (Directive 2014/89/EU),EU Legislation,Directive,Marine & Fisheries | Nature & Biodiversity | Transport | Land Use & Agriculture,EU Legislation
+EU-L-014,"EU Emissions Trading System (Directive 2003/87/EC, as amended by Directive EU 2023/959)",EU Legislation,Directive,Climate,EU Legislation
+EU-L-015,EU Common Agricultural Policy (CAP) — Strategic Plans Regulation (EU 2021/2115),EU Legislation,Regulation,Land Use & Agriculture | Nature & Biodiversity,EU Legislation
+EU-L-016,EU Groundwater Directive (Directive 2006/118/EC),EU Legislation,Directive,Water | Nature & Biodiversity,EU Legislation
+EU-L-017,EU Bathing Water Directive (Directive 2006/7/EC — revision of 76/160/EEC),EU Legislation,Directive,Water | Nature & Biodiversity,EU Legislation
+EU-L-018,EU Single-Use Plastics Directive (Directive EU 2019/904),EU Legislation,Directive,"Marine & Fisheries | Nature & Biodiversity | Governance, Society & Data",EU Legislation
+EU-L-019,EU Renewable Energy Directive III (Directive EU 2023/2413 — RED III recast),EU Legislation,Directive,Climate | Energy,EU Legislation
+EU-L-020,EU Energy Efficiency Directive III (Directive EU 2023/1791 — EED III recast),EU Legislation,Directive,Climate | Energy,EU Legislation
+EU-L-021,"EU Deforestation Regulation (EUDR, Regulation EU 2023/1115, amended by Regulation EU 2025/2650)",EU Legislation,Regulation,"Land Use & Agriculture | Nature & Biodiversity | Climate | Governance, Society & Data",EU Legislation
+EU-L-022,"EU Soil Monitoring Law (Soil Monitoring and Resilience Directive, Directive EU 2025/2360)",EU Legislation,Directive,Land Use & Agriculture | Climate | Nature & Biodiversity | Water,EU Legislation
 INT-O-001,UNFCCC Conference of the Parties,International Body,Treaty Body / COP,Climate,Associated Bodies
 INT-O-002,Intergovernmental Panel on Climate Change,International Body,Intergovernmental Platform,Climate,Associated Bodies
 INT-O-003,Subsidiary Body for Scientific and Technological Advice (UNFCCC),International Body,Treaty Body / COP,Climate,Associated Bodies
-INT-O-004,CBD Conference of the Parties,International Body,Treaty Body / COP,Nature / Biodiversity,Associated Bodies
-INT-O-005,"Subsidiary Body on Scientific, Technical and Technological Advice (CBD)",International Body,Treaty Body / COP,Nature / Biodiversity,Associated Bodies
-INT-O-006,Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services,International Body,Intergovernmental Platform,Nature / Biodiversity,Associated Bodies
-INT-O-007,UNCCD Conference of the Parties,International Body,Treaty Body / COP,Land / Agriculture / Planning,Associated Bodies
-INT-O-008,OSPAR Commission,International Body,Regional Body,Marine | Nature / Biodiversity,Associated Bodies
-INT-O-009,International Council for the Exploration of the Sea,International Body,International Organisation,Marine,Associated Bodies
-INT-O-010,UN Environment Programme,International Body,UN Intergovernmental Body,Nature / Biodiversity | Climate | Cross-cutting,Associated Bodies
-INT-O-011,UN Environment Programme World Conservation Monitoring Centre,International Body,UN Intergovernmental Body,Nature / Biodiversity,Associated Bodies
-INT-O-012,UN Development Programme,International Body,UN Intergovernmental Body,Nature / Biodiversity | Climate,Associated Bodies
-INT-O-013,Global Environment Facility,International Body,Finance / Business Body,Nature / Biodiversity | Climate | Cross-cutting,Associated Bodies
+INT-O-004,CBD Conference of the Parties,International Body,Treaty Body / COP,Nature & Biodiversity,Associated Bodies
+INT-O-005,"Subsidiary Body on Scientific, Technical and Technological Advice (CBD)",International Body,Treaty Body / COP,Nature & Biodiversity,Associated Bodies
+INT-O-006,Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services,International Body,Intergovernmental Platform,Nature & Biodiversity,Associated Bodies
+INT-O-007,UNCCD Conference of the Parties,International Body,Treaty Body / COP,Land Use & Agriculture,Associated Bodies
+INT-O-008,OSPAR Commission,International Body,Regional Body,Marine & Fisheries | Nature & Biodiversity,Associated Bodies
+INT-O-009,International Council for the Exploration of the Sea,International Body,International Organisation,Marine & Fisheries,Associated Bodies
+INT-O-010,UN Environment Programme,International Body,UN Intergovernmental Body,"Nature & Biodiversity | Climate | Governance, Society & Data",Associated Bodies
+INT-O-011,UN Environment Programme World Conservation Monitoring Centre,International Body,UN Intergovernmental Body,Nature & Biodiversity,Associated Bodies
+INT-O-012,UN Development Programme,International Body,UN Intergovernmental Body,Nature & Biodiversity | Climate,Associated Bodies
+INT-O-013,Global Environment Facility,International Body,Finance / Business Body,"Nature & Biodiversity | Climate | Governance, Society & Data",Associated Bodies
 INT-O-014,World Meteorological Organisation,International Body,UN Intergovernmental Body,Climate,Associated Bodies
 INT-O-015,Global Climate Observing System,International Body,Science / Research Body,Climate,Associated Bodies
-INT-O-016,World Wide Fund for Nature (International),International Body,NGO / Campaign,Nature / Biodiversity | Climate,Associated Bodies
-INT-O-017,International Union for Conservation of Nature,International Body,International Organisation,Nature / Biodiversity,Associated Bodies
-INT-O-018,Conservation International,International Body,NGO / Campaign,Nature / Biodiversity | Climate,Associated Bodies
-INT-O-019,Taskforce on Nature-related Financial Disclosures,International Body,Finance / Business Body,Nature / Biodiversity | Finance / Governance / Data,Associated Bodies
-INT-O-020,Task Force on Climate-related Financial Disclosures,International Body,Finance / Business Body,Climate | Finance / Governance / Data,Associated Bodies
-INT-O-021,GBF Monitoring Framework / GBF Indicators Portal,International Body,Intergovernmental Platform,Nature / Biodiversity,Associated Bodies
-INT-O-022,Science Based Targets Network,International Body,NGO / Campaign,Nature / Biodiversity | Climate,Associated Bodies
-INT-O-023,IPBES-IPCC Joint Work Programme,International Body,Science / Research Body,Nature / Biodiversity | Climate,Associated Bodies
-INT-O-024,Intergovernmental Oceanographic Commission,International Body,UN Intergovernmental Body,Marine | Climate | Nature / Biodiversity,Associated Bodies
-INT-O-025,Global Ocean Observing System,International Body,Science / Research Body,Marine | Climate,Associated Bodies
-INT-O-026,Arctic Council,International Body,Regional Body,Climate | Marine | Nature / Biodiversity,Associated Bodies
-INT-O-027,Arctic Monitoring and Assessment Programme,International Body,Science / Research Body,Climate | Marine | Nature / Biodiversity,Associated Bodies
-INT-O-028,European and Mediterranean Plant Protection Organization,International Body,Regional Body,Biosecurity | Nature / Biodiversity | Land / Agriculture / Planning,Associated Bodies
-INT-O-029,World Organisation for Animal Health (formerly OIE),International Body,International Organisation,Biosecurity | Nature / Biodiversity,Associated Bodies
-INT-O-030,Food and Agriculture Organization of the United Nations,International Body,UN Intergovernmental Body,Land / Agriculture / Planning | Nature / Biodiversity | Biosecurity,Associated Bodies
-INT-O-031,European Commission,International Body,Regional Body,Cross-cutting,Associated Bodies
-INT-O-032,UN General Assembly,International Body,UN Intergovernmental Body,Cross-cutting,Associated Bodies
-INT-P-001,UN Sustainable Development Goals (SDGs) — 2030 Agenda,International Policy,Strategy / Framework,Cross-cutting,Intl Policies & Activities
+INT-O-016,World Wide Fund for Nature (International),International Body,NGO / Campaign,Nature & Biodiversity | Climate,Associated Bodies
+INT-O-017,International Union for Conservation of Nature,International Body,International Organisation,Nature & Biodiversity,Associated Bodies
+INT-O-018,Conservation International,International Body,NGO / Campaign,Nature & Biodiversity | Climate,Associated Bodies
+INT-O-019,Taskforce on Nature-related Financial Disclosures,International Body,Finance / Business Body,Nature & Biodiversity | Finance,Associated Bodies
+INT-O-020,Task Force on Climate-related Financial Disclosures,International Body,Finance / Business Body,Climate | Finance,Associated Bodies
+INT-O-021,GBF Monitoring Framework / GBF Indicators Portal,International Body,Intergovernmental Platform,Nature & Biodiversity,Associated Bodies
+INT-O-022,Science Based Targets Network,International Body,NGO / Campaign,Nature & Biodiversity | Climate,Associated Bodies
+INT-O-023,IPBES-IPCC Joint Work Programme,International Body,Science / Research Body,Nature & Biodiversity | Climate,Associated Bodies
+INT-O-024,Intergovernmental Oceanographic Commission,International Body,UN Intergovernmental Body,Marine & Fisheries | Climate | Nature & Biodiversity,Associated Bodies
+INT-O-025,Global Ocean Observing System,International Body,Science / Research Body,Marine & Fisheries | Climate,Associated Bodies
+INT-O-026,Arctic Council,International Body,Regional Body,Climate | Marine & Fisheries | Nature & Biodiversity,Associated Bodies
+INT-O-027,Arctic Monitoring and Assessment Programme,International Body,Science / Research Body,Climate | Marine & Fisheries | Nature & Biodiversity,Associated Bodies
+INT-O-028,European and Mediterranean Plant Protection Organization,International Body,Regional Body,Biosecurity | Nature & Biodiversity | Land Use & Agriculture,Associated Bodies
+INT-O-029,World Organisation for Animal Health (formerly OIE),International Body,International Organisation,Biosecurity | Nature & Biodiversity,Associated Bodies
+INT-O-030,Food and Agriculture Organization of the United Nations,International Body,UN Intergovernmental Body,Land Use & Agriculture | Nature & Biodiversity | Biosecurity,Associated Bodies
+INT-O-031,European Commission,International Body,Regional Body,"Governance, Society & Data",Associated Bodies
+INT-O-032,UN General Assembly,International Body,UN Intergovernmental Body,"Governance, Society & Data",Associated Bodies
+INT-O-033,European Environment Agency,International Body,Regional Body,"Nature & Biodiversity | Climate | Governance, Society & Data",Associated Bodies
+INT-O-034,United Nations Statistics Division,International Body,UN Intergovernmental Body,"Governance, Society & Data",Associated Bodies
+INT-O-035,Biodiversity Indicators Partnership,International Body,Science / Research Body,"Nature & Biodiversity | Governance, Society & Data",Associated Bodies
+INT-P-001,UN Sustainable Development Goals (SDGs) — 2030 Agenda,International Policy,Strategy / Framework,"Governance, Society & Data",Intl Policies & Activities
 INT-P-002,IPCC Sixth Assessment Report (AR6) 2021–2022,International Policy,Assessment / Report,Climate,Intl Policies & Activities
-INT-P-003,IPBES Global Assessment on Biodiversity and Ecosystem Services 2019,International Policy,Assessment / Report,Nature / Biodiversity,Intl Policies & Activities
-INT-P-004,IPBES Invasive Alien Species Assessment 2023,International Policy,Assessment / Report,Nature / Biodiversity | Biosecurity,Intl Policies & Activities
-INT-P-005,IPBES-IPCC Workshop Report: Biodiversity and Climate Change (2021),International Policy,Assessment / Report,Nature / Biodiversity | Climate,Intl Policies & Activities
-INT-P-006,GBF Monitoring Framework and Indicator Framework,International Policy,Strategy / Framework,Nature / Biodiversity,Intl Policies & Activities
+INT-P-003,IPBES Global Assessment on Biodiversity and Ecosystem Services 2019,International Policy,Assessment / Report,Nature & Biodiversity,Intl Policies & Activities
+INT-P-004,IPBES Invasive Alien Species Assessment 2023,International Policy,Assessment / Report,Nature & Biodiversity | Biosecurity,Intl Policies & Activities
+INT-P-005,IPBES-IPCC Workshop Report: Biodiversity and Climate Change (2021),International Policy,Assessment / Report,Nature & Biodiversity | Climate,Intl Policies & Activities
+INT-P-006,GBF Monitoring Framework and Indicator Framework,International Policy,Strategy / Framework,Nature & Biodiversity,Intl Policies & Activities
 INT-P-007,UNFCCC Global Stocktake (GST),International Policy,Assessment / Report,Climate,Intl Policies & Activities
-INT-P-008,UN SEEA EA — System of Environmental-Economic Accounting Ecosystem Accounting,International Policy,Strategy / Framework,Nature / Biodiversity | Finance / Governance / Data,Intl Policies & Activities
-INT-P-009,High Ambition Coalition for Nature and People (HAC),International Policy,Pledge / Declaration,Nature / Biodiversity,Intl Policies & Activities
-INT-P-010,"Glasgow Leaders' Declaration on Forests and Land Use (COP26, 2021)",International Policy,Pledge / Declaration,Land / Agriculture / Planning | Nature / Biodiversity | Climate,Intl Policies & Activities
-INT-P-011,UN Decade on Ecosystem Restoration (2021–2030),International Policy,Strategy / Framework,Nature / Biodiversity | Land / Agriculture / Planning,Intl Policies & Activities
-INT-P-012,OSPAR North-East Atlantic Environment Strategy 2030 (NEAES 2030),International Policy,Strategy / Framework,Marine | Nature / Biodiversity,Intl Policies & Activities
-INT-P-013,WWF Living Planet Report (biennial),International Policy,Assessment / Report,Nature / Biodiversity | Climate,Intl Policies & Activities
-INT-P-014,Planetary Boundaries Framework (Stockholm Resilience Centre),International Policy,Assessment / Report,Nature / Biodiversity | Climate | Cross-cutting,Intl Policies & Activities
-INT-P-015,European Green Deal — Biodiversity Strategy 2030 and Farm to Fork Strategy,International Policy,Strategy / Framework,Nature / Biodiversity | Land / Agriculture / Planning | Climate,Intl Policies & Activities
-INT-P-016,Global Biodiversity Finance Initiative (GBF Finance / Cali Fund),International Policy,Finance Initiative,Nature / Biodiversity | Finance / Governance / Data,Intl Policies & Activities
-INT-P-017,REDD+ — Reducing Emissions from Deforestation and Forest Degradation,International Policy,Strategy / Framework,Land / Agriculture / Planning | Climate | Nature / Biodiversity,Intl Policies & Activities
-INT-P-018,High Seas Alliance / 30×30 for the Ocean,International Policy,Campaign / NGO Initiative,Marine | Nature / Biodiversity,Intl Policies & Activities
+INT-P-008,UN SEEA EA — System of Environmental-Economic Accounting Ecosystem Accounting,International Policy,Strategy / Framework,Nature & Biodiversity | Finance,Intl Policies & Activities
+INT-P-009,High Ambition Coalition for Nature and People (HAC),International Policy,Pledge / Declaration,Nature & Biodiversity,Intl Policies & Activities
+INT-P-010,"Glasgow Leaders' Declaration on Forests and Land Use (COP26, 2021)",International Policy,Pledge / Declaration,Land Use & Agriculture | Nature & Biodiversity | Climate,Intl Policies & Activities
+INT-P-011,UN Decade on Ecosystem Restoration (2021–2030),International Policy,Strategy / Framework,Nature & Biodiversity | Land Use & Agriculture,Intl Policies & Activities
+INT-P-012,OSPAR North-East Atlantic Environment Strategy 2030 (NEAES 2030),International Policy,Strategy / Framework,Marine & Fisheries | Nature & Biodiversity,Intl Policies & Activities
+INT-P-013,WWF Living Planet Report (biennial),International Policy,Assessment / Report,Nature & Biodiversity | Climate,Intl Policies & Activities
+INT-P-014,Planetary Boundaries Framework (Stockholm Resilience Centre),International Policy,Assessment / Report,"Nature & Biodiversity | Climate | Governance, Society & Data",Intl Policies & Activities
+INT-P-015,European Green Deal — Biodiversity Strategy 2030 and Farm to Fork Strategy,International Policy,Strategy / Framework,Nature & Biodiversity | Land Use & Agriculture | Climate,Intl Policies & Activities
+INT-P-016,Global Biodiversity Finance Initiative (GBF Finance / Cali Fund),International Policy,Finance Initiative,Nature & Biodiversity | Finance,Intl Policies & Activities
+INT-P-017,REDD+ — Reducing Emissions from Deforestation and Forest Degradation,International Policy,Strategy / Framework,Land Use & Agriculture | Climate | Nature & Biodiversity,Intl Policies & Activities
+INT-P-018,High Seas Alliance / 30×30 for the Ocean,International Policy,Campaign / NGO Initiative,Marine & Fisheries | Nature & Biodiversity,Intl Policies & Activities
 INT-P-019,UNEP Emissions Gap Report (annual),International Policy,Assessment / Report,Climate,Intl Policies & Activities
-INT-P-020,UNEP State of Finance for Nature (annual),International Policy,Assessment / Report,Nature / Biodiversity | Finance / Governance / Data | Climate,Intl Policies & Activities
-INT-P-029,TNFD — Taskforce on Nature-related Financial Disclosures Framework (v1.0),International Policy,Strategy / Framework,Finance / Governance / Data | Nature / Biodiversity,Intl Policies & Activities
-INT-P-030,EU Adaptation Strategy 2021,International Policy,Strategy / Framework,Climate | Nature / Biodiversity | Cross-cutting,Intl Policies & Activities
-INT-P-031,European Climate Risk Assessment (EUCRA) 2024,International Policy,Assessment / Report,Climate | Nature / Biodiversity | Cross-cutting,Intl Policies & Activities
-INT-P-032,IPCC Special Report on the Ocean and Cryosphere in a Changing Climate (SROCC) 2019,International Policy,Assessment / Report,Climate | Marine,Intl Policies & Activities
-INT-P-033,UN Decade of Ocean Science for Sustainable Development (2021-2030),International Policy,Strategy / Framework,Marine | Nature / Biodiversity | Climate,Intl Policies & Activities
-EU-L-001,EU Habitats Directive (Council Directive 92/43/EEC),EU Legislation,Directive,Nature / Biodiversity,EU Legislation
-EU-L-002,EU Birds Directive (Directive 2009/147/EC — codification of 79/409/EEC),EU Legislation,Directive,Nature / Biodiversity,EU Legislation
-EU-L-003,EU Water Framework Directive (Directive 2000/60/EC),EU Legislation,Directive,Water | Nature / Biodiversity,EU Legislation
-EU-L-004,EU Marine Strategy Framework Directive (Directive 2008/56/EC — MSFD),EU Legislation,Directive,Marine | Nature / Biodiversity | Water,EU Legislation
-EU-L-005,"EU Climate Law (Regulation EU 2021/1119, amended by Regulation EU 2026/667)",EU Legislation,Regulation,Climate,EU Legislation
-EU-L-006,EU Nature Restoration Law (Regulation EU 2024/1991),EU Legislation,Regulation,Nature / Biodiversity | Land / Agriculture / Planning | Marine,EU Legislation
-EU-L-007,"EU LULUCF Regulation (Regulation EU 2018/841, amended by Regulation EU 2023/839)",EU Legislation,Regulation,Climate | Land / Agriculture / Planning | Nature / Biodiversity,EU Legislation
-EU-L-008,EU Regulation on Invasive Alien Species (Regulation EU 1143/2014),EU Legislation,Regulation,Nature / Biodiversity | Biosecurity,EU Legislation
-EU-L-009,EU 8th Environment Action Programme (Decision EU 2022/591),EU Legislation,Decision,Climate | Nature / Biodiversity | Cross-cutting,EU Legislation
-EU-L-010,EU National Emission Ceilings Directive (Directive EU 2016/2284 — NEC Directive),EU Legislation,Directive,Air / Pollution | Nature / Biodiversity | Climate,EU Legislation
-EU-L-011,EU Nitrates Directive (Council Directive 91/676/EEC),EU Legislation,Directive,Water | Land / Agriculture / Planning | Nature / Biodiversity,EU Legislation
-EU-L-012,EU Floods Directive (Directive 2007/60/EC),EU Legislation,Directive,Water | Climate | Nature / Biodiversity,EU Legislation
-EU-L-013,EU Maritime Spatial Planning Directive (Directive 2014/89/EU),EU Legislation,Directive,Marine | Nature / Biodiversity,EU Legislation
-EU-L-014,"EU Emissions Trading System (Directive 2003/87/EC, as amended by Directive EU 2023/959)",EU Legislation,Directive,Climate,EU Legislation
-EU-L-015,EU Common Agricultural Policy (CAP) — Strategic Plans Regulation (EU 2021/2115),EU Legislation,Regulation,Land / Agriculture / Planning | Nature / Biodiversity,EU Legislation
-EU-L-016,EU Groundwater Directive (Directive 2006/118/EC),EU Legislation,Directive,Water | Nature / Biodiversity,EU Legislation
-EU-L-017,EU Bathing Water Directive (Directive 2006/7/EC — revision of 76/160/EEC),EU Legislation,Directive,Water | Nature / Biodiversity,EU Legislation
-EU-L-018,EU Single-Use Plastics Directive (Directive EU 2019/904),EU Legislation,Directive,Marine | Nature / Biodiversity | Cross-cutting,EU Legislation
-EU-L-019,EU Renewable Energy Directive III (Directive EU 2023/2413 — RED III recast),EU Legislation,Directive,Climate | Energy,EU Legislation
-EU-L-020,EU Energy Efficiency Directive III (Directive EU 2023/1791 — EED III recast),EU Legislation,Directive,Climate | Energy,EU Legislation
-EU-L-021,"EU Deforestation Regulation (EUDR, Regulation EU 2023/1115, amended by Regulation EU 2025/2650)",EU Legislation,Regulation,Land / Agriculture / Planning | Nature / Biodiversity | Climate | Finance / Governance / Data,EU Legislation
-EU-L-022,"EU Soil Monitoring Law (Soil Monitoring and Resilience Directive, Directive EU 2025/2360)",EU Legislation,Directive,Land / Agriculture / Planning | Climate | Nature / Biodiversity | Water,EU Legislation
+INT-P-020,UNEP State of Finance for Nature (annual),International Policy,Assessment / Report,Nature & Biodiversity | Finance | Climate,Intl Policies & Activities
+INT-P-029,TNFD — Taskforce on Nature-related Financial Disclosures Framework (v1.0),International Policy,Strategy / Framework,Finance | Nature & Biodiversity,Intl Policies & Activities
+INT-P-030,EU Adaptation Strategy 2021,International Policy,Strategy / Framework,"Climate | Nature & Biodiversity | Governance, Society & Data",Intl Policies & Activities
+INT-P-031,European Climate Risk Assessment (EUCRA) 2024,International Policy,Assessment / Report,"Climate | Nature & Biodiversity | Governance, Society & Data",Intl Policies & Activities
+INT-P-032,IPCC Special Report on the Ocean and Cryosphere in a Changing Climate (SROCC) 2019,International Policy,Assessment / Report,Climate | Marine & Fisheries,Intl Policies & Activities
+INT-P-033,UN Decade of Ocean Science for Sustainable Development (2021-2030),International Policy,Strategy / Framework,Marine & Fisheries | Nature & Biodiversity | Climate,Intl Policies & Activities

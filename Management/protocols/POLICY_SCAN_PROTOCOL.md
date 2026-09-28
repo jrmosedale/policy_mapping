@@ -19,7 +19,7 @@ Quarterly is the floor, not the target — it is fast enough that a scan is neve
 The scan is deliberately **not** on an automated schedule today (§7.1), but §6 is written as a self-contained runbook so that it can be put on one later without rewriting the protocol. §8 says exactly what that would take.
 
 **Ad hoc triggers**
-- A new CCC Progress Report (adaptation or mitigation) or Carbon Budget advice.
+- A new CCC Progress Report (adaptation or mitigation) or Carbon Budget advice. **For the next adaptation progress report specifically:** it will carry the indicator set the CCC selects against the 2026 framework’s proposed targets. [IFW-10] currently holds the targets themselves, because the framework publishes no indicator list; that report is the trigger to revisit it.
 - A JNCC UK Biodiversity Indicators refresh (annual, typically autumn).
 - A new or revised Defra strategy, Environmental Improvement Plan revision, or EIF indicator release.
 - A State of Nature report.
@@ -131,6 +131,12 @@ For each candidate, questions 1–4 in order; a "no" at any point stops the asse
 4. **Does it take a climate input?** For indicators specifically, this is the project's core relevance test: does the *measured quantity* depend on climate data, or could it? An indicator whose measured quantity takes no climate input (a GIS area, a count of designations) is catalogued if it belongs to a framework already tracked, but scores zero on climate relevance. The same measured-quantity test used in the assessment toolkit applies here — keep the two consistent.
 
 5. **Has any catalogued framework been refreshed?** Check each `IFW` record in the indicators workbook against its publisher for a new release or revision in the window — EIF (Defra), CCC monitoring frameworks, JNCC UKBI, State of Nature, CBD GBF, BIP, IPBES, UN SDG, EEA. A framework refresh changes indicator records **wholesale** — adding, retiring and revising rows across a whole sheet — so it outranks any individual record find. It is also invisible to a normal enumeration, because the framework's landing page does not change even when its indicators do. Record the answer for every framework each scan, including "no refresh", so the next scanner knows what was checked rather than assumed.
+
+**Two standing scope rules apply before any of the above** — operational agency monitoring
+statistics are out of scope, and indicators are catalogued at framework level rather than site or
+event level. Both are set out in full in the handover under §8 "Scope rules — what is deliberately
+not catalogued", with the accepted cost of each. A candidate failing either is screened out with
+the rule as the reason, and should not be re-raised by a later scan.
 
 Also screen for **retirements**, which are easier to miss than additions: a superseded strategy, a repealed Act, an abolished body, a framework indicator withdrawn at a refresh. A record that has been retired is marked, never deleted, and its ID is never reused.
 

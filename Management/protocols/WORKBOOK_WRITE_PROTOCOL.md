@@ -88,11 +88,18 @@ A single record rarely lives in one cell. Before writing, enumerate every recipr
 
 ## 6. Verify after writing — mandatory gate
 
-**Run `finalise.py`. It is the gate, the rebuild and the export in one command, and it will not rebuild or export anything from workbooks that fail the check.**
+**Run `finalise.py`. It regenerates the derived index, then gates, then rebuilds, then exports — in one command — and it will not rebuild or export anything from workbooks that fail the check.**
+
+> **Step 1 of 4 regenerates the `Cross-Reference Index`** in both governance workbooks from their record
+> sheets (`Data/code/rebuild_xref.py`). That sheet is derived and nothing reads it, so hand-maintaining it
+> guarantees drift — by September 2026 it had 228 stale values and four missing records across the two
+> workbooks. **Do not edit it by hand**: add or edit the record on its own sheet and let the rebuild follow.
+> This is the only step that writes to a canonical workbook, and it writes only when the index disagrees
+> with the records.
 
 ```bash
-python3 Management/finalise.py               # check_links.py, then (only if clean) build_all.py, then export_release.py
-python3 Management/finalise.py --check       # the check alone, e.g. before you start writing
+python3 Management/finalise.py               # rebuild_xref.py, check_links.py, then (only if clean) build_all.py, then export_release.py
+python3 Management/finalise.py --check       # index rebuild + the check alone, e.g. before you start writing
 ```
 
 Under the hood it runs, from `Data/canonical_files/`:
@@ -101,12 +108,18 @@ Under the hood it runs, from `Data/canonical_files/`:
 python3 ../code/check_links.py               # auto-detects the canonical files; exit 0 required
 ```
 
-`check_links.py` enforces the invariants:
+`check_links.py` enforces the invariants (a new vocabulary breach is the most likely reason a previously clean workbook now fails):
 1. **Orphan references** — every bracketed `[CODE]` resolves to a real `Record_ID` / `Framework_ID`.
 2. **Placement** — `UK_Links` holds only UK codes; `Intl_Links` holds only international codes.
 3. **Bidirectional completeness** — every international→UK link has its UK→international reverse.
 4. **No extra reverse** — no reverse link without a forward.
-5. **Retired IDs** — `POL-023` / `POL-024` never reappear as records.
+5. **Controlled vocabulary** — every value in a column the Data Dictionary marks `Data_Type: Controlled`
+   appears in that column's declared vocabulary, per workbook and per sheet. Multi-valued cells are split on
+   `|` and each token checked; a declared term containing a `[placeholder]` (e.g. `In force [qualifier]`)
+   matches on its stem. Vocabulary cells that describe a pattern rather than enumerate terms are skipped.
+   Columns listed in `VOCAB_WARN_ONLY` report as a **warning** and do not fail the gate — that list is a
+   debt register with a stated reason per entry, not a permanent exemption, and it should be emptied.
+6. **Retired IDs** — `POL-023` / `POL-024` never reappear as records.
 
 Run `finalise.py --check` **before** the write too, to confirm you started from a clean baseline.
 
@@ -144,7 +157,9 @@ for the instruments named in that framework’s `Policy_Purpose`.
 Narrative columns are surfaced verbatim in the detail panel (so editing them updates the panel with no code change): `Remit_And_Powers`, `Scope_And_Commitments`, `Key_Provisions` / `Key_Commitments`, `Statutory_Duties`, `Regulatory_Powers_Keywords`, `Statutory_Enabling_Basis`, `UK_Ratification`, `UK_Representation`, `UK_Engagement`, plus `General_Type` / `Year` / `Status`. `[CODE]` tokens in any of them render with the full name on hover. To add a **new** narrative column to the panel, add it to `add_node(..., extra=[...])` at the relevant sheet loop.
 
 **Indicator finder — `Dashboards/code/build_indicator_finder.py` → `Dashboards/indicator_finder_v4.html` (rewritten in place).**
-Reads the canonical indicators workbook by header name. Its only hardcoded governance is `FRAMEWORK_CTX` (one governance chain per framework) — **update it by hand** when a framework's enabling legislation or lead policy changes. It also re-points its "⬡ diagram" deep-links at the newest `governance_diagram_v*.html`, so build the diagram first (which `build_all.py` does).
+Reads the canonical indicators workbook by header name. **It holds no hardcoded governance** (the former `FRAMEWORK_CTX` table was removed on 28 September 2026). Each framework's policy-context chain is derived from the register sheet: `Key_Instruments` becomes the designated-monitoring links and `Indirect_Policy_Links` the policy-relevant ones, resolved against both governance workbooks. **To change what a chain shows, edit the register row.**
+
+> ⚠ **The join key is `Source_Framework`**, matched between each indicator row and its register row, so that frameworks sharing a sheet (IFW-02, IFW-10 and IFW-11 all live on `CCC Indicators`) get their own chains. A row whose `Source_Framework` does not match any register row renders with an **empty** policy context panel — the builder warns and names the value. Keep the two in step: when you rename a framework in the register, rename it on its rows. It also re-points its "⬡ diagram" deep-links at the newest `governance_diagram_v*.html`, so build the diagram first (which `build_all.py` does).
 
 **Parsers:** every cross-reference is bracketed (`[IFW-NN]`, `[LEG-NNN]`, …); strip brackets when parsing, e.g. `re.findall(r'\[(IFW-\d+)\]', cell)`, and always exclude the `Record_ID` / `Framework_ID` key columns.
 

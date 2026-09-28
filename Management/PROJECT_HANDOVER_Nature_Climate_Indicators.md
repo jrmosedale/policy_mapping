@@ -165,6 +165,24 @@ a `lead` edge keeps it; remaining `Key_Instruments` codes take precedence over t
 
 ### `indicator_finder_v4.html` — built by `build_indicator_finder.py`
 
+**Policy context is derived, not hardcoded.** Each indicator's right-hand "Policy context" panel is
+built from its framework's register row — `Key_Instruments` for designated-monitoring links,
+`Indirect_Policy_Links` for policy-relevant ones — resolved against both governance workbooks. The
+old `FRAMEWORK_CTX` table was removed on 28 September 2026 after it was found to be keyed on the
+sheet (so all 149 CCC rows shared the mitigation chain, including the 38 adaptation targets), to
+still cite the superseded CBDP 2023, and to be invisible to `check_links.py`. Chains now change when
+the register changes.
+
+> ⚠ **The join is on `Source_Framework`**, row against register row. A mismatch yields an empty
+> panel, silently. Fixing the join exposed that **486 of 985 rows** did not match — the CCC rows
+> after the v17 rename, and the GBF and SDG rows which carried the frameworks' own fuller titles.
+> All are aligned as of indicators v26, and the builder now warns and names any value that does not
+> match.
+
+**Hovering a relationship tag** ("Designated monitoring" / "Policy-relevant") names the indicator set
+the relationship belongs to, because that claim is about a *framework*, not about the single
+indicator on screen, and the panel previously never said which framework was meant.
+
 Searchable, filterable catalogue of all 947 indicators. Filter by sector (the 14 `Policy_Sector`
 classes, shared with the governance diagram), NCF category, framework, climate score, geographic
 scope and policy-context type; free-text search; centre-panel cards with a right-hand detail panel
@@ -308,6 +326,43 @@ per workbook — both dashboards filter on it.
 Note the comma in "Governance, Society & Data". `Health` and `Trade & Industry` are in *use* only on
 indicator records, but are in *scope* for governance records.
 
+### Scope rules — what is deliberately **not** catalogued
+
+Both rules below were applied repeatedly before they were written down, which meant the same
+candidates kept coming back through successive scans. They are decisions, not drift.
+
+**1. Operational agency monitoring statistics are out of scope** *(Jonathan, 11 and 18 September
+2026).* Environment Agency dry weather and drought summaries, water situation reports, rainfall and
+river flow weekly reports, and equivalent operational series from other agencies are **not**
+catalogued as indicator records. They are operational hydrological monitoring, published on a
+weekly or monthly operational cycle, and they are not indicators of a policy target.
+
+> ⚠ **Know what this costs.** Drought and water availability is the single largest thematic gap in
+> the catalogue, confirmed from three independent source types during the September 2026 scan. The
+> workbook holds [IND-C-105] freshwater quality and quantity and [IND-E-044] drought disruption, and
+> from indicators v23 the CCC adaptation targets for the water and wastewater system — but no
+> drought monitoring series. This is an accepted gap, not an oversight. An earlier note in
+> `pending_additions.md` suggesting agency monitoring statistics would "eventually" get their own
+> indicators worksheet is **superseded by this rule**; if that changes, change it here first.
+
+**2. Level of generality — indicators are catalogued at framework level, not at site or event
+level** *(Jonathan, 18 September 2026).* A candidate is rejected when it is:
+
+- **site- or catchment-specific** where a national series exists — the River Tyne, Tees and Wear
+  fish counts were rejected because a generalised national measure is the right level;
+- **event reporting rather than monitoring** — the South West octopus bloom, seaweed species new to
+  science, and single-catchment salmon stock notices;
+- **operational rather than policy-target monitoring** — the provisional Cormorant population
+  indices are released early expressly "to enable their use for operational purposes" (Natural
+  England licensing of fish-eating bird control), and the underlying Wetland Bird Survey is already
+  held at the right generality as [IND-J-010] and [IND-J-013];
+- **an activity rather than a measure** — the UK bluefin tuna fishery is a genuine range-shift
+  signal but is a fishery, not a monitoring indicator. It would qualify only with a clear monitoring
+  series attached.
+
+The test is whether the candidate measures something a framework tracks, at the level the framework
+tracks it. A climate-interesting phenomenon is not automatically an indicator.
+
 ---
 
 ## 9. Open work
@@ -323,8 +378,13 @@ indicator records, but are in *scope* for governance records.
 2. **Twelve items from the retrospective assessment sweep** (`Data/pending_additions.md`) — Solar
    Roadmap 2025, Future Homes Standard, Heat-Health Alerting System, Adverse Weather and Health
    Plan, Building Regs Part O, NSWWS Extreme Heat warnings, GB Plant Health Risk Register, Defra
-   plant-health contingency plans, Observatree, a UKHSA `ORG` record, and two indicator candidates
-   (MCCIP sea temperature; UKHSA heat mortality, which overlaps IND-C-130).
+   plant-health contingency plans, Observatree and a UKHSA `ORG` record. The two indicator
+   candidates from that sweep are settled: UKHSA heat mortality **rejected** (overlaps
+   [IND-C-130]); MCCIP sea temperature **superseded by the MCCIP block proposal** below.
+3. **MCCIP indicator block — proposal awaiting judgement** (`Data/pending_additions.md`). MCCIP is
+   held as [POL-049] with no indicator rows. A 22-topic block is proposed, modelled on [IFW-07]
+   IPBES as an assessment-derived rather than target-tracking framework. This is the outstanding
+   indicator decision.
 
 ### Schema decisions blocking those rows
 
