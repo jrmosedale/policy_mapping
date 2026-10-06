@@ -509,48 +509,56 @@ Item status checked against the workbooks, the queue and the file store on 6 Oct
 
 ### Coverage
 
-9. **The 2 September scan remains partly un-enumerated** (`outputs_other/policy_scan_2026-09-02.md`,
-   final tables). Done: ministerial statements, Defra, NE/EA/FC/MMO, JNCC, the record-bearing types for
-   UKHSA/DESNZ/MHCLG/DfT/HMT, UK Public General Acts 2026, CCC, OEP; gov.scot via pointer pages only.
-   **Not done:** gov.wales, DAERA, NatureScot, SEPA, NRW; the international bodies (CBD, IPBES, Ramsar,
-   CMS, OSPAR, HELCOM, UNFCCC, EUR-Lex, EEA); UK statutory instruments; the Block 3 title sweep (~700
-   items); forestresearch.gov.uk; 30by30 at sea. The gov.uk and gov.scot search filters are ignored
-   when called from this environment and return the whole corpus — use `.atom` feeds and pointer pages.
-10. **Next quarterly scan** covers 2 September onwards and is due around early December 2026.
-11. **Watch items.** JNCC UKBI 2026 ([IFW-03] still records UKBI 2025; usually an autumn release, so
+9. **Next quarterly scan — due around early December 2026.** Its window starts on 2 September, the
+   date of the last scan note, **except for the sources the 2 September scan never covered**, which
+   start from that scan's own window opening, 6 July, so nothing is missed: gov.wales, DAERA,
+   NatureScot, SEPA, NRW; the international bodies (CBD, IPBES, Ramsar, CMS, OSPAR, HELCOM, UNFCCC,
+   EUR-Lex, EEA); UK statutory instruments; the Block 3 title sweep of operational items;
+   forestresearch.gov.uk; 30by30 at sea. Already covered for 6 July – 2 September: ministerial
+   statements, Defra, NE/EA/FC/MMO, JNCC, the record-bearing types for UKHSA/DESNZ/MHCLG/DfT/HMT, UK
+   Public General Acts 2026, CCC, OEP; gov.scot via pointer pages only
+   (`outputs_other/policy_scan_2026-09-02.md`, final tables).
+   **Test the search filters before relying on them** (scan protocol §2.0). In September the gov.uk
+   date/organisation filters were lost when called through the fetch tool, which dropped the query
+   string and returned the whole corpus — a plausible-looking false result — but worked through a
+   browser. gov.scot's publication search ignored its URL parameters by either route, so gov.scot is
+   enumerated through its policy pointer pages. GitHub Copilot on Met Office systems may behave
+   differently again: check that a filtered query returns a filtered result before counting a source
+   as enumerated; `.atom` feeds and pointer pages are the fallback.
+10. **Watch items.** JNCC UKBI 2026 ([IFW-03] still records UKBI 2025; usually an autumn release, so
     likely imminent); the Scottish and Welsh statutory target sets, which both 2026 Acts mandate and
     which will be `IFW` + `IND` candidates when published.
 
 ### Content and documentation
 
-12. **Install and test the GitHub Copilot configuration** (§6.1, root `README.md`). Counts,
+11. **Install and test the GitHub Copilot configuration** (§6.1, root `README.md`). Counts,
     section references and the removed `FRAMEWORK_CTX` were corrected throughout `Copilot_setup/`
     and the root `README.md` on 6 October 2026, but nothing has yet run in VS Code; the tool-set
     names and handoff syntax are from documentation only.
-13. **Scale the MO research→policy relevance rubric** from 5 piloted entries to the remaining ~41
+12. **Scale the MO research→policy relevance rubric** from 5 piloted entries to the remaining ~41
     policy records. Three design questions block it: the scope of `Cur_MO`; whether Supplier entries
     share the main matrix or get a separate tab; the confidence floor below which a score is not
     reportable.
-14. **Dashboard user guide unwritten** — what each dashboard shows, data vintage, search, deep-link
+13. **Dashboard user guide unwritten** — what each dashboard shows, data vintage, search, deep-link
     and export. The in-page Help modals partly cover it. (The canonical-files guide is written:
     `Data/CANONICAL_FILES_GUIDE.md`.)
-15. **Add the two missing completed configs** (biosecurity, LST) to `PA_toolkit/completed_assessments/`
+14. **Add the two missing completed configs** (biosecurity, LST) to `PA_toolkit/completed_assessments/`
     so all four rendered assessments are reproducible from source. Only `config_dailysun.yaml` and
     `config_ocean_heatwaves.yaml` exist.
-16. **CHECK-row judgement calls** left from the orphan-code promotion
+15. **CHECK-row judgement calls** left from the orphan-code promotion
     (`outputs_other/ORPHAN_CODES_promotion_analysis.md`).
 
 ### Housekeeping
 
-17. **`pending_additions.md` status vocabulary — fixed 6 October 2026.** `add`, `defer`,
+16. **`pending_additions.md` status vocabulary — fixed 6 October 2026.** `add`, `defer`,
     `investigate` and `done` are now defined in the header, and the rows written or closed before v27
     are resolved. Two rows still carry bold-wrapped statuses (`**done**`, `**rejected**`) — cosmetic.
-18. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
+17. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
     semantics changed on 17 September, and the data again on 28 September.
-19. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** The longest
+18. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** The longest
     framework `Policy_Purpose` now runs to 1,343 characters and scrolls. One CSS line in the
     `TEMPLATE` string of `build_governance_diagram.py` (not the HTML).
-20. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
+19. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
     are out of scope by decision, but **SDG-11.c is an unexplained singleton gap** — confirm whether
     its deletion from the global framework is the reason.
 
