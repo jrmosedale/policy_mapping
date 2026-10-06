@@ -1,6 +1,6 @@
 # Nature Climate Indicators — project reference
 
-**Current as of 6 October 2026** (workbooks UK governance v29, international v18, indicators v27). This document describes what exists, where it is and how to
+**Current as of 6 October 2026** (workbooks UK governance v32, international v18, indicators v27). This document describes what exists, where it is and how to
 use it. It is not a history: settled decisions are not recorded here, only current state and
 genuinely unresolved work (§9).
 
@@ -52,11 +52,11 @@ as `<name>_vN_superseded_<date>.xlsx`.
 
 | Role | Filename | Version |
 |---|---|---|
-| UK governance | `uk_climate_nature_governance.xlsx` | **v29** (2026-10-06) |
+| UK governance | `uk_climate_nature_governance.xlsx` | **v32** (2026-10-06) |
 | International governance | `international_climate_nature_governance.xlsx` | **v18** (2026-10-06) |
 | Indicators | `indicators_climate_nature.xlsx` | **v27** (2026-09-28) |
 
-UK governance holds 49 `ORG`, 69 `LEG` and 109 `POL` records (highest IDs ORG-049, LEG-071, POL-111;
+UK governance holds 49 `ORG`, 69 `LEG` and 114 `POL` records (highest IDs ORG-049, LEG-071, POL-116;
 POL-023, POL-024, LEG-008 and LEG-009 retired).
 
 **Indicator content: 985 records** across nine framework sheets and **eleven register frameworks** —
@@ -71,7 +71,7 @@ until v23; documents citing 947 predate it.
 > in the `Record_ID` column with no `Indicator_Name`. **Any script counting indicators must require a
 > non-empty `Indicator_Name`.**
 
-**Integrity.** `check_links.py` validates every bracketed `[CODE]` against a registry of **1,186**
+**Integrity.** `check_links.py` validates every bracketed `[CODE]` against a registry of **1,191**
 Record_IDs / Framework_IDs and enforces six invariants (the sixth, added September 2026, validates
 every `Controlled` column against the values declared in the Data Dictionary). It must pass clean before any version is
 finalised. It is sufficient for referential integrity because the workbooks contain **no
@@ -444,47 +444,26 @@ tracks it. A climate-interesting phenomenon is not automatically an indicator.
 
 ## 9. Open work
 
-Item status checked against the workbooks, the queue and the file store on 6 October 2026.
+Uncompleted work only — completed items are removed, and their record is the workbook `Changelog`, the
+queue's `Resolution` column and git history. Checked against the workbooks, the queue and the file store
+on 6 October 2026.
 
-### Approved records not yet written — the main backlog
+### Queue and record backlog
 
-1. **Approved queue rows — written in UK governance v27 (6 October 2026).** 4 `LEG`, 5 `ORG` (incl.
-   [ORG-049] DHSC, added as UKHSA's sponsor) and 39 `POL` ([POL-072]–[POL-110], incl. the 13 Environment
-   Act target delivery plans and overview); "Operational service / System" added to the
-   `Policies & Activities` `General_Type` vocabulary; [LEG-034] corrected (see item 1a). Proposal,
-   verification record and writer script: `outputs_other/workbook_proposal_2026-10-06/`. The queue
-   rows are resolved. **Still `add`:** the NI Nature Recovery Strategy (draft; write when adopted) and
-   three legislative rows held for the **D8 legislative backlog audit** (Taxation (Energy and
-   Vehicles) Act 2026, Finance Act 2026, English Devolution and Community Empowerment Act 2026, and the
-   2024–2026 primary-legislation sweep) — not yet run.
+1. **D8 legislative backlog audit — approved, not yet run** (`Data/pending_additions.md`, Status
+   `add`): Taxation (Energy and Vehicles) Act 2026, Finance Act 2026 (check for CBAM provisions),
+   English Devolution and Community Empowerment Act 2026, and a sweep of 2024–2026 UK primary
+   legislation (only part of it is held), with devolved legislation 2021–2025.
 
-   **Conditions on rejected/investigate rows, not yet honoured:** note drought orders in [LEG-025] and
-   [LEG-023]; add the JNCC Signpost Series as a mention on [ORG-004]; consider folding Humber 2100+
-   into [POL-045]; record the National Policy Statement exclusion in [POL-050]. (The TE2100 reasoning
-   is in [POL-100].)
+2. **Legislation records to check:** [LEG-044] Plant Health (England) Order 2015 is marked revoked —
+   identify the current GB plant-health legislation, then decide whether to repurpose or retire the
+   record and whether the `Status` vocabulary needs a "Revoked" stem (queued as an `investigate` row;
+   inbound from [ORG-020], [POL-033], [POL-034], [POL-052], [INT-L-023]). [LEG-003] and [LEG-049] have not yet been title-checked — the link
+   gate will check them on its first run with network access. [LEG-021] links to bills.parliament.uk,
+   which the gate does not read.
 
-1a. **Legislation link audit — done 6 October 2026** (`outputs_other/legislation_link_audit_2026-10-06.md`).
-   Four records linked to a different instrument; all corrected ([LEG-034] in v27; [LEG-013], [LEG-040]
-   repurposed to the Clean Air (Northern Ireland) Order 1981, and [LEG-047] in v28). The check now
-   runs in the release gate (`check_legislation_links.py`, §6). **Still open:** [LEG-044] Plant
-   Health (England) Order 2015 is **revoked** — identify the current GB plant-health regime before
-   changing the record (inbound from ORG-020, POL-033, POL-034, POL-052, INT-L-023; the `Status`
-   vocabulary has no "Revoked" stem); [LEG-013] `Status` "Royal Assent Jan 2025" unverified;
-   [LEG-008] BNG retired and [LEG-009] EPPS moved to [POL-111] in v29; LEG-044 is queued as an
-   `investigate` row in `Data/pending_additions.md` (kept unchanged by decision, 6 Oct 2026);
-   [LEG-003], [LEG-049] not yet title-checked (the gate will check them on the first networked run);
-   [LEG-021] links to bills.parliament.uk, which the checker does not read.
-
-2. **Five rows still `pending`** from the 17 September framework-currency check: CCRA4-IA *A
-   Well-Adapted UK* (Met Office-led technical report; mark [POL-017] CCRA3 superseded), the Carbon
-   Budget and Growth Delivery Plan (Oct 2025), the CCC 2026 progress report, NICCAP3 and Scotland's
-   Climate Change Plan 2026–2040. **The CBGDP is the most urgent:** the CCC indicator benchmarks were
-   re-derived against it in indicators v18–v20, but the governance workbook still holds only
-   [POL-004] CBDP 2023 (annotated as superseded), so the indicators cite a plan the governance side
-   does not record.
-
-3. **Nine `investigate` rows remain open** — Land Use Framework 2026 vs [POL-009], SFI26 vs
-   [POL-054], CBGDP vs [POL-004], revised NPPF, Fisheries Act post-legislative assessment, biodiversity
+3. **Eight `investigate` rows remain open** — Land Use Framework 2026 vs [POL-009], SFI26 vs
+   [POL-054], revised NPPF, Fisheries Act post-legislative assessment, biodiversity
    gain statements for NSIPs, the Interactive Story Map, JNCC Signpost Series, UKBI 2026 (below).
    Eight rows are `defer`.
 
@@ -526,22 +505,20 @@ Item status checked against the workbooks, the queue and the file store on 6 Oct
    differently again: check that a filtered query returns a filtered result before counting a source
    as enumerated; `.atom` feeds and pointer pages are the fallback.
 10. **Watch items.** JNCC UKBI 2026 ([IFW-03] still records UKBI 2025; usually an autumn release, so
-    likely imminent); the Scottish and Welsh statutory target sets, which both 2026 Acts mandate and
+    likely imminent); the Nature Recovery Strategy for Northern Ireland to 2032 (approved for adding,
+    still a draft — write when adopted; queue Status `add`); the Scottish and Welsh statutory target sets, which both 2026 Acts mandate and
     which will be `IFW` + `IND` candidates when published.
 
 ### Content and documentation
 
-11. **Install and test the GitHub Copilot configuration** (§6.1, root `README.md`). Counts,
-    section references and the removed `FRAMEWORK_CTX` were corrected throughout `Copilot_setup/`
-    and the root `README.md` on 6 October 2026, but nothing has yet run in VS Code; the tool-set
-    names and handoff syntax are from documentation only.
+11. **Install and test the GitHub Copilot configuration** (§6.1, root `README.md`). Nothing has yet
+    run in VS Code; the tool-set names and handoff syntax are from documentation only.
 12. **Scale the MO research→policy relevance rubric** from 5 piloted entries to the remaining ~41
     policy records. Three design questions block it: the scope of `Cur_MO`; whether Supplier entries
     share the main matrix or get a separate tab; the confidence floor below which a score is not
     reportable.
 13. **Dashboard user guide unwritten** — what each dashboard shows, data vintage, search, deep-link
-    and export. The in-page Help modals partly cover it. (The canonical-files guide is written:
-    `Data/CANONICAL_FILES_GUIDE.md`.)
+    and export. The in-page Help modals partly cover it.
 14. **Add the two missing completed configs** (biosecurity, LST) to `PA_toolkit/completed_assessments/`
     so all four rendered assessments are reproducible from source. Only `config_dailysun.yaml` and
     `config_ocean_heatwaves.yaml` exist.
@@ -550,15 +527,12 @@ Item status checked against the workbooks, the queue and the file store on 6 Oct
 
 ### Housekeeping
 
-16. **`pending_additions.md` status vocabulary — fixed 6 October 2026.** `add`, `defer`,
-    `investigate` and `done` are now defined in the header, and the rows written or closed before v27
-    are resolved. Two rows still carry bold-wrapped statuses (`**done**`, `**rejected**`) — cosmetic.
-17. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
+16. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
     semantics changed on 17 September, and the data again on 28 September.
-18. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** The longest
+17. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** The longest
     framework `Policy_Purpose` now runs to 1,343 characters and scrolls. One CSS line in the
     `TEMPLATE` string of `build_governance_diagram.py` (not the HTML).
-19. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
+18. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
     are out of scope by decision, but **SDG-11.c is an unexplained singleton gap** — confirm whether
     its deletion from the global framework is the reason.
 
@@ -593,7 +567,7 @@ Climate_Score distribution; ORG/LEG/POL counts and highest IDs; `check_links.py`
 1,186 after v29, six invariants pass); `finalise.py` step order; diagram node, edge and key-instrument edge
 counts from the built HTML; finder footer; lookup-sheet code counts and the SDG-11.c gap; indicator
 ID prefixes; `orphan_codes.py` output location; queue statuses, and absence from the workbooks of
-every `add` row listed in §9 item 1; the "Operational service / System" term missing from the Data
+every `add` row approved on 10–11 September; the "Operational service / System" term missing from the Data
 Dictionary; which completed configs exist; stale counts in the
 root README and the GitHub Copilot configuration (corrected 6 October; §6.1).
 

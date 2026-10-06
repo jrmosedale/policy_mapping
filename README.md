@@ -72,7 +72,7 @@ Filenames are stable; the version integer lives *inside* each workbook, in `Chan
 
 | Role | File | Version |
 |---|---|---|
-| UK governance | `uk_climate_nature_governance.xlsx` | v29 |
+| UK governance | `uk_climate_nature_governance.xlsx` | v32 |
 | International governance | `international_climate_nature_governance.xlsx` | v18 |
 | Indicators | `indicators_climate_nature.xlsx` | v27 |
 
@@ -217,5 +217,5 @@ These are the ones an unfamiliar contributor — human or AI — breaks first. T
 ---
 
 *Met Office cowork project. Workbook versions and record counts above are current as at
-indicators v27 / UK v29 / international v18 (6 October 2026); `Exports/csv/_manifest.csv` always
+indicators v27 / UK v32 / international v18 (6 October 2026); `Exports/csv/_manifest.csv` always
 holds the live figures.*
