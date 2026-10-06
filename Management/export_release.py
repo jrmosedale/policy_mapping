@@ -76,6 +76,7 @@ DOC_SOURCES = sorted((ROOT / "Management" / "protocols").glob("*.md")) + [
     ROOT / "Data" / "pending_additions.md",
     ROOT / "outputs_other" / "CLIMATE_SCORE_METHOD.md",
     ROOT / "Data" / "CANONICAL_FILES_GUIDE.md",
+    ROOT / "Dashboards" / "DASHBOARD_USER_GUIDE.md",
 ]
 
 # Bump when the Markdown -> DOCX conversion changes, so every DOCX is regenerated once.

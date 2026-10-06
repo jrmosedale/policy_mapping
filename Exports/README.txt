@@ -26,6 +26,7 @@ Layout
   docx/pending_additions.docx  <-  Data/pending_additions.md
   docx/CLIMATE_SCORE_METHOD.docx  <-  outputs_other/CLIMATE_SCORE_METHOD.md
   docx/CANONICAL_FILES_GUIDE.docx  <-  Data/CANONICAL_FILES_GUIDE.md
+  docx/DASHBOARD_USER_GUIDE.docx  <-  Dashboards/DASHBOARD_USER_GUIDE.md
 
 Reading the CSVs
   * UTF-8 without a byte-order mark, comma-separated, RFC 4180 quoting, LF line endings.

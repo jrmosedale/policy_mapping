@@ -108,5 +108,5 @@ python3 PA_toolkit/code/render.py PA_toolkit/completed_assessments/config_<field
 - Do not delete project files without asking; do not commit, push or rewrite git history unless
   asked.
 - Record IDs in the indicators workbook use framework prefixes (`IND-C-`, `IND-E-`, `IND-J-`,
-  `IND-S-`, `IND-B-`, `BIP-`, `GBF-`, `IPBES-N-` / `-NCP-` / `-D-`, `SDG-`); frameworks are
+  `IND-S-`, `IND-B-`, `IND-M-`, `BIP-`, `GBF-`, `IPBES-N-` / `-NCP-` / `-D-`, `SDG-`); frameworks are
   `IFW-NN` in `Framework_ID`.

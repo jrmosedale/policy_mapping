@@ -207,6 +207,7 @@ These are the ones an unfamiliar contributor — human or AI — breaks first. T
 | You want | Read |
 |---|---|
 | Full orientation, what has been delivered, the live backlog and known fragilities | `Management/PROJECT_HANDOVER_Nature_Climate_Indicators.md` |
+| How to use the two dashboards | `Dashboards/DASHBOARD_USER_GUIDE.md` |
 | What the workbooks hold, and the rules for reading and changing them | `Data/CANONICAL_FILES_GUIDE.md` |
 | To change a workbook | `Management/protocols/WORKBOOK_WRITE_PROTOCOL.md` |
 | To run a policy scan | `Management/protocols/POLICY_SCAN_PROTOCOL.md` |

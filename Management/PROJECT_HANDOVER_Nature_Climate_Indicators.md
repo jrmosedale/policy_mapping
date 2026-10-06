@@ -34,7 +34,7 @@ nature–climate policy.
 | `Data/code/` | Workbook integrity tools. |
 | `Data/pending_additions.md` | Standing queue of candidate records found but not yet written. |
 | `Data/CANONICAL_FILES_GUIDE.md` | Short guide to the three workbooks: contents, linking, versions and archives, reading and changing them. |
-| `Dashboards/` | The two generated HTML dashboards; `code/` holds their build scripts. |
+| `Dashboards/` | The two generated HTML dashboards, `DASHBOARD_USER_GUIDE.md` (how to use them), and `code/` holding their build scripts. |
 | `PA_toolkit/` | The policy-assessment toolkit — everything needed to run a new assessment. |
 | `Management/` | This document, the release gate, the export writer, and `protocols/`. |
 | `Exports/` | **Generated, never edited.** Written by `export_release.py` at each release. |
@@ -113,7 +113,8 @@ belongs in `Changelog`. The rule is stated in row 2 of the sheet itself.
 A **data-dependency** score, not a climate-relevance score: does weather or climate data enter the
 indicator's calculation, or does inter-annual weather move its published value? Topical climate
 relevance is carried by `Policy_Sector = Climate` instead. Harmonised across all nine sheets in v27
-(162 of 985 records changed); distribution 0/1/2/3 = 435/269/201/80. Blank means *not assessed* and
+(162 of 985 records changed); distribution 0/1/2/3 = 435/269/201/80 at v27, plus the 16 MCCIP records
+scored under the same rules in v28 (0/3/3/10). Blank means *not assessed* and
 renders as a hatched badge that never satisfies a score filter. Full method, provenance, borderline
 cases and maintenance rules: `outputs_other/CLIMATE_SCORE_METHOD.md`; the review record is in
 `outputs_other/climate_score_harmonisation/`. Score new records against the Legend rules, not by
@@ -212,6 +213,12 @@ the register changes.
 **Hovering a relationship tag** ("Designated monitoring" / "Policy-relevant") names the indicator set
 the relationship belongs to, because that claim is about a *framework*, not about the single
 indicator on screen, and the panel previously never said which framework was meant.
+
+**Adding a framework sheet** needs two code-side edits besides the workbook: an entry in `FRAMEWORKS`
+at the top of `build_indicator_finder.py` (sheet name, short code, label — sheets not listed are not
+read) and a filter button in the finder HTML (`setFW('<code>',this)`). Done for MCCIP in v28.
+
+User-facing guide to both dashboards: `Dashboards/DASHBOARD_USER_GUIDE.md`.
 
 Searchable, filterable catalogue of all 1,001 indicators. Filter by sector (the 14 `Policy_Sector`
 classes, shared with the governance diagram), NCF category, framework, climate score, geographic
@@ -386,7 +393,7 @@ pushback welcomed; cited sources with explicit confidence levels; state gaps rat
 
 **ID families** — `LEG-NNN`, `ORG-NNN`, `POL-NNN` (UK); `INT-L/O/P-NNN`, `EU-L-NNN`
 (international); `IFW-NN` (frameworks). Indicator Record_IDs are **not** all `IND-x-NNN`:
-`IND-E-` EIF, `IND-C-` CCC, `IND-J-` JNCC, `IND-S-` SoN, `IND-B-` EEA, then the frameworks' own codes —
+`IND-E-` EIF, `IND-C-` CCC, `IND-J-` JNCC, `IND-S-` SoN, `IND-B-` EEA, `IND-M-` MCCIP, then the frameworks' own codes —
 `BIP-`, `GBF-`, `SDG-`, and `IPBES-N-` / `IPBES-NCP-` / `IPBES-D-`. Gaps in the `IND-C` and `IND-B`
 numbering predate July 2026 and are treated as intentional; new records continue from the maximum.
 
@@ -513,22 +520,20 @@ on 6 October 2026.
     policy records. Three design questions block it: the scope of `Cur_MO`; whether Supplier entries
     share the main matrix or get a separate tab; the confidence floor below which a score is not
     reportable.
-12. **Dashboard user guide unwritten** — what each dashboard shows, data vintage, search, deep-link
-    and export. The in-page Help modals partly cover it.
-13. **Add the two missing completed configs** (biosecurity, LST) to `PA_toolkit/completed_assessments/`
+12. **Add the two missing completed configs** (biosecurity, LST) to `PA_toolkit/completed_assessments/`
     so all four rendered assessments are reproducible from source. Only `config_dailysun.yaml` and
     `config_ocean_heatwaves.yaml` exist.
-14. **CHECK-row judgement calls** left from the orphan-code promotion
+13. **CHECK-row judgement calls** left from the orphan-code promotion
     (`outputs_other/ORPHAN_CODES_promotion_analysis.md`).
 
 ### Housekeeping
 
-15. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
+14. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
     semantics changed on 17 September, and the data again on 28 September.
-16. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** The longest
+15. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** The longest
     framework `Policy_Purpose` now runs to 1,343 characters and scrolls. One CSS line in the
     `TEMPLATE` string of `build_governance_diagram.py` (not the HTML).
-17. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
+16. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
     are out of scope by decision, but **SDG-11.c is an unexplained singleton gap** — confirm whether
     its deletion from the global framework is the reason.
 
