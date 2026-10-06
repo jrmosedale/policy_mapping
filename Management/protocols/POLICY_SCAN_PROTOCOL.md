@@ -187,9 +187,9 @@ Approved items then go through `WORKBOOK_WRITE_PROTOCOL.md` (beside this file) i
 - **A quarterly scan** — anything found on the watchlist that is not actioned in the same sitting.
 - **Anyone, at any time** — noticing a relevant publication is enough reason to add a row.
 
-**The inbox — `Data/pending_inbox/`.** An assistant that can create a file but cannot safely edit one writes its finds there instead, one file per run (`<YYYY-MM-DD>_<run>.md`, same columns as the Queue table, `Status: pending`). The Copilot Studio agent is the current case: it writes to SharePoint through a connector that replaces a whole file, so two runs appending to `pending_additions.md` at the same time would silently lose one set of rows. An inbox file is a candidate list that has not been screened; nothing in it counts as queued until it is merged.
+**Concurrent appends.** Two people appending rows on separate branches will meet a git merge conflict at the end of the Queue table. Resolve it by keeping both sets of rows; never drop one side.
 
-**Who reads it.** Step 3 of §6: merge the inbox, then work the queue. Every scan starts there, because it is the highest-quality input available.
+**Who reads it.** Step 3 of §6: work the queue first. Every scan starts there, because it is the highest-quality input available.
 
 **Rows are never deleted.** A row is resolved by changing its `Status` to `added` (with the Record ID it became), `rejected` (with a reason), or `duplicate` (with the existing Record ID). Keeping rejected rows is the point: it stops the same candidate being re-proposed and re-argued every quarter.
 
@@ -232,14 +232,14 @@ Blocks may be run in separate sittings, days apart, by different people. The tri
 
 1. **Establish the window.** Note each canonical workbook's internal version (`Changelog!B2` in `Data/canonical_files/`). Find the most recent `outputs_other/policy_scan_*.md`; its date is the start of the window. If none exists, this is the first scan — use the oldest workbook's last-updated date.
 2. **Read §7** — the operating settings govern how much to catalogue and how far to automate.
-3. **Merge the inbox, then work the pending queue first** (§5). Append every row in `Data/pending_inbox/` to the Queue table in `Data/pending_additions.md`, dropping exact duplicates, and delete each merged file — the queue is the only place a decision is recorded. Then take every row with `Status: pending`. These are already-researched candidates and generally outrank anything the watchlist turns up.
+3. **Work the pending queue first** (§5) — the queue is the only place a decision is recorded. Take every row with `Status: pending`. These are already-researched candidates and generally outrank anything the watchlist turns up.
 4. **Scan ministerial statements first** (§2.0b) — date-filter the written-statements service and read every statement's department and title for the window, plus any Hansard debate a statement points to. Extract every named report, plan, framework and commitment. This step comes first because one statement typically names a dozen publications and tells you what to look for in step 5.
 5. **Enumerate the watchlist in blocks** (§2.0, §6.0), one block at a time and writing up each before starting the next, for items published inside the window — *before* any keyword searching. Record, per source, how many items were enumerated and whether enumeration succeeded. Only then use targeted searches to fill in details or chase specific expected publications.
 6. **Title-sweep the remainder** (§2.0c) — every document type not screened in full. Then **screen everything** per §3 — including retirements, which are easier to miss than additions. Record screened-out items and the reason; a documented "no" prevents the same candidate being reconsidered next quarter. When checking overlap against existing records, apply the same-kind-of-thing rule in §4.
 7. **Write the triage note** (§4) to `outputs_other/policy_scan_YYYY-MM-DD.md`, appending each block as it completes rather than all at once at the end (§6.0). This file's existence is what defines the next scan's window, so write it even if the scan found nothing, and its coverage table is the resumption point if the scan is interrupted.
 8. **Present for approval.** Nothing is written to a workbook until approved. Per §7.2 the assembly is assisted; the judgement and the write are not.
 9. **Write approved items** via `WORKBOOK_WRITE_PROTOCOL.md`, then run `python3 Management/finalise.py` — it gates on `check_links.py` and rebuilds both dashboards only if the check passes.
-10. **Resolve the queue.** Update the `Status` of every row you actioned: `added` (with its new Record ID), `rejected` (with a reason), or `duplicate` (with the existing ID). Rows never get deleted, and `Data/pending_inbox/` should be empty by the end of the scan.
+10. **Resolve the queue.** Update the `Status` of every row you actioned: `added` (with its new Record ID), `rejected` (with a reason), or `duplicate` (with the existing ID). Rows never get deleted.
 
 ## 7. Operating settings
 

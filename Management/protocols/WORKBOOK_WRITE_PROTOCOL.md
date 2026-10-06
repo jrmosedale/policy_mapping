@@ -37,7 +37,8 @@ Do not proceed to write on an unreviewed proposal. Higher-risk operations (struc
 ## 2. Verify
 
 - **Sources**: confirm against primary/official sources (gov.uk, legislation.gov.uk, CBD, nature.scot, official treaty texts). State a confidence level per record; flag anything unverified rather than writing an assumed value.
-- **ID allocation**: next free integer in the family. **Never reuse a retired ID** — `POL-023` and `POL-024` are permanently retired.
+- **Links**: open every `Link` you write and confirm the page is the instrument or document the record names — not merely a page that loads. Four Legislation records carried a working link to the wrong Act until October 2026. For legislation.gov.uk links the gate re-checks this (§6), but only after the write.
+- **ID allocation**: next free integer in the family. **Never reuse a retired ID** — `POL-023`, `POL-024`, `LEG-008` and `LEG-009` are permanently retired (the list lives in `check_links.py`).
 - **Controlled vocabulary**: any new `General_Type`, `Policy_Sector` token, etc. must be flagged for approval, never silently coined. Max 3 `Policy_Sector` codes per indicator; governance records uncapped.
   `Policy_Sector` is **one vocabulary of 14 classes shared by all three workbooks** — indicators and governance alike. Do not fork it per workbook: the indicator finder and the governance diagram both filter on it, and `Health` / `Trade & Industry` are indicator-only in *use*, not indicator-only in *scope*. The authoritative list is handover §5.
 
@@ -98,7 +99,7 @@ A single record rarely lives in one cell. Before writing, enumerate every recipr
 > with the records.
 
 ```bash
-python3 Management/finalise.py               # rebuild_xref.py, check_links.py, then (only if clean) build_all.py, then export_release.py
+python3 Management/finalise.py               # rebuild_xref.py, check_links.py, check_legislation_links.py, then (only if clean) build_all.py, then export_release.py
 python3 Management/finalise.py --check       # index rebuild + the check alone, e.g. before you start writing
 ```
 
@@ -119,7 +120,9 @@ python3 ../code/check_links.py               # auto-detects the canonical files;
    matches on its stem. Vocabulary cells that describe a pattern rather than enumerate terms are skipped.
    Columns listed in `VOCAB_WARN_ONLY` report as a **warning** and do not fail the gate — that list is a
    debt register with a stated reason per entry, not a permanent exemption, and it should be emptied.
-6. **Retired IDs** — `POL-023` / `POL-024` never reappear as records.
+6. **Retired IDs** — `POL-023`, `POL-024`, `LEG-008`, `LEG-009` never reappear as records.
+
+**Link titles — `Data/code/check_legislation_links.py`, step 3 of 5.** For each `Legislation` record linked to legislation.gov.uk, compares the instrument's official title with the record's `Name`. A mismatch fails the gate (exit 1, nothing rebuilt); a revoked or repealed title, or an unreachable site, is a warning. Titles are cached for 30 days, so a release made offline still reports the last known result. A record deliberately named otherwise than its instrument (e.g. a family of Orders) goes in the script's `EXPECTED` table with its reason — never weaken the match to make a record pass.
 
 Run `finalise.py --check` **before** the write too, to confirm you started from a clean baseline.
 
@@ -164,7 +167,7 @@ Reads the canonical indicators workbook by header name. **It holds no hardcoded 
 **Parsers:** every cross-reference is bracketed (`[IFW-NN]`, `[LEG-NNN]`, …); strip brackets when parsing, e.g. `re.findall(r'\[(IFW-\d+)\]', cell)`, and always exclude the `Record_ID` / `Framework_ID` key columns.
 
 **Exports — `Management/export_release.py` → `Exports/`.**
-`finalise.py` runs this last. It writes one CSV per sheet of each canonical workbook (`Exports/csv/<workbook>/<Sheet_Name>.csv`, plus `_manifest.csv` with versions, row and record counts), converts the protocols, `METHOD_AND_SCORING.md`, the assessment user guide, the handover and `Data/pending_additions.md` to `.docx` (`Exports/docx/`), copies the two YAML templates as `.txt` (`Exports/txt/`), and writes `Exports/README.txt`. These are for tools that cannot read the workbooks or Markdown directly — a Microsoft 365 Copilot agent over SharePoint, a code interpreter, a git diff. **Never edit an export**: it changes nothing upstream and is overwritten at the next release. Files are rewritten only when their content changes, and exports whose source sheet or document has gone are removed. After editing only a protocol, `python3 Management/export_release.py` refreshes the DOCX without a full release.
+`finalise.py` runs this last. It writes one CSV per sheet of each canonical workbook (`Exports/csv/<workbook>/<Sheet_Name>.csv`, plus `_manifest.csv` with versions, row and record counts), converts the protocols, `METHOD_AND_SCORING.md`, the assessment user guide, the handover, `Data/pending_additions.md` and `outputs_other/CLIMATE_SCORE_METHOD.md` to `.docx` (`Exports/docx/`), and writes `Exports/README.txt`. The CSVs let GitHub Copilot, pandas and a git diff read workbook content without opening an `.xlsx`; the DOCX copies are for colleagues who read Word rather than Markdown. **Never edit an export**: it changes nothing upstream and is overwritten at the next release. Files are rewritten only when their content changes, and exports whose source sheet or document has gone are removed. After editing only a protocol, `python3 Management/export_release.py` refreshes the DOCX without a full release.
 
 
 ---

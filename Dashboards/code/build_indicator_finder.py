@@ -18,8 +18,8 @@ with obsolete sheet names, hard-wired absolute paths to another machine, and inj
      sdgg, sdgt, sectors, itype, ctx);
   * injects EXPORT_LOOKUPS — the GBF/SDG/framework/climate-score tables the
     client-side export resolves codes against;
-  * attaches each framework's governance chain via the hardcoded FRAMEWORK_CTX table
-    below (this replaces GOV_CHAINS — one chain per framework, shared by its indicators);
+  * attaches each framework's governance chain, derived from the Indicator Framework
+    register (Key_Instruments, Indirect_Policy_Links) and joined on Source_Framework;
   * uses paths relative to the repo, with CLI overrides;
   * uses the existing dashboard HTML as a pure template (shell + static lookup vars)
     and re-injects a freshly built INDICATORS array.

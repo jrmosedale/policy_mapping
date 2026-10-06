@@ -7,19 +7,15 @@ be run on its own. Writes, under Exports/ at the project root:
 
   Exports/csv/<workbook>/<Sheet_Name>.csv   one CSV per sheet of each canonical workbook
   Exports/csv/_manifest.csv                 one row per CSV: version, rows, columns, record count
-  Exports/docx/<NAME>.docx                  the protocols, method, user guide, handover and pending queue
-  Exports/txt/<NAME>.txt                    plain-text copies of the two assessment YAML templates
-
-It also refreshes the copies of render.py, the two YAML templates and METHOD_AND_SCORING.md that sit
-inside Copilot_setup/CopilotStudio_agent/skills/run-assessment/, because that skill is uploaded as a
-self-contained folder. Re-upload the skill whenever they change.
+  Exports/docx/<NAME>.docx                  the protocols, method, user guide, handover, pending queue
+                                            and climate-score method
   Exports/README.txt                        what these files are and how to read them
 
-Why: the workbooks and Markdown files are the source of truth, but several consumers cannot read
-them well. Tools that index documents (e.g. a Microsoft 365 Copilot agent over SharePoint) do not
-index .md files and handle multi-sheet workbooks poorly; code interpreters and pandas read a
-single-table CSV more reliably than a styled workbook; and git can show a readable diff of a CSV
-where it can only report that an .xlsx changed. Nothing here is ever edited by hand — every file is
+Why: the workbooks and Markdown files are the source of truth, but not every reader handles them
+well. GitHub Copilot and other text-based tools read a single-table CSV directly, whereas an .xlsx
+needs a script; pandas reads a CSV more reliably than a styled workbook; git shows a readable diff
+of a CSV where it can only report that an .xlsx changed; and colleagues without a Markdown viewer
+read the governing documents as Word files. Nothing here is ever edited by hand — every file is
 regenerated from its source, and editing an export changes nothing upstream.
 
 Design rules:
@@ -79,22 +75,7 @@ DOC_SOURCES = sorted((ROOT / "Management" / "protocols").glob("*.md")) + [
     ROOT / "Management" / "PROJECT_HANDOVER_Nature_Climate_Indicators.md",
     ROOT / "Data" / "pending_additions.md",
     ROOT / "outputs_other" / "CLIMATE_SCORE_METHOD.md",
-]
-
-# Files copied byte-for-byte as .txt, for indexers that ignore .yaml (the assessment templates are
-# the format example a drafting agent needs).
-TXT_SOURCES = sorted((ROOT / "PA_toolkit" / "template_files").glob("*.yaml"))
-TXT_DIR = EXPORT_DIR / "txt"
-
-# The Copilot Studio run-assessment skill is uploaded as a folder, so it carries its own copies of
-# the renderer, the templates and the method. Refresh them here so they cannot drift from source.
-# Silently skipped if the folder is absent (the bundle is moved or deleted after installation).
-SKILL_BUNDLE = ROOT / "Copilot_setup" / "CopilotStudio_agent" / "skills" / "run-assessment"
-SKILL_BUNDLE_FILES = [
-    ROOT / "PA_toolkit" / "code" / "render.py",
-    ROOT / "PA_toolkit" / "template_files" / "TEMPLATE_applied.yaml",
-    ROOT / "PA_toolkit" / "template_files" / "TEMPLATE_gap.yaml",
-    ROOT / "PA_toolkit" / "METHOD_AND_SCORING.md",
+    ROOT / "Data" / "CANONICAL_FILES_GUIDE.md",
 ]
 
 # Bump when the Markdown -> DOCX conversion changes, so every DOCX is regenerated once.
@@ -618,33 +599,6 @@ def export_documents():
     return counts, warnings
 
 
-def export_text_copies():
-    produced, counts = set(), {"written": 0, "unchanged": 0}
-    for src in TXT_SOURCES:
-        out = TXT_DIR / f"{src.stem}.txt"
-        state = write_if_changed(out, src.read_bytes())
-        counts[state] += 1
-        produced.add(out.resolve())
-        print(f"  {state:<10} {rel(out)}")
-    return counts, remove_stale(TXT_DIR, "*.txt", produced)
-
-
-def refresh_skill_bundle():
-    """Keep the uploaded skill's copies identical to the project files. Re-upload after a change."""
-    if not SKILL_BUNDLE.is_dir():
-        return {"written": 0, "unchanged": 0}, []
-    counts = {"written": 0, "unchanged": 0}
-    for src in SKILL_BUNDLE_FILES:
-        if not src.exists():
-            continue
-        state = write_if_changed(SKILL_BUNDLE / src.name, src.read_bytes())
-        counts[state] += 1
-        print(f"  {state:<10} {rel(SKILL_BUNDLE / src.name)}")
-    if counts["written"]:
-        print("  NOTE: re-upload the run-assessment skill in Copilot Studio — its files changed.")
-    return counts, []
-
-
 # --------------------------------------------------------------------------------------------
 # README
 # --------------------------------------------------------------------------------------------
@@ -652,8 +606,7 @@ def refresh_skill_bundle():
 def write_readme(versions, indicator_records):
     vlines = "\n".join(f"  {name:<48} Version {versions.get(name) or '(not found)'}"
                        for name in WORKBOOKS)
-    docs = "\n".join([f"  docx/{s.stem}.docx  <-  {rel(s)}" for s in DOC_SOURCES if s.exists()]
-                     + [f"  txt/{s.stem}.txt  <-  {rel(s)}" for s in TXT_SOURCES])
+    docs = "\n".join(f"  docx/{s.stem}.docx  <-  {rel(s)}" for s in DOC_SOURCES if s.exists())
     text = f"""EXPORTS - GENERATED FILES, DO NOT EDIT
 =====================================
 
@@ -698,18 +651,12 @@ def main():
     versions, indicator_records, c_counts, w1 = export_workbooks()
     print("\nDocuments -> DOCX")
     d_counts, w2 = export_documents()
-    print("\nTemplates -> TXT")
-    t_counts, w3 = export_text_copies()
-    print("\nCopilot Studio skill bundle")
-    s_counts, w4 = refresh_skill_bundle()
     state = write_readme(versions, indicator_records)
     print(f"\n  {state:<10} {rel(EXPORT_DIR / 'README.txt')}")
     print(f"\nCSV: {c_counts['written']} written, {c_counts['unchanged']} unchanged.  "
           f"DOCX: {d_counts['written']} written, {d_counts['unchanged']} unchanged.  "
-          f"TXT: {t_counts['written']} written, {t_counts['unchanged']} unchanged.  "
-          f"Skill files: {s_counts['written']} written, {s_counts['unchanged']} unchanged.  "
           f"Indicator records: {indicator_records}.")
-    for w in w1 + w2 + w3 + w4:
+    for w in w1 + w2:
         print(f"WARNING: {w}")
     return 0
 

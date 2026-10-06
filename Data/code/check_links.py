@@ -19,7 +19,7 @@ import openpyxl
 CODE = re.compile(r'\[([A-Z]{2,4}-[A-Z]?-?\d{1,3})\]')
 UK_FAM = ('LEG', 'ORG', 'POL')
 INTL_FAM = ('INT-L', 'INT-O', 'INT-P', 'EU-L')
-RETIRED = {'POL-023', 'POL-024'}
+RETIRED = {'POL-023', 'POL-024', 'LEG-008', 'LEG-009'}  # LEG-008/009 retired v29 (not statutory instruments)
 
 
 def fam(code):

@@ -16,13 +16,16 @@ user-invocable: true
 2. Run `python3 Management/finalise.py`. With `--check`, run only the integrity check.
 3. Interpret the exit code:
    - `0` — check clean, dashboards rebuilt, `Exports/` refreshed;
-   - `1` — the integrity check failed and nothing was rebuilt. Quote the failing invariant and
+   - `1` — the Cross-Reference Index regeneration, the integrity check or the legislation link
+     check failed, and nothing was rebuilt. For a link-check failure, quote the record, the Name and
+     the title the Link actually opens, and propose the corrected Link — never add the record to
+     `EXPECTED` to make it pass. Quote the failing invariant and
      record IDs, and propose the workbook fix. Never modify `check_links.py` to pass;
    - `2` — the check passed but a build failed. Report the builder's error. Nothing was exported;
    - `3` — the check and build passed but the export failed. Re-run with
      `python3 Management/export_release.py` after fixing.
 4. If the dashboard design or the data changed materially, remind the user of two things: bump
-   `out = …_vN.html` in `build_governance_diagram.py`, and archive the prior HTML. If any governance
-   chain behind a framework changed, check `FRAMEWORK_CTX`.
+   `out = …_vN.html` in `build_governance_diagram.py`, and archive the prior HTML. Report any builder
+   warning about an unmatched `Source_Framework` or an unscored record — these do not fail the gate.
 5. Summarise the changes (`git status --short`, if the folder is a git repository) and suggest a
    one-line commit message. Do not commit or push unless asked.

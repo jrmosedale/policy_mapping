@@ -18,7 +18,8 @@ Read-only. Never edit a workbook to answer a question.
 
 ## Rules
 
-- **Indicator records** need both `Record_ID` and `Indicator_Name`: 947 at v16.
+- **Indicator records** need both `Record_ID` and `Indicator_Name`: 985 at v27 (989 is the known
+  wrong answer). Quote the live count from `Exports/csv/_manifest.csv`.
 - **Cross-references** are bracketed codes. Strip the brackets to join on `Record_ID` /
   `Framework_ID`. Typed link columns:
 

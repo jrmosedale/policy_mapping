@@ -10,8 +10,8 @@ Sources of truth
   Documents  the Markdown files listed below
 
 Workbook versions in this export
-  uk_climate_nature_governance.xlsx                Version 26
-  international_climate_nature_governance.xlsx     Version 16
+  uk_climate_nature_governance.xlsx                Version 29
+  international_climate_nature_governance.xlsx     Version 18
   indicators_climate_nature.xlsx                   Version 27
 
 Layout
@@ -25,8 +25,7 @@ Layout
   docx/PROJECT_HANDOVER_Nature_Climate_Indicators.docx  <-  Management/PROJECT_HANDOVER_Nature_Climate_Indicators.md
   docx/pending_additions.docx  <-  Data/pending_additions.md
   docx/CLIMATE_SCORE_METHOD.docx  <-  outputs_other/CLIMATE_SCORE_METHOD.md
-  txt/TEMPLATE_applied.txt  <-  PA_toolkit/template_files/TEMPLATE_applied.yaml
-  txt/TEMPLATE_gap.txt  <-  PA_toolkit/template_files/TEMPLATE_gap.yaml
+  docx/CANONICAL_FILES_GUIDE.docx  <-  Data/CANONICAL_FILES_GUIDE.md
 
 Reading the CSVs
   * UTF-8 without a byte-order mark, comma-separated, RFC 4180 quoting, LF line endings.

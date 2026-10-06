@@ -37,8 +37,12 @@ applyTo: "Data/**"
   columns. Resolve a row by changing `Status` and filling `Resolution`, never by deleting it. Use the
   `Status` values defined in the file's header; if you meet values that are not defined there, flag
   the inconsistency rather than normalising it silently.
-- `Data/code/check_links.py` is the only automated gate. Changing it needs explicit approval, and
-  weakening an invariant so that a check passes is never acceptable.
+- `Data/CANONICAL_FILES_GUIDE.md` is the short orientation to the workbooks; the write protocol governs.
+- `Data/code/check_links.py` and `Data/code/check_legislation_links.py` are the automated gate.
+  Changing either needs explicit approval, and weakening an invariant or the title match so that a
+  check passes is never acceptable. A record deliberately named otherwise than its instrument goes in
+  the link checker's `EXPECTED` table, with its reason, after approval.
+- When you write a `Link`, open it and confirm the page is the instrument the record names.
 - `Data/code/orphan_codes.py` reads the workbooks from, and writes its report to, the current
   directory. Run it from `Data/canonical_files/` (`python3 ../code/orphan_codes.py`), then move
   `orphan_narrative_codes.md` and `.csv` to `outputs_other/` — never leave them beside the

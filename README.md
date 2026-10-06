@@ -11,8 +11,8 @@ comparability between assessments produced by different people months apart.
 
 Method: AI agents are used to (i) collate and organise information (ii) create html dashboards for 
 exploring policy and indicator records (iii) carry out policy mapping assessments of research fields.
-Originally developed using Claude AI (Opus models), information here is for porting to 
-Github Copilot environment. 
+Originally developed using Claude (Opus models); the project is managed on Met Office systems with
+GitHub Copilot in VS Code, configured as described below.
 
 ---
 
@@ -40,11 +40,14 @@ pip install -r Management/requirements.txt -r PA_toolkit/code/requirements.txt
 python3 Management/finalise.py --check      # integrity gate — should exit 0
 ```
 
-`finalise.py --check` runs `check_links.py` alone. A clean exit means the workbooks' ~1,100
-cross-references resolve and all five invariants pass; run it before and after any change.
+`finalise.py --check` regenerates the derived Cross-Reference Index, runs `check_links.py` and
+checks that each Legislation link opens the Act it names (`check_legislation_links.py`; needs
+access to legislation.gov.uk, otherwise it warns and uses its 30-day cache). A clean exit means the
+workbooks' ~1,200 cross-reference IDs resolve, all six invariants pass and no link opens the wrong
+instrument; run it before and after any change.
 
 ```bash
-python3 Management/finalise.py             # check → rebuild dashboards → refresh Exports/
+python3 Management/finalise.py             # index → check → link titles → rebuild dashboards → refresh Exports/
 python3 Management/export_release.py       # refresh Exports/ only
 python3 PA_toolkit/code/verify_toolkit.py  # prove the assessment renderer works here
 ```
@@ -55,12 +58,13 @@ python3 PA_toolkit/code/verify_toolkit.py  # prove the assessment renderer works
 
 | Folder | Contents |
 |---|---|
-| `Data/` | `canonical_files/` — the three authoritative workbooks, everything downstream derives from these; `code/` — the integrity tools; `pending_additions.md` — the standing queue of candidate records; `pending_inbox/` — one file per run, for assistants that write through a whole-file connector |
+| `Data/` | `canonical_files/` — the three authoritative workbooks, everything downstream derives from these; `code/` — the integrity tools; `pending_additions.md` — the standing queue of candidate records |
 | `Dashboards/` | the two generated HTML dashboards, and `code/` holding their builders |
 | `PA_toolkit/` | the assessment kit: user guide, method spec, prompt, example bibliography,`template_files/`, `code/` (the renderer — never edited), `completed_assessments/` |
-| `Management/` | the handover, the two AI-facing protocols, `finalise.py` (the release gate), `export_release.py` |
-| `Exports/` | **generated, never edited** — per-sheet CSVs with a manifest, `.docx` copies of the protocols and guides, `.txt` copies of the YAML templates. For tools that cannot read `.xlsx` or Markdown |
-| `Copilot_setup/` | AI configuration: `AGENTS.md`, `.github/` for GitHub Copilot, and two colleague-facing agent packs. Staging only — see below |
+| `Management/` | the handover, the two protocols, `finalise.py` (the release gate), `export_release.py` |
+| `Exports/` | **generated, never edited** — per-sheet CSVs with a manifest (readable by Copilot and pandas without opening a workbook, and diffable in git) and `.docx` copies of the protocols and guides for Word readers |
+| `outputs_other/` | method records (`CLIMATE_SCORE_METHOD.md`), policy-scan notes, analysis by-products |
+| `Copilot_setup/` | the GitHub Copilot configuration — `AGENTS.md` and `.github/`. Staging only; removed once installed (see below) |
 
 ### The three workbooks
 
@@ -68,13 +72,13 @@ Filenames are stable; the version integer lives *inside* each workbook, in `Chan
 
 | Role | File | Version |
 |---|---|---|
-| UK governance | `uk_climate_nature_governance.xlsx` | v21 |
-| International governance | `international_climate_nature_governance.xlsx` | v14 |
-| Indicators | `indicators_climate_nature.xlsx` | v10 |
+| UK governance | `uk_climate_nature_governance.xlsx` | v29 |
+| International governance | `international_climate_nature_governance.xlsx` | v18 |
+| Indicators | `indicators_climate_nature.xlsx` | v27 |
 
-**947 indicator records** across 9 framework sheets (EIF 66, CCC 111, JNCC UKBI 77, SoN 2023 32,
-EEA 62, BIP 81, IPBES 143, CBD GBF 202, UN SDG 173). A naive count of non-empty `Record_ID` returns
-951 — the CBD GBF sheet carries four section-banner rows with no `Indicator_Name`. **Any script
+**985 indicator records** across 9 framework sheets and 11 registered frameworks (EIF 66, CCC 149,
+JNCC UKBI 77, SoN 2023 32, EEA 62, BIP 81, IPBES 143, CBD GBF 202, UN SDG 173). A naive count of
+non-empty `Record_ID` returns 989 — the CBD GBF sheet carries four section-banner rows with no `Indicator_Name`. **Any script
 counting indicators must require a non-empty `Indicator_Name`.**
 
 ### The html dashboards
@@ -83,10 +87,11 @@ Both are single self-contained HTML files — no CDN, no external assets — so 
 `file://`, and can be emailed as they are.
 
 - `governance_diagram_v12.html` — relationship explorer across all three workbooks, six tiered
-  bands from international treaties down to indicator frameworks, eight typed edge classes, search,
+  bands from international treaties down to indicator frameworks, nine typed edge classes, search,
   deep-linking, SVG/PNG export.
 - `indicator_finder_v4.html` — searchable, filterable catalogue of the canonical indicator set,
-  with `⬡ diagram` deep-links into the governance diagram.
+  with climate score (0–3, a data-dependency score), Excel/CSV export, and `⬡ diagram` deep-links
+  into the governance diagram.
 
 > ⚠ **The two HTML files must stay in the same directory.** The finder holds the diagram's bare
 > filename. Separate them and every deep-link breaks silently — the finder still renders, the links
@@ -120,22 +125,21 @@ Any readable format — HTML, DOCX, CSV or Markdown (an RTF is in use) attached 
 
 ## Setting up GitHub Copilot in VS Code
 
-For maintainers. Colleague-facing options (Copilot Studio, M365 Agent Builder) are covered in
-`Management/AI_RESOURCES_AND_PORTING.md` §5.
-
-The AI configuration currently sits in `Copilot_setup/` as a staging area. Installing it means
+GitHub Copilot in VS Code is the AI environment for this project; no other Copilot set-up is
+maintained. The AI configuration currently sits in `Copilot_setup/` as a staging area. Installing it means
 moving it to where Copilot looks:
 
 1. **Move the configuration to the repository root.** Copy `Copilot_setup/AGENTS.md` and
    `Copilot_setup/.github/` to the root — the folder holding `Data/`, `Dashboards/`, `PA_toolkit/`.
-2. **Delete the originals** in `Copilot_setup/`; two copies would drift. Move whichever
-   colleague pack you are using to `Management/`, then remove `Copilot_setup/`.
+2. **Delete `Copilot_setup/`**; two copies would drift.
    (`.github` is hidden in Finder — press ⌘⇧. to show it.)
 3. **Open the repository root in VS Code**, switch Copilot chat to **Agent** mode, and turn on the
    `chat.useAgentsMdFile` setting.
 4. **Install the Python dependencies** (see Getting started above).
 5. **Pick a model** in the chat model picker. A Claude model will drift least from how these
-   protocols were written.
+   protocols were written. Whatever the model, it must cope with ~7 kB of always-on instructions plus
+   a 10–20 kB protocol per task, run a 32 kB renderer without reading it whole, and hold a
+   propose → verify → approve → write sequence across a long conversation.
 
 ### What you get
 
@@ -156,13 +160,15 @@ First, that the pieces are loaded:
 - typing `/` lists the seven skills;
 - the tools picker shows each agent's tools (`read`, `search`, `edit`, `execute`, `web`, `browser`,
   `todos`, `agent`). If VS Code warns about an unknown tool or agent name, correct it in that file —
-  these names came from documentation and have not yet been tested in a real installation.
+  these names came from documentation and have not yet been tested in a real installation;
+- asked *"Which instruction files are in your context right now?"*, the agent names
+  `data.instructions.md` when working in `Data/` and `assessments.instructions.md` in `PA_toolkit/`.
 
 Then, that the behaviour is right. Run all five; the last three test refusals, not capability.
 
 | Prompt | Pass |
 |---|---|
-| `/lookup` How many indicator records are there? | **947**, with the counting rule stated. 951 is the known wrong answer |
+| `/lookup` How many indicator records are there? | the manifest's current count (**985** at indicators v27), with the counting rule stated. 989 is the known wrong answer |
 | `/run-assessment field=marine_heatwaves mode=gap biblio=Biblio_marine_heatwaves.docx basename=TEST_marineheat` | YAML matches the keys of `config_dailysun.yaml`; five-step methods block; Maturity axis; renderer untouched; † rows appended. Delete the test outputs afterwards |
 | Ask the Curator to add a record containing `[LEG-999]`, and do not approve it | the Verifier flags the code as unresolved; **nothing is written** |
 | Ask the **Assessor** to "fix a typo in the UK workbook" | it declines and offers the Curator handoff |
@@ -171,7 +177,9 @@ Then, that the behaviour is right. Run all five; the last three test refusals, n
 If a check fails: a wrong record count means the agent counted `Record_ID` only or read a stale
 export (`python3 Management/export_release.py`); a claim that `render.py` is incomplete means the
 file was truncated on the way in — run `verify_toolkit.py`, and never let the renderer be
-rewritten; an agent writing out of scope means its `tools:` list was not applied.
+rewritten; an agent writing out of scope means its `tools:` list was not applied (check the tools
+picker, not the file); skills not listed means a skill is a loose `.md` file rather than a folder
+containing `SKILL.md`.
 
 ---
 
@@ -194,17 +202,20 @@ These are the ones an unfamiliar contributor — human or AI — breaks first. T
 
 ---
 
-## Where to read next (needs updating)
+## Where to read next
 
 | You want | Read |
 |---|---|
 | Full orientation, what has been delivered, the live backlog and known fragilities | `Management/PROJECT_HANDOVER_Nature_Climate_Indicators.md` |
+| What the workbooks hold, and the rules for reading and changing them | `Data/CANONICAL_FILES_GUIDE.md` |
 | To change a workbook | `Management/protocols/WORKBOOK_WRITE_PROTOCOL.md` |
 | To run a policy scan | `Management/protocols/POLICY_SCAN_PROTOCOL.md` |
 | To run an assessment | `PA_toolkit/ASSESSMENT_TOOLKIT_USER_GUIDE.md`, `PA_toolkit/METHOD_AND_SCORING.md` |
-| AI configuration, other Copilot options, porting to another environment | `Management/AI_RESOURCES_AND_PORTING.md` |
+| How the climate score is assigned | `outputs_other/CLIMATE_SCORE_METHOD.md` |
+| Which Copilot configuration file to update when a protocol changes | handover §6.1 |
 
 ---
 
 *Met Office cowork project. Workbook versions and record counts above are current as at
-indicators v10 / UK v21 / international v14.*
+indicators v27 / UK v29 / international v18 (6 October 2026); `Exports/csv/_manifest.csv` always
+holds the live figures.*

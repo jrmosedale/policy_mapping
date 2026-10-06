@@ -17,10 +17,6 @@ Builders run as subprocesses (each is self-contained and can also be run on its 
 
 Order matters: diagram before finder, so the finder links to the newest diagram.
 
-NOTE: build_climate_heatmap.py is NOT built here — it is currently unmaintained (its
-POLICY_CONTEXT is hardcoded and it depends on utils.py, whose paths are stale). Revive it
-separately if needed.
-
 The governance diagram's output filename carries a version integer (…_vN.html). When its
 DESIGN or the workbook data changes materially, bump the integer inside
 build_governance_diagram.py (the `out = …_vN.html` line) and archive the prior file to

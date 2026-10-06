@@ -16,7 +16,7 @@ not a replacement for it.
 2. Identify the target workbook and sheet, and read that sheet's columns and the `Data Dictionary`
    entries for them.
 3. Allocate IDs: the next free integer in the family. Never reuse a retired ID (`POL-023`,
-   `POL-024`).
+   `POL-024`, `LEG-008`, `LEG-009`; the list is `RETIRED` in `Data/code/check_links.py`).
 4. Draft a **proposal table**:
    - new records: the ID, `Name` and every column value;
    - edits: the exact cells, as old → new.
@@ -51,8 +51,8 @@ the full scope as described.
    canonical filename.
 6. Run `python3 Management/finalise.py`. It must exit 0. On exit 1, fix the workbook — never the
    checker.
-7. If the change touches a framework's governance chain, check `FRAMEWORK_CTX` in
-   `Dashboards/code/build_indicator_finder.py` and say whether it needs updating.
+7. If the change touches the `Indicator Framework` register or `Source_Framework` values, check the
+   finder build output for unmatched-`Source_Framework` warnings and report them.
 8. If the records came from `Data/pending_additions.md`, resolve those rows: set `Status` and put
    the new Record ID in `Resolution`.
 

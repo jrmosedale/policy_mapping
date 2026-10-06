@@ -43,6 +43,11 @@ ORG-041,Cabinet Office,CO,Organisation,Ministerial Department,"Governance, Socie
 ORG-042,State of Nature Partnership,SoN Partnership,Organisation,Non-governmental body / Partnership,Nature & Biodiversity,UK | GB | England | NI,Public Bodies
 ORG-043,Food Standards Agency,FSA,Organisation,Non-Ministerial Department,Marine & Fisheries | Biosecurity,England | Wales | Northern Ireland,Public Bodies
 ORG-044,Food Standards Scotland,FSS,Organisation,Non-Ministerial Department,Marine & Fisheries | Biosecurity,Scotland,Public Bodies
+ORG-045,Environmental Standards Scotland,ESS,Organisation,Devolved Public Body,"Nature & Biodiversity | Climate | Governance, Society & Data",Scotland,Public Bodies
+ORG-046,Office of Environmental Governance Wales,OEGW,Organisation,Devolved Public Body,"Nature & Biodiversity | Governance, Society & Data",Wales,Public Bodies
+ORG-047,UK Health Security Agency,UKHSA,Organisation,Executive Agency,Health | Climate | Pollution & Waste,UK | England,Public Bodies
+ORG-048,Local Nature Partnerships (collective),LNPs,Organisation,Non-governmental body / Partnership,"Nature & Biodiversity | Governance, Society & Data",England,Public Bodies
+ORG-049,Department of Health and Social Care,DHSC,Organisation,Ministerial Department,Health | Climate,UK | England,Public Bodies
 LEG-001,Climate Change Act 2008,,Legislation,Primary Legislation,Climate,UK,Legislation
 LEG-002,Climate Change Act 2008 (2050 Target Amendment) Order 2019,,Legislation,Secondary Legislation,Climate,UK,Legislation
 LEG-003,Carbon Budget Orders (1st–7th),,Legislation,Secondary Legislation,Climate | Finance,UK,Legislation
@@ -50,8 +55,6 @@ LEG-004,Environment Act 2021,,Legislation,Primary Legislation,Nature & Biodivers
 LEG-005,Wildlife and Countryside Act 1981,,Legislation,Primary Legislation,Nature & Biodiversity,GB,Legislation
 LEG-006,Natural Environment and Rural Communities Act 2006 (NERC Act),,Legislation,Primary Legislation,Nature & Biodiversity,England | Wales,Legislation
 LEG-007,Conservation of Habitats and Species Regulations 2017,,Legislation,Secondary Legislation,Nature & Biodiversity,GB,Legislation
-LEG-008,Biodiversity Net Gain (BNG) – mandatory from Feb 2024,,Legislation,Secondary Legislation,Nature & Biodiversity,England,Legislation
-LEG-009,Environmental Principles Policy Statement (EPPS) 2023,,Legislation,Secondary Legislation,Nature & Biodiversity,England,Legislation
 LEG-010,Biodiversity Beyond National Jurisdiction Act 2026,,Legislation,Primary Legislation,Marine & Fisheries,UK,Legislation
 LEG-011,Marine and Coastal Access Act 2009,,Legislation,Primary Legislation,Marine & Fisheries,UK,Legislation
 LEG-012,Water Industry Act 1991,,Legislation,Primary Legislation,Water,England | Wales,Legislation
@@ -76,13 +79,13 @@ LEG-030,Greenhouse Gas Emissions Trading Scheme Order 2020 (SI 2020/1265),,Legis
 LEG-031,Finance Act 2020,,Legislation,Primary Legislation,Climate | Energy | Finance,UK,Legislation
 LEG-032,Nature Conservation (Scotland) Act 2004,,Legislation,Primary Legislation,Nature & Biodiversity,Scotland,Legislation
 LEG-033,Wildlife and Natural Environment (Scotland) Act 2011,,Legislation,Primary Legislation,Nature & Biodiversity,Scotland,Legislation
-LEG-034,Environment (Scotland) Act 2023,,Legislation,Primary Legislation,Nature & Biodiversity,Scotland,Legislation
+LEG-034,UK Withdrawal from the European Union (Continuity) (Scotland) Act 2021,,Legislation,Primary Legislation,Nature & Biodiversity,Scotland,Legislation
 LEG-035,Environment (Wales) Act 2016,,Legislation,Primary Legislation,Nature & Biodiversity,Wales,Legislation
 LEG-036,Well-being of Future Generations (Wales) Act 2015,,Legislation,Primary Legislation,Climate | Nature & Biodiversity,Wales,Legislation
 LEG-037,Natural Resources Body for Wales (Establishment) Order 2012,,Legislation,Secondary Legislation,Nature & Biodiversity | Water | Marine & Fisheries,Wales,Legislation
 LEG-038,Environment (Northern Ireland) Order 2002,,Legislation,Primary Legislation,Nature & Biodiversity | Water,Northern Ireland,Legislation
 LEG-039,Wildlife (Northern Ireland) Order 1985,,Legislation,Primary Legislation,Nature & Biodiversity,Northern Ireland,Legislation
-LEG-040,Clean Air Act (Northern Ireland) 1964,,Legislation,Primary Legislation,Climate,Northern Ireland,Legislation
+LEG-040,Clean Air (Northern Ireland) Order 1981,,Legislation,Primary Legislation,Climate,Northern Ireland,Legislation
 LEG-041,National Heritage Act 1983,,Legislation,Primary Legislation,Nature & Biodiversity,UK,Legislation
 LEG-042,Animal Health Act 1981,,Legislation,Primary Legislation,Land Use & Agriculture | Biosecurity,UK,Legislation
 LEG-043,Plant Health Act 1967,,Legislation,Primary Legislation,Land Use & Agriculture | Biosecurity,UK,Legislation
@@ -110,6 +113,10 @@ LEG-064,Energy Act 2008,,Legislation,Primary Legislation,Energy | Climate,UK,Leg
 LEG-065,Land Drainage Act 1991,,Legislation,Primary Legislation,Water | Land Use & Agriculture,England | Wales,Legislation
 LEG-066,Agriculture (Wales) Act 2023,,Legislation,Primary Legislation,Land Use & Agriculture | Nature & Biodiversity | Climate,Wales,Legislation
 LEG-067,Agriculture and Rural Communities (Scotland) Act 2024,,Legislation,Primary Legislation,Land Use & Agriculture | Nature & Biodiversity | Climate,Scotland,Legislation
+LEG-068,Natural Environment (Scotland) Act 2026,,Legislation,Primary Legislation,Nature & Biodiversity | Land Use & Agriculture | Marine & Fisheries,Scotland,Legislation
+LEG-069,"Environment (Principles, Governance and Biodiversity Targets) (Wales) Act 2026",,Legislation,Primary Legislation,"Nature & Biodiversity | Governance, Society & Data",Wales,Legislation
+LEG-070,Building Act 1984,,Legislation,Primary Legislation,Urban & Buildings,England | Wales,Legislation
+LEG-071,The Northern Ireland Climate Commissioner Regulations (Northern Ireland) 2025 (SR 2025 No. 78),,Legislation,Secondary Legislation,"Climate | Governance, Society & Data",Northern Ireland,Legislation
 POL-001,Environmental Improvement Plan (EIP) 2025,EIP 2025,Policy_Activity,Plan,Nature & Biodiversity | Water | Land Use & Agriculture,England,Policies & Activities
 POL-002,National Adaptation Programme (NAP3) 2023–2028,NAP3,Policy_Activity,Plan,"Climate | Nature & Biodiversity | Land Use & Agriculture | Governance, Society & Data",UK | England,Policies & Activities
 POL-003,UK National Biodiversity Strategy and Action Plan (NBSAP) 2025,NBSAP 2025,Policy_Activity,Plan,Nature & Biodiversity | Marine & Fisheries | Land Use & Agriculture,UK,Policies & Activities
@@ -179,3 +186,43 @@ POL-068,Shellfish official-control and harmful algal bloom (HAB) / biotoxin moni
 POL-069,UK Blue Carbon Evidence Partnership (UKBCEP),UKBCEP,Policy_Activity,Coordination body / Working group,Climate | Nature & Biodiversity | Marine & Fisheries,UK,Policies & Activities
 POL-070,National assessment of flood and coastal erosion risk in England (NaFRA2),NaFRA2,Policy_Activity,Assessment / Evidence,Water | Urban & Buildings | Climate,England,Policies & Activities
 POL-071,Monitoring the condition of the natural environment (Environment Act 2021 s.16 statement),s.16 monitoring statement,Policy_Activity,Assessment / Evidence,"Nature & Biodiversity | Governance, Society & Data",England,Policies & Activities
+POL-072,Heat-Health Alerting / Weather-Health Alerts (UKHSA and Met Office),WHA,Policy_Activity,Operational service / System,Health | Climate,England,Policies & Activities
+POL-073,Adverse Weather and Health Plan,AWHP,Policy_Activity,Plan,Health | Climate,England,Policies & Activities
+POL-074,Building Regulations Part O — overheating in new residential buildings (Approved Document O),Part O,Policy_Activity,Standard / Code,Urban & Buildings | Health | Climate,England,Policies & Activities
+POL-075,"National Severe Weather Warning Service (NSWWS), including Extreme Heat warnings",NSWWS,Policy_Activity,Operational service / System,"Climate | Health | Governance, Society & Data",UK,Policies & Activities
+POL-076,UK Plant Health Risk Register,UK PHRR,Policy_Activity,Operational service / System,Biosecurity | Nature & Biodiversity | Land Use & Agriculture,UK,Policies & Activities
+POL-077,Plant health contingency plans — generic and pest-specific (England),PH contingency plans,Policy_Activity,Plan,Biosecurity | Land Use & Agriculture | Nature & Biodiversity,England,Policies & Activities
+POL-078,"30by30 on land in England — commitment, criteria and delivery plan",30by30 England,Policy_Activity,Plan,Nature & Biodiversity | Land Use & Agriculture,England,Policies & Activities
+POL-079,30by30 on land — assessment guidance (criteria and gold/silver/bronze tiers),30by30 assessment,Policy_Activity,Guidance / Methodology,Nature & Biodiversity | Land Use & Agriculture,England,Policies & Activities
+POL-080,"Nature security assessment on global biodiversity loss, ecosystem collapse and national security",Nature security assessment,Policy_Activity,Assessment / Evidence,"Nature & Biodiversity | Climate | Governance, Society & Data",UK | International,Policies & Activities
+POL-081,Farming Roadmap 2050: Growing England's Future (CP 1611),Farming Roadmap 2050,Policy_Activity,Strategy / Framework,Land Use & Agriculture | Nature & Biodiversity | Climate,England,Policies & Activities
+POL-082,A new vision for water: white paper (CP 1940),Water White Paper 2026,Policy_Activity,Strategy / Framework,"Water | Nature & Biodiversity | Governance, Society & Data",England,Policies & Activities
+POL-083,Environment Act target delivery plans — overview,EA21 TDPs,Policy_Activity,Plan,Nature & Biodiversity | Water | Land Use & Agriculture | Marine & Fisheries | Pollution & Waste,England,Policies & Activities
+POL-084,Agriculture water quality Environment Act target delivery plan,EA21 TDP — Agriculture water quality,Policy_Activity,Plan,Water | Land Use & Agriculture | Pollution & Waste,England,Policies & Activities
+POL-085,Air quality Environment Act target delivery plan,EA21 TDP — Air quality,Policy_Activity,Plan,Pollution & Waste | Health,England,Policies & Activities
+POL-086,Farm wildlife Environment Act target delivery plan,EA21 TDP — Farm wildlife,Policy_Activity,Plan,Nature & Biodiversity | Land Use & Agriculture,England,Policies & Activities
+POL-087,Habitat creation and restoration Environment Act target delivery plan,EA21 TDP — Habitat creation and restoration,Policy_Activity,Plan,Nature & Biodiversity | Land Use & Agriculture,England,Policies & Activities
+POL-088,Invasive non-native species Environment Act target delivery plan,EA21 TDP — Invasive non-native species,Policy_Activity,Plan,Nature & Biodiversity | Biosecurity,England,Policies & Activities
+POL-089,Marine protected areas (MPA) Environment Act target delivery plan,EA21 TDP — Marine protected areas (MPA),Policy_Activity,Plan,Marine & Fisheries | Nature & Biodiversity,England,Policies & Activities
+POL-090,Protected sites Environment Act target delivery plan,EA21 TDP — Protected sites,Policy_Activity,Plan,Nature & Biodiversity,England,Policies & Activities
+POL-091,Residual waste reduction Environment Act target delivery plan,EA21 TDP — Residual waste reduction,Policy_Activity,Plan,Pollution & Waste,England,Policies & Activities
+POL-092,Statutory species targets Environment Act target delivery plan,EA21 TDP — Statutory species targets,Policy_Activity,Plan,Nature & Biodiversity,England,Policies & Activities
+POL-093,Tree canopy and woodland cover Environment Act target delivery plan,EA21 TDP — Tree canopy and woodland cover,Policy_Activity,Plan,Nature & Biodiversity | Land Use & Agriculture | Climate,England,Policies & Activities
+POL-094,Wastewater Environment Act target delivery plan,EA21 TDP — Wastewater,Policy_Activity,Plan,Water | Pollution & Waste,England,Policies & Activities
+POL-095,Water and abandoned metal mines Environment Act target delivery plan,EA21 TDP — Water and abandoned metal mines,Policy_Activity,Plan,Water | Pollution & Waste,England,Policies & Activities
+POL-096,Water demand Environment Act target delivery plan,EA21 TDP — Water demand,Policy_Activity,Plan,Water,England,Policies & Activities
+POL-097,Government Estate Nature Plan (GENP),GENP,Policy_Activity,Plan,Nature & Biodiversity | Land Use & Agriculture | Climate,England,Policies & Activities
+POL-098,The UK's approach to deforestation regulations,UK deforestation regs,Policy_Activity,Strategy / Framework,Nature & Biodiversity | Trade & Industry | Land Use & Agriculture,UK,Policies & Activities
+POL-099,Biodiverse Landscapes Fund,BLF,Policy_Activity,Economic / market instrument,Nature & Biodiversity | Climate | Finance,UK | International,Policies & Activities
+POL-100,Thames Estuary 2100 (TE2100) Plan and monitoring reviews,TE2100,Policy_Activity,Plan,Water | Climate | Urban & Buildings,England,Policies & Activities
+POL-101,The Blue Belt Programme,Blue Belt,Policy_Activity,Scheme / Programme,Marine & Fisheries | Nature & Biodiversity | Climate,UK | International,Policies & Activities
+POL-102,Peatland Restoration Sector Capacity Grant Scheme (England),PRSCG,Policy_Activity,Economic / market instrument,Nature & Biodiversity | Climate | Land Use & Agriculture,England,Policies & Activities
+POL-103,"National Framework for Water Resources 2025: water for growth, nature and a resilient future",NFWR 2025,Policy_Activity,Strategy / Framework,Water | Climate | Nature & Biodiversity,England | Wales,Policies & Activities
+POL-104,Species Recovery Programme (Natural England),SRP,Policy_Activity,Scheme / Programme,Nature & Biodiversity,England,Policies & Activities
+POL-105,Local Sites (Local Wildlife Sites and Local Geological Sites) — selection and management,Local Sites,Policy_Activity,Guidance / Methodology,Nature & Biodiversity | Land Use & Agriculture,England,Policies & Activities
+POL-106,Northern Ireland Peatland Strategy to 2040,NI Peatland Strategy,Policy_Activity,Strategy / Framework,Nature & Biodiversity | Climate | Land Use & Agriculture | Water,Northern Ireland,Policies & Activities
+POL-107,Independent Review of Greenhouse Gas Removals and government response,GGR Review,Policy_Activity,Independent Review / Inquiry,Climate | Energy | Land Use & Agriculture | Nature & Biodiversity,UK,Policies & Activities
+POL-108,Scottish Biodiversity Strategy to 2045: Tackling the Nature Emergency,SBS 2045,Policy_Activity,Strategy / Framework,Nature & Biodiversity | Marine & Fisheries | Land Use & Agriculture | Climate,Scotland,Policies & Activities
+POL-109,Scottish Biodiversity Delivery Plan 2024–2030,SBDP 2024–30,Policy_Activity,Plan,Nature & Biodiversity | Marine & Fisheries | Land Use & Agriculture,Scotland,Policies & Activities
+POL-110,30 by 30 in Scotland (framework and Nature30 criteria),30 by 30 Scotland,Policy_Activity,Strategy / Framework,Nature & Biodiversity | Marine & Fisheries | Land Use & Agriculture,Scotland,Policies & Activities
+POL-111,Environmental Principles Policy Statement (EPPS),EPPS,Policy_Activity,Strategy / Framework,"Nature & Biodiversity | Governance, Society & Data",England | Scotland (reserved matters),Policies & Activities

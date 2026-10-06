@@ -1,6 +1,6 @@
 # Nature Climate Indicators — project reference
 
-**Current as of 17 September 2026.** This document describes what exists, where it is and how to
+**Current as of 6 October 2026** (workbooks UK governance v29, international v18, indicators v27). This document describes what exists, where it is and how to
 use it. It is not a history: settled decisions are not recorded here, only current state and
 genuinely unresolved work (§9).
 
@@ -33,14 +33,14 @@ nature–climate policy.
 | `Data/outdated_files/` | Archived superseded workbook and dashboard versions. |
 | `Data/code/` | Workbook integrity tools. |
 | `Data/pending_additions.md` | Standing queue of candidate records found but not yet written. |
+| `Data/CANONICAL_FILES_GUIDE.md` | Short guide to the three workbooks: contents, linking, versions and archives, reading and changing them. |
 | `Dashboards/` | The two generated HTML dashboards; `code/` holds their build scripts. |
 | `PA_toolkit/` | The policy-assessment toolkit — everything needed to run a new assessment. |
 | `Management/` | This document, the release gate, the export writer, and `protocols/`. |
 | `Exports/` | **Generated, never edited.** Written by `export_release.py` at each release. |
-| `outputs_other/` | Analysis by-products: MCCIP draft, orphan-code analysis, policy-scan notes. |
-| `export_scoping/` | Design record for the indicator export, now shipped. Deletable — §9 item 15. |
+| `outputs_other/` | Analysis by-products and method records: `CLIMATE_SCORE_METHOD.md` and the v27 harmonisation review, the export scoping note, MCCIP draft, orphan-code analysis, policy-scan notes and triage workbooks. |
 | `presentations/` | Slide decks. |
-| `Copilot_setup/` | Instructions and skills for porting the knowledge base to Microsoft 365 / Copilot Studio. |
+| `Copilot_setup/` | The GitHub Copilot configuration (`AGENTS.md`, `.github/`), staged for installation at the repository root (§6.1). |
 
 ---
 
@@ -52,23 +52,36 @@ as `<name>_vN_superseded_<date>.xlsx`.
 
 | Role | Filename | Version |
 |---|---|---|
-| UK governance | `uk_climate_nature_governance.xlsx` | **v21** |
-| International governance | `international_climate_nature_governance.xlsx` | **v14** |
-| Indicators | `indicators_climate_nature.xlsx` | **v16** |
+| UK governance | `uk_climate_nature_governance.xlsx` | **v29** (2026-10-06) |
+| International governance | `international_climate_nature_governance.xlsx` | **v18** (2026-10-06) |
+| Indicators | `indicators_climate_nature.xlsx` | **v27** (2026-09-28) |
 
-**Indicator content: 947 records** across nine framework sheets — EIF 66, CCC 111, JNCC UKBI 77,
-SoN 2023 32, EEA 62, BIP 81, IPBES 143, CBD GBF 202, UN SDG 173.
+UK governance holds 49 `ORG`, 69 `LEG` and 109 `POL` records (highest IDs ORG-049, LEG-071, POL-111;
+POL-023, POL-024, LEG-008 and LEG-009 retired).
 
-> ⚠ **Counting trap.** A naive count of non-empty `Record_ID` returns **951**. The CBD GBF sheet
+**Indicator content: 985 records** across nine framework sheets and **eleven register frameworks** —
+EIF 66, CCC 149, JNCC UKBI 77, SoN 2023 32, EEA 62, BIP 81, IPBES 143, CBD GBF 202, UN SDG 173. The
+CCC sheet carries three frameworks: [IFW-02] Mitigation Monitoring Framework (79), [IFW-10]
+Adaptation Monitoring Framework 2026 (38 proposed targets, IND-C-147 to IND-C-184, added v23) and
+[IFW-11] Adaptation Monitoring Framework 2023–2025, superseded but retained (32). The figure was 947
+until v23; documents citing 947 predate it.
+
+> ⚠ **Counting trap.** A naive count of non-empty `Record_ID` returns **989**. The CBD GBF sheet
 > carries four section-banner rows (`▌ HEADLINE INDICATORS…` and three more) whose divider text sits
 > in the `Record_ID` column with no `Indicator_Name`. **Any script counting indicators must require a
 > non-empty `Indicator_Name`.**
 
-**Integrity.** `check_links.py` validates every bracketed `[CODE]` against a registry of **1,097**
-Record_IDs / Framework_IDs and enforces five invariants. It must pass clean before any version is
-finalised. It is the only automated gate, which is sufficient because the workbooks contain **no
-formula cells** — every value is static. Keep it that way: all build scripts read with
+**Integrity.** `check_links.py` validates every bracketed `[CODE]` against a registry of **1,186**
+Record_IDs / Framework_IDs and enforces six invariants (the sixth, added September 2026, validates
+every `Controlled` column against the values declared in the Data Dictionary). It must pass clean before any version is
+finalised. It is sufficient for referential integrity because the workbooks contain **no
+formula cells** — every value is static. It cannot tell whether a URL opens the instrument a record
+names: that is `check_legislation_links.py`, the second automated check (§6). Keep it that way: all build scripts read with
 `data_only=True`, and openpyxl does not compute formulas.
+
+**The `Cross-Reference Index` sheet in each governance workbook is derived.** `rebuild_xref.py`
+regenerates it from the record sheets as step 1 of `finalise.py`; hand edits are overwritten and
+nothing reads it.
 
 **The `Data Dictionary` sheet documents the current schema only.** It carries no history. When a
 column is added, renamed, re-scoped or removed, edit or delete its row in place; version history
@@ -76,7 +89,9 @@ belongs in `Changelog`. The rule is stated in row 2 of the sheet itself.
 
 ### Sheet structure worth knowing
 
-- **`Indicator Framework`** — one row per framework (`IFW-01`…`IFW-09`). `Policy_Purpose` carries a
+- **`Indicator Framework`** — one row per framework (`IFW-01`…`IFW-11`; eleven rows over nine
+  sheets). The finder joins indicator rows to this register on `Source_Framework`, so a row's
+  `Source_Framework` must match its register row exactly (§4). `Policy_Purpose` carries a
   prose statement of each framework's purpose and policy range, written from primary documentation.
   `Key_Instruments` holds bracketed governance codes **only** for the instruments named in that
   purpose text: the body creating/hosting/using the framework, its statutory basis, and the key
@@ -88,6 +103,18 @@ belongs in `Changelog`. The rule is stated in row 2 of the sheet itself.
   environment-relevant subset; SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6 are out of scope). All three
   carry `Short_Title` (curated, concise) and the official wording, plus a `Used_In_Workbook` flag
   recomputed from actual use.
+- **`Legend`** — the 0–3 `Climate_Score` scale, its core principle and Rules A–H.
+
+### Climate_Score
+
+A **data-dependency** score, not a climate-relevance score: does weather or climate data enter the
+indicator's calculation, or does inter-annual weather move its published value? Topical climate
+relevance is carried by `Policy_Sector = Climate` instead. Harmonised across all nine sheets in v27
+(162 of 985 records changed); distribution 0/1/2/3 = 435/269/201/80. Blank means *not assessed* and
+renders as a hatched badge that never satisfies a score filter. Full method, provenance, borderline
+cases and maintenance rules: `outputs_other/CLIMATE_SCORE_METHOD.md`; the review record is in
+`outputs_other/climate_score_harmonisation/`. Score new records against the Legend rules, not by
+analogy with neighbouring rows.
 
 ### openpyxl hazards, learned the hard way
 
@@ -144,7 +171,7 @@ but only one of them *reads* it first.
 
 ### `governance_diagram_v12.html` — built by `build_governance_diagram.py`
 
-Relationship explorer across all three workbooks. 293 nodes, 983 edges. Six horizontal tiered bands
+Relationship explorer across all three workbooks. 345 nodes, 1,164 edges (build of 6 October 2026). Six horizontal tiered bands
 (international treaties → international bodies / EU law → UK legislation → UK public bodies → UK
 policy → indicator frameworks) joined by cubic-bezier curves. Autocomplete search, back/forward and
 URL-hash deep-linking, SVG/PNG export, depth-2 neighbourhood expansion, zoom/pan, acronym tooltips,
@@ -159,7 +186,7 @@ soft is decided by **ratification status**, not endpoint type.
 
 **Indicator frameworks.** Selecting an `IFW` node shows its `Policy_Purpose` in the bottom panel
 under "Policy purpose", with record count and scope in a secondary "Coverage" section. Its
-`Key_Instruments` codes are drawn as solid deep-pink edges (23). Precedence: a code already carrying
+`Key_Instruments` codes are drawn as solid deep-pink edges (28). Precedence: a code already carrying
 a `lead` edge keeps it; remaining `Key_Instruments` codes take precedence over the dotted
 `indicator` edge; anything left in `Indirect_Policy_Links` stays dotted.
 
@@ -183,17 +210,19 @@ the register changes.
 the relationship belongs to, because that claim is about a *framework*, not about the single
 indicator on screen, and the panel previously never said which framework was meant.
 
-Searchable, filterable catalogue of all 947 indicators. Filter by sector (the 14 `Policy_Sector`
+Searchable, filterable catalogue of all 985 indicators. Filter by sector (the 14 `Policy_Sector`
 classes, shared with the governance diagram), NCF category, framework, climate score, geographic
 scope and policy-context type; free-text search; centre-panel cards with a right-hand detail panel
 carrying units, data source, policy goal, climate score (0–3) and rationale. Every policy-context
-item has a `⬡ diagram` deep-link.
+item has a `⬡ diagram` deep-link. The Help modal explains the climate score (scale table,
+not-assessed badge) and exporting; the footer's workbook versions are filled from each workbook's
+`Changelog` at build, so they cannot go stale.
 
 **Export (⤓ Export, header).** Opens a dialog stating how many indicators the current filters have
 selected, offering Excel (default) or CSV with an editable pre-filled filename; disabled when
 nothing matches. **11 columns**, one row per indicator. The GBF and SDG codes are folded into an
 enriched **Policy goal**: a target's `Short_Title` is appended in brackets only where the prose does
-not already convey it (676 of 947 records). Sorting or pivoting by GBF/SDG code is not possible —
+not already convey it (676 of 947 records at the 17 September build; not recounted since v23). Sorting or pivoting by GBF/SDG code is not possible —
 accepted trade-off.
 
 Generated entirely client-side with no external library: the `.xlsx` ZIP container is written
@@ -242,6 +271,8 @@ renders normally but must list every unverified claim and err toward the lower s
 | `template_files/TEMPLATE_applied.yaml` **or** `TEMPLATE_gap.yaml` | Format example only. |
 | `README.md` | Run instructions and YAML field reference. |
 
+`ASSESSMENT_TOOLKIT_USER_GUIDE.md` is the task-oriented companion for a first-time user.
+
 Plus a bibliography for the field, the UK governance workbook, and optionally the indicators
 workbook. **Nothing else in the project is required** — the kit can be zipped and sent to anyone
 with Python 3.
@@ -263,13 +294,15 @@ Run: `python PA_toolkit/code/render.py CONFIG.yaml --format both --outdir PA_too
 
 | File | Role |
 |---|---|
-| `Data/code/check_links.py` | **The integrity gate.** Validates every bracketed `[CODE]` across all three workbooks against the ID registry and enforces five invariants — orphan references, column placement, UK↔intl forward and reverse reciprocity, retired-ID reuse. Auto-detects canonical filenames, ignoring `_superseded_` archives. |
-| `Data/code/orphan_codes.py` | Diagnostic companion: finds `[CODE]` mentions in narrative prose that no curated link column captures, so genuine relationships can be promoted. Writes Markdown + CSV to `outputs_other/`. |
+| `Data/code/check_links.py` | **The integrity gate.** Validates every bracketed `[CODE]` across all three workbooks against the ID registry and enforces six invariants — orphan references, column placement, UK↔intl forward and reverse reciprocity, controlled vocabulary against the Data Dictionary, retired-ID reuse. Read-only. Auto-detects canonical filenames, ignoring `_superseded_` archives. |
+| `Data/code/check_legislation_links.py` | **The link-title check.** For every `Legislation` record whose Link is on legislation.gov.uk, reads the instrument's title from `<base>/data.xml` and compares it with the record's `Name` (lenient on "The", dashes and trailing annotations such as "(SI 2015/610)"; `EXPECTED` lists records deliberately named otherwise). Fails on a mismatch; warns on a revoked/repealed title or an unreachable site. Spaces requests 2 s apart and caches titles for 30 days in `Data/code/.legislation_title_cache.json` (seeded from the 6 Oct 2026 manual audit, so the first offline runs still report). `--refresh`, `--offline`, `--titles-json`. No new dependency. |
+| `Data/code/rebuild_xref.py` | Regenerates the derived `Cross-Reference Index` sheet in both governance workbooks from their record sheets. Run by `finalise.py` as step 1; the only automated write to a canonical workbook, and only to that derived sheet. |
+| `Data/code/orphan_codes.py` | Diagnostic companion: finds `[CODE]` mentions in narrative prose that no curated link column captures, so genuine relationships can be promoted. Writes `orphan_narrative_codes.md` and `.csv` to the **current working directory** — run it from `outputs_other/`, or the report lands beside the workbooks. |
 | `Dashboards/code/build_governance_diagram.py` | Builds the governance diagram from all three workbooks, parsing each cross-reference column separately so every edge carries a link type. **The entire HTML page lives in a `TEMPLATE` string inside this script** — it writes a fresh file each time, so hand edits to the HTML are lost (§4). Output filename is a hardcoded literal. |
-| `Dashboards/code/build_indicator_finder.py` | Builds the indicator finder. Reads the indicators workbook **by header name** (robust to column reordering) and re-injects `INDICATORS` and `EXPORT_LOOKUPS` into the existing v4 HTML, used as both template and output — so hand-made design edits and hand-written code survive a rebuild, but the HTML must exist (§4). `FRAMEWORK_CTX` is the one piece of hardcoded governance knowledge (§10). |
+| `Dashboards/code/build_indicator_finder.py` | Builds the indicator finder. Reads the indicators workbook **by header name** (robust to column reordering) and re-injects `INDICATORS` and `EXPORT_LOOKUPS` into the existing v4 HTML, used as both template and output — so hand-made design edits and hand-written code survive a rebuild, but the HTML must exist (§4). Holds no hardcoded governance: each framework's policy context is derived from the `Indicator Framework` register. Prints a warning naming any `Source_Framework` value with no register match and any record with a blank `Climate_Score`; fills the footer versions from each workbook's `Changelog`. |
 | `Dashboards/code/build_all.py` | Orchestrator. Runs the two builders in the required order — diagram first, so the finder links to the newest diagram — from the correct working directories. `python3 build_all.py [diagram\|finder]` runs one. |
-| `Management/finalise.py` | **The release gate.** Runs `check_links.py` and, only if it passes, `build_all.py`, then `export_release.py`. Deliberately does *not* bump versions or archive — materiality is a human judgement. `--check` runs the gate alone. |
-| `Management/export_release.py` | Writes `Exports/` from the workbooks and Markdown: per-sheet CSVs with a manifest, `.docx` copies of the protocols, method spec, user guide, this document and `pending_additions.md`, `.txt` copies of the YAML templates. Rewrites a file only when its content changes, so unchanged sheets produce no git diff or OneDrive re-sync. |
+| `Management/finalise.py` | **The release gate.** Five steps, each only if the previous passed: `rebuild_xref.py` → `check_links.py` → `check_legislation_links.py` → `build_all.py` → `export_release.py`. Exit codes 1 index/check/link check, 2 build, 3 export. Deliberately does *not* bump versions or archive — materiality is a human judgement. `--check` runs the gate alone. |
+| `Management/export_release.py` | Writes `Exports/` from the workbooks and Markdown: per-sheet CSVs with a manifest, `.docx` copies of the protocols, method spec, user guide, this document, `pending_additions.md` and `CLIMATE_SCORE_METHOD.md`. The CSVs let GitHub Copilot, pandas and git diffs read workbook content without opening an `.xlsx`; the DOCX copies are for Word readers. Rewrites a file only when its content changes, so unchanged sheets produce no git diff or OneDrive re-sync. An existing output it cannot read (an online-only OneDrive placeholder) is treated as changed and replaced atomically. The `DOC_SOURCES` list sits at the top of the script; bump `CONVERTER_VERSION` whenever the Markdown→DOCX converter changes. |
 | `Management/protocols/WORKBOOK_WRITE_PROTOCOL.md` | The governing SOP for **any** workbook change: propose → verify → link map → write mechanics → version/changelog/archive → post-write gate → downstream dashboard sync. §7 carries the column→edge-type table. Read before every edit. |
 | `Management/protocols/POLICY_SCAN_PROTOCOL.md` | The quarterly scan for new records. Enumerative, not keyword-driven; an overlap match must be the same kind of thing. |
 | `PA_toolkit/code/render.py` | YAML → styled PDF (reportlab) + editable DOCX (python-docx). Handles `**bold**` / `*italic*` / `[[label\|url]]` markup, theming, section ordering. |
@@ -278,6 +311,35 @@ Run: `python PA_toolkit/code/render.py CONFIG.yaml --format both --outdir PA_too
 **Stack.** Python 3; `openpyxl` for workbooks, `reportlab` / `python-docx` / `PyYAML` for
 assessments, `pandas` for inspection. Node/npm deliberately avoided — the dashboards are hand-built
 HTML/CSS/JS with no dependencies.
+
+### 6.1 AI configuration — GitHub Copilot
+
+GitHub Copilot agent mode in VS Code is the AI environment for managing this project on Met Office
+systems (decided October 2026). The Microsoft 365 Agent Builder and Copilot Studio packs drafted in
+September, and the `Data/pending_inbox/` mechanism and `.txt` template exports that existed only to
+serve them, were retired on 6 October 2026 (copies in `_to_delete/retired_2026-10-06/`, and in git
+history at commit e7d744d).
+
+The configuration — `AGENTS.md` (always-on rules), five path-scoped instruction files, seven skills
+and five role agents separated by write scope — is staged in `Copilot_setup/` and **has not yet
+been installed or tested**. Installation and acceptance tests are in the root `README.md`. No model
+is pinned; it is chosen in the chat model picker.
+
+**Design rule: procedure lives in the protocols, routing lives in the skills.** Every agent, skill
+and instruction file is a thin pointer to `WORKBOOK_WRITE_PROTOCOL.md`, `POLICY_SCAN_PROTOCOL.md`,
+`METHOD_AND_SCORING.md` or `AGENTS.md`. When one of those changes, re-check the pointers:
+
+| Changed | Also check |
+|---|---|
+| `WORKBOOK_WRITE_PROTOCOL.md` | `AGENTS.md`; the data, dashboards and management instructions; skills `add-record`, `release`; agent `curator` |
+| `POLICY_SCAN_PROTOCOL.md` | skills `policy-scan`, `triage-pending`; agent `scanner` |
+| `METHOD_AND_SCORING.md`, YAML templates | skill `run-assessment`; the assessments instructions; agent `assessor` |
+| `finalise.py`, `export_release.py` | `AGENTS.md` commands; skill `release`; the exports and management instructions |
+| Controlled vocabulary, ID families, record counts | `AGENTS.md`; skill `lookup`; the root `README.md` |
+| Finder or diagram builders | the dashboards instructions; agent `dashboard-builder` |
+
+Claude desktop project memory, used while the project was built in Claude Cowork, is held outside
+the repository and does not travel. Its durable rules are already in `AGENTS.md` and this document.
 
 ---
 
@@ -289,7 +351,9 @@ HTML/CSS/JS with no dependencies.
 3. **Write**, respecting the openpyxl hazards in §3.
 4. **Bump the version integer** in `Changelog!B2`, write the changelog entry, archive the superseded
    file to `Data/outdated_files/`.
-5. **Run `python3 Management/finalise.py`** — integrity check, then both dashboards, then `Exports/`.
+5. **Run `python3 Management/finalise.py`** — Cross-Reference Index regeneration, integrity check,
+   legislation link check, then both dashboards, then `Exports/`. Read the builder's warnings: an unmatched `Source_Framework` or an
+   unscored record is a warning, not a failure, and does not stop the gate.
 6. **Verify structurally afterwards.** Re-read what you wrote and compare against the live headers.
    Two silent openpyxl failures have been caught this way; neither raised an error.
 
@@ -305,7 +369,12 @@ pushback welcomed; cited sources with explicit confidence levels; state gaps rat
 
 **Data integrity**
 
-- Never reuse retired Record IDs (`POL-023`, `POL-024` are permanently retired).
+- Never reuse retired Record IDs (`POL-023`, `POL-024`, `LEG-008`, `LEG-009` are permanently retired;
+  `check_links.py` holds the list). LEG-008 (BNG, a duplicate of [POL-065]) and LEG-009 (the EPPS, now
+  [POL-111]) were retired in v29 because neither is a statutory instrument.
+- **The Legislation sheet holds Acts, SIs, Orders and retained/EU instruments only.** A statutory policy
+  statement or statutory scheme made under an Act goes in Policies & Activities with the Act as
+  `Enabling_Legislation` — precedents [POL-059] Marine Policy Statement, [POL-111] EPPS, [POL-065] BNG.
 - Cross-reference codes wrapped in `[CODE]` brackets everywhere **except** `Record_ID` /
   `Framework_ID` primary-key columns — exclude those from any global regex pass.
 - No silent controlled-vocabulary additions. Flag new terms for explicit approval.
@@ -313,7 +382,15 @@ pushback welcomed; cited sources with explicit confidence levels; state gaps rat
 - Narrative prose fields are excluded from auto-conversion to edges — hence `orphan_codes.py`.
 
 **ID families** — `LEG-NNN`, `ORG-NNN`, `POL-NNN` (UK); `INT-L/O/P-NNN`, `EU-L-NNN`
-(international); `IND-x-NNN`, `IFW-NN` (indicators).
+(international); `IFW-NN` (frameworks). Indicator Record_IDs are **not** all `IND-x-NNN`:
+`IND-E-` EIF, `IND-C-` CCC, `IND-J-` JNCC, `IND-S-` SoN, `IND-B-` EEA, then the frameworks' own codes —
+`BIP-`, `GBF-`, `SDG-`, and `IPBES-N-` / `IPBES-NCP-` / `IPBES-D-`. Gaps in the `IND-C` and `IND-B`
+numbering predate July 2026 and are treated as intentional; new records continue from the maximum.
+
+**Devolved tier** *(Jonathan, 18 September 2026)* — the four administrations are held at
+administration level ([ORG-034] Scottish Government, [ORG-035] Welsh Government, [ORG-036] Northern
+Ireland Executive). No devolved department is held as a record; departments are named in prose in
+brackets after the administration. A candidate that is a devolved department is rejected on this rule.
 
 **Controlled vocabulary — `Policy_Sector`.** One vocabulary of **14 classes shared by all three
 workbooks**, pipe-separated, max 3 per indicator, uncapped for governance records. Do not fork it
@@ -367,95 +444,115 @@ tracks it. A climate-interesting phenomenon is not automatically an indicator.
 
 ## 9. Open work
 
-### Queued records awaiting approval
+Item status checked against the workbooks, the queue and the file store on 6 October 2026.
 
-1. **Four records from the first policy scan** (`Data/pending_additions.md`): the Natural
-   Environment (Scotland) Act 2026 and the Environment (Principles, Governance and Biodiversity
-   Targets) (Wales) Act 2026 as `LEG`; Environmental Standards Scotland and the Office of
-   Environmental Governance Wales as `ORG`. All are coverage gaps, not new publications. Writing
-   them takes UK governance to v22. A fifth, the draft NI Nature Recovery Strategy, is held pending
-   adoption.
-2. **Twelve items from the retrospective assessment sweep** (`Data/pending_additions.md`) — Solar
-   Roadmap 2025, Future Homes Standard, Heat-Health Alerting System, Adverse Weather and Health
-   Plan, Building Regs Part O, NSWWS Extreme Heat warnings, GB Plant Health Risk Register, Defra
-   plant-health contingency plans, Observatree and a UKHSA `ORG` record. The two indicator
-   candidates from that sweep are settled: UKHSA heat mortality **rejected** (overlaps
-   [IND-C-130]); MCCIP sea temperature **superseded by the MCCIP block proposal** below.
-3. **MCCIP indicator block — proposal awaiting judgement** (`Data/pending_additions.md`). MCCIP is
-   held as [POL-049] with no indicator rows. A 22-topic block is proposed, modelled on [IFW-07]
-   IPBES as an assessment-derived rather than target-tracking framework. This is the outstanding
-   indicator decision.
+### Approved records not yet written — the main backlog
 
-### Schema decisions blocking those rows
+1. **Approved queue rows — written in UK governance v27 (6 October 2026).** 4 `LEG`, 5 `ORG` (incl.
+   [ORG-049] DHSC, added as UKHSA's sponsor) and 39 `POL` ([POL-072]–[POL-110], incl. the 13 Environment
+   Act target delivery plans and overview); "Operational service / System" added to the
+   `Policies & Activities` `General_Type` vocabulary; [LEG-034] corrected (see item 1a). Proposal,
+   verification record and writer script: `outputs_other/workbook_proposal_2026-10-06/`. The queue
+   rows are resolved. **Still `add`:** the NI Nature Recovery Strategy (draft; write when adopted) and
+   three legislative rows held for the **D8 legislative backlog audit** (Taxation (Energy and
+   Vehicles) Act 2026, Finance Act 2026, English Devolution and Community Empowerment Act 2026, and the
+   2024–2026 primary-legislation sweep) — not yet run.
 
-3. **Three decisions now on the critical path**: the UKHSA `ORG` record (blocks five rows), a new
-   `General_Type` value "Operational service / System" (blocks NSWWS and arguably two more), and the
-   Building Act enabling-legislation `LEG` ID for Part O (blocks one).
-4. **Environment Act target delivery plan granularity.** Thirteen statutory delivery plans plus an
-   overview were published 16 July 2026 and none is in the workbook, which holds the statute
-   (`LEG-004`) and the plan (`POL-001`) but nothing between. One `POL` or thirteen? Recommendation:
-   thirteen, so indicators attach to the right plan and the diagram shows the chain at the level it
-   operates.
+   **Conditions on rejected/investigate rows, not yet honoured:** note drought orders in [LEG-025] and
+   [LEG-023]; add the JNCC Signpost Series as a mention on [ORG-004]; consider folding Humber 2100+
+   into [POL-045]; record the National Policy Statement exclusion in [POL-050]. (The TE2100 reasoning
+   is in [POL-100].)
+
+1a. **Legislation link audit — done 6 October 2026** (`outputs_other/legislation_link_audit_2026-10-06.md`).
+   Four records linked to a different instrument; all corrected ([LEG-034] in v27; [LEG-013], [LEG-040]
+   repurposed to the Clean Air (Northern Ireland) Order 1981, and [LEG-047] in v28). The check now
+   runs in the release gate (`check_legislation_links.py`, §6). **Still open:** [LEG-044] Plant
+   Health (England) Order 2015 is **revoked** — identify the current GB plant-health regime before
+   changing the record (inbound from ORG-020, POL-033, POL-034, POL-052, INT-L-023; the `Status`
+   vocabulary has no "Revoked" stem); [LEG-013] `Status` "Royal Assent Jan 2025" unverified;
+   [LEG-008] BNG retired and [LEG-009] EPPS moved to [POL-111] in v29; LEG-044 is queued as an
+   `investigate` row in `Data/pending_additions.md` (kept unchanged by decision, 6 Oct 2026);
+   [LEG-003], [LEG-049] not yet title-checked (the gate will check them on the first networked run);
+   [LEG-021] links to bills.parliament.uk, which the checker does not read.
+
+2. **Five rows still `pending`** from the 17 September framework-currency check: CCRA4-IA *A
+   Well-Adapted UK* (Met Office-led technical report; mark [POL-017] CCRA3 superseded), the Carbon
+   Budget and Growth Delivery Plan (Oct 2025), the CCC 2026 progress report, NICCAP3 and Scotland's
+   Climate Change Plan 2026–2040. **The CBGDP is the most urgent:** the CCC indicator benchmarks were
+   re-derived against it in indicators v18–v20, but the governance workbook still holds only
+   [POL-004] CBDP 2023 (annotated as superseded), so the indicators cite a plan the governance side
+   does not record.
+
+3. **Nine `investigate` rows remain open** — Land Use Framework 2026 vs [POL-009], SFI26 vs
+   [POL-054], CBGDP vs [POL-004], revised NPPF, Fisheries Act post-legislative assessment, biodiversity
+   gain statements for NSIPs, the Interactive Story Map, JNCC Signpost Series, UKBI 2026 (below).
+   Eight rows are `defer`.
+
+### Indicator decisions
+
+4. **MCCIP indicator block — proposal awaiting judgement** (`Data/pending_additions.md`, final
+   section). MCCIP is held as [POL-049] with no indicator rows. Proposed: [IFW-12] on a new
+   `MCCIP Indicators` sheet, a new `IND-M` family, modelled on [IFW-07] IPBES as an
+   assessment-derived framework. Recommendation: the 16 physical-environment and ecosystem-change
+   topics only, leaving the six societal-impact topics out under the level-of-generality rule. This
+   supersedes the July 26-row topic scaffold in `outputs_other/MCCIP_indicators_proposed.xlsx`, which
+   was built on MCCIP's earlier topic list.
+5. **Two new `Indicator_Type` terms to confirm** — "Socio-economic statistic" (52 SDG rows) and
+   "Hazard impact" (5). Free text, so not gated, but coined without approval.
+6. **`GBF_Targets_Clean` is absent** from the SDG and SoN 2023 sheets — one mapping exercise for both.
+7. **~200 records name SDG goals or targets in `Policy_Goal` prose only**, not in the clean columns.
+   The dashboard export parses them at runtime; curating them into `SDG_Goals_Clean` /
+   `SDG_Target_Code` would remove that dependency.
+8. **[IFW-10] carries targets, not indicators**, and `Data_Source` reads "to be confirmed" on all 38
+   rows. When the next CCC adaptation progress report publishes the indicators selected against those
+   targets, revisit. Also check the objective count (20 captured, CCC states 21) before citing it.
 
 ### Coverage
 
-5. **The first policy scan is incomplete.** All 388 Defra items for 6 July – 2 September are
-   enumerated and screened. **Natural England, the Environment Agency, JNCC, the Forestry
-   Commission, the MMO, UKHSA, DESNZ, legislation.gov.uk, the devolved administrations, the CCC, the
-   OEP and the international bodies remain un-enumerated.** Use the `.atom` feeds — the gov.uk
-   search API is unusable from this environment, because the fetch tool drops query strings and
-   returns the unfiltered corpus, which looks like a successful search.
-6. **EIF currency — highest priority queued item.** The Environmental Indicator Framework was
-   refreshed six times in 2026 (13 Feb, 17 Mar "new indicators updated", 15 Apr, 13 May, 3 Jul,
-   19 Aug). `IFW-01` and its 66 indicator rows may be stale, and whether any indicator was added or
-   retired is unknown. The only queued item touching indicator *content* rather than governance.
-7. **Devolved backlog sweep.** The first scan looked only at spring 2026 and found two missed Acts.
-   Auditing devolved legislation 2021–2025 is probably worth an hour.
-8. **Watch for the Scottish and Welsh statutory target sets.** Both Acts mandate targets *and*
-   monitoring indicators that do not yet exist. When published they are `IFW` + `IND` candidates and
-   go straight to the project's core climate-input question.
-9. **~200 records name SDG goals or targets in `Policy_Goal` prose only**, not in the clean columns.
-   The dashboard export parses them at runtime; curating them into `SDG_Goals_Clean` /
-   `SDG_Target_Code` would remove that dependency for roughly a fifth of the catalogue.
+9. **The 2 September scan remains partly un-enumerated** (`outputs_other/policy_scan_2026-09-02.md`,
+   final tables). Done: ministerial statements, Defra, NE/EA/FC/MMO, JNCC, the record-bearing types for
+   UKHSA/DESNZ/MHCLG/DfT/HMT, UK Public General Acts 2026, CCC, OEP; gov.scot via pointer pages only.
+   **Not done:** gov.wales, DAERA, NatureScot, SEPA, NRW; the international bodies (CBD, IPBES, Ramsar,
+   CMS, OSPAR, HELCOM, UNFCCC, EUR-Lex, EEA); UK statutory instruments; the Block 3 title sweep (~700
+   items); forestresearch.gov.uk; 30by30 at sea. The gov.uk and gov.scot search filters are ignored
+   when called from this environment and return the whole corpus — use `.atom` feeds and pointer pages.
+10. **Next quarterly scan** covers 2 September onwards and is due around early December 2026.
+11. **Watch items.** JNCC UKBI 2026 ([IFW-03] still records UKBI 2025; usually an autumn release, so
+    likely imminent); the Scottish and Welsh statutory target sets, which both 2026 Acts mandate and
+    which will be `IFW` + `IND` candidates when published.
 
 ### Content and documentation
 
-10. **MCCIP topic-level scaffold** (26 rows) — draft at `outputs_other/MCCIP_indicators_proposed.xlsx`.
-    MCCIP is 26 *topics* with headline messages and confidence ratings, not a quantitative
-    catalogue; decomposing it yields ~40–60 indicator rows, ~10–15 climate-driven, ~8–12 overlapping
-    existing records. Recommended: topic scaffold first, then priority detail.
-11. **Scale the MO research→policy relevance rubric** from 5 piloted entries to the remaining ~41
+12. **Install and test the GitHub Copilot configuration** (§6.1, root `README.md`). Counts,
+    section references and the removed `FRAMEWORK_CTX` were corrected throughout `Copilot_setup/`
+    and the root `README.md` on 6 October 2026, but nothing has yet run in VS Code; the tool-set
+    names and handoff syntax are from documentation only.
+13. **Scale the MO research→policy relevance rubric** from 5 piloted entries to the remaining ~41
     policy records. Three design questions block it: the scope of `Cur_MO`; whether Supplier entries
     share the main matrix or get a separate tab; the confidence floor below which a score is not
     reportable.
-12. **Two user guides unwritten** — a dashboard guide (what each shows, data vintage, how to search,
-    deep-link and export) and a canonical-files guide (stable-filename convention, internal-version
-    rule, archive-on-supersede discipline). The in-page Help modals partly cover the first.
-13. **Add the two missing completed configs** (biosecurity, LST) to `PA_toolkit/completed_assessments/`
-    so all four rendered assessments are reproducible from source.
-14. **CHECK-row judgement calls** left from the orphan-code promotion
-    (`outputs_other/ORPHAN_CODES_promotion_analysis.md`) — the residual ambiguous cases.
+14. **Dashboard user guide unwritten** — what each dashboard shows, data vintage, search, deep-link
+    and export. The in-page Help modals partly cover it. (The canonical-files guide is written:
+    `Data/CANONICAL_FILES_GUIDE.md`.)
+15. **Add the two missing completed configs** (biosecurity, LST) to `PA_toolkit/completed_assessments/`
+    so all four rendered assessments are reproducible from source. Only `config_dailysun.yaml` and
+    `config_ocean_heatwaves.yaml` exist.
+16. **CHECK-row judgement calls** left from the orphan-code promotion
+    (`outputs_other/ORPHAN_CODES_promotion_analysis.md`).
 
 ### Housekeeping
 
-15. **`export_scoping/` can be deleted.** The indicator export shipped on 17 September; the
-    directory is a design record with no runtime role and nothing in the project reads it. The
-    `.js` files duplicate code now living in the dashboard HTML, and the samples are reproducible
-    in two clicks from the dashboard. **Move `EXPORT_SCOPING_NOTE.md` to `outputs_other/` first**
-    if the reasoning is worth keeping — why GBF codes come from `GBF_Targets_Clean` rather than the
-    prose, why SDG needs both sources, and how the gloss test decides what to append.
-16. **`OUTSTANDING_ISSUES_AND_NEXT_STEPS.md` should be retired** down to its unique content (the
-    per-item analysis this section only summarises), or folded in and deleted. Two partly-stale
-    backlogs are worse than one.
-17. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
-    semantics changed on 17 September.
-18. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** Framework
-    `Policy_Purpose` text now runs to 808 characters and scrolls. One CSS line if you want it taller.
-19. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
-    are out of scope by decision, but **SDG-11.c is an unexplained singleton gap** — worth
-    confirming whether its deletion from the global framework is the reason.
-20. One orphaned Word lock file, `~$imate_nature_summary_of_slides.rtf`, sits in the project root.
-    Harmless; delete when convenient. `.DS_Store` files regenerate and can be ignored.
+17. **`pending_additions.md` status vocabulary — fixed 6 October 2026.** `add`, `defer`,
+    `investigate` and `done` are now defined in the header, and the rows written or closed before v27
+    are resolved. Two rows still carry bold-wrapped statuses (`**done**`, `**rejected**`) — cosmetic.
+18. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
+    semantics changed on 17 September, and the data again on 28 September.
+19. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** The longest
+    framework `Policy_Purpose` now runs to 1,343 characters and scrolls. One CSS line in the
+    `TEMPLATE` string of `build_governance_diagram.py` (not the HTML).
+20. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
+    are out of scope by decision, but **SDG-11.c is an unexplained singleton gap** — confirm whether
+    its deletion from the global framework is the reason.
 
 ---
 
@@ -463,21 +560,36 @@ tracks it. A climate-interesting phenomenon is not automatically an indicator.
 
 Three failure modes, none of which fails loudly.
 
-1. **Hardcoded governance knowledge.** `FRAMEWORK_CTX` in `build_indicator_finder.py` encodes each
-   framework's governance chain by hand — nine chains, eleven distinct codes. If the governance
-   workbooks change and it is not updated, the dashboard rebuilds cleanly and displays a chain that
-   is quietly wrong.
-   *Fix A (real):* derive it from the workbooks. `Indicator_Frameworks` columns on LEG/ORG/POL
-   records reverse into framework → instruments, and `build_governance_diagram.py` already has the
-   parsing logic. Half a day.
-   *Fix B (cheap interim):* assert in `check_links.py` that every `FRAMEWORK_CTX` code exists in the
-   registry, and that no governance record points at a framework without appearing in its chain.
-   About an hour, and it converts a silent failure into a loud one.
-   **Recommendation: B now, A when the finder is next opened substantially.**
+1. **Silent join failures in the finder.** Policy context is now derived from the register, which
+   removed the hardcoded `FRAMEWORK_CTX` risk, but it moved the fragility to the `Source_Framework`
+   join: a renamed framework or a new sheet whose rows do not match their register row renders with an
+   empty policy-context panel. The builder warns and names the offending values, but a warning does not
+   stop `finalise.py`. Read the build output after any change to the `Indicator Framework` sheet or to
+   `Source_Framework` values; promoting the warning to a build failure would close this.
 2. **Completeness decay.** The knowledge base does not decay visibly — a workbook six months stale
    passes every check and builds every dashboard. The only symptom is an absence. Mitigated by the
    quarterly policy scan and `Data/pending_additions.md`, but the scan is manual and depends on
-   someone remembering; §8 of the scan protocol says what scheduling it would take.
-3. **Protocol drift.** A protocol referencing tooling or conventions that do not exist causes bad
-   edits, because a diligent reader assumes the check ran. Recurs whenever a protocol is edited
-   without checking the file store.
+   someone remembering; §8 of the scan protocol says what scheduling it would take. **An approved
+   queue is not a written one:** rows at `add` in the queue are invisible to every gate.
+3. **Documentation drift.** A protocol or guide referencing tooling, counts or conventions that no
+   longer hold causes bad edits, because a diligent reader assumes it is current. It recurs whenever
+   code or workbooks change without the documents being re-checked; §6.1 lists which configuration files to re-check.
+
+---
+
+## Self-review (6 October 2026)
+
+**Verified on 6 October against the live files:** workbook versions (`Changelog!B2`); record counts
+per sheet (Record_ID and Indicator_Name both non-empty: 985; naive count 989); eleven register rows;
+Climate_Score distribution; ORG/LEG/POL counts and highest IDs; `check_links.py` run clean (registry
+1,186 after v29, six invariants pass); `finalise.py` step order; diagram node, edge and key-instrument edge
+counts from the built HTML; finder footer; lookup-sheet code counts and the SDG-11.c gap; indicator
+ID prefixes; `orphan_codes.py` output location; queue statuses, and absence from the workbooks of
+every `add` row listed in §9 item 1; the "Operational service / System" term missing from the Data
+Dictionary; which completed configs exist; stale counts in the
+root README and the GitHub Copilot configuration (corrected 6 October; §6.1).
+
+**Inherited, not re-checked:** "676 of 947" enriched export records (§4; predates v23); the ~200
+prose-only SDG records; the MCCIP topic structure and the scan-coverage tables, taken from the scan
+note and queue rather than re-enumerated; the next-scan date, which assumes the quarterly cadence.
+Confidence: high on the verified items, medium on the inherited ones.

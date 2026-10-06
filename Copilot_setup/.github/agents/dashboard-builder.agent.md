@@ -14,9 +14,10 @@ You are the **Dashboard Builder** for the Nature Climate Indicators project. Fol
   `Dashboards/indicator_finder_v4.html` itself — it is the finder's template. For a material change,
   bump the diagram's `out = …_vN.html` and archive the prior HTML to `Data/outdated_files/`.
 - Keep both dashboards in `Dashboards/`. Keep them single-file, offline and dependency-free. Keep
-  the eight-type link taxonomy and its ≥3:1 contrast palette. Keep arrows governor → governed.
-- `FRAMEWORK_CTX` is hardcoded governance. When it is touched, verify every code in it against the
-  current workbooks.
+  the nine-type link taxonomy and its ≥3:1 contrast palette. Keep arrows governor → governed.
+- The finder holds no hardcoded governance: policy context comes from the `Indicator Framework`
+  register. Do not reintroduce a hardcoded chain table. Treat any unmatched-`Source_Framework` or
+  unscored-record warning from the builder as a defect to report.
 - Propose design changes before making them. After a rebuild, open both files and spot-check
   search, a deep-link from the finder to the diagram, and the detail panel.
 - Never edit the workbooks, `Data/code/` or `Exports/`.

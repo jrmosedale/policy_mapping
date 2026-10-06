@@ -32,9 +32,9 @@ applyTo: "Dashboards/**"
   Its module lives inside the finder HTML. **Never let the literal string `</script>` appear in
   any code added to a dashboard HTML, including inside comments** — it terminates the script
   block and everything after it silently becomes stray text.
-- **`FRAMEWORK_CTX` in `build_indicator_finder.py` hardcodes nine framework governance chains.**
-  Whenever a framework's enabling legislation, lead body or lead policy changes in the workbooks,
-  check it and update it by hand — and say that you did. Stale chains rebuild cleanly and display
-  wrong.
+- **The finder's policy context is derived** from the `Indicator Framework` register
+  (`Key_Instruments`, `Indirect_Policy_Links`), joined to indicator rows on `Source_Framework`. A
+  value with no register match renders an empty panel; the builder only warns. Read the build output
+  and report any such warning — never ignore it.
 - The dashboards are single self-contained HTML files: no CDN, no external assets, no Node/npm.
   They must open offline from `file://`.

@@ -74,7 +74,6 @@ There is no version control on this folder, which is why this record exists.
 | `code_files/check_links.py` | `Data/code/check_links.py` |
 | `code_files/orphan_codes.py` | `Data/code/orphan_codes.py` |
 | `PROJECT_HANDOVER_Nature_Climate_Indicators.md` | `Management/PROJECT_HANDOVER_Nature_Climate_Indicators.md` |
-| `OUTSTANDING_ISSUES_AND_NEXT_STEPS.md` | `Management/OUTSTANDING_ISSUES_AND_NEXT_STEPS.md` |
 | `code_files/WORKBOOK_WRITE_PROTOCOL.md` | `Management/protocols/WORKBOOK_WRITE_PROTOCOL.md` |
 | `POLICY_SCAN_PROTOCOL.md` | `Management/protocols/POLICY_SCAN_PROTOCOL.md` |
 

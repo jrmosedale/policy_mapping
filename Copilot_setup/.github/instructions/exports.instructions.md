@@ -13,9 +13,5 @@ applyTo: "Exports/**"
 - To change the export format, edit `export_release.py`. If you change the Markdown → DOCX
   conversion, bump `CONVERTER_VERSION` in that script, or unchanged documents will not be
   regenerated.
-- `export_release.py` also refreshes the copies of `render.py`, the YAML templates and
-  `METHOD_AND_SCORING.md` inside `Copilot_setup/CopilotStudio_agent/skills/run-assessment/`. Never
-  edit those copies: edit the source and re-run the export, then re-upload that skill in Copilot
-  Studio.
 - Reading the CSVs: `Exports/csv/_manifest.csv` lists every sheet with its workbook version, row
   count and record count. `Exports/README.txt` explains the counting rules.

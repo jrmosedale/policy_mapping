@@ -51,14 +51,7 @@ content is derived and scored.
    a shared knowledge base depend on the disposition of whoever happened to run the assessment. It
    is not an individual user's call.
 
-   If you can create a file but cannot safely edit one — an assistant writing through a connector
-   that replaces whole files, such as the Copilot Studio agent — write the rows instead to
-   `Data/pending_inbox/<YYYY-MM-DD>_<run>.md`, one file per run, with the same columns. A maintainer
-   merges the inbox into the queue at the next triage
-   (`Management/protocols/POLICY_SCAN_PROTOCOL.md` §5–§6). Do not edit `pending_additions.md`
-   through such a connector: a concurrent run would lose the other's rows.
-
-   If neither file is reachable — a ported copy of `PA_toolkit/` alone, say — emit the rows as a
+   If the file is not reachable — a ported copy of `PA_toolkit/` alone, say — emit the rows as a
    fenced, copy-paste-ready block explicitly labelled for pasting into `Data/pending_additions.md`.
    Silence is not an acceptable outcome. Also summarise the daggered items in the chat reply, as
    before, so the user knows what was found.

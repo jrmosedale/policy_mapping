@@ -34,5 +34,5 @@ Never:
 - change `check_links.py` to make a check pass;
 - delete a queue row.
 
-After any change to a framework's governance chain, check `FRAMEWORK_CTX` in
-`Dashboards/code/build_indicator_finder.py` and report whether it needs updating.
+After any change to the `Indicator Framework` register or to `Source_Framework` values, check the
+finder build output for unmatched-`Source_Framework` warnings and report them.
