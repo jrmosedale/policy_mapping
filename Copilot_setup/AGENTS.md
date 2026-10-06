@@ -62,8 +62,8 @@ for the task.
 - **Never `insert_rows`** on a striped sheet (`WORKBOOK_WRITE_PROTOCOL.md` §4).
 - **The gate:** after any workbook write, `python3 Management/finalise.py` must exit 0. A version
   is never called done on a failing check, and a check is never weakened to make it pass.
-- **Counting indicators** requires both `Record_ID` and `Indicator_Name` non-empty: 985 records at
-  indicators v27. A `Record_ID`-only count gives 989 because of four banner rows — the known wrong
+- **Counting indicators** requires both `Record_ID` and `Indicator_Name` non-empty: 1,001 records at
+  indicators v28. A `Record_ID`-only count gives 1,005 because of four banner rows — the known wrong
   answer. Read the live count from `Exports/csv/_manifest.csv` or the workbook, not from this line.
 - **`Climate_Score` is a data-dependency score** (does weather or climate data move the published
   value?), not a relevance score. Score new records against the `Legend` sheet's Rules A–H; method in

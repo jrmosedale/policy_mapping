@@ -11,7 +11,7 @@ The previous version read a pre-canonical workbook (`biodiversity_indicators_v12
 with obsolete sheet names, hard-wired absolute paths to another machine, and injected a
 `GOV_CHAINS` variable that the current dashboard no longer uses. This rewrite:
 
-  * reads the canonical `indicators_climate_nature.xlsx` (v10: 9 framework sheets, 947 rows),
+  * reads the canonical `indicators_climate_nature.xlsx` (the framework sheets listed in FRAMEWORKS),
     mapping columns by HEADER NAME (not position) so it is robust to schema drift;
   * emits the 18-field record shape the dashboard expects
     (id, name, fw, fw_full, ncf, scope, cs, goal, units, datasrc, code, rat, gbf,
@@ -75,6 +75,7 @@ FRAMEWORKS = [
     ("IPBES Indicators",                "IPBES", "IPBES Indicators"),
     ("CBD GBF Indicators",              "GBF",   "CBD Kunming-Montreal GBF Indicators"),
     ("SDG Indicators",                  "SDG",   "UN Sustainable Development Goals"),
+    ("MCCIP Indicators",                "MCCIP", "MCCIP UK Marine Climate Change Impacts"),
 ]
 
 # ── Governance chains, DERIVED from the register ──────────────────────────────

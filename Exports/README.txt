@@ -10,9 +10,9 @@ Sources of truth
   Documents  the Markdown files listed below
 
 Workbook versions in this export
-  uk_climate_nature_governance.xlsx                Version 32
+  uk_climate_nature_governance.xlsx                Version 33
   international_climate_nature_governance.xlsx     Version 18
-  indicators_climate_nature.xlsx                   Version 27
+  indicators_climate_nature.xlsx                   Version 28
 
 Layout
   csv/<workbook>/<Sheet_Name>.csv   one file per sheet, exported as stored
@@ -35,7 +35,7 @@ Reading the CSVs
   * Sheets are exported faithfully: section-banner rows and merged-cell remnants are kept.
   * Counting indicators: a row is an indicator record only if BOTH Record_ID and Indicator_Name
     are non-empty. The CBD GBF sheet has section-banner rows with a Record_ID but no
-    Indicator_Name. Counted this way the indicators workbook holds 985 records;
+    Indicator_Name. Counted this way the indicators workbook holds 1001 records;
     counting non-empty Record_ID alone overstates it.
   * Cross-references are bracketed codes, e.g. [LEG-NNN], [ORG-NNN], [IFW-NN]. Record_ID and
     Framework_ID key columns are never bracketed. Strip brackets before joining on IDs.

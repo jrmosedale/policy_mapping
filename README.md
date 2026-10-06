@@ -72,13 +72,13 @@ Filenames are stable; the version integer lives *inside* each workbook, in `Chan
 
 | Role | File | Version |
 |---|---|---|
-| UK governance | `uk_climate_nature_governance.xlsx` | v32 |
+| UK governance | `uk_climate_nature_governance.xlsx` | v33 |
 | International governance | `international_climate_nature_governance.xlsx` | v18 |
-| Indicators | `indicators_climate_nature.xlsx` | v27 |
+| Indicators | `indicators_climate_nature.xlsx` | v28 |
 
-**985 indicator records** across 9 framework sheets and 11 registered frameworks (EIF 66, CCC 149,
-JNCC UKBI 77, SoN 2023 32, EEA 62, BIP 81, IPBES 143, CBD GBF 202, UN SDG 173). A naive count of
-non-empty `Record_ID` returns 989 — the CBD GBF sheet carries four section-banner rows with no `Indicator_Name`. **Any script
+**1,001 indicator records** across 10 framework sheets and 12 registered frameworks (EIF 66, CCC 149,
+JNCC UKBI 77, SoN 2023 32, EEA 62, BIP 81, IPBES 143, CBD GBF 202, UN SDG 173, MCCIP 16). A naive count of
+non-empty `Record_ID` returns 1,005 — the CBD GBF sheet carries four section-banner rows with no `Indicator_Name`. **Any script
 counting indicators must require a non-empty `Indicator_Name`.**
 
 ### The html dashboards
@@ -168,7 +168,7 @@ Then, that the behaviour is right. Run all five; the last three test refusals, n
 
 | Prompt | Pass |
 |---|---|
-| `/lookup` How many indicator records are there? | the manifest's current count (**985** at indicators v27), with the counting rule stated. 989 is the known wrong answer |
+| `/lookup` How many indicator records are there? | the manifest's current count (**1,001** at indicators v28), with the counting rule stated. 1,005 is the known wrong answer |
 | `/run-assessment field=marine_heatwaves mode=gap biblio=Biblio_marine_heatwaves.docx basename=TEST_marineheat` | YAML matches the keys of `config_dailysun.yaml`; five-step methods block; Maturity axis; renderer untouched; † rows appended. Delete the test outputs afterwards |
 | Ask the Curator to add a record containing `[LEG-999]`, and do not approve it | the Verifier flags the code as unresolved; **nothing is written** |
 | Ask the **Assessor** to "fix a typo in the UK workbook" | it declines and offers the Curator handoff |
@@ -217,5 +217,5 @@ These are the ones an unfamiliar contributor — human or AI — breaks first. T
 ---
 
 *Met Office cowork project. Workbook versions and record counts above are current as at
-indicators v27 / UK v32 / international v18 (6 October 2026); `Exports/csv/_manifest.csv` always
+indicators v28 / UK v33 / international v18 (6 October 2026); `Exports/csv/_manifest.csv` always
 holds the live figures.*

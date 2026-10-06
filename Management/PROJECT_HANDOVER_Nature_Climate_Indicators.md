@@ -1,6 +1,6 @@
 # Nature Climate Indicators — project reference
 
-**Current as of 6 October 2026** (workbooks UK governance v32, international v18, indicators v27). This document describes what exists, where it is and how to
+**Current as of 6 October 2026** (workbooks UK governance v33, international v18, indicators v28). This document describes what exists, where it is and how to
 use it. It is not a history: settled decisions are not recorded here, only current state and
 genuinely unresolved work (§9).
 
@@ -52,26 +52,29 @@ as `<name>_vN_superseded_<date>.xlsx`.
 
 | Role | Filename | Version |
 |---|---|---|
-| UK governance | `uk_climate_nature_governance.xlsx` | **v32** (2026-10-06) |
+| UK governance | `uk_climate_nature_governance.xlsx` | **v33** (2026-10-06) |
 | International governance | `international_climate_nature_governance.xlsx` | **v18** (2026-10-06) |
-| Indicators | `indicators_climate_nature.xlsx` | **v27** (2026-09-28) |
+| Indicators | `indicators_climate_nature.xlsx` | **v28** (2026-10-06) |
 
 UK governance holds 49 `ORG`, 69 `LEG` and 114 `POL` records (highest IDs ORG-049, LEG-071, POL-116;
 POL-023, POL-024, LEG-008 and LEG-009 retired).
 
-**Indicator content: 985 records** across nine framework sheets and **eleven register frameworks** —
-EIF 66, CCC 149, JNCC UKBI 77, SoN 2023 32, EEA 62, BIP 81, IPBES 143, CBD GBF 202, UN SDG 173. The
+**Indicator content: 1,001 records** across ten framework sheets and **twelve register frameworks** —
+EIF 66, CCC 149, JNCC UKBI 77, SoN 2023 32, EEA 62, BIP 81, IPBES 143, CBD GBF 202, UN SDG 173,
+MCCIP 16. The
 CCC sheet carries three frameworks: [IFW-02] Mitigation Monitoring Framework (79), [IFW-10]
 Adaptation Monitoring Framework 2026 (38 proposed targets, IND-C-147 to IND-C-184, added v23) and
 [IFW-11] Adaptation Monitoring Framework 2023–2025, superseded but retained (32). The figure was 947
-until v23; documents citing 947 predate it.
+until v23 and 985 until v28; documents citing either predate those versions. [IFW-12] MCCIP (added v28)
+holds 16 Impacts Hub topic reviews (IND-M family) — assessment-derived like [IFW-07]; MCCIP's
+separate observed and projection confidence ratings are kept in `Framework_Classification`.
 
-> ⚠ **Counting trap.** A naive count of non-empty `Record_ID` returns **989**. The CBD GBF sheet
+> ⚠ **Counting trap.** A naive count of non-empty `Record_ID` returns **1,005**. The CBD GBF sheet
 > carries four section-banner rows (`▌ HEADLINE INDICATORS…` and three more) whose divider text sits
 > in the `Record_ID` column with no `Indicator_Name`. **Any script counting indicators must require a
 > non-empty `Indicator_Name`.**
 
-**Integrity.** `check_links.py` validates every bracketed `[CODE]` against a registry of **1,191**
+**Integrity.** `check_links.py` validates every bracketed `[CODE]` against a registry of **1,208**
 Record_IDs / Framework_IDs and enforces six invariants (the sixth, added September 2026, validates
 every `Controlled` column against the values declared in the Data Dictionary). It must pass clean before any version is
 finalised. It is sufficient for referential integrity because the workbooks contain **no
@@ -89,7 +92,7 @@ belongs in `Changelog`. The rule is stated in row 2 of the sheet itself.
 
 ### Sheet structure worth knowing
 
-- **`Indicator Framework`** — one row per framework (`IFW-01`…`IFW-11`; eleven rows over nine
+- **`Indicator Framework`** — one row per framework (`IFW-01`…`IFW-12`; twelve rows over ten
   sheets). The finder joins indicator rows to this register on `Source_Framework`, so a row's
   `Source_Framework` must match its register row exactly (§4). `Policy_Purpose` carries a
   prose statement of each framework's purpose and policy range, written from primary documentation.
@@ -210,7 +213,7 @@ the register changes.
 the relationship belongs to, because that claim is about a *framework*, not about the single
 indicator on screen, and the panel previously never said which framework was meant.
 
-Searchable, filterable catalogue of all 985 indicators. Filter by sector (the 14 `Policy_Sector`
+Searchable, filterable catalogue of all 1,001 indicators. Filter by sector (the 14 `Policy_Sector`
 classes, shared with the governance diagram), NCF category, framework, climate score, geographic
 scope and policy-context type; free-text search; centre-panel cards with a right-hand detail panel
 carrying units, data source, policy goal, climate score (0–3) and rationale. Every policy-context
@@ -469,26 +472,19 @@ on 6 October 2026.
 
 ### Indicator decisions
 
-4. **MCCIP indicator block — proposal awaiting judgement** (`Data/pending_additions.md`, final
-   section). MCCIP is held as [POL-049] with no indicator rows. Proposed: [IFW-12] on a new
-   `MCCIP Indicators` sheet, a new `IND-M` family, modelled on [IFW-07] IPBES as an
-   assessment-derived framework. Recommendation: the 16 physical-environment and ecosystem-change
-   topics only, leaving the six societal-impact topics out under the level-of-generality rule. This
-   supersedes the July 26-row topic scaffold in `outputs_other/MCCIP_indicators_proposed.xlsx`, which
-   was built on MCCIP's earlier topic list.
-5. **Two new `Indicator_Type` terms to confirm** — "Socio-economic statistic" (52 SDG rows) and
+4. **Two new `Indicator_Type` terms to confirm** — "Socio-economic statistic" (52 SDG rows) and
    "Hazard impact" (5). Free text, so not gated, but coined without approval.
-6. **`GBF_Targets_Clean` is absent** from the SDG and SoN 2023 sheets — one mapping exercise for both.
-7. **~200 records name SDG goals or targets in `Policy_Goal` prose only**, not in the clean columns.
+5. **`GBF_Targets_Clean` is absent** from the SDG, SoN 2023 and MCCIP sheets — one mapping exercise for all three.
+6. **~200 records name SDG goals or targets in `Policy_Goal` prose only**, not in the clean columns.
    The dashboard export parses them at runtime; curating them into `SDG_Goals_Clean` /
    `SDG_Target_Code` would remove that dependency.
-8. **[IFW-10] carries targets, not indicators**, and `Data_Source` reads "to be confirmed" on all 38
+7. **[IFW-10] carries targets, not indicators**, and `Data_Source` reads "to be confirmed" on all 38
    rows. When the next CCC adaptation progress report publishes the indicators selected against those
    targets, revisit. Also check the objective count (20 captured, CCC states 21) before citing it.
 
 ### Coverage
 
-9. **Next quarterly scan — due around early December 2026.** Its window starts on 2 September, the
+8. **Next quarterly scan — due around early December 2026.** Its window starts on 2 September, the
    date of the last scan note, **except for the sources the 2 September scan never covered**, which
    start from that scan's own window opening, 6 July, so nothing is missed: gov.wales, DAERA,
    NatureScot, SEPA, NRW; the international bodies (CBD, IPBES, Ramsar, CMS, OSPAR, HELCOM, UNFCCC,
@@ -504,35 +500,35 @@ on 6 October 2026.
    enumerated through its policy pointer pages. GitHub Copilot on Met Office systems may behave
    differently again: check that a filtered query returns a filtered result before counting a source
    as enumerated; `.atom` feeds and pointer pages are the fallback.
-10. **Watch items.** JNCC UKBI 2026 ([IFW-03] still records UKBI 2025; usually an autumn release, so
+9. **Watch items.** JNCC UKBI 2026 ([IFW-03] still records UKBI 2025; usually an autumn release, so
     likely imminent); the Nature Recovery Strategy for Northern Ireland to 2032 (approved for adding,
     still a draft — write when adopted; queue Status `add`); the Scottish and Welsh statutory target sets, which both 2026 Acts mandate and
     which will be `IFW` + `IND` candidates when published.
 
 ### Content and documentation
 
-11. **Install and test the GitHub Copilot configuration** (§6.1, root `README.md`). Nothing has yet
+10. **Install and test the GitHub Copilot configuration** (§6.1, root `README.md`). Nothing has yet
     run in VS Code; the tool-set names and handoff syntax are from documentation only.
-12. **Scale the MO research→policy relevance rubric** from 5 piloted entries to the remaining ~41
+11. **Scale the MO research→policy relevance rubric** from 5 piloted entries to the remaining ~41
     policy records. Three design questions block it: the scope of `Cur_MO`; whether Supplier entries
     share the main matrix or get a separate tab; the confidence floor below which a score is not
     reportable.
-13. **Dashboard user guide unwritten** — what each dashboard shows, data vintage, search, deep-link
+12. **Dashboard user guide unwritten** — what each dashboard shows, data vintage, search, deep-link
     and export. The in-page Help modals partly cover it.
-14. **Add the two missing completed configs** (biosecurity, LST) to `PA_toolkit/completed_assessments/`
+13. **Add the two missing completed configs** (biosecurity, LST) to `PA_toolkit/completed_assessments/`
     so all four rendered assessments are reproducible from source. Only `config_dailysun.yaml` and
     `config_ocean_heatwaves.yaml` exist.
-15. **CHECK-row judgement calls** left from the orphan-code promotion
+14. **CHECK-row judgement calls** left from the orphan-code promotion
     (`outputs_other/ORPHAN_CODES_promotion_analysis.md`).
 
 ### Housekeeping
 
-16. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
+15. **`governance_diagram_v12.html` is arguably due a `_vN` bump** — a link type and the detail-panel
     semantics changed on 17 September, and the data again on 28 September.
-17. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** The longest
+16. **The governance diagram's detail panel is `clamp(118px, 20vh, 200px)` tall.** The longest
     framework `Policy_Purpose` now runs to 1,343 characters and scrolls. One CSS line in the
     `TEMPLATE` string of `build_governance_diagram.py` (not the HTML).
-18. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
+17. **`SDG Target Lookup` holds 129 of 169 official targets.** SDG-3, SDG-4, SDG-16 and SDG-5.1–5.6
     are out of scope by decision, but **SDG-11.c is an unexplained singleton gap** — confirm whether
     its deletion from the global framework is the reason.
 

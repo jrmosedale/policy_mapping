@@ -92,6 +92,8 @@ After harmonisation (v27), across 985 records:
 | SDG Indicators | 173 | 128 | 24 | 19 | 2 |
 | **All** | **985** | **435** | **269** | **201** | **80** |
 
+**Added after harmonisation:** the MCCIP sheet (indicators v28, 6 October 2026), 16 records scored under these rules — 0 / 1 / 2 / 3 = 0 / 3 / 3 / 10. The ten 3s are the nine physical climate-system variables (rule E ii) and seabirds and waterbirds, where the wintering-waterbird component governs (rule F, aligned with [IND-J-013]).
+
 The shape is what each framework should look like. The CCC sheet has the most 3s — adaptation targets defined in climatic terms, hydrological measures and weather-corrected emissions — and also many 0s, because mitigation deployment measures (installations, capacity, sales) take no climate data. The SDG and GBF sheets are dominated by social, financial and governance measures, so mostly 0. EEA carries a block of explicit climate indicators (temperature, sea level, ocean heat, drought, wildfire).
 
 ---

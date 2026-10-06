@@ -2,7 +2,7 @@ Sheet,Column_Name,Data_Type,Description,Controlled_Vocabulary,Links_To
 — HOW TO MAINTAIN THIS SHEET —,,,"This dictionary documents the CURRENT version of the workbook only. It carries no history: when a column is added, renamed, re-scoped or removed, EDIT OR DELETE THE ROW IN PLACE — do not append a new row recording the change, and do not leave a row describing a column that no longer exists. Version history belongs in the Changelog sheet. Rebuilt from the live schema in v14 (2026-09-17); every row below corresponds to a column that exists today.",,
 ,,,,,
 ALL NINE FRAMEWORK SHEETS,,,"Columns present on EIF, CCC, JNCC, SoN, EEA, BIP, IPBES, CBD GBF and SDG Indicators.",,
-All framework sheets,Record_ID,Text (key),Unique identifier for each indicator record,IND-B-NNN (EEA) | IND-C-NNN (CCC) | IND-E-NNN (EIF) | IND-J-NNN (JNCC) | IND-S-NNN (SoN) | BIP-NNN | IPBES-x-NNN | GBF-NNN | SDG-NNN,Primary key; referenced by the governance workbooks
+All framework sheets,Record_ID,Text (key),Unique identifier for each indicator record,IND-B-NNN (EEA) | IND-C-NNN (CCC) | IND-E-NNN (EIF) | IND-J-NNN (JNCC) | IND-S-NNN (SoN) | BIP-NNN | IPBES-x-NNN | GBF-NNN | SDG-NNN | IND-M-NNN (MCCIP),Primary key; referenced by the governance workbooks
 All framework sheets,Indicator_Name,Text,Name of the indicator as published by its source framework,Free text,
 All framework sheets,Source_Framework,Text,Full name of the framework the indicator belongs to,Free text,Joins to Indicator Framework.Source_Framework
 All framework sheets,NCF_Category,Controlled,Natural Capital Framework category,State – Species | State – Habitats | Pressure | Benefit | Enabling,Defined on the NCF Legend sheet
@@ -20,17 +20,17 @@ All framework sheets,Policy_Links,Text,Bracketed governance codes the indicator 
 ,,,,,
 FRAMEWORK-SPECIFIC COLUMNS,,,Columns present on some framework sheets only. The sheet list in column A is exhaustive.,,
 EIF / JNCC,Indicator_Code,Text,The framework's own alphanumeric indicator code,"Free text (e.g. A1, C6a)",
-EIF / CCC / JNCC / SoN / BIP,Framework_Classification,Text,Combined framework-specific classification (merges the former per-framework classifier columns),Free text (Label: value; …),
+EIF / CCC / JNCC / SoN / BIP / MCCIP,Framework_Classification,Text,Combined framework-specific classification (merges the former per-framework classifier columns),Free text (Label: value; …),
 EIF / CCC / JNCC / SoN / EEA / BIP / IPBES / CBD GBF,GBF_Targets_Clean,Controlled,Normalised Kunming-Montreal GBF goal/target code(s) the indicator relates to. GBF codes ONLY — SDG codes belong in SDG_Goals_Clean / SDG_Target_Code.,GBF-GoalA…GoalD | GBF-T1…T23 (semicolon-separated),Joins to GBF Target Lookup.Code
 EIF / JNCC / EEA / BIP / SDG,SDG_Goals_Clean,Controlled,Normalised SDG goal code(s) the indicator relates to,SDG-1 through SDG-17 (semicolon-separated),Joins to SDG Goal Lookup.Code
 EIF / JNCC / EEA / SDG,SDG_Target_Code,Controlled,SDG target code(s) the indicator relates to,SDG-N.N,Joins to SDG Target Lookup.Code
 CCC,Sector,Controlled,"Economic sector covered by the indicator, as classified by the CCC monitoring framework. Distinct from Policy_Sector.","Free text (17 CCC sectors, e.g. Electricity Supply, Buildings, Aviation)",
-CCC / JNCC,Source_URL,Text (URL),Targeted deep link to the framework page or report where the indicator is defined (not a homepage),Verified official URL,Complements Source_Framework / Source_Reference
+CCC / JNCC / MCCIP,Source_URL,Text (URL),Targeted deep link to the framework page or report where the indicator is defined (not a homepage),Verified official URL,Complements Source_Framework / Source_Reference
 IPBES / CBD GBF,Source_Organisation,Text,"Per-record custodian organisation. Retained only where it varies by record — IPBES has 30 distinct custodians, CBD GBF has 3. Where a sheet’s value is constant it is recorded once on Indicator Framework.Lead_Organisation instead.",Free text,
 SDG,SDG_Indicator_Code,Text,Official IAEG-SDGs indicator code from A/RES/71/313,"Format [Goal].[Target].[Indicator], e.g. 15.5.1",
 ,,,,,
 INDICATOR FRAMEWORK SHEET,,,One row per indicator framework.,,
-Indicator Framework,Framework_ID,Text (key),Framework identifier,IFW-01…IFW-09,Reciprocates to Indicator_Frameworks in the governance workbooks
+Indicator Framework,Framework_ID,Text (key),Framework identifier,IFW-01…IFW-12,Reciprocates to Indicator_Frameworks in the governance workbooks
 Indicator Framework,Source_Framework,Text,Full name of the framework,Free text,Joins to Source_Framework on the framework sheets
 Indicator Framework,Sheet_Name,Text,Name of the sheet holding this framework's indicators,Free text,
 Indicator Framework,Record_Count,Integer,Number of indicator records on that sheet,,
