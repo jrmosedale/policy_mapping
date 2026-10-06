@@ -196,6 +196,15 @@ header{background:var(--sf);border-bottom:1px solid var(--border);padding:0 24px
 .modalbox b{color:var(--t);}
 .modalx{position:absolute;top:12px;right:14px;border:none;background:none;font-size:18px;color:var(--t3);cursor:pointer;line-height:1;}
 .modalx:hover{color:var(--t);}
+#helpModal .modalbox{max-width:720px;}
+.help-tbl{width:100%;border-collapse:collapse;margin:8px 0 6px;font-size:11.5px;}
+.help-tbl th{text-align:left;font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--t3);padding:4px 6px;border-bottom:1px solid var(--border-m);}
+.help-tbl td{vertical-align:top;padding:6px;border-bottom:1px solid var(--border);line-height:1.4;}
+.help-tbl td:first-child{width:56px;text-align:center;font-size:10.5px;color:var(--t2);}
+.help-tbl td:last-child{color:var(--t2);}
+.ind-cs-badge.hb{display:inline-flex;width:20px;height:20px;font-size:10.5px;vertical-align:middle;margin:0 2px 2px 0;}
+.modalbox ol{margin:4px 0 4px 20px;}.modalbox ol li{margin:3px 0;}
+.modalbox .mono{font-family:'DM Mono',monospace;font-size:11px;word-break:break-all;}
 .ctx-tag-mon{font-size:9px;padding:1px 5px;border-radius:3px;background:var(--mon-yes-f);color:var(--mon-yes);font-weight:500;}
 .ctx-tag-rel{font-size:9px;padding:1px 5px;border-radius:3px;background:var(--mon-no-f);color:#7A5500;font-weight:500;}
 /* Framework filter buttons carry the full indicator-set name as a title (set by
@@ -359,7 +368,7 @@ footer{padding:9px 24px;font-size:11px;color:var(--t3);border-top:1px solid var(
 </div>
 
 <footer>
-  <span>Indicator Finder · UK Climate–Nature Governance · Data: indicators_climate_nature.xlsx (v10) · uk_climate_nature_governance.xlsx (v20) · international_climate_nature_governance.xlsx (v13)</span>
+  <span>Indicator Finder · UK Climate–Nature Governance · Data: <span id="footer-versions">indicators_climate_nature.xlsx (v27) · uk_climate_nature_governance.xlsx (v26) · international_climate_nature_governance.xlsx (v16)</span></span>
   <span id="footer-count">985 indicators · 9 frameworks</span>
 </footer>
 
@@ -1239,8 +1248,18 @@ initFrameworkTitles();
     <button class="modalx" onclick="toggleHelp()" title="Close">&#10005;</button>
     <h2>Climate–Nature Indicator Finder</h2>
     <p>A searchable catalogue of <b><span id="help-count">985</span> environmental indicators</b> drawn from <span id="help-fw-count">nine</span> UK and international frameworks (EIF, CCC, JNCC UKBI, State of Nature, EEA, BIP, IPBES, CBD GBF, UN SDG). For each indicator it shows how sensitive it is to <b>climate</b>, and the <b>policy context</b> that uses it.</p>
-    <h3>Climate score</h3>
-    <p>Each indicator carries a 0–3 climate-relevance score — <b>none / low / medium / high</b> — for how far its measured quantity depends on climate variables. The coloured badge on each result and the sidebar filter use the same scale.</p>
+    <h3>Climate score — what it measures</h3>
+    <p>Each indicator carries a 0–3 score — <b>none / low / medium / high</b> — for how far its <b>published value depends on weather and climate data</b>: whether such data enter its calculation, and whether year-to-year weather moves the number. The badge on each result and the sidebar filter use the same scale.</p>
+    <p>It is a <b>data-dependency</b> score, not a measure of relevance to climate policy. Heat-pump installations, or the number of countries with adaptation plans, are <i>about</i> climate but score 0, because no climate data enter them. To find indicators by topic, use <b>Sector&nbsp;→&nbsp;Climate</b>; to find indicators that a change in weather or climate data would move, use the climate-score filter.</p>
+    <table class="help-tbl">
+      <tr><th></th><th>Meaning</th><th>Typical examples</th></tr>
+      <tr><td><span class="ind-cs-badge cs-0 hb">0</span><br>None</td><td>Administrative, financial, legal or boundary data; weather cannot move the value.</td><td>Protected-area coverage, expenditure, EV sales, installed capacity, counts of NDCs, DRR strategies or adaptation plans</td></tr>
+      <tr><td><span class="ind-cs-badge cs-1 hb">1</span><br>Low</td><td>Climate is a recognised long-run driver, but no climate data are used and weather does not materially move the annual value.</td><td>Red List Index, habitat condition, land-cover and habitat extent, invasive-species counts, GHG emission inventories, energy demand</td></tr>
+      <tr><td><span class="ind-cs-badge cs-2 hb">2</span><br>Medium</td><td>Weather is a known, significant year-to-year confounder, or climate data enter indirectly through underlying models.</td><td>Breeding-bird and Living Planet indices, fish stock assessments, air-pollutant concentrations, renewable share of generation, water demand, harvest volumes, LULUCF carbon fluxes</td></tr>
+      <tr><td><span class="ind-cs-badge cs-3 hb">3</span><br>High</td><td>Climate data are a direct input; the quantity is itself a climate or hydrological variable; it is defined by attribution to weather events; or it is designed to measure a climate response.</td><td>Temperature-adjusted emissions, Spring Index, butterfly flight-activity indices, fire-weather index, river flow, groundwater, sea level, ocean pH, heat-related mortality</td></tr>
+    </table>
+    <p><span class="ind-cs-badge cs-na hb">–</span> A hatched badge means <b>not assessed</b>. It never meets a “climate score ≥&nbsp;N” filter, so an unscored record cannot pass as a zero.</p>
+    <p>Each indicator's own justification for its score is shown as its <b>rationale</b> in the detail panel.</p>
     <h3>Finding indicators</h3>
     <ul>
       <li><b>Filter</b> (left) by sector, NCF category, framework, climate score, geographic scope, or policy-context type. <b>Sector</b> uses the workbook's 14-class <span style="font-family:'DM Mono',monospace">Policy_Sector</span> vocabulary — the same classes as the Governance Diagram, so the two dashboards can be filtered in step. An indicator may carry up to three.</li>
@@ -1249,6 +1268,14 @@ initFrameworkTitles();
     </ul>
     <h3>Policy context (right panel)</h3>
     <p>Click any indicator to see its detail and its <b>governance links</b> — the legislation, bodies and policies it informs. A ★ / green dot marks a <b>designated monitoring indicator</b> for that instrument; an open dot marks a <b>policy-relevant</b> link. Each link offers <b>↗ source</b> (the official page) and <b>⬡ diagram</b>, which opens that record as the focus node in the Governance Diagram in a new tab.</p>
+    <h3>Exporting</h3>
+    <p><b>Export</b> (top right) saves the indicators currently listed — after filters, search and sort — so filter first to export a subset.</p>
+    <ul>
+      <li><b>Excel (.xlsx)</b> — three sheets: <i>Export info</i> (date, counts and the filters applied), <i>Indicators</i>, and <i>Lookups</i> for the framework codes and the climate-score scale.</li>
+      <li><b>CSV</b> — one flat table. The lookups sit in a comment header; skip the first 24 lines when reading it into R or Python.</li>
+      <li>Columns: record ID, name, framework, sector, NCF category, scope, units, policy goal (with GBF and SDG target titles added), data source, climate score and rationale. Policy-context links are not exported.</li>
+      <li>The suggested file name records the filters and date, e.g. <span class="mono">indicators_Climate_cs2plus_2026-10-06</span>.</li>
+    </ul>
     <p style="margin-top:12px;color:var(--t3)">Data: canonical workbook <span style="font-family:'DM Mono',monospace">indicators_climate_nature.xlsx</span>. Framework abbreviations are listed in the Framework filter.</p>
   </div>
 </div>

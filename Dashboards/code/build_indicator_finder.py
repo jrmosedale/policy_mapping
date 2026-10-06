@@ -459,6 +459,23 @@ def build(xlsx=CANON, template=TEMPLATE, out=OUT):
             sys.exit(3)
     print(f"  Static counts set: {n_ind} indicators, {n_fw} frameworks")
 
+    # Footer workbook versions (added 2026-10-06), read from each workbook's Changelog!B2. The
+    # footer had been typed into the template and still read indicators v10 at v27.
+    def _wb_ver(path):
+        try:
+            w = load_workbook(path, data_only=True, read_only=True)
+            v = w["Changelog"]["B2"].value
+            w.close()
+            return f"v{int(v)}"
+        except Exception as e:
+            print(f"  WARNING: version unreadable for {path.name}: {e}")
+            return "v?"
+    vers = " · ".join(f"{p.name} ({_wb_ver(p)})" for p in (Path(xlsx), CANON_UK, CANON_INT))
+    html, k = re.subn(r'(<span id="footer-versions">)[^<]*(</span>)', rf"\g<1>{vers}\g<2>", html)
+    if k != 1:
+        print('FATAL: footer-versions placeholder not found exactly once'); sys.exit(3)
+    print(f"  Footer versions: {vers}")
+
     # Startup-order guard (added 2026-09-28). The dashboard script declares INDICATORS, CTX_BY_SET,
     # and EXPORT_LOOKUPS as top-level consts. If the startup `render();` call sits above any of
     # them, the browser throws a temporal-dead-zone ReferenceError on load and the rest of the script

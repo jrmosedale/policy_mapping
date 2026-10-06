@@ -24,6 +24,7 @@ Layout
   docx/ASSESSMENT_TOOLKIT_USER_GUIDE.docx  <-  PA_toolkit/ASSESSMENT_TOOLKIT_USER_GUIDE.md
   docx/PROJECT_HANDOVER_Nature_Climate_Indicators.docx  <-  Management/PROJECT_HANDOVER_Nature_Climate_Indicators.md
   docx/pending_additions.docx  <-  Data/pending_additions.md
+  docx/CLIMATE_SCORE_METHOD.docx  <-  outputs_other/CLIMATE_SCORE_METHOD.md
   txt/TEMPLATE_applied.txt  <-  PA_toolkit/template_files/TEMPLATE_applied.yaml
   txt/TEMPLATE_gap.txt  <-  PA_toolkit/template_files/TEMPLATE_gap.yaml
 

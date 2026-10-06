@@ -42,6 +42,7 @@ Exit code 0 = all exports written or already current. 1 = an export failed.
 """
 import csv
 import hashlib
+import os
 import io
 import re
 import sys
@@ -77,6 +78,7 @@ DOC_SOURCES = sorted((ROOT / "Management" / "protocols").glob("*.md")) + [
     ROOT / "PA_toolkit" / "ASSESSMENT_TOOLKIT_USER_GUIDE.md",
     ROOT / "Management" / "PROJECT_HANDOVER_Nature_Climate_Indicators.md",
     ROOT / "Data" / "pending_additions.md",
+    ROOT / "outputs_other" / "CLIMATE_SCORE_METHOD.md",
 ]
 
 # Files copied byte-for-byte as .txt, for indexers that ignore .yaml (the assessment templates are
@@ -114,12 +116,33 @@ def rel(p):
     return p.relative_to(ROOT).as_posix()
 
 
-def write_if_changed(path, data):
-    """Write bytes only if they differ from what is on disk. Returns 'written' or 'unchanged'."""
-    if path.exists() and path.read_bytes() == data:
-        return "unchanged"
+def replace_bytes(path, data):
+    """Write `data` to `path` via a sibling temp file and an atomic rename.
+
+    Renaming over the old file never reads or opens it, so this also works when the old file is
+    an online-only OneDrive placeholder, where opening it fails with OSError errno 35 ("Resource
+    deadlock avoided") in a sandbox that cannot trigger the download (fixed 2026-10-06).
+    """
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(data)
+    tmp = path.with_name(f".{path.name}.tmp")
+    tmp.write_bytes(data)
+    os.replace(tmp, path)
+
+
+def write_if_changed(path, data):
+    """Write bytes only if they differ from what is on disk. Returns 'written' or 'unchanged'.
+
+    An existing file that cannot be read (e.g. an online-only OneDrive placeholder) is treated as
+    changed and replaced, rather than aborting the whole export: before 2026-10-06 one such file
+    stopped every release at the CSV step.
+    """
+    if path.exists():
+        try:
+            if path.read_bytes() == data:
+                return "unchanged"
+        except OSError as e:
+            print(f"  {'unreadable':<10} {path.name}: {e.strerror or e} - replacing")
+    replace_bytes(path, data)
     return "written"
 
 
@@ -588,8 +611,7 @@ def export_documents():
         m = re.search(r"^#\s+(.+)$", text, re.M)
         title = m.group(1).strip() if m else src.stem
         data = md_to_docx(text, title, rel(src), digest)
-        DOCX_DIR.mkdir(parents=True, exist_ok=True)
-        out.write_bytes(data)
+        replace_bytes(out, data)
         counts["written"] += 1
         print(f"  {'written':<10} {rel(out)}")
     warnings += remove_stale(DOCX_DIR, "*.docx", produced)
