@@ -8,8 +8,6 @@ Thumbs.db
 _to_delete/
 
 # --- Excluded by choice (2026-09-11) ---
-# Draft slide decks and MO template: working drafts, not project data or code
-presentations/
 # Superseded workbook versions: history is now held by git
 Data/outdated_files/
 # Third-party / personal bibliographies: assessment inputs, kept out for copyright and privacy (example_biblio includes one biblio file)
