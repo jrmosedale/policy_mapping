@@ -1,6 +1,6 @@
 # Nature Climate Indicators — project reference
 
-**Current as of 6 October 2026** (workbooks UK governance v33, international v18, indicators v28). This document describes what exists, where it is and how to
+**Current as of 7 October 2026** (workbooks UK governance v34, international v18, indicators v28). This document describes what exists, where it is and how to
 use it. It is not a history: settled decisions are not recorded here, only current state and
 genuinely unresolved work (§9).
 
@@ -52,7 +52,7 @@ as `<name>_vN_superseded_<date>.xlsx`.
 
 | Role | Filename | Version |
 |---|---|---|
-| UK governance | `uk_climate_nature_governance.xlsx` | **v33** (2026-10-06) |
+| UK governance | `uk_climate_nature_governance.xlsx` | **v34** (2026-10-07) |
 | International governance | `international_climate_nature_governance.xlsx` | **v18** (2026-10-06) |
 | Indicators | `indicators_climate_nature.xlsx` | **v28** (2026-10-06) |
 
@@ -468,8 +468,7 @@ on 6 October 2026.
 2. **Legislation records to check:** [LEG-044] Plant Health (England) Order 2015 is marked revoked —
    identify the current GB plant-health legislation, then decide whether to repurpose or retire the
    record and whether the `Status` vocabulary needs a "Revoked" stem (queued as an `investigate` row;
-   inbound from [ORG-020], [POL-033], [POL-034], [POL-052], [INT-L-023]). [LEG-003] and [LEG-049] have not yet been title-checked — the link
-   gate will check them on its first run with network access. [LEG-021] links to bills.parliament.uk,
+   inbound from [ORG-020], [POL-033], [POL-034], [POL-052], [INT-L-023]). [LEG-021] links to bills.parliament.uk,
    which the gate does not read.
 
 3. **Eight `investigate` rows remain open** — Land Use Framework 2026 vs [POL-009], SFI26 vs

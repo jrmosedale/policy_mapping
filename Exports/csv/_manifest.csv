@@ -1,10 +1,10 @@
 workbook,workbook_version,sheet,csv_file,columns,data_rows,records,notes
-uk_climate_nature_governance.xlsx,33,Public Bodies,csv/uk_climate_nature_governance/Public_Bodies.csv,18,49,49,
-uk_climate_nature_governance.xlsx,33,Legislation,csv/uk_climate_nature_governance/Legislation.csv,16,69,69,
-uk_climate_nature_governance.xlsx,33,Policies & Activities,csv/uk_climate_nature_governance/Policies_and_Activities.csv,19,114,114,
-uk_climate_nature_governance.xlsx,33,Data Dictionary,csv/uk_climate_nature_governance/Data_Dictionary.csv,6,34,,
-uk_climate_nature_governance.xlsx,33,Cross-Reference Index,csv/uk_climate_nature_governance/Cross_Reference_Index.csv,8,232,232,
-uk_climate_nature_governance.xlsx,33,Changelog,csv/uk_climate_nature_governance/Changelog.csv,4,22,,"key/value block (Workbook, Version, Last updated), then a Version|Date|Summary|Author table; row 1 is not a header; 1 merged range(s): the text sits in the first cell of each merged range; the other cells are empty"
+uk_climate_nature_governance.xlsx,34,Public Bodies,csv/uk_climate_nature_governance/Public_Bodies.csv,18,49,49,
+uk_climate_nature_governance.xlsx,34,Legislation,csv/uk_climate_nature_governance/Legislation.csv,16,69,69,
+uk_climate_nature_governance.xlsx,34,Policies & Activities,csv/uk_climate_nature_governance/Policies_and_Activities.csv,19,114,114,
+uk_climate_nature_governance.xlsx,34,Data Dictionary,csv/uk_climate_nature_governance/Data_Dictionary.csv,6,34,,
+uk_climate_nature_governance.xlsx,34,Cross-Reference Index,csv/uk_climate_nature_governance/Cross_Reference_Index.csv,8,232,232,
+uk_climate_nature_governance.xlsx,34,Changelog,csv/uk_climate_nature_governance/Changelog.csv,4,23,,"key/value block (Workbook, Version, Last updated), then a Version|Date|Summary|Author table; row 1 is not a header; 1 merged range(s): the text sits in the first cell of each merged range; the other cells are empty"
 international_climate_nature_governance.xlsx,18,Conventions & Treaties,csv/international_climate_nature_governance/Conventions_and_Treaties.csv,20,24,24,
 international_climate_nature_governance.xlsx,18,EU Legislation,csv/international_climate_nature_governance/EU_Legislation.csv,19,22,22,
 international_climate_nature_governance.xlsx,18,Associated Bodies,csv/international_climate_nature_governance/Associated_Bodies.csv,18,35,35,
