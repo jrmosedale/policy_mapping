@@ -13,7 +13,7 @@ meta:
   title: "Mapping the UK Climate & Nature Policy Landscape for a new Met Office UK Land Surface Temperature (LST) product"
   subtitle: "Gap assessment"
   prepared: "Prepared June 2026"
-  footer: "Prospective product \u00b7 evidence base external \u00b7 governance refs uk_climate_nature_governance_v15"
+  footer: "Prospective product \u00b7 evidence base external \u00b7 governance refs uk_climate_nature_governance vNN"
   output_basename: "MO_LST_prospective_policy_relevance"
 
 theme:

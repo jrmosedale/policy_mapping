@@ -12,7 +12,7 @@ meta:
   title: "Met Office plant pest, pathogen & biosecurity research"
   subtitle: "Relevance to UK climate \u2013 nature policy activities  \u00b7  Assessment"
   prepared: "Prepared June 2026"
-  footer: "Source workbook: uk_climate_nature_governance_v15 \u00b7 Policies & Activities \u00b7 policy links live"
+  footer: "Source workbook: uk_climate_nature_governance vNN \u00b7 Policies & Activities \u00b7 policy links live"
   output_basename: "MO_biosecurity_policy_relevance"
 
 # Colours (6-digit hex, no #) and Word font. Edit to restyle both outputs.

@@ -320,13 +320,13 @@ def build():
         key_codes = set(codes(r.get("Key_Instruments")))
 
         # Lead organisation keeps its own hard (solid) edge: ORG -> IFW.
-        for c in lead_codes:
+        for c in sorted(lead_codes):
             add_edge(c, i, "lead", directed=True)
 
         # Key_Instruments — the instruments named in Policy_Purpose — are drawn
         # SOLID. A code already carrying a lead edge is skipped so the pair is not
         # drawn twice; the rest take precedence over the dotted indicator edge below.
-        for c in key_codes - lead_codes:
+        for c in sorted(key_codes - lead_codes):
             add_edge(i, c, "key_inst", directed=True)
 
         # Remaining soft cross-references stay dotted.

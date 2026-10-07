@@ -9,8 +9,8 @@ Data_Type "Controlled" column against the vocabulary declared in each workbook's
 Usage:
     python3 check_links.py [uk.xlsx] [international.xlsx] [indicators.xlsx]
 
-With no arguments it auto-detects the highest-versioned file of each type in the working
-directory (e.g. uk_climate_nature_governance_v16.xlsx). Exit code 0 = all pass, 1 = issues found.
+With no arguments it uses the stable-named canonical files in the working directory
+(e.g. uk_climate_nature_governance.xlsx), falling back to the highest _vN file if absent. Exit code 0 = all pass, 1 = issues found.
 """
 import sys, re, glob, os
 from collections import defaultdict

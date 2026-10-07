@@ -21,7 +21,7 @@ Record-ID families and the workbook each is defined in:
 |---|---|---|
 | `LEG-NNN`, `ORG-NNN`, `POL-NNN` | UK | `Record_ID` |
 | `INT-L-NNN`, `INT-O-NNN`, `INT-P-NNN`, `EU-L-NNN` | International | `Record_ID` |
-| `IND-x-NNN` | Indicators | `Record_ID` |
+| `IND-E-`, `IND-C-`, `IND-J-`, `IND-S-`, `IND-B-`, `IND-M-NNN`; `BIP-`, `GBF-`, `SDG-` codes; `IPBES-N-`, `IPBES-NCP-`, `IPBES-D-NNN` | Indicators | `Record_ID` |
 | `IFW-NN` | Indicators | `Framework_ID` |
 
 ## 1. Propose
@@ -40,7 +40,7 @@ Do not proceed to write on an unreviewed proposal. Higher-risk operations (struc
 - **Links**: open every `Link` you write and confirm the page is the instrument or document the record names — not merely a page that loads. Four Legislation records carried a working link to the wrong Act until October 2026. For legislation.gov.uk links the gate re-checks this (§6), but only after the write.
 - **ID allocation**: next free integer in the family. **Never reuse a retired ID** — `POL-023`, `POL-024`, `LEG-008` and `LEG-009` are permanently retired (the list lives in `check_links.py`).
 - **Controlled vocabulary**: any new `General_Type`, `Policy_Sector` token, etc. must be flagged for approval, never silently coined. Max 3 `Policy_Sector` codes per indicator; governance records uncapped.
-  `Policy_Sector` is **one vocabulary of 14 classes shared by all three workbooks** — indicators and governance alike. Do not fork it per workbook: the indicator finder and the governance diagram both filter on it, and `Health` / `Trade & Industry` are indicator-only in *use*, not indicator-only in *scope*. The authoritative list is handover §5.
+  `Policy_Sector` is **one vocabulary of 14 classes shared by all three workbooks** — indicators and governance alike. Do not fork it per workbook: the indicator finder and the governance diagram both filter on it, and `Health` / `Trade & Industry` are indicator-only in *use*, not indicator-only in *scope*. The authoritative list is handover §8.
 
 ## 3. Link map — what a change touches
 

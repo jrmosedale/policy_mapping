@@ -1,3 +1,4 @@
-# Workbook integrity tools (check_links.py, orphan_codes.py).
+# Workbook integrity tools (rebuild_xref.py, check_links.py, check_legislation_links.py,
+# orphan_codes.py). check_legislation_links.py uses the standard library only.
 # Same single dependency as the dashboard builders.
 openpyxl>=3.1

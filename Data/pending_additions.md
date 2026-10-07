@@ -334,7 +334,7 @@ Two consequences worth noting:
 
 Found by the new controlled-vocabulary invariant on its first run, and **closed the next day — with a different diagnosis from the one recorded below.**
 
-**The vocabulary was never forked.** A record-sheet re-check found **zero** non-canonical tokens in any of the three workbooks: the 14-class migration made in indicators workbook v11 (`outputs_other/EXPORT_SCOPING_NOTE.md` §2.4) had been applied everywhere it mattered. What had not been updated was the **Cross-Reference Index** in each governance workbook — a derived sheet, read by nothing, never regenerated after the migration. It held 141 of 177 stale `Policy_Sector` values in the UK workbook and 87 of 103 in the international one, plus five superseded `General_Type` values and four records missing outright (ORG-042, INT-O-033, INT-O-034, INT-O-035).
+**The vocabulary was never forked.** A record-sheet re-check found **zero** non-canonical tokens in any of the three workbooks: the 14-class migration made in indicators workbook v11 had been applied everywhere it mattered. What had not been updated was the **Cross-Reference Index** in each governance workbook — a derived sheet, read by nothing, never regenerated after the migration. It held 141 of 177 stale `Policy_Sector` values in the UK workbook and 87 of 103 in the international one, plus five superseded `General_Type` values and four records missing outright (ORG-042, INT-O-033, INT-O-034, INT-O-035).
 
 So the three terms called homeless below — `Air Quality`, `International`, `Cross-cutting` — were **artefacts of a stale copy, not live classes**, and none of the three decisions listed at the end of this section needed making. The original diagnosis was wrong, and is kept here rather than deleted because the reasoning is what sent the fix in the wrong direction for a day.
 
@@ -510,7 +510,7 @@ They are now **[IFW-11] "CCC Adaptation Monitoring Framework 2023–2025 (supers
 
 ## RESOLVED — the MCCIP indicator block (written 6 October 2026)
 
-**Done in indicators v28:** [IFW-12] and the `MCCIP Indicators` sheet, IND-M-001 to IND-M-016 — the 16 physical-environment and ecosystem-change topics, as recommended below; the six societal-impact topics excluded. Scores checked against `outputs_other/CLIMATE_SCORE_METHOD.md`. Record: `outputs_other/mccip_block_2026-10-06/`. The proposal is kept below as written.
+**Done in indicators v28:** [IFW-12] and the `MCCIP Indicators` sheet, IND-M-001 to IND-M-016 — the 16 physical-environment and ecosystem-change topics, as recommended below; the six societal-impact topics excluded. Scores checked against `outputs_other/CLIMATE_SCORE_METHOD.md`. The proposal is kept below as written.
 
 ### The proposal as put (18 September 2026)
 

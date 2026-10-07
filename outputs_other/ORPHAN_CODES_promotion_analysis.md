@@ -11,7 +11,7 @@ Each `[CODE]` mention was checked against the actual edge set in `governance_dia
 
 # Orphan narrative codes — promotion analysis
 
-Prepared for the governance diagram. Source: `outputs_other/orphan_narrative_codes.csv` (70 `[CODE]` mentions in narrative prose across 42 records). Cross-checked against the edges in `governance_diagram_v9.html`.
+Prepared for the governance diagram. Source: the 13 July 2026 run of `Data/code/orphan_codes.py` (output since removed as out of date; rerun the script for a current list) (70 `[CODE]` mentions in narrative prose across 42 records). Cross-checked against the edges in `governance_diagram_v9.html`.
 
 **Headline:** 20 of the 70 are *already shown* in the diagram via a reciprocal link (e.g. an ORG's remit names a POL, but the POL already carries `Lead_Organisation → that ORG`). 50 are genuinely absent. Of those 50, most are POL↔POL peer links that belong in `Related_Policy_Links` (soft); a handful are parent/child or funding (need a judgement call); and ~10 have **no suitable column in the current schema** and need either a prose-only decision or a new column.
 
