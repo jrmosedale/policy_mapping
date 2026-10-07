@@ -332,7 +332,9 @@ history at commit e7d744d).
 
 The configuration — `AGENTS.md` (always-on rules), five path-scoped instruction files, seven skills
 and five role agents separated by write scope — is staged in `Copilot_setup/` and **has not yet
-been installed or tested**. Installation and acceptance tests are in the root `README.md`. No model
+been installed or tested**. Installation and acceptance tests are in the root `README.md`; the
+configuration's inventory, handoffs, deliberate omissions and untested VS Code names are in
+`.github/COPILOT_CONFIG_NOTES.md`, which travels with `.github/` on installation. No model
 is pinned; it is chosen in the chat model picker.
 
 **Design rule: procedure lives in the protocols, routing lives in the skills.** Every agent, skill

@@ -33,11 +33,18 @@ GitHub Copilot in VS Code, configured as described below.
 
 ## Getting started
 
+Clone the repository and install the Python dependencies (workbook tools and the assessment renderer):
+
 ```bash
 git clone https://github.com/jrmosedale/policy_mapping.git
 cd policy_mapping
 pip install -r Management/requirements.txt -r PA_toolkit/code/requirements.txt
-python3 Management/finalise.py --check      # integrity gate — should exit 0
+```
+
+Then run the integrity gate. It should exit 0:
+
+```bash
+python3 Management/finalise.py --check
 ```
 
 `finalise.py --check` regenerates the derived Cross-Reference Index, runs `check_links.py` and
@@ -46,10 +53,22 @@ access to legislation.gov.uk, otherwise it warns and uses its 30-day cache). A c
 workbooks' ~1,200 cross-reference IDs resolve, all six invariants pass and no link opens the wrong
 instrument; run it before and after any change.
 
+**Full release** — index, integrity check, link-title check, dashboard rebuild, then refresh `Exports/`:
+
 ```bash
-python3 Management/finalise.py             # index → check → link titles → rebuild dashboards → refresh Exports/
-python3 Management/export_release.py       # refresh Exports/ only
-python3 PA_toolkit/code/verify_toolkit.py  # prove the assessment renderer works here
+python3 Management/finalise.py
+```
+
+**Refresh `Exports/` only:**
+
+```bash
+python3 Management/export_release.py
+```
+
+**Check the assessment renderer works on this machine:**
+
+```bash
+python3 PA_toolkit/code/verify_toolkit.py
 ```
 
 ---
@@ -64,7 +83,7 @@ python3 PA_toolkit/code/verify_toolkit.py  # prove the assessment renderer works
 | `Management/` | the handover, the two protocols, `finalise.py` (the release gate), `export_release.py` |
 | `Exports/` | **generated, never edited** — per-sheet CSVs with a manifest (readable by Copilot and pandas without opening a workbook, and diffable in git) and `.docx` copies of the protocols and guides for Word readers |
 | `outputs_other/` | method records (`CLIMATE_SCORE_METHOD.md`), policy-scan notes, analysis by-products |
-| `Copilot_setup/` | the GitHub Copilot configuration — `AGENTS.md` and `.github/`. Staging only; removed once installed (see below) |
+| `Copilot_setup/` | the GitHub Copilot configuration — `AGENTS.md` and `.github/` (with `.github/COPILOT_CONFIG_NOTES.md`). Staging only; removed once installed (see below) |
 
 ### The three workbooks
 
@@ -131,6 +150,9 @@ moving it to where Copilot looks:
 
 1. **Move the configuration to the repository root.** Copy `Copilot_setup/AGENTS.md` and
    `Copilot_setup/.github/` to the root — the folder holding `Data/`, `Dashboards/`, `PA_toolkit/`.
+   `.github/` includes `COPILOT_CONFIG_NOTES.md`: the configuration's inventory, agent handoffs,
+   what was deliberately left out, and which VS Code names are still untested. Copilot does not
+   load it; read it before changing the configuration.
 2. **Delete `Copilot_setup/`**; two copies would drift.
    (`.github` is hidden in Finder — press ⌘⇧. to show it.)
 3. **Open the repository root in VS Code**, switch Copilot chat to **Agent** mode, and turn on the
@@ -151,6 +173,8 @@ moving it to where Copilot looks:
   `/policy-scan`, `/triage-pending`, `/lookup`, `/orphan-codes`.
 - **5 path-scoped rule files** that load automatically when you work in `Data/`, `Dashboards/`,
   `PA_toolkit/`, `Exports/` or `Management/`.
+
+Detail, handoffs and deliberate omissions: `.github/COPILOT_CONFIG_NOTES.md`.
 
 ### Check the installation
 

@@ -20,17 +20,20 @@ Start with `ASSESSMENT_TOOLKIT_USER_GUIDE.md` — this README is the field refer
 
 ## Install (once)
 
+Installs the three renderer dependencies: reportlab, python-docx and pyyaml.
+
 ```bash
-pip install -r code/requirements.txt          # reportlab, python-docx, pyyaml
+pip install -r code/requirements.txt
 ```
 
 No Node, no internet needed to render. (Generating the *content* for a new field does need sources.)
 
 ## Run
 
+`--format` takes `pdf`, `docx` or `both`.
+
 ```bash
 python code/render.py template_files/TEMPLATE_applied.yaml --format both --outdir completed_assessments
-# --format pdf | docx | both
 ```
 
 Output names come from `meta.output_basename` in the YAML.
